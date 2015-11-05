@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css1",
+        "url": "resMobile/dynamight.css"
+    },
+    "designerId": "3dc05c20-9b2c-4df5-a238-eb6b32782dc7"
+}

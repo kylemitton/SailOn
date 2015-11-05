@@ -1,0 +1,213 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SkipperBoatList"
+    },
+    "designerId": "0bb7e3e1-b348-447f-9ce5-47b8aa69446a",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#myBoatList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onMyBoatDetailsLst",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getSkipperBoatList(),\r",
+                    "    item = Ext.create('DynaMightMobile.view.BoatDetails',{\r",
+                    "\r",
+                    "        itemId:'myBoatDetailsPanel',\r",
+                    "        config:{\r",
+                    "            itemId:'detailsPnl'\r",
+                    "        }\r",
+                    "    });\r",
+                    "item.setRecord(record);\r",
+                    "\r",
+                    " wizard.animateActiveItem(item,\r",
+                    "                          {type: 'slide', direction:'right'});"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onMyBoatDetailsLst",
+            "designerId": "05ece87c-9c4c-41b6-a256-e896a3b95b88"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatDetails",
+                "selector": "formpanel#myBoatDetailsPanel"
+            },
+            "name": "boatDetails",
+            "designerId": "e2356b58-4ffb-48ac-8db6-0bb633bc8bae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperBoatList",
+                "selector": "panel#skipperBoatPanel"
+            },
+            "name": "skipperBoatList",
+            "designerId": "2a128db9-a041-41f4-aa1f-66128cdb0255"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBoatSave",
+                "implHandler": [
+                    "if(!this.getBoatDetails())\r",
+                    "{\r",
+                    "    //we save boat from registration wizard\r",
+                    "    return;\r",
+                    "}\r",
+                    "var me = this, item, values,\r",
+                    "    form = this.getBoatDetails(),\r",
+                    "    items = form.getItems().items,\r",
+                    "    bStore = CreateStore('boat');\r",
+                    "\r",
+                    "\r",
+                    "me.isFormValid = true;\r",
+                    "\r",
+                    "me.checkRequiredControls(form);\r",
+                    "\r",
+                    "if(!me.isFormValid){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "rec = form.getValues();\r",
+                    "rec.EntityFields = bStore._model.prototype.entityFields;\r",
+                    "rec.EntityName = 'boat';\r",
+                    "\r",
+                    "bStore.execConfig({\r",
+                    "    method: 'EditEntity',\r",
+                    "    params: rec,\r",
+                    "    callback: function(store, a, b, c){\r",
+                    "        me.onResponse();\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap"
+            },
+            "name": "onBoatSave",
+            "designerId": "7a2b74aa-34f0-4c03-9d92-74bea159e95a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "control"
+                ],
+                "fn": "checkRequiredControls",
+                "implHandler": [
+                    " var me = this,\r",
+                    "     items = control.getItems().items;\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "for (var i = 0; i <  items.length; i++) {\r",
+                    "    \r",
+                    "    item = items[i];\r",
+                    "    if(item.initialConfig.required && !item.getValue()){\r",
+                    "        Ext.Msg.show({\r",
+                    "            title: 'Empty field',//T('errLogIn'),\r",
+                    "            message: item.getLabel() + ' is required!',//T(''),\r",
+                    "            buttons: Ext.Msg.OK,\r",
+                    "            icon: Ext.Msg.ERROR,\r",
+                    "            modal: true\r",
+                    "        });\r",
+                    "        me.isFormValid = false;\r",
+                    "    }\r",
+                    "    else if(item.getItems){\r",
+                    "        me.checkRequiredControls(item);\r",
+                    "    }\r",
+                    "    \r",
+                    "}"
+                ]
+            },
+            "name": "checkRequiredControls",
+            "designerId": "a80af71d-b4ae-4c4d-8f15-4034c0b4a88a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onResponse",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    item = Ext.create('DynaMightMobile.view.SkipperBoatList'),\r",
+                    "    wizard = me.getBoatDetails(),\r",
+                    "    view = me.getHomePanel();\r",
+                    "\r",
+                    "view.removeAll();\r",
+                    "\r",
+                    "view.add(item);"
+                ]
+            },
+            "name": "onResponse",
+            "designerId": "83cfe1fe-21d5-458a-b4d4-3904bf3987d2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainCt",
+                "selector": "container#mainCtId"
+            },
+            "name": "mainCt",
+            "designerId": "b8a1999e-fc8a-452d-abb0-6f1b0bf0602d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "25a82cc1-afd5-40b3-aace-e26c125d2f09"
+        }
+    ]
+}

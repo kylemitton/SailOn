@@ -1,0 +1,1283 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|animation": "slide",
+        "designer|userClassName": "SignOffWizard",
+        "itemId": "signOnWizard",
+        "layout": "card",
+        "requires": [
+            "Ext.data.JsonP"
+        ],
+        "scrollable": false
+    },
+    "designerId": "1840a8a7-a0e2-4f47-81f5-5ad9eecefc57",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "todayRaces",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel34",
+            "designerId": "70e2db70-f921-460a-ac48-2b8ebcc53a60",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top",
+                        "height": 59,
+                        "hidden": false,
+                        "itemId": "topCt1",
+                        "layout": "hbox",
+                        "margin": 5,
+                        "width": null
+                    },
+                    "name": "MyContainer129",
+                    "designerId": "db0cb4b1-ccc8-4740-afbc-9ad200cc48a1",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "disabled": true,
+                                "docked": "right",
+                                "height": 40,
+                                "itemId": "nextSignOffBtn",
+                                "margin": 10,
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton179",
+                            "designerId": "17baa3f4-2fe1-4373-ba4e-b1fcf53f1d22"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "hCt",
+                        "height": 430,
+                        "layout": "hbox",
+                        "layout|flex": null,
+                        "width": null
+                    },
+                    "name": "MyContainer130",
+                    "designerId": "a26ff270-e439-45be-b9f1-5d4f1493a5c7",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 0.5,
+                                "margin": 5,
+                                "title": "Today's Races"
+                            },
+                            "name": "MyFieldSet120",
+                            "designerId": "7bb8330f-3664-4af6-be68-3c584007efe0",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "racesSignOffList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList38",
+                                    "designerId": "7e005285-cc20-4c28-ac58-d509a2dbadfa",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">Start time: {[this.DateFormat(values.startdate)]}\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl53",
+                                            "designerId": "1c97344d-594d-45a2-8007-1b074f99d445",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "date"
+                                                        ],
+                                                        "fn": "DateFormat",
+                                                        "implHandler": [
+                                                            "return Ext.Date.format(date, 'Y-m-d H:i');"
+                                                        ]
+                                                    },
+                                                    "name": "DateFormat",
+                                                    "designerId": "869df0de-1f93-4de8-b531-0243392fb96a"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "vbox",
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": null,
+                                "width": null
+                            },
+                            "name": "MyFieldSet121",
+                            "designerId": "680773fa-256c-497d-9baa-d5d3b246ff92",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Select",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "displayField": "name",
+                                        "itemId": "signOffBoatDivisionCmb",
+                                        "label": "Boat Select  -  Division",
+                                        "labelWidth": "50%",
+                                        "margin": 10,
+                                        "maxWidth": 500,
+                                        "valueField": "divisionid"
+                                    },
+                                    "name": "MySelectField20",
+                                    "designerId": "b122eab4-0390-4c87-a187-08e36f2fa4d1"
+                                },
+                                {
+                                    "type": "Ext.field.Search",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "boatSignOffSearch",
+                                        "label": null
+                                    },
+                                    "name": "MySearchField10",
+                                    "designerId": "7f5af819-4270-401a-9922-4f9059f71b6a"
+                                },
+                                {
+                                    "type": "Ext.dataview.DataView",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "inline": [
+                                            "true"
+                                        ],
+                                        "itemId": "boatsSignOffView",
+                                        "layout|flex": 1,
+                                        "width": null
+                                    },
+                                    "name": "MyDataView15",
+                                    "designerId": "cf60c63d-03f9-4f0e-9edc-1b6bc4cccd0c",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "{[GetTemplate('boat', values)]}\r",
+                                                    ""
+                                                ]
+                                            },
+                                            "name": "tpl54",
+                                            "designerId": "df3404b0-88f3-468e-a0ca-56ecff985812"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "horizontalCt",
+                        "height": null,
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer131",
+                    "designerId": "69f574b3-bc65-4c28-847f-dabb6d7d132d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": "Messages and Notices"
+                            },
+                            "name": "MyFieldSet122",
+                            "designerId": "2233cc56-d6a8-42e8-a97c-33cdea76e91b",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "messagesList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList39",
+                                    "designerId": "aa1c6c6d-3c9b-45eb-85a0-c4ae20ad8307",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}</div>\r",
+                                                    "    <div class=\"vicinity\">{message}</div>   \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl55",
+                                            "designerId": "afa45ce7-4018-48cf-8885-9b1fd0ea27f2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Login",
+                                "docked": null,
+                                "hidden": true,
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": "Boat login"
+                            },
+                            "name": "MyFieldSet123",
+                            "designerId": "c9511188-e4c7-4f8d-94fb-dda9a13d11ee",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Select",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "",
+                                        "displayField": "bname",
+                                        "hidden": false,
+                                        "itemId": "boatNumberSignOffCmb",
+                                        "label": "Boat's Sail / Hull Number",
+                                        "name": "boatid",
+                                        "valueField": "boatid",
+                                        "width": null
+                                    },
+                                    "name": "MySelectField21",
+                                    "designerId": "21b7c2db-66d6-46f4-8182-2bf21f6c0322"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "skipperNumber",
+                                        "label": "Skipper' s YA Number"
+                                    },
+                                    "name": "MyTextField77",
+                                    "designerId": "08745987-8dc1-446b-ace9-f475030dd20f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "weatherCt",
+                                "hidden": true,
+                                "layout": "fit",
+                                "margin": 5,
+                                "title": "Weather",
+                                "width": 204
+                            },
+                            "name": "MyFieldSet124",
+                            "designerId": "7de1b106-e53e-49b7-88fe-41fd569ff40c",
+                            "cn": [
+                                {
+                                    "type": "Ext.Component",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "weatherCmp"
+                                    },
+                                    "name": "MyComponent3",
+                                    "designerId": "95c43b3d-4ba2-4fa2-8afb-288ebbdc2373"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "hidden": true,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer132",
+                    "designerId": "29cdf689-7e85-4884-a6cb-23635b3b292a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "signOffCard",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel35",
+            "designerId": "5d6af7c0-3cae-4c7c-b8b0-85df64580732",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "raceBoatBt",
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer133",
+                    "designerId": "12affd68-f3b2-437a-af0b-adb4e6634817",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "start",
+                                "defaults": [
+                                    "{\r",
+                                    "    labelWidth: '50%'\r",
+                                    "}"
+                                ],
+                                "designer|displayName": "",
+                                "itemId": "loginCt",
+                                "layout": "vbox",
+                                "margin": 5,
+                                "scrollable": null,
+                                "title": "Boat Info"
+                            },
+                            "name": "MyFieldSet125",
+                            "designerId": "e03d566b-6a57-4b8d-9fde-fa160c94b5b0",
+                            "cn": [
+                                {
+                                    "type": "Ext.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "boatInfoLbl",
+                                        "width": 200
+                                    },
+                                    "name": "MyLabel13",
+                                    "designerId": "87621560-b55b-41c2-92ce-fac0563444da"
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "hidden": true,
+                                        "itemId": "generalInfoFS",
+                                        "layout|flex": null,
+                                        "title": null,
+                                        "width": null
+                                    },
+                                    "name": "MyFieldSet126",
+                                    "designerId": "c5bdd9a3-a06c-42b2-806a-d2554adc082a",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Sail/Hull Number",
+                                                "labelWidth": "50%",
+                                                "name": "hullnumber"
+                                            },
+                                            "name": "MyTextField78",
+                                            "designerId": "d62f4866-f706-4936-bb99-f5d878ca7b4c"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Boat Name",
+                                                "labelWidth": "50%",
+                                                "name": "bname"
+                                            },
+                                            "name": "MyTextField79",
+                                            "designerId": "2926103e-8ac0-4b45-ac62-2c6ced049c34"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Skipper's YA Number",
+                                                "labelWidth": "50%",
+                                                "name": "ya"
+                                            },
+                                            "name": "MyTextField80",
+                                            "designerId": "3a5dd94d-16c3-4cc4-9ebf-71fddf53b731"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Skypper's Details",
+                                                "labelWidth": "50%",
+                                                "name": "skippername"
+                                            },
+                                            "name": "MyTextField81",
+                                            "designerId": "bc1c2b02-0947-45d4-ad37-48d18e08d477"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": "bottom",
+                                        "itemId": "editBoatBtn",
+                                        "text": "Edit Boat",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton180",
+                                    "designerId": "1bd212e8-a9f1-4a37-a7f9-dd27a2c2ce58"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": "Race Info"
+                            },
+                            "name": "MyFieldSet127",
+                            "designerId": "878341c0-c1d8-4e2d-922f-a8cdae2db003",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "signOffRacesList"
+                                    },
+                                    "name": "MyList40",
+                                    "designerId": "689002ae-0799-4969-89f5-1a0074cdc490",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\" style=\"{[this.getSignOn(values.signondate, values.signoffdate)]}\">\r",
+                                                    "    <div class=\"name\">{rname}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">{signondate}\r",
+                                                    "    </div>\r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl56",
+                                            "designerId": "5b56f668-598e-41c3-9c60-a8c2898c0cfe",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "signondate",
+                                                            "signoffdate"
+                                                        ],
+                                                        "fn": "getSignOn",
+                                                        "implHandler": [
+                                                            "\r",
+                                                            "if(signoffdate) {\r",
+                                                            "    return \"background-color:gold\";\r",
+                                                            "}\r",
+                                                            "else if (signondate) {\r",
+                                                            "    return \"background-color:green\";\r",
+                                                            "}\r",
+                                                            "    else {\r",
+                                                            "        return '';\r",
+                                                            "    }"
+                                                        ]
+                                                    },
+                                                    "name": "getSignOn",
+                                                    "designerId": "88718530-ea32-40dc-8f55-5421ce72b19c"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "bottom",
+                                        "itemId": "btnsCt",
+                                        "layout": "hbox"
+                                    },
+                                    "name": "MyContainer134",
+                                    "designerId": "b32c09de-11bb-41f1-b0c7-59b1179c5350"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "code",
+                        "hidden": true,
+                        "itemId": "dnfSelectSignOff",
+                        "label": "DNF",
+                        "valueField": "boatstatusid"
+                    },
+                    "name": "MySelectField22",
+                    "designerId": "36f1d5ea-a8b5-4cba-8414-60d5e27ea618"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "messWatherCt",
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer135",
+                    "designerId": "6b4cda72-6768-4c59-8ffb-f5ba5ffd8e4a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": false,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": "Weather",
+                                "width": 200
+                            },
+                            "name": "MyFieldSet128",
+                            "designerId": "b0e78a67-3f3d-4dd8-adf1-e1dd1270c5ad",
+                            "cn": [
+                                {
+                                    "type": "Ext.Component",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "weather1Cmp",
+                                        "margin": 0
+                                    },
+                                    "name": "MyComponent4",
+                                    "designerId": "9727fdaa-180b-4208-8c98-398b0a8bde2b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout|flex": 1,
+                                "margin": 5,
+                                "title": "Race Messages and Notices"
+                            },
+                            "name": "MyFieldSet129",
+                            "designerId": "4552f7e2-ff6c-47e9-b476-cd5a3fa81806",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 150,
+                                        "itemId": "raceBoatsList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList41",
+                                    "designerId": "0797ff60-8e3b-4d46-9557-1cb6c3f54519",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}</div>\r",
+                                                    "    <div class=\"vicinity\">{message}</div>   \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl57",
+                                            "designerId": "aa305acf-6504-4f8c-8637-265aa17878e7"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt1",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer136",
+                    "designerId": "9a3ff781-14a8-405d-88bd-36d7c4ef826b",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "disabled": true,
+                                "docked": "left",
+                                "itemId": "undoSignOffBtn",
+                                "text": "Undo Sign Off",
+                                "ui": "decline-round"
+                            },
+                            "name": "MyButton181",
+                            "designerId": "1080c486-1c4d-42e9-9995-7d339bdb744a"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "docked": "right",
+                                "itemId": "doneSignOffBtn",
+                                "text": "Done",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton182",
+                            "designerId": "54bbd740-3a87-41b6-bf81-9c7be957dd80"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "disabled": true,
+                                "docked": "right",
+                                "itemId": "signOffBtn",
+                                "margin": "0 20 0 0 ",
+                                "text": "Sign Off",
+                                "ui": "confirm-round"
+                            },
+                            "name": "MyButton183",
+                            "designerId": "12af2bd5-0267-421e-b845-5c0c413e81c1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": null,
+                "html": null,
+                "itemId": "signOffTCForm",
+                "padding": "0 100 100 100",
+                "scrollable": false,
+                "width": null
+            },
+            "name": "MyContainer137",
+            "designerId": "7e568b9c-809a-44bb-9078-c7111c884718",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 20,
+                        "width": null
+                    },
+                    "name": "MyContainer138",
+                    "designerId": "eaed8755-9477-4109-a7fb-d8ea6a5fca3b",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "signOffTCOKBtn",
+                                "text": "OK",
+                                "ui": "decline-round",
+                                "width": 132
+                            },
+                            "name": "MyButton184",
+                            "designerId": "f76449b4-44a2-452c-9ac1-41b521bbf29d"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "signOffTCCancelBtn",
+                                "text": "Cancel",
+                                "ui": "decline-round",
+                                "width": 146
+                            },
+                            "name": "MyButton185",
+                            "designerId": "46c3868c-381b-4637-8cfd-91d0d26a5a61"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "itemId": "seriesDetails",
+                        "margin": null,
+                        "title": "Terms & Conditions",
+                        "width": null
+                    },
+                    "name": "MyFieldSet130",
+                    "designerId": "0e33ad4c-b448-4959-aaa8-5a4dbbea64af",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "vbox"
+                            },
+                            "name": "MyContainer139",
+                            "designerId": "0c6c9a38-25c1-4b19-8498-697f6b7ff8b2",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout": "hbox"
+                                    },
+                                    "name": "MyContainer140",
+                                    "designerId": "c8f48ee8-0bfd-43dd-9452-055e64ab5528",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOffTCFirstNameTxt",
+                                                "label": "First Name",
+                                                "labelWidth": "40%",
+                                                "name": "fnTC",
+                                                "required": true,
+                                                "width": 500
+                                            },
+                                            "name": "MyTextField82",
+                                            "designerId": "b6e671cc-9680-400f-9c60-884d4a4d833f"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOffTCLastNameTxt",
+                                                "label": "Last Name",
+                                                "labelWidth": "40%",
+                                                "name": "lnTC",
+                                                "required": true,
+                                                "width": 500
+                                            },
+                                            "name": "MyTextField83",
+                                            "designerId": "522dc0cd-b731-4dc8-8a8d-ac14b3f32950"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "layout": "hbox",
+                                        "layout|flex": null
+                                    },
+                                    "name": "MyContainer141",
+                                    "designerId": "2dae183c-1cf8-4032-b1f1-674c80c869a1",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.Checkbox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOffPropperCourse",
+                                                "label": "I have sailed a propper course",
+                                                "labelWidth": "80%",
+                                                "layout|flex": 0.3
+                                            },
+                                            "name": "MyCheckbox12",
+                                            "designerId": "c0e48a1b-d36d-4184-a21f-554f6118fd85"
+                                        },
+                                        {
+                                            "type": "Ext.field.Checkbox",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOffRetiring",
+                                                "label": "I m retiring",
+                                                "labelWidth": "80%",
+                                                "layout|flex": 0.3
+                                            },
+                                            "name": "MyCheckbox13",
+                                            "designerId": "8ed5cb84-497d-4bb2-a8ce-a614abef7b35"
+                                        },
+                                        {
+                                            "type": "Ext.field.Select",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "displayField": "code",
+                                                "itemId": "signOffCodeCmb",
+                                                "label": null,
+                                                "labelWidth": "0%",
+                                                "layout|flex": 0.4,
+                                                "readOnly": true
+                                            },
+                                            "name": "MySelectField23",
+                                            "designerId": "fea7faf2-b616-4fd8-924e-44ab5148c09d"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 215,
+                                "itemId": "signOffTCTxt",
+                                "label": null,
+                                "readOnly": true
+                            },
+                            "name": "MyTextArea5",
+                            "designerId": "12400c6d-edea-4afd-943d-6db8e86e2877"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    boatStore = CreateStore(\"raceboat\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    messageStore = CreateStore(\"racemessage\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    boatStatusStore = CreateStore(\"boatstatus\"),\r",
+                    "    raceCompletionStore = CreateStore(\"racecompletion\"),\r",
+                    "    dStore = CreateStore(\"division\"),\r",
+                    "    sStore = CreateStore(\"boatstatus\");\r",
+                    "\r",
+                    "\r",
+                    "this.callParent();\r",
+                    "sStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Boat Status').entityviewid ,\r",
+                    "        filters: 'where userselectable = 1'\r",
+                    "    }\r",
+                    "});\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('BR').entityviewid ,\r",
+                    "        filters: 'WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "boatStatusStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Boat Status').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "raceStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Races').entityviewid ,\r",
+                    "        filters: 'WHERE cast(startdate as date) = curdate()'\r",
+                    "    },\r",
+                    "    callback: function(recs){\r",
+                    "        if(recs.length){\r",
+                    "            //debugger;\r",
+                    "            this.down('#racesSignOffList').select(recs[0], false, false);\r",
+                    "        }\r",
+                    "    },\r",
+                    "    scope: me\r",
+                    "});\r",
+                    "\r",
+                    "//boatStore.filter('raceid', '0');\r",
+                    "messageStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Messages').entityviewid ,\r",
+                    "        filters: ''//WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "raceCompletionStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Completion').entityviewid ,\r",
+                    "        filters: ''//WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "dStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('AllDivisions').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.raceCompletionStore = raceCompletionStore;\r",
+                    "\r",
+                    "me.down('#racesSignOffList').setStore(raceStore);\r",
+                    "me.down('#signOffRacesList').setStore(boatStore);\r",
+                    "//debugger;\r",
+                    "me.down('#messagesList').setStore(messageStore);\r",
+                    "me.down('#raceBoatsList').setStore(messageStore);\r",
+                    "me.down('#boatNumberSignOffCmb').setStore(boatStore);\r",
+                    "me.down('#boatsSignOffView').setStore(boatStore);\r",
+                    "\r",
+                    "me.down('#dnfSelectSignOff').setStore(boatStatusStore);\r",
+                    "\r",
+                    "me.down('#signOffBoatDivisionCmb').setStore(dStore);\r",
+                    "me.down('#signOffCodeCmb').setStore(sStore);\r",
+                    "//me.down('#raceDivisionsReviewList').setStore(seriesDivisionsStore);\r",
+                    "//debugger;\r",
+                    "Ext.data.JsonP.request({\r",
+                    "    url: 'http://api.openweathermap.org/data/2.5/weather',\r",
+                    "    params: {\r",
+                    "        q: 'Canberra'\r",
+                    "    },\r",
+                    "    success: function(result, request) {\r",
+                    "        if (result.weather){\r",
+                    "            //debugger;\r",
+                    "            var w = result.weather[0],\r",
+                    "                html = '<div class=\"weather-widget\"><h3>Canberra, AU</h3><h2>'\r",
+                    "                    + ' <img src=\"http://openweathermap.org/img/w/' + w.icon + '.png\">'+ Math.ceil(result.main.temp/17.222) + ' °C</h2>'\r",
+                    "                    + w.main + '<small> '+w.description+'</small></div>';\r",
+                    "\r",
+                    "            me.down('#weatherCmp').setHtml(html);\r",
+                    "            me.down('#weather1Cmp').setHtml(html);\r",
+                    "        }\r",
+                    "    }\r",
+                    "\r",
+                    "});\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "d1c47552-a84b-481f-a388-530dd15e2d22"
+        }
+    ]
+}

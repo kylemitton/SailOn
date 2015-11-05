@@ -1,0 +1,277 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "start",
+        "designer|userAlias": "startlinect",
+        "designer|userClassName": "StartLineCt",
+        "disabled": true,
+        "height": 40,
+        "itemId": "startLineCt",
+        "layout": "hbox",
+        "margin": 5,
+        "maxWidth": null,
+        "padding": null,
+        "width": 2000
+    },
+    "designerId": "596fd46d-4877-4390-8b20-8498349576b7",
+    "cn": [
+        {
+            "type": "Ext.field.Checkbox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "notStartChk",
+                "label": "Do not start",
+                "labelWidth": "70%",
+                "width": 213
+            },
+            "name": "MyCheckbox14",
+            "designerId": "6a7c297a-38bb-496f-b7bc-5e38da44fc56"
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "lbl",
+                "height": 82,
+                "html": null,
+                "itemId": "lblId",
+                "margin": 5
+            },
+            "name": "MyLabel15",
+            "designerId": "176e89e9-4a45-4557-97fc-ad9a9d90840d"
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": null,
+                "height": 82,
+                "html": null,
+                "itemId": "divisionsLbl",
+                "margin": 5
+            },
+            "name": "MyLabel16",
+            "designerId": "c691ab4d-917b-4463-b8d8-78d0c2b27724"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "action-round",
+                "hidden": true,
+                "itemId": "divisionBtn",
+                "margin": null,
+                "text": "Division",
+                "ui": "action-round"
+            },
+            "name": "MyButton190",
+            "designerId": "1288c988-2603-4474-9f9c-39dcbe649b08"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "confirm-round",
+                "docked": "left",
+                "height": null,
+                "hidden": true,
+                "itemId": "startRecallBtn",
+                "text": "Start",
+                "ui": "confirm-round"
+            },
+            "name": "MyButton191",
+            "designerId": "15f91b3c-abd5-4164-bf31-328cc71f8ffe",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onStartRecallTap",
+                        "implHandler": [
+                            "//debugger;\r",
+                            "var number = button.number;\r",
+                            "\r",
+                            "if(button.getText() == 'Start'){\r",
+                            "    this.setLine(number);\r",
+                            "\r",
+                            "}\r",
+                            "else{\r",
+                            "    //this.down('#lblId').enable();\r",
+                            "    //button.setText('Start');\r",
+                            "\r",
+                            "    //this.down('#lblId').setHtml('Start ' + number);\r",
+                            "\r",
+                            "    this.config.onRecall();\r",
+                            "}\r",
+                            ""
+                        ],
+                        "name": "release",
+                        "single": false
+                    },
+                    "name": "onStartRecallTap",
+                    "designerId": "78668c59-c465-4a34-bd81-e114c28d9dbe"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "//this.down('#lblId').setHtml('StStat 1,  <br> Start: HH:MM:SS');\r",
+                    "//this.down('#divisionBtn').setText(this.config.rec.divisionname);\r",
+                    "\r",
+                    "//this.down('#divisionSelect').setStore(this.config.store);\r",
+                    "//this.down('#divisionSelect').rec = this.config.rec;\r",
+                    "\r",
+                    "var me = this, division, i, divisionsStr = '', dText,\r",
+                    "    t = this.config.endTime ? (' (' + this.config.endTime.split(' ')[1] + ')') : '';\r",
+                    "\r",
+                    "this.down('#lblId').setHtml('Start ' + this.config.number + t + ':');\r",
+                    "//debugger;\r",
+                    "\r",
+                    "for (i = 0; i < this.config.rec.length; i++) {\r",
+                    "    division = this.config.rec[i];\r",
+                    "\r",
+                    "\r",
+                    "    this.config.bStore.clearFilter(true);\r",
+                    "    this.config.bStore.filter('divisionid', division.divisionid);\r",
+                    "    var count = this.config.bStore.getCount();\r",
+                    "    this.config.bStore.filter([\r",
+                    "        {filterFn: function(item) {\r",
+                    "            //debugger;\r",
+                    "            return item.get(\"signondate\") !== null;\r",
+                    "        }}\r",
+                    "    ]);\r",
+                    "    var countSignOn = this.config.bStore.getCount();\r",
+                    "\r",
+                    "    if(this.config.type == 0)\r",
+                    "    {\r",
+                    "        dText = division.dname.toUpperCase() + ' (' + countSignOn + '/' + count + ')';\r",
+                    "        dText += (division.startdate ? ' - ' + division.startdate.split(' ')[1] : '');\r",
+                    "        this.add([{\r",
+                    "            xtype: 'button',\r",
+                    "            hidden: false,\r",
+                    "            itemId: 'divisionBtn',\r",
+                    "            ui: 'action-round',\r",
+                    "            text: dText,\r",
+                    "            number: me.config.number,\r",
+                    "            rec: division,\r",
+                    "            handler: me.config.onDivision\r",
+                    "        },{\r",
+                    "            xtype: 'selectfield',\r",
+                    "            itemId: 'divisionSelect',\r",
+                    "            width: 50,\r",
+                    "            style: 'margin-left:10px',\r",
+                    "            autoSelect: false,\r",
+                    "            displayField: 'name',\r",
+                    "            valueField: 'id',\r",
+                    "            store: this.config.store,\r",
+                    "            rec: division\r",
+                    "        }]);\r",
+                    "        //debugger;\r",
+                    "        this.down('#notStartChk').setChecked(division.startdate ? true : false);\r",
+                    "        this.down('#startRecallBtn').hide();\r",
+                    "        this.down('#notStartChk').show();\r",
+                    "    }\r",
+                    "    else{\r",
+                    "        divisionsStr += division.dname.toUpperCase() + ' (' + countSignOn + '/' + count + ')' + '; ';\r",
+                    "\r",
+                    "        this.down('#startRecallBtn').show();\r",
+                    "        this.down('#notStartChk').hide();\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "this.down('#startRecallBtn').setText(this.config.endTime ? 'Recall' : 'Start');\r",
+                    "this.down('#startRecallBtn').number = me.config.number;\r",
+                    "this.down('#divisionsLbl').setHtml('<b>' + divisionsStr + '</b>');"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "85317839-d4dc-43e7-83d6-78de719f2e27"
+        },
+        {
+            "type": "Ext.field.Select",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoSelect": false,
+                "displayField": "name",
+                "hidden": true,
+                "itemId": "divisionSelect",
+                "label": null,
+                "valueField": "id",
+                "width": 36
+            },
+            "name": "MySelectField24",
+            "designerId": "36db321e-50dd-4b42-99d5-2166c6d886b3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "number"
+                ],
+                "fn": "setLine",
+                "implHandler": [
+                    "var date;\r",
+                    "//this.down('#lblId').disable();\r",
+                    "this.down('#startRecallBtn').setText('Recall');\r",
+                    "\r",
+                    "date = Ext.Date.format(new Date(), 'Y-m-d H:i:s');\r",
+                    "this.down('#lblId').setHtml('Start ' + number + ' (' + date.split(' ')[1] + ')');\r",
+                    "\r",
+                    "this.config.onStart(date);"
+                ]
+            },
+            "name": "setLine",
+            "designerId": "03d33dee-9704-4c8c-8380-de5476d94cd0"
+        }
+    ]
+}

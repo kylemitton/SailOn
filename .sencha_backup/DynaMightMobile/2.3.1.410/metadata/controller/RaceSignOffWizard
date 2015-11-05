@@ -1,0 +1,918 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceSignOffWizard"
+    },
+    "designerId": "195bafaa-d4d3-4e07-9898-696e8131b79b",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#signOffBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSignOffButtonTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getSignOffWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    record = me.getSignOffRacesList().selected.get(0);\r",
+                    "\r",
+                    "this.getSignOffTCForm().down('#signOffTCFirstNameTxt').setValue(record.get('firstname'));\r",
+                    "this.getSignOffTCForm().down('#signOffTCLastNameTxt').setValue(record.get('lastname'));\r",
+                    "if(record.raw.signonmessage){\r",
+                    "    this.getSignOffTCForm().down('#signOffTCTxt').setValue(record.raw.signoffmessage);\r",
+                    "    //debugger;\r",
+                    "}\r",
+                    "\r",
+                    "if(me.getSignOffRacesList().selected.length > 0){\r",
+                    "    wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "}\r",
+                    "return;\r",
+                    "\r",
+                    "// var me = this;\r",
+                    "\r",
+                    "// AJAXCommand({\r",
+                    "//     params: {\r",
+                    "//         raceid: me.getPortalRacesList().selected.get(0).get('raceid'),\r",
+                    "//         boatid: me.getBoatNumberCmb().getValue(),\r",
+                    "//         type:'off',\r",
+                    "//         boatstatusid: this.getDnfSelectSignOff().getValue()\r",
+                    "//     },\r",
+                    "//     method: 'SignOffUndoSignOff',\r",
+                    "//     scope: me,\r",
+                    "//     callback: function(status, message, obj, scope) {\r",
+                    "\r",
+                    "//         if (status) {\r",
+                    "\r",
+                    "//         }\r",
+                    "//         else\r",
+                    "//         {\r",
+                    "//             Ext.Msg.show({\r",
+                    "//                 title: 'Sign Off Error',//T('errLogIn'),\r",
+                    "//                 message: 'Error!',//T(''),\r",
+                    "//                 buttons: Ext.Msg.OK,\r",
+                    "//                 icon: Ext.Msg.ERROR,\r",
+                    "//                 modal: true\r",
+                    "//             });\r",
+                    "//         }\r",
+                    "//     }\r",
+                    "// });\r",
+                    "// return;\r",
+                    "// var me = this,\r",
+                    "//     wizard = me.getSignOnWizard(),\r",
+                    "//     popup = new Ext.Panel({\r",
+                    "//     //floating: true,\r",
+                    "//     //centered: true,\r",
+                    "//     modal: true,\r",
+                    "//     fullscreen: true,\r",
+                    "//     layout: 'vbox',\r",
+                    "//     itemId: 'popupPnl',\r",
+                    "//     items: [{\r",
+                    "//         xtype: 'list',\r",
+                    "//         store: wizard.raceCompletionStore,\r",
+                    "//         height: 150,\r",
+                    "//         itemId: 'completionsList',\r",
+                    "//         itemTpl: [\r",
+                    "//             '<div>{code}</div>'\r",
+                    "//         ]\r",
+                    "//     },{\r",
+                    "//         xtype: 'container',\r",
+                    "//         layout: 'hbox',\r",
+                    "//         items: [{\r",
+                    "//             xtype: 'button',\r",
+                    "//             itemId: 'cancelPopBtn',\r",
+                    "//             text: 'Cancel',\r",
+                    "//             handler: function(){\r",
+                    "//                 this.up('#popupPnl').destroy();\r",
+                    "\r",
+                    "//             }\r",
+                    "//         },{\r",
+                    "//             xtype: 'button',\r",
+                    "//             itemId: 'savePopBtn',\r",
+                    "//             text: 'Sign Off',\r",
+                    "//             handler: function(){\r",
+                    "//                 this.up('#popupPnl').destroy();\r",
+                    "//                 AJAXCommand({\r",
+                    "//                     params: {\r",
+                    "//                         raceid: me.getPortalRacesList().selected.get(0).get('raceid'),\r",
+                    "//                         boatid: me.getBoatNumberCmb().getValue(),\r",
+                    "//                         completionid: 1\r",
+                    "//                     },\r",
+                    "//                     method: 'UndoSignOn',\r",
+                    "//                     scope: me,\r",
+                    "//                     callback: function(status, message, obj, scope) {\r",
+                    "//                         //debugger;\r",
+                    "//                         if (status) {\r",
+                    "\r",
+                    "//                         }\r",
+                    "//                         else\r",
+                    "//                         {\r",
+                    "//                             Ext.Msg.show({\r",
+                    "//                                 title: 'Sign Off Error',//T('errLogIn'),\r",
+                    "//                                 message: 'Error!',//T(''),\r",
+                    "//                                 buttons: Ext.Msg.OK,\r",
+                    "//                                 icon: Ext.Msg.ERROR,\r",
+                    "//                                 modal: true\r",
+                    "//                             });\r",
+                    "//                         }\r",
+                    "//                     }\r",
+                    "//                 });\r",
+                    "//             }\r",
+                    "//         }]\r",
+                    "//     }]\r",
+                    "\r",
+                    "// }).showBy(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onSignOffButtonTap",
+            "designerId": "f748ea52-3889-4122-9218-0f11a323e24d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#dnfSelectSignOff",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSelectDNFSignOff",
+                "implHandler": [
+                    ""
+                ],
+                "name": "change"
+            },
+            "name": "onSelectDNFSignOff",
+            "designerId": "5479219a-77dd-4c8a-bae7-d120fce5eb92"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#undoSignOffBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUndoSignOff",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    record = me.getSignOffRacesList().selected.get(0);\r",
+                    "//debugger;\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        raceid: record.get('raceid'),\r",
+                    "        boatid: record.get('boatid')\r",
+                    "    },\r",
+                    "    method: 'UndoSignOff',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            me.getSignOffRacesList().getStore().load();\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Sign Off Error',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap"
+            },
+            "name": "onUndoSignOff",
+            "designerId": "875d0235-31bd-4ae5-88be-644d03667dce"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#signOffTCOKBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onOkTCSignOffTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getSignOffWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    frm = me.getSignOffTCForm();\r",
+                    "\r",
+                    "if(frm.down('#signOffTCFirstNameTxt').getValue().length == 0 || frm.down('#signOffTCLastNameTxt').getValue().length == 0){\r",
+                    "    Ext.Msg.show({\r",
+                    "        title: 'Terms & Conditions',//T('errLogIn'),\r",
+                    "        message: 'Please complete the form!',//T(''),\r",
+                    "        buttons: Ext.Msg.OK,\r",
+                    "        icon: Ext.Msg.ERROR,\r",
+                    "        modal: true\r",
+                    "    });\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "me.onSignOff();\r",
+                    "\r",
+                    "frm.down('#signOffTCFirstNameTxt').setValue('');\r",
+                    "frm.down('#signOffTCLastNameTxt').setValue('');\r",
+                    "//debugger;\r",
+                    "me.getSignOffWizard().down('#boatsSignOffView').getStore().clearFilter(true);\r",
+                    "me.getSignOffWizard().down('#boatsSignOffView').refresh();\r",
+                    "wizard.setActiveItem(0);"
+                ],
+                "name": "tap"
+            },
+            "name": "onOkTCSignOffTap",
+            "designerId": "39a2733e-60bf-4407-a6f3-9a0223ed679e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#signOffTCCancelBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelTCSignOffTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getSignOffWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex - 1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelTCSignOffTap",
+            "designerId": "9b041363-4a16-4359-a2b8-c290beae75a9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#racesSignOffList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onSignOffRaceListSelect",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    mStore = me.getMessagesList().getStore();\r",
+                    "    bStore = me.getBoatNumberSignOffCmb().getStore();\r",
+                    "    dStore = me.getSignOffBoatDivisionCmb().getStore();\r",
+                    "\r",
+                    "\r",
+                    "//debugger;\r",
+                    "//eturn;\r",
+                    "me.race = record;\r",
+                    "me.filterSignOffBoats();\r",
+                    "\r",
+                    "dStore.clearFilter(true);\r",
+                    "dStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,\r",
+                    "        filters: \"where raceid is null or raceid = '\"+record.get('raceid')+\"' order by name asc\"\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "return;\r",
+                    "\r",
+                    "mStore.clearFilter(true);\r",
+                    "mStore.filter('raceid', record.get('raceid'));\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "bStore.clearFilter(true);\r",
+                    "bStore.filter('raceid', record.get('raceid'));\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "me.getSignOffBoatDivisionCmb().setStore(dStore);"
+                ],
+                "name": "select"
+            },
+            "name": "onSignOffRaceListSelect",
+            "designerId": "799b6f77-858b-4c68-86f2-488259cf31fe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#signOffRetiring",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldChange",
+                "implHandler": [
+                    "if(newValue == true){\r",
+                    "    this.getSignOffWizard().down('#signOffCodeCmb').setReadOnly(false);\r",
+                    "}\r",
+                    "else {\r",
+                    "    this.getSignOffWizard().down('#signOffCodeCmb').setReadOnly(true);\r",
+                    "}"
+                ],
+                "name": "change"
+            },
+            "name": "onCheckboxfieldChange",
+            "designerId": "38c8cb21-ec47-4e75-b2d2-ff71a136b6c8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffBtn",
+                "selector": "button#signOffBtn"
+            },
+            "name": "signOffBtn",
+            "designerId": "0c93b50d-1ba5-4d31-b60c-ef483df5cfdb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dnfSelectSignOff",
+                "selector": "selectfield#dnfSelectSignOff"
+            },
+            "name": "dnfSelectSignOff",
+            "designerId": "697e39a4-74aa-43b9-af54-85191b4e5546"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "undoSignOffBtn",
+                "selector": "button#undoSignOffBtn"
+            },
+            "name": "undoSignOffBtn",
+            "designerId": "bd1b4824-fca3-4d3a-9cd0-1b514e4886bc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "onSignOff",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    record = me.getSignOffRacesList().selected.get(0),\r",
+                    "    propper, retired, code;\r",
+                    "//debugger;\r",
+                    "if(this.getSignOffTCForm().down('#signOffPropperCourse').getChecked()){\r",
+                    "    propper =1;\r",
+                    "}\r",
+                    "else {\r",
+                    "    propper = 0;\r",
+                    "}\r",
+                    "if(this.getSignOffTCForm().down('#signOffRetiring').getChecked()){\r",
+                    "    retired = 1;\r",
+                    "    if(this.getSignOffTCForm().down('#signOffCodeCmb').record.data.code){\r",
+                    "        code = this.getSignOffTCForm().down('#signOffCodeCmb').record.data.code;\r",
+                    "    }\r",
+                    "}\r",
+                    "else {\r",
+                    "    retired = 0;\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        raceid: record.get('raceid'),\r",
+                    "        boatid: record.get('boatid'),\r",
+                    "        firstname: me.getSignOffTCFirstNameTxt().getValue(),\r",
+                    "        lastname: me.getSignOffTCLastNameTxt().getValue(),\r",
+                    "        code: code ? code : '',\r",
+                    "        propper: propper ? propper : '',\r",
+                    "        retired: retired ? retired : '',\r",
+                    "        type: 'off'\r",
+                    "    },\r",
+                    "    method: 'SignOnOff',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            me.getBoatsSignOffView().getStore().load();\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Sign Off Error',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "//record.set('signondate', new Date());\r",
+                    ""
+                ]
+            },
+            "name": "onSignOff",
+            "designerId": "22431d02-ebf9-46c8-8eb2-80ba2e839f18"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "withoutSelection"
+                ],
+                "fn": "filterSignOffBoats",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var me = this,\r",
+                    "    filters = [],\r",
+                    "    division = me.getSignOffBoatDivisionCmb().getValue(),\r",
+                    "    searchField = me.getBoatSignOffSearch(),\r",
+                    "    storeB = me.getBoatsSignOffView().getStore();\r",
+                    "\r",
+                    "me.getBoatsSignOffView().getStore().clearFilter(true);\r",
+                    "//debugger;\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: 'divisionid', value: division});\r",
+                    "}\r",
+                    "\r",
+                    "if(me.race){\r",
+                    "    filters.push({property: \"raceid\", value: me.race.get('raceid')});\r",
+                    "}\r",
+                    "\r",
+                    "if(searchField.getValue()){\r",
+                    "    filters.push({filterFn: BoatFilter, scope: searchField});\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "storeB.filter(filters);\r",
+                    "\r",
+                    "if(storeB.getCount() > 0 && !withoutSelection){\r",
+                    "    var tmp = storeB.findExact('hullnumber', searchField.getValue());\r",
+                    "    if(tmp > -1){\r",
+                    "        me.getBoatsSignOffView().select(storeB.getAt(tmp));\r",
+                    "    }\r",
+                    "    else\r",
+                    "        me.getBoatsSignOffView().select(storeB.getAt(0));\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "filterSignOffBoats",
+            "designerId": "c4cbb5b7-5555-457c-8acd-10d67cd4beeb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffBoatDivisionCmb",
+                "selector": "selectfield#signOffBoatDivisionCmb"
+            },
+            "name": "signOffBoatDivisionCmb",
+            "designerId": "a48d6d25-7474-450d-a558-b58a741f53a9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatSignOffSearch",
+                "selector": "searchfield#boatSignOffSearch"
+            },
+            "name": "boatSignOffSearch",
+            "designerId": "0cfa5f54-9961-4fe0-81ef-0765590b16b7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsSignOffView",
+                "selector": "dataview#boatsSignOffView"
+            },
+            "name": "boatsSignOffView",
+            "designerId": "68f3bee1-e5ef-4fa9-ac81-a01643d88d4a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffRacesList",
+                "selector": "list#signOffRacesList"
+            },
+            "name": "signOffRacesList",
+            "designerId": "5c1dcd25-65e7-49e7-8520-c46e25789c0d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffWizard",
+                "selector": "formpanel#signOnWizard"
+            },
+            "name": "signOffWizard",
+            "designerId": "b4e5ebbf-ebe3-45be-9c7b-8fe7452be691"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffTCForm",
+                "selector": "container#signOffTCForm"
+            },
+            "name": "signOffTCForm",
+            "designerId": "beabc4c8-5814-43e5-8c22-0415d68a0bb1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextSignOffBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextSignOffButtonTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getSignOffWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    bStore = me.getBoatsSignOffView().getStore(),\r",
+                    "    html,\r",
+                    "    boat = me.getBoatsSignOffView().selected.get(0);\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "\r",
+                    "bStore.clearFilter(true);\r",
+                    "bStore.filter('boatid', boat.get('boatid'));\r",
+                    "me.getNextSignOffBtn().setDisabled(true);\r",
+                    "/*\r",
+                    "if(me.getRacesSignOnList().selected.length > 0 && me.getBoatNumberCmb().getValue()){\r",
+                    "    wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "}\r",
+                    "else{\r",
+                    "    Ext.Msg.show({\r",
+                    "        title: 'No selection',//T('errLogIn'),\r",
+                    "        message: 'Must select a race and a boat!',//T(''),\r",
+                    "        buttons: Ext.Msg.OK,\r",
+                    "        icon: Ext.Msg.ERROR,\r",
+                    "        modal: true\r",
+                    "    });\r",
+                    "}*/\r",
+                    "\r",
+                    "html = '<div class=\"weather-widget\" style=\"margin:5px\"><h3>'+boat.get('bname')+'</h3><h2>'\r",
+                    "+ ' </h2>'\r",
+                    "+ '<p></p><small>'+boat.get('hullnumber')+'</small><p></p></div>';\r",
+                    "\r",
+                    "me.getBoatInfoLbl().setHtml(html);\r",
+                    "\r",
+                    "me.boat = boat;\r",
+                    "\r",
+                    "//debugger;"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextSignOffButtonTap",
+            "designerId": "10404259-3e4a-439f-b70f-02baedd59fe6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "messagesList",
+                "selector": "list#messagesList"
+            },
+            "name": "messagesList",
+            "designerId": "9e0f1192-ff7d-40c9-8fc9-1657c8034115"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#boatsSignOffView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatViewSelect",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    rStore = me.getRacesSignOffList().getStore();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "//return;\r",
+                    "\r",
+                    "rStore.clearFilter(true);\r",
+                    "rStore.filter('raceid', record.get('raceid'));\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "this.getSignOffCard().setValues(record.raw);\r",
+                    "this.getSkipperNumber().setValue(record.raw.ya);\r",
+                    "this.getNextSignOffBtn().enable();\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onBoatViewSelect",
+            "designerId": "b2733b53-5ff9-4b08-93c6-67180d244424"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesSignOffList",
+                "selector": "list#racesSignOffList"
+            },
+            "name": "racesSignOffList",
+            "designerId": "ed359fd2-3145-4ce1-a54c-97211d71e04e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperNumber",
+                "selector": "textfield#skipperNumber"
+            },
+            "name": "skipperNumber",
+            "designerId": "1619fcbb-7b24-4aee-8cbe-fd05501c31d3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatNumberSignOffCmb",
+                "selector": "selectfield#boatNumberSignOffCmb"
+            },
+            "name": "boatNumberSignOffCmb",
+            "designerId": "4d7d6a93-b398-4089-a585-9af8d5dc9f2a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#boatNumberSignOffCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onBoatChange",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if(newValue){\r",
+                    "    this.getSignOffCard().setValues(selectfield.record.raw);\r",
+                    "    this.getSkipperNumber().setValue(selectfield.record.raw.ya);\r",
+                    "}\r",
+                    "//debugger;"
+                ],
+                "name": "change"
+            },
+            "name": "onBoatChange",
+            "designerId": "d5c48c01-edb2-4e3a-8e86-0fae462dfcb8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffCard",
+                "selector": "formpanel#signOffCard"
+            },
+            "name": "signOffCard",
+            "designerId": "7a7a1058-8d8b-4937-8257-fe9c8eab8fa3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nextSignOffBtn",
+                "selector": "button#nextSignOffBtn"
+            },
+            "name": "nextSignOffBtn",
+            "designerId": "f9615b11-3822-4a46-b0fd-3747345455ba"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatInfoLbl",
+                "selector": "label#boatInfoLbl"
+            },
+            "name": "boatInfoLbl",
+            "designerId": "41734629-1012-4633-b1ea-dcca45c76e76"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#doneSignOffBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDoneSignOffTap",
+                "implHandler": [
+                    "this.getHomePanel().removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onDoneSignOffTap",
+            "designerId": "189b2690-0d05-4004-8ed9-fb5c7e9d4d02"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#signOffRacesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onListSelect",
+                "implHandler": [
+                    "this.enableButtons(record);\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onListSelect",
+            "designerId": "4f0ebbab-cf67-41a7-b476-483d8b6a844a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "enableButtons",
+                "implHandler": [
+                    "\r",
+                    "if(record.get('signoffdate')){\r",
+                    "        this.getSignOffBtn().disable();\r",
+                    "        this.getUndoSignOffBtn().enable();\r",
+                    "    }\r",
+                    "    \r",
+                    "    else if(!record.get('signondate')){\r",
+                    "        this.getSignOffBtn().disable();\r",
+                    "        this.getUndoSignOffBtn().disable();\r",
+                    "    }\r",
+                    "        else {\r",
+                    "            this.getSignOffBtn().enable();\r",
+                    "            this.getUndoSignOffBtn().disable();\r",
+                    "        }\r",
+                    "\r",
+                    "// else if (this.getSignOffBtn())\r",
+                    "// {\r",
+                    "//     if(record.get('boatstatusid')){\r",
+                    "//         this.getSignOffBtn().disable();\r",
+                    "//         this.getUndoSignOffBtn().enable();\r",
+                    "//     }\r",
+                    "//     else{\r",
+                    "//         this.getSignOffBtn().enable();\r",
+                    "//         this.getUndoSignOffBtn().disable();\r",
+                    "//     }\r",
+                    "// }\r",
+                    "\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "enableButtons",
+            "designerId": "9a9e60d2-55b6-4ccf-9b1c-1fa90eb85781"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffTCFirstNameTxt",
+                "selector": "textfield#signOffTCFirstNameTxt"
+            },
+            "name": "signOffTCFirstNameTxt",
+            "designerId": "34cb7b0b-1e4a-4753-9066-0e7c8155b2d4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOffTCLastNameTxt",
+                "selector": "textfield#signOffTCLastNameTxt"
+            },
+            "name": "signOffTCLastNameTxt",
+            "designerId": "608c3a07-8aad-4219-a4bd-4f021d2dcebe"
+        }
+    ]
+}

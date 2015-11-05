@@ -1,0 +1,459 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "HandicapWizard"
+    },
+    "designerId": "06ed5228-7998-4d64-8fe3-3f0c5f71fa5f",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "handicapWizard",
+                "selector": "formpanel#handicapWizardId"
+            },
+            "name": "handicapWizard",
+            "designerId": "72064103-b9dd-4c5f-b3e4-33977a0b6983"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no",
+                    "cardNo"
+                ],
+                "fn": "jumpCards",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getHandicapWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "no = no ? (selectedIndex + no) : cardNo;\r",
+                    "\r",
+                    "wizard.setActiveItem(no);"
+                ]
+            },
+            "name": "jumpCards",
+            "designerId": "39026c17-2769-4942-b01a-8478ec82eae2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#adjustBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAdjustButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "if(me.getSeriesHList().selected.length == 0 || me.getRacesHList().selected.length == 0){\r",
+                    "    Ext.Msg.show({\r",
+                    "        title: 'Series selection',//T('errLogIn'),\r",
+                    "        message: 'You must select a series and a race to adjust!',//T(''),\r",
+                    "        buttons: Ext.Msg.OK,\r",
+                    "        icon: Ext.Msg.ERROR,\r",
+                    "        modal: true\r",
+                    "    });\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "me.getHandicapWizard().showRaces(3, true);\r",
+                    "\r",
+                    "me.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onAdjustButtonTap",
+            "designerId": "e2eab7dc-5d44-4c43-b650-62433f8c5d6e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsHList",
+                "selector": "dataview#boatsHList"
+            },
+            "name": "boatsHList",
+            "designerId": "00a391ce-4e4c-4e4c-a55f-54640d2de729"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesHList",
+                "selector": "list#racesHList"
+            },
+            "name": "racesHList",
+            "designerId": "5fe3296e-029a-4c2c-97b4-bb8a1f5fe44e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#seriesHList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onSeriesListSelect",
+                "implHandler": [
+                    "this.getRacesHList().getStore().clearFilter(true);\r",
+                    "this.getRacesHList().getStore().filter('raceseriesid', record.get('raceseriesid'));\r",
+                    "\r",
+                    "// this.getBoatsHList().getStore().clearFilter(true);\r",
+                    "// this.getBoatsHList().getStore().filter('raceseriesid', record.get('raceseriesid'));"
+                ],
+                "name": "select"
+            },
+            "name": "onSeriesListSelect",
+            "designerId": "f12fa026-20c6-49d9-921d-3dc25dbd7ee1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#racesHList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRacesListSelect",
+                "implHandler": [
+                    "\r",
+                    "var store = this.getHandicapWizard().boatStore;\r",
+                    "\r",
+                    "store.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('BRHandicap').entityviewid ,\r",
+                    "        filters: \" where raceid = '\" + record.get('raceid') + \"' order by signondate desc\"\r",
+                    "    }\r",
+                    "});\r",
+                    "//store.filter(raceid, record.get('raceid'));\r",
+                    "this.getBoatsHList().setStore(store);\r",
+                    "this.getHandicapWizard().race = record;"
+                ],
+                "name": "select"
+            },
+            "name": "onRacesListSelect",
+            "designerId": "9ef908d1-0ecb-4f1c-b377-bb129c145fcd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsFS",
+                "selector": "fieldset#boatsFS"
+            },
+            "name": "boatsFS",
+            "designerId": "a370a42f-8672-4a21-9dc3-bee60fa37c82"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "spinnerfield#futureSpinner",
+                "designer|targetType": "Ext.field.Spinner",
+                "fn": "onRaceNoSpinnerChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getHandicapWizard().showRaces(newValue);"
+                ],
+                "name": "change"
+            },
+            "name": "onRaceNoSpinnerChange",
+            "designerId": "ec8fea95-bf0f-4b67-b95c-5e15bb10f4af"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesHList",
+                "selector": "list#seriesHList"
+            },
+            "name": "seriesHList",
+            "designerId": "8fa0d843-d808-4369-84a4-d5b15fab7a36"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#hSaveBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onHSaveButtonTap",
+                "implHandler": [
+                    "var me = this,",
+                    "    raceboats = me.getHandicapWizard().gridStore.getFilteredRecords();",
+                    "",
+                    "AJAXCommand({",
+                    "    params: {",
+                    "        raceboats: raceboats",
+                    "    },",
+                    "    method: 'SaveHandicap',",
+                    "    callback: function(status, message, obj, scope) {",
+                    "        if (status) {",
+                    "",
+                    "        }",
+                    "        else",
+                    "        {",
+                    "            Ext.Msg.show({",
+                    "                title: 'Error saving Series',//T('errLogIn'),",
+                    "                msg: 'Error.',//T(''),",
+                    "                buttons: Ext.Msg.OK,",
+                    "                icon: Ext.Msg.ERROR,",
+                    "                modal: true",
+                    "            });",
+                    "        }",
+                    "    }",
+                    "});",
+                    "",
+                    "this.getHomePanel().removeAll();",
+                    "this.getController('Navigation').onNavigate();"
+                ],
+                "name": "tap"
+            },
+            "name": "onHSaveButtonTap",
+            "designerId": "59f5511e-a017-44ff-8dac-878ae0dafa85"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "a8e0fb08-f740-4244-b386-965d607570d8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#searchSch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onSearchfieldKeyup",
+                "implHandler": [
+                    "this.applyFilters();\r",
+                    ""
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchfieldKeyup",
+            "designerId": "719fab10-845f-4314-815b-0f98ae134f4e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#divisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onDivisionSelectfieldChange",
+                "implHandler": [
+                    "this.applyFilters();"
+                ],
+                "name": "change"
+            },
+            "name": "onDivisionSelectfieldChange",
+            "designerId": "9a6084be-0d96-4a05-9c16-ac9c1b294b6d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionCmb",
+                "selector": "selectfield#divisionCmb"
+            },
+            "name": "divisionCmb",
+            "designerId": "e78b5dca-cacf-4f38-bb02-7ecae3a351a0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#longChk",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onShortLongCheckboxfieldChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "me.getHandicapWizard().showRaces(me.getFutureSpinner().getValue());"
+                ],
+                "name": "change"
+            },
+            "name": "onShortLongCheckboxfieldChange",
+            "designerId": "d20be0d7-b60c-4f1e-a43f-ee2690850a2f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "futureSpinner",
+                "selector": "spinnerfield#futureSpinner"
+            },
+            "name": "futureSpinner",
+            "designerId": "83f3d7c4-c0ac-4084-98dc-0de0fb861763"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#rollOverBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRollOverButtonTap",
+                "implHandler": [
+                    "var me = this, i, record, j, column,\r",
+                    "    columns = me.getHandicapWizard().columns,\r",
+                    "    recs = me.getHandicapWizard().gridStore.getData().items;\r",
+                    "\r",
+                    "if(recs.length < 1 || columns.length < 3){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "for (i = 0; i < recs.length; i++){\r",
+                    "    record = recs[i];\r",
+                    "    for (j = 2; j < columns.length; j++){\r",
+                    "        column = columns[j];\r",
+                    "        //debugger;\r",
+                    "        if(record.get('endtime') !== null){\r",
+                    "            var a = new Date(record.get('elapsed')),\r",
+                    "                elapsedt = a.getHours()*3600+a.getMinutes()*60+a.getSeconds(),\r",
+                    "                adjusted = elapsedt * record.get('handicap'),\r",
+                    "                newTime,\r",
+                    "                newH;\r",
+                    "            if(record.data.position !== 0){\r",
+                    "                    newTime = elapsedt + record.data.position*60;\r",
+                    "                    newH = adjusted/newTime;\r",
+                    "                    record.set(column.dataIndex, newH.toFixed(3));\r",
+                    "                }\r",
+                    "\r",
+                    "            else\r",
+                    "                record.set(column.dataIndex, record.get(columns[1].dataIndex));\r",
+                    "        }\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "//debugger;"
+                ],
+                "name": "tap"
+            },
+            "name": "onRollOverButtonTap",
+            "designerId": "33d89f3c-515b-4b30-9843-4f1d6d6ce04b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "searchSch",
+                "selector": "searchfield#searchSch"
+            },
+            "name": "searchSch",
+            "designerId": "516186d2-9d5e-46a7-a1b8-9c108cd165af"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "applyFilters",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    grid = this.getHandicapWizard().down('#boatsGrid'),\r",
+                    "    txt = me.getSearchSch(),\r",
+                    "    filters = txt ? [{filterFn: BoatFilter, scope: txt}] : [],\r",
+                    "    division = me.getDivisionCmb().getValue();\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: \"divisionid\", value: division});\r",
+                    "}\r",
+                    "\r",
+                    "grid.getStore().clearFilter(true);\r",
+                    "grid.getStore().filter(filters);\r",
+                    "//debugger;"
+                ]
+            },
+            "name": "applyFilters",
+            "designerId": "ff6054f0-295b-4db0-91d8-1d6971a82590"
+        }
+    ]
+}

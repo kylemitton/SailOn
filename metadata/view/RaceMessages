@@ -1,0 +1,216 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceMessages",
+        "itemId": "raceMsgFrm",
+        "layout": "hbox",
+        "scrollable": false
+    },
+    "designerId": "c3567dd8-241a-4559-8744-09d4362661db",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "raceFs",
+                "layout": "vbox",
+                "layout|flex": 2,
+                "margin": 5,
+                "title": "Races",
+                "width": null
+            },
+            "name": "MyFieldSet116",
+            "designerId": "20f60d89-61a5-4205-a918-26335a6aea4c",
+            "cn": [
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "raceSearchTxt",
+                        "label": null
+                    },
+                    "name": "MySearchField7",
+                    "designerId": "a31515da-ff62-4c7d-8ebe-c0f1bcc5004a"
+                },
+                {
+                    "type": "Ext.dataview.DataView",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "inline": [
+                            "true"
+                        ],
+                        "itemId": "raceLst",
+                        "layout|flex": 1,
+                        "mode": "MULTI",
+                        "width": null
+                    },
+                    "name": "MyDataView12",
+                    "designerId": "583e104b-ea56-43dc-ba6c-14c2fa8b5c90",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "<div class=\"item\">\r",
+                                    "    <div class=\"name\">{name}</div>\r",
+                                    "</div>\r",
+                                    ""
+                                ]
+                            },
+                            "name": "tpl50",
+                            "designerId": "4f5cb814-d6dd-4631-bfdc-593fd376b0b5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "messageRaceFS",
+                "layout": "fit",
+                "layout|flex": 1,
+                "margin": 5,
+                "scrollable": true,
+                "title": "Message"
+            },
+            "name": "MyFieldSet117",
+            "designerId": "b3f544f9-bc89-412b-9ac1-507074479830",
+            "cn": [
+                {
+                    "type": "Ext.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "anchor": "100%",
+                        "height": "100%",
+                        "itemId": "raceMessageTxtArea",
+                        "label": null,
+                        "maxRows": 25,
+                        "style": "width: 100%; height: 100%;"
+                    },
+                    "name": "MyTextArea4",
+                    "designerId": "e87f76ff-b85b-4f82-b7ac-b430f4e282d6",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "anchor",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "/*var me = this,\r",
+                    "\r",
+                    "    dStore = CreateStore(\"division\");\r",
+                    "*/\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "/*\r",
+                    "dStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('AllDivisions').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "me.down('#assignBoatCrewDivision').setStore(dStore);*/\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "initialize",
+            "designerId": "7d58479a-9e06-4158-9467-eec538661b6f"
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "itemId": "raceMessageToolbar"
+            },
+            "name": "MyToolbar3",
+            "designerId": "be52acb8-667b-4ca9-86f9-ba12f1cc2d43",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySpacer3",
+                    "designerId": "c75b2c8b-57c5-4610-ae23-43ddea59a843"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm",
+                        "docked": null,
+                        "itemId": "setRaceMessageBtn",
+                        "text": "Set message",
+                        "ui": "confirm",
+                        "width": 150
+                    },
+                    "name": "MyButton177",
+                    "designerId": "3315373c-feae-4058-b05a-0d2639c6f021"
+                }
+            ]
+        }
+    ]
+}

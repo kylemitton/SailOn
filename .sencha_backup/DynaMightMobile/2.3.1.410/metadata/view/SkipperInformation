@@ -1,0 +1,239 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|pack": "center",
+        "designer|userAlias": "skiperInforamtion",
+        "designer|userClassName": "SkipperInformation",
+        "itemId": "skipperInfoForm",
+        "layout": "hbox",
+        "margin": 5
+    },
+    "designerId": "ff769a50-dff2-43c5-bdd1-aefe95bb09cf",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": null,
+                "itemId": "ownerInfoFS",
+                "layout|flex": 1,
+                "title": "Skipper Information",
+                "width": 498
+            },
+            "name": "MyFieldSet30",
+            "designerId": "f345d7ba-1e26-4e1d-a722-79b8f119fbe8",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "itemId": "crewMemberId",
+                        "label": null,
+                        "name": "crewmemberid"
+                    },
+                    "name": "MyTextField39",
+                    "designerId": "722323fe-9ff2-44eb-bf59-06485c7d81cd"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "skiperYATxt",
+                        "label": "Skipper ID",
+                        "name": "ya",
+                        "required": true
+                    },
+                    "name": "MyTextField40",
+                    "designerId": "562697dc-d433-4260-82b7-cad4398a3a8a"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Name",
+                        "name": "firstname",
+                        "required": true
+                    },
+                    "name": "MyTextField41",
+                    "designerId": "2eff57db-7fbc-4c04-b03b-cd3778f37d75"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Surname",
+                        "name": "surname"
+                    },
+                    "name": "MyTextField42",
+                    "designerId": "1c339d03-b1bd-4e3c-bad9-9c4aacda325c"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Email",
+                        "name": "email",
+                        "required": true
+                    },
+                    "name": "MyTextField43",
+                    "designerId": "2665d7a0-804c-4370-862c-a9c9b19c329a"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Mobile",
+                        "name": "mobilenumber",
+                        "required": true
+                    },
+                    "name": "MyTextField44",
+                    "designerId": "c668d771-86a7-4aa2-9a8e-3e046329fd0b"
+                },
+                {
+                    "type": "Ext.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "raceseriesboatid"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "8fb6d89e-160d-4f6b-8b05-ccfdffd3933b"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action",
+                        "itemId": "clearSkiperFSData",
+                        "margin": "5 0 0 0",
+                        "text": "Clear",
+                        "ui": "action"
+                    },
+                    "name": "MyButton57",
+                    "designerId": "c645066a-d6ba-4bc7-bdfe-c114f43684b7"
+                }
+            ]
+        },
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "emptyText": null,
+                "height": null,
+                "itemId": "skipperList",
+                "layout|flex": 1
+            },
+            "name": "MyList7",
+            "designerId": "1dc110a0-1577-44d3-ab4c-263b147dd20c",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "itemTpl",
+                        "implHandler": [
+                            "<div class=\"item\">\r",
+                            "    <div class=\"name\">YA -{name}</div>\r",
+                            "    <div class=\"name\">Name - {firstname} {surname}</div>\r",
+                            "</div>"
+                        ]
+                    },
+                    "name": "tpl7",
+                    "designerId": "76bf7e71-b3ef-415a-b161-7f52599ce023"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "itemId": "skipperInformationToolbar"
+            },
+            "name": "MyToolbar",
+            "designerId": "79ead97a-5460-49a8-b29b-6c8a8e412629",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySpacer",
+                    "designerId": "26a3912c-d27a-4ce8-9768-42256467d471"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm",
+                        "docked": null,
+                        "itemId": "saveSkipperInformation",
+                        "text": "Save",
+                        "ui": "confirm"
+                    },
+                    "name": "MyButton58",
+                    "designerId": "9fa72b90-675d-4c40-98cf-40ffce19c2de"
+                }
+            ]
+        }
+    ]
+}

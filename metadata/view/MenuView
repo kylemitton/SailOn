@@ -1,0 +1,113 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "cls": [
+            "a"
+        ],
+        "designer|userClassName": "MenuView",
+        "itemId": "mycontainer55",
+        "layout": "fit",
+        "masked": null,
+        "requires": [
+            "Ext.util.DelayedTask"
+        ],
+        "scrollable": null
+    },
+    "designerId": "e231dc00-762b-4c34-8628-08e2bd3017c7",
+    "cn": [
+        {
+            "type": "Ext.dataview.DataView",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "inline": [
+                    "true"
+                ],
+                "itemId": "menuView",
+                "margin": "70 130 0 130"
+            },
+            "name": "MyDataView16",
+            "designerId": "71b41441-b79e-4e87-8921-ac426fa7243b",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "itemTpl",
+                        "implHandler": [
+                            "{[GetTemplate('menu', values)]}"
+                        ]
+                    },
+                    "name": "tpl59",
+                    "designerId": "a0f1b3f3-92d6-4e57-b5c9-6c4496e6fcae"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onMenuViewSelect",
+                        "implHandler": [
+                            "",
+                            "var me = DynaMightMobile.app.getController('Navigation'),",
+                            "    item = record.data,",
+                            "    className = item.name.replace(/ /g, '');",
+                            "",
+                            "Ext.Viewport.setMasked(true);",
+                            "//me.getHomePanel().removeAll(false,false);",
+                            "//me.applyClass(item.name.replace(/ /g, ''));",
+                            "new Ext.util.DelayedTask(function(){",
+                            "",
+                            "    if(item.entityid){",
+                            "        me.applyList(item);",
+                            "    }",
+                            "    else {",
+                            "        me.applyClass(item.name.replace(/ /g, ''));",
+                            "    }",
+                            "",
+                            "    me.getTopCardLbl().setHtml('Canberra Yacht Club - ' + item.name);",
+                            "}).delay(250);",
+                            ""
+                        ],
+                        "name": "select"
+                    },
+                    "name": "onMenuViewSelect",
+                    "designerId": "2c030d0d-d44e-428e-8779-61c766828b52"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "ada946e2-68e7-499d-9792-b185267ac544"
+        }
+    ]
+}

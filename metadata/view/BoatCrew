@@ -1,0 +1,245 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BoatCrew",
+        "itemId": "boatCrewFrm",
+        "layout": "hbox",
+        "requires": [
+            "Ext.data.JsonP"
+        ],
+        "scrollable": false
+    },
+    "designerId": "73d8984e-b749-4391-8914-ff5482d51ab9",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "boatRacesAssignCrewFS",
+                "layout": "vbox",
+                "layout|flex": 2,
+                "margin": 5,
+                "title": "Boat",
+                "width": null
+            },
+            "name": "MyFieldSet110",
+            "designerId": "55a53646-d8fd-43c6-a805-e33746e064df",
+            "cn": [
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "assignBoatCrewSearch",
+                        "label": null
+                    },
+                    "name": "MySearchField4",
+                    "designerId": "cef7c14b-3e82-4380-891b-d85b8870763a"
+                },
+                {
+                    "type": "Ext.dataview.DataView",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "inline": [
+                            "true"
+                        ],
+                        "itemId": "assignBoatsCrewLst",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyDataView9",
+                    "designerId": "5b76e9a0-e4fc-483f-aacb-f5446a689c22",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "{[GetTemplate('raceboat', values)]}\r",
+                                    ""
+                                ]
+                            },
+                            "name": "tpl44",
+                            "designerId": "3194a59f-fd86-4c1c-9082-5e3a3a8f96e6"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "crewMemberAssignraceFS",
+                "layout": "vbox",
+                "layout|flex": 1,
+                "margin": 5,
+                "scrollable": true,
+                "title": "Crew members"
+            },
+            "name": "MyFieldSet111",
+            "designerId": "9e193b89-c615-4696-91b1-c9aa1b52afa5",
+            "cn": [
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "assignCrewSearch",
+                        "label": null
+                    },
+                    "name": "MySearchField5",
+                    "designerId": "b61cac1f-5940-43bf-a6dd-c41a05d4296a"
+                },
+                {
+                    "type": "Ext.dataview.List",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "itemId": "crewMemberAssignBoatLst",
+                        "layout|flex": 1,
+                        "margin": null
+                    },
+                    "name": "MyList35",
+                    "designerId": "f08a07c0-a15c-48a5-9236-a6d0ab8873bf",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "\r",
+                                    "<div class=\"item\">\r",
+                                    "    <div class=\"name\">{firstname} {surname}\r",
+                                    "    </div>\r",
+                                    "    <div class=\"vicinity\">{ya}\r",
+                                    "    </div>\r",
+                                    "    \r",
+                                    "</div>"
+                                ]
+                            },
+                            "name": "tpl45",
+                            "designerId": "543f171a-b333-4345-8528-b11cf0bd275c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "/*var me = this,\r",
+                    "\r",
+                    "    dStore = CreateStore(\"division\");\r",
+                    "*/\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "/*\r",
+                    "dStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('AllDivisions').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "me.down('#assignBoatCrewDivision').setStore(dStore);*/\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "7a1c9e0d-5de2-4111-b354-8670ac49d9e3"
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "681556b2-d789-4f32-a377-98fb31560c3d",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySpacer1",
+                    "designerId": "2eaa5da6-da3d-41eb-bdea-07f439956f15"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm",
+                        "docked": null,
+                        "itemId": "setCrewToRaceBoat",
+                        "text": "Set crew",
+                        "ui": "confirm",
+                        "width": 150
+                    },
+                    "name": "MyButton166",
+                    "designerId": "c1a14194-6fc7-4d2c-8108-8ee87597724f"
+                }
+            ]
+        }
+    ]
+}

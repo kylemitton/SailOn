@@ -1,0 +1,808 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|animation": "slide",
+        "designer|userClassName": "RaceResults",
+        "itemId": "handicapWizardId",
+        "layout": "card",
+        "requires": [
+            "Ext.grid.plugin.Editable",
+            "Ext.grid.plugin.MultiSelection",
+            "Ext.grid.plugin.ViewOptions",
+            "Ext.grid.plugin.SummaryRow",
+            "Ext.grid.plugin.ColumnResizing"
+        ],
+        "scrollable": false
+    },
+    "designerId": "bb8a81a0-0280-4b6f-845a-9c66ffad5ece",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "hSeriesPnl",
+                "layout": "hbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel24",
+            "designerId": "02a70daf-4096-485a-9ab8-4cb9586a33f1",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "margin": 5,
+                        "title": "Current Series"
+                    },
+                    "name": "MyFieldSet78",
+                    "designerId": "bca2a25b-83db-410a-b042-8cc3dcb3fefe",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "resCurrentSeriesList",
+                                "layout|flex": 1,
+                                "margin": null
+                            },
+                            "name": "MyList23",
+                            "designerId": "1d1f63c5-f18a-4d97-8b6e-69968642b13e",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<div class=\"icon-wrapper\">\r",
+                                            "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                            "    </div>\r",
+                                            "</div>\r",
+                                            "<div class=\"item\">\r",
+                                            "    <table><tr>\r",
+                                            "        <td>\r",
+                                            "            <div class=\"name\">{name}</div>\r",
+                                            "            <div class=\"vicinity\">{[this.DateFormat(values.earlieststarttime)]}</div>\r",
+                                            "            <div class=\"vicinity\">{entrycost}</div>\r",
+                                            "            <div class=\"vicinity\">{type}</div>\r",
+                                            "        </td>\r",
+                                            "        <td style=\"padding-left: 30px;display: block;padding-top: 5px;\">\r",
+                                            "            <div class=\"vicinity\">{description}</div>\r",
+                                            "        </td>\r",
+                                            "        </tr>\r",
+                                            "    </table>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl31",
+                                    "designerId": "eb9b06f9-124e-43f6-ba76-4b1ecc66e101",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return \"background-size:50px;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "0fc5489e-7cf0-42ca-a319-2dd39c6db100"
+                                        },
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "date"
+                                                ],
+                                                "fn": "DateFormat",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return Ext.Date.format(new Date(date), 'Y-m-d H:i');"
+                                                ]
+                                            },
+                                            "name": "DateFormat",
+                                            "designerId": "03a2ebec-32c3-4202-ae12-2aca4f7d2331"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "title": "Past Series"
+                    },
+                    "name": "MyFieldSet79",
+                    "designerId": "62669c38-dd19-405f-b07a-f192ff522618",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "itemId": "yearCmb",
+                                "label": "Year",
+                                "valueField": "id"
+                            },
+                            "name": "MySelectField10",
+                            "designerId": "0d964cd0-2ace-4954-9586-e83db5b1f3bf"
+                        },
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "resPastSeriesList",
+                                "layout|flex": 1,
+                                "margin": null
+                            },
+                            "name": "MyList24",
+                            "designerId": "3a2a6242-9024-41d8-bdbf-fdcea013c524",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<div class=\"icon-wrapper\">\r",
+                                            "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                            "    </div>\r",
+                                            "</div>\r",
+                                            "<div class=\"item\">\r",
+                                            "    <table><tr>\r",
+                                            "        <td>\r",
+                                            "            <div class=\"name\">{name}</div>\r",
+                                            "            <div class=\"vicinity\">{[this.DateFormat(values.earlieststarttime)]}</div>\r",
+                                            "            <div class=\"vicinity\">{entrycost} $</div>\r",
+                                            "            <div class=\"vicinity\">{type}</div>\r",
+                                            "        </td>\r",
+                                            "        <td style=\"padding-left: 30px;display: block;padding-top: 5px;\">\r",
+                                            "            <div class=\"vicinity\">{description}</div>\r",
+                                            "        </td>\r",
+                                            "        </tr>\r",
+                                            "    </table>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl32",
+                                    "designerId": "053b40be-817c-494c-baad-649f1f348ade",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return \"background-size:50px;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "0f74da94-9216-48be-b876-03056cbea97d"
+                                        },
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "date"
+                                                ],
+                                                "fn": "DateFormat",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return Ext.Date.format(new Date(date), 'Y-m-d H:i');"
+                                                ]
+                                            },
+                                            "name": "DateFormat",
+                                            "designerId": "55d372a9-25e9-4cb3-970e-d2c4ca9f3392"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "layout|flex": 1,
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer85",
+                    "designerId": "9c864a57-6f12-471c-bb66-c69c8bef3029",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "disabled": true,
+                                "docked": "right",
+                                "itemId": "resNextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton135",
+                            "designerId": "9bd61c17-dc83-4340-b868-e77eb511aafd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "hReviewPnl",
+                "layout": "vbox"
+            },
+            "name": "MyContainer86",
+            "designerId": "fff2f26b-666a-4f67-a5a2-c273de3ce29a",
+            "cn": [
+                {
+                    "type": "Ext.tab.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "resTabPnl",
+                        "layout|flex": 1
+                    },
+                    "name": "MyTabPanel1",
+                    "designerId": "a288b106-3608-4e77-bf08-8ca86501deb0",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "resSeriesTab",
+                                "layout": "fit",
+                                "scrollable": null,
+                                "title": "Series View"
+                            },
+                            "name": "MyContainer87",
+                            "designerId": "982cd045-6506-43aa-a1c1-156729594f2e"
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "resRaceTab",
+                                "layout": "fit",
+                                "title": "Race View"
+                            },
+                            "name": "MyContainer88",
+                            "designerId": "39bd363f-8ed7-4870-9999-197d578d933a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "defaults": [
+                            "{\r",
+                            "    margin: '5'\r",
+                            "}"
+                        ],
+                        "docked": "top",
+                        "itemId": "hControlls",
+                        "layout": "hbox",
+                        "margin": "0 10 20 10"
+                    },
+                    "name": "MyContainer89",
+                    "designerId": "3cdff289-1e65-4fed-9ca7-7e6743e5db0d",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "docked": "right",
+                                "height": 35,
+                                "itemId": "resDoneBtn",
+                                "text": "Back",
+                                "ui": "confirm-round",
+                                "width": null
+                            },
+                            "name": "MyButton136",
+                            "designerId": "0cd31b29-1928-4926-a4fd-9b9262d241f9"
+                        },
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "itemId": "resDivisionCmb",
+                                "label": "Division",
+                                "valueField": "divisionid"
+                            },
+                            "name": "MySelectField11",
+                            "designerId": "99a88929-f038-44d5-986d-68f24d4e5f79"
+                        },
+                        {
+                            "type": "Ext.field.Search",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "resBoatSearch",
+                                "label": "Boat",
+                                "width": 231
+                            },
+                            "name": "MySearchField2",
+                            "designerId": "8b3ba2b2-8b53-483e-acea-41dd44791d8e"
+                        },
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoSelect": false,
+                                "displayField": "startdate",
+                                "itemId": "resRaceCmb",
+                                "label": "Race",
+                                "valueField": "raceid"
+                            },
+                            "name": "MySelectField12",
+                            "designerId": "d6a763c8-ca2d-452e-8e63-10597c8ce4bd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    raceSeriesStore = CreateStore(\"raceseries\"),\r",
+                    "    boatStore = CreateStore(\"raceboat\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    divisionStore = CreateStore(\"division\"), yearStore;\r",
+                    "\r",
+                    "me.boatStore = boatStore;\r",
+                    "me.callParent();\r",
+                    "\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('RR').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "me.boatStore = boatStore;\r",
+                    "\r",
+                    "\r",
+                    "//boatStore.filter('raceid', '0');\r",
+                    "\r",
+                    "raceStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Races').entityviewid ,\r",
+                    "        filters: ' WHERE startdate < now() order by startdate desc'\r",
+                    "    }\r",
+                    "});\r",
+                    "me.raceStore = raceStore;\r",
+                    "\r",
+                    "raceSeriesStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Series').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "divisionStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('AllDivisions').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#resCurrentSeriesList').setStore(raceSeriesStore);\r",
+                    "\r",
+                    "yearStore = Ext.create('Ext.data.Store', {\r",
+                    "    fields: ['name','value'],\r",
+                    "    data: [{name: '2015', value: '0'}]\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#yearCmb').setStore(yearStore);\r",
+                    "me.down('#resDivisionCmb').setStore(divisionStore);\r",
+                    "me.down('#resRaceCmb').setStore(raceStore);\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "10333f9b-23f2-4dcc-8d10-f1326c07cf9a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no"
+                ],
+                "fn": "showSeriesView",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    columns = [{\r",
+                    "        text: 'Division',\r",
+                    "        dataIndex: 'dname',\r",
+                    "        width: 200,\r",
+                    "        editable: false\r",
+                    "    }, {\r",
+                    "        text: 'Name',\r",
+                    "        dataIndex: 'bname',\r",
+                    "        width: 200,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Total',\r",
+                    "        dataIndex: 'total',\r",
+                    "        width: 100,\r",
+                    "        editable: false\r",
+                    "    }],\r",
+                    "    raceStore = me.raceStore,\r",
+                    "    i = 0,\r",
+                    "    fields = ['dname', 'boatid','bname','hullnumber', 'divisionid', 'total', 'score'],\r",
+                    "    gridStore, idx, rec, record, bid;\r",
+                    "if(!me.down('#boatsFS'))\r",
+                    "{\r",
+                    "    //return;\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "\r",
+                    "/*raceStore.filter([{\r",
+                    "    filterFn: function(item) {\r",
+                    "        return new Date(item.get(\"startdate\")) > new Date();\r",
+                    "    }}\r",
+                    "]);\r",
+                    "*/\r",
+                    "\r",
+                    "\r",
+                    "raceStore.sort('startdate', 'DESC');\r",
+                    "raceStore.each(function (item, index, length) {\r",
+                    "        fields.push(item.get('raceid'));\r",
+                    "        //debugger;\r",
+                    "        columns.push({\r",
+                    "            text: /*Ext.util.Format.date(item.get('startdate'), APP.Configurations.DateFormat)*/ length-i ,\r",
+                    "            dataIndex: item.get('raceid'),\r",
+                    "            raceName: item.get('name'),\r",
+                    "            seriesName: item.get('raceseriesname'),\r",
+                    "            startDate: item.get('startdate'),\r",
+                    "            width: 120,\r",
+                    "            editable: true,\r",
+                    "            sortable: true,\r",
+                    "            renderer: function(val){\r",
+                    "                return val === undefined ? '' : val;\r",
+                    "            }\r",
+                    "        });\r",
+                    "        i++;\r",
+                    "    //}\r",
+                    "},this);\r",
+                    "//store\r",
+                    "me.gridStore = Ext.create('Ext.data.Store', {\r",
+                    "    fields: fields\r",
+                    "\r",
+                    "});\r",
+                    "//fill store\r",
+                    "me.boatStore.each(function (item, index, length) {\r",
+                    "    this.tmpItem = item;\r",
+                    "    rec = this.tmpItem;\r",
+                    "    bid = this.tmpItem.get('boatid');\r",
+                    "\r",
+                    "    idx = this.gridStore.find('boatid',bid);\r",
+                    "    if(idx < 0){\r",
+                    "        record = {\r",
+                    "            dname: rec.raw.dname,\r",
+                    "            boatid: bid,\r",
+                    "            bname: rec.get('hullnumber') + ' - ' + rec.get('bname'),\r",
+                    "            hullnumber: rec.get('hullnumber'),\r",
+                    "            divisionid: rec.get('divisionid'),\r",
+                    "            total: rec.get('score')\r",
+                    "        };\r",
+                    "        record[rec.get('raceid')] = IsNull(rec.get('elapsed'), '');\r",
+                    "\r",
+                    "        this.gridStore.insert(0, record);\r",
+                    "    }\r",
+                    "    else{\r",
+                    "        record = this.gridStore.getAt(idx).data;\r",
+                    "        record[rec.get('raceid')] = IsNull(rec.get('elapsed'), '');\r",
+                    "        record.total = parseInt(record.total) + parseInt(rec.get('score'));\r",
+                    "    }\r",
+                    "\r",
+                    "\r",
+                    "},this);\r",
+                    "this.gridStore.sort([{property: 'dname',direction: 'ASC'},{property : 'bname',direction: 'ASC'},\r",
+                    "    {\r",
+                    "        property : 'score',\r",
+                    "        direction: 'ASC'\r",
+                    "    }\r",
+                    "]);\r",
+                    "me.columns = columns;\r",
+                    "//return;\r",
+                    "me.down('#resSeriesTab').removeAll();\r",
+                    "me.down('#resSeriesTab').add({\r",
+                    "    xtype: 'grid',\r",
+                    "    scrollable: true,\r",
+                    "    header: false,//{ hidden: true },\r",
+                    "    itemId: 'resSeriesGrid',\r",
+                    "    requires: ['Ext.grid.Grid',\r",
+                    "               //'Ext.grid.HeaderGroup',\r",
+                    "               'Ext.grid.plugin.Editable',\r",
+                    "               'Ext.grid.plugin.ViewOptions',\r",
+                    "               'Ext.grid.plugin.MultiSelection',\r",
+                    "               'Ext.grid.plugin.ColumnResizing',\r",
+                    "               'Ext.grid.plugin.SummaryRow'\r",
+                    "              ],\r",
+                    "    plugins: [{type: 'grideditable'}],\r",
+                    "    store: me.gridStore,\r",
+                    "    columns: columns,\r",
+                    "    listeners: {\r",
+                    "        columnsort: function(grid, column, direction, e, eOpts){\r",
+                    "            //debugger;\r",
+                    "            //return false;\r",
+                    "            if(column.raceName){\r",
+                    "            Ext.Msg.alert(column.seriesName, column.raceName + '<br>Date: ' +column.startDate, Ext.emptyFn);\r",
+                    "            }\r",
+                    "            else return false;\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "name": "showSeriesView",
+            "designerId": "12e91e7a-c1eb-4045-b8a8-d1aa7dfa9639"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no"
+                ],
+                "fn": "showRaceView",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    columns = [{\r",
+                    "        text: 'Division',\r",
+                    "        dataIndex: 'dname',\r",
+                    "        width: 150,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Name',\r",
+                    "        dataIndex: 'bname',\r",
+                    "        width: 200,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Score',\r",
+                    "        dataIndex: 'scoredisplay',\r",
+                    "        width: 100,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Handicap',\r",
+                    "        dataIndex: 'handicap',\r",
+                    "        width: 100,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Corected T',\r",
+                    "        dataIndex: 'corected',\r",
+                    "        width: 110,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Elapsed T',\r",
+                    "        dataIndex: 'elapsed',\r",
+                    "        width: 110,\r",
+                    "        editable: false\r",
+                    "    },{\r",
+                    "        text: 'Finish T',\r",
+                    "        dataIndex: 'finish',\r",
+                    "        width: 200,\r",
+                    "        editable: false\r",
+                    "    }],\r",
+                    "    raceStore = me.raceStore,\r",
+                    "    i = 0,\r",
+                    "    fields = ['raceid', 'boatid','rname', 'bname','hullnumber','scoredisplay', {name: 'score', type: 'int'},'dname', 'startdate', 'divisionid', 'handicap', 'corected', 'elapsed', 'finish'],\r",
+                    "    gridStore, idx, rec, record, bid, tDate;\r",
+                    "\r",
+                    "if(!me.down('#boatsFS'))\r",
+                    "{\r",
+                    "    //return;\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "\r",
+                    "//store\r",
+                    "me.gridStore = Ext.create('Ext.data.Store', {\r",
+                    "    fields: fields\r",
+                    "\r",
+                    "});\r",
+                    "//fill store\r",
+                    "me.boatStore.each(function (item, index, length) {\r",
+                    "    this.tmpItem = item;\r",
+                    "    rec = this.tmpItem;\r",
+                    "    bid = this.tmpItem.get('boatid');\r",
+                    "    tDate = rec.get('endtime');\r",
+                    "    tDate = tDate ? Ext.util.Format.date(tDate.split(' ')[0], APP.Configurations.DateFormat) + ' ' + tDate.split(' ')[1] : '';\r",
+                    "    //debugger;\r",
+                    "\r",
+                    "    record = {\r",
+                    "        boatid: bid,\r",
+                    "        startdate: Ext.util.Format.date(rec.get('startdate'), APP.Configurations.DateFormat),\r",
+                    "        rname: rec.get('rname'),\r",
+                    "        bname: rec.get('hullnumber') + ' - ' + rec.get('bname'),\r",
+                    "        hullnumber: rec.get('hullnumber'),\r",
+                    "        divisionid: rec.get('divisionid'),\r",
+                    "        finish: tDate,\r",
+                    "        corected: rec.get('corected'),\r",
+                    "        dname: rec.raw.dname,\r",
+                    "        elapsed: rec.get('elapsed'),\r",
+                    "        handicap: rec.get('handicap'),\r",
+                    "        score: rec.raw.score,\r",
+                    "        scoredisplay: rec.raw.scoredisplay,\r",
+                    "        raceid: rec.get('raceid')\r",
+                    "    };\r",
+                    "\r",
+                    "    this.gridStore.insert(0, record);\r",
+                    "},this);\r",
+                    "this.gridStore.sort([{property: 'dname',direction: 'ASC'},{property : 'score',direction: 'ASC'}\r",
+                    "]);\r",
+                    "me.columns = columns;\r",
+                    "//return;\r",
+                    "me.down('#resRaceTab').removeAll();\r",
+                    "me.down('#resRaceTab').add({\r",
+                    "    xtype: 'grid',\r",
+                    "    scrollable: true,\r",
+                    "    header: false,//{ hidden: true },\r",
+                    "    itemId: 'resRaceGrid',\r",
+                    "    requires: ['Ext.grid.Grid',\r",
+                    "               //'Ext.grid.HeaderGroup',\r",
+                    "               'Ext.grid.plugin.Editable',\r",
+                    "               'Ext.grid.plugin.ViewOptions',\r",
+                    "               'Ext.grid.plugin.MultiSelection',\r",
+                    "               'Ext.grid.plugin.ColumnResizing',\r",
+                    "               'Ext.grid.plugin.SummaryRow'\r",
+                    "              ],\r",
+                    "    plugins: [{type: 'grideditable'}],\r",
+                    "    store: me.gridStore,\r",
+                    "    columns: columns\r",
+                    "});"
+                ]
+            },
+            "name": "showRaceView",
+            "designerId": "d410c17f-cc2e-4337-ac4a-877d29f4c70e"
+        }
+    ]
+}

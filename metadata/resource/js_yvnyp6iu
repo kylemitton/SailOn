@@ -1,0 +1,20 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userAliasPrefix": "store",
+        "designer|userClassName": "js_yvnyp6iu",
+        "includeInBundle": null,
+        "remote": null,
+        "update": null,
+        "url": "app/store/StoreUtils.js",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "8bd60406-57ec-4b4e-b9c7-f6eeaa4bf65a"
+}

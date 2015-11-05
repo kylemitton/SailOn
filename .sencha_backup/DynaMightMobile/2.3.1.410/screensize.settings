@@ -1,0 +1,11 @@
+{
+    "profiles": [
+        {
+            "name": "Z2",
+            "width": 600,
+            "height": 1240,
+            "builtIn": false,
+            "fw": "touch"
+        }
+    ]
+}

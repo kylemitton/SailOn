@@ -1,0 +1,209 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SkipperInformation"
+    },
+    "designerId": "6e3e8f10-9fec-4791-9799-5148916ad18b",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "textfield#skiperYATxt",
+                "designer|targetType": "Ext.field.Text",
+                "fn": "onSearchSkipper",
+                "implHandler": [
+                    "var crewM = CreateStore('crewmember');\r",
+                    "crewM.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Crew Members').entityviewid ,\r",
+                    "        filters: \" WHERE ya like '%\" + textfield.getValue() + \"%'\"\r",
+                    "    }\r",
+                    "});\r",
+                    "this.getSkipperList().setStore(crewM);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchSkipper",
+            "designerId": "162764cd-a2f4-4fae-8919-995a627d878d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperList",
+                "selector": "list#skipperList"
+            },
+            "name": "skipperList",
+            "designerId": "1d23ae42-b140-405e-b2ee-c255d67417d0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#clearSkiperFSData",
+                "designer|targetType": "Ext.Button",
+                "fn": "onClearSkipperInfo",
+                "implHandler": [
+                    "this.getSkipperInformation().reset();\r",
+                    "this.getSkipperList().getStore().removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onClearSkipperInfo",
+            "designerId": "0ffdbfbe-8096-44e6-9ac8-df81af415ca4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ownerInfoFS",
+                "selector": "fieldset#ownerInfoFS"
+            },
+            "name": "ownerInfoFS",
+            "designerId": "37c91932-b389-4f2d-8fd6-d3bdc7895173"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#skipperList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onSkiperListTap",
+                "implHandler": [
+                    "\r",
+                    "this.getSkipperInformation().setRecord(record);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onSkiperListTap",
+            "designerId": "5eefa195-c928-4156-829e-a899fd5b6b4f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveSkipperInformation",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveSkipperInformation",
+                "implHandler": [
+                    "var me = this;\r",
+                    "AJAXCommand({\r",
+                    "    params: me.getSkipperInformation().getValues(),\r",
+                    "    method: 'UpdateSkipper',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            this.scope.getSkipperInformation().reset();\r",
+                    "            this.scope.getSkipperList().getStore().removeAll();\r",
+                    "\r",
+                    "           Ext.Msg.alert('Save skipper','Skipper added successfully!');\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "           Ext.Msg.alert('Save skipper','Failed to update skipper!');\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveSkipperInformation",
+            "designerId": "c88b200d-f5bc-4d21-b3a9-fe94e1760628"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "textfield#skiperYATxt",
+                "designer|targetType": "Ext.field.Text",
+                "fn": "onClearTextSkipper",
+                "implHandler": [
+                    "this.getSkipperInformation().reset();\r",
+                    "this.getSkipperList().getStore().removeAll();"
+                ],
+                "name": "clearicontap"
+            },
+            "name": "onClearTextSkipper",
+            "designerId": "2d0d5d74-cfee-4d9b-bd7c-2d3c7895195b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperInformation",
+                "selector": "formpanel#skipperInfoForm"
+            },
+            "name": "skipperInformation",
+            "designerId": "6a91afe4-9602-4711-b0e7-46203e791202"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "searchSkipper",
+                "implHandler": [
+                    "this.onSearchSkipper(this.getSkiperYATxt());"
+                ]
+            },
+            "name": "searchSkipper",
+            "designerId": "ea419d23-2599-427b-9ecd-bef5ef8307b4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skiperYATxt",
+                "selector": "textfield#skiperYATxt"
+            },
+            "name": "skiperYATxt",
+            "designerId": "32a95564-33db-4795-919f-27ade1473715"
+        }
+    ]
+}

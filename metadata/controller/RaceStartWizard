@@ -1,0 +1,1173 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceStartWizard"
+    },
+    "designerId": "875bab1d-6830-465d-b2fd-4057494782eb",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#divisionTime",
+                "designer|params": [
+                    "target"
+                ],
+                "designer|targetType": "Ext.ux.field.TimePicker",
+                "fn": "onDivisionTimeChange",
+                "implHandler": [
+                    "this.getStartReviewApplyBtn().setDisabled(false);"
+                ],
+                "name": "change"
+            },
+            "name": "onDivisionTimeChange",
+            "designerId": "ba8b39af-bf90-4d7a-b880-50fba6d6c8dc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesList",
+                "selector": "list#racesList"
+            },
+            "name": "racesList",
+            "designerId": "a729dec7-e32b-40f9-a87b-6643f3755c43"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startReviewBackBtn",
+                "selector": "button#startReviewBackBtn"
+            },
+            "name": "startReviewBackBtn",
+            "designerId": "986ec7c7-e3cd-4fed-8c6b-df3d47bba331"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "entrantsList",
+                "selector": "dataview#entrantsList"
+            },
+            "name": "entrantsList",
+            "designerId": "665975cc-9a91-43bc-8a82-7669ec832ba5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#startRacesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onStartRacesListSelect",
+                "implHandler": [
+                    "//alert('a');\r",
+                    "var me = this,\r",
+                    "    brStore = me.getEntrantsList().getStore();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "brStore.clearFilter(true);\r",
+                    "brStore.filter('raceid', record.get('raceid'));\r",
+                    "me.record = record;\r",
+                    "\r",
+                    "me.getNextStartRacesBtn().enable();\r",
+                    "//alert('b');\r",
+                    "\r",
+                    "me.getRaceStartWizard().down('#startDivisionCmb').getStore().execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,\r",
+                    "        filters: \"where raceid is null or raceid = '\"+record.get('raceid')+\"' order by name asc\"\r",
+                    "    }\r",
+                    "});"
+                ],
+                "name": "select"
+            },
+            "name": "onStartRacesListSelect",
+            "designerId": "a7d680c8-64d1-415a-8150-3a50e4ea54d0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextStartRacesBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextStartButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getRaceStartWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(true);\r",
+                    "\r",
+                    "APP.WarningUnsavedData = true;\r",
+                    "\r",
+                    "new Ext.util.DelayedTask(function(){\r",
+                    "    wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "    wizard.seriesDivisionsStore.filter('raceid', me.record.get('raceid'));\r",
+                    "\r",
+                    "    me.initStarts();\r",
+                    "}).delay(250);\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNextStartButtonTap",
+            "designerId": "e08c8c0f-3ed8-45cb-833f-e01b9fba172f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceStartWizard",
+                "selector": "formpanel#seriesWizardId"
+            },
+            "name": "raceStartWizard",
+            "designerId": "5d3d29d6-3cd7-4233-a89e-81c5ca1a119f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#startStopBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onStartStopButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    min = me.min !== undefined ? me.min : 0,//me.getSequenceId().getValue(),\r",
+                    "    sec = me.sec !== undefined ? me.sec : 0,\r",
+                    "\r",
+                    "    min = me.getSequenceId().getValue(),\r",
+                    "    //sec = 0,\r",
+                    "\r",
+                    "    stopped = me.stopped !== undefined ? !me.stopped : false;\r",
+                    "//debugger;\r",
+                    "\r",
+                    "me.stopped = stopped;\r",
+                    "me.getStartStopBtn().disable();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "if(!countdown){\r",
+                    "    function countdown(){\r",
+                    "        //debugger;\r",
+                    "        //var  min = me.min || 1,\r",
+                    "        //sec = me.sec || 10,\r",
+                    "        //stopped = me.stopped || false;\r",
+                    "\r",
+                    "        me.getStartStopBtn().enable();\r",
+                    "\r",
+                    "        if (sec < 1 && min > 0)\r",
+                    "        {\r",
+                    "            min--;\r",
+                    "            sec = 59;\r",
+                    "        }\r",
+                    "\r",
+                    "\r",
+                    "        if(min == 0 && sec == 0 && me.sequenceNo > 1){\r",
+                    "            me.sequenceNo--;\r",
+                    "            //sec = 10;\r",
+                    "            //debugger;\r",
+                    "            me.getStartOrderCt1().getAt(me.sequences - me.sequenceNo).setLine(me.sequences - me.sequenceNo, Ext.Date.format(new Date(), 'Y-m-d H:i:s'));\r",
+                    "            min = me.getSequenceId().getValue();\r",
+                    "        }\r",
+                    "\r",
+                    "        me.min = min;\r",
+                    "        me.sec = sec;\r",
+                    "\r",
+                    "        if ((min == 0 && sec == 0) || me.stopped == true)\r",
+                    "        {\r",
+                    "            if(min == 0 && sec == 0){\r",
+                    "                me.getStartOrderCt1().getAt(me.sequences).setLine(me.sequences - me.sequenceNo, Ext.Date.format(new Date(), 'Y-m-d H:i:s'));\r",
+                    "            }\r",
+                    "            return;\r",
+                    "        }\r",
+                    "\r",
+                    "        //Used some plain JS here, replace it with your Ext.getCmp\r",
+                    "        me.getTimerTxt().setValue('START ' + (me.sequences - me.sequenceNo + 1) + '  ' + min + ':' + (sec.length == 1 ? '0' : '') + sec);\r",
+                    "\r",
+                    "        sec--;\r",
+                    "\r",
+                    "        setTimeout(countdown, 1000);\r",
+                    "\r",
+                    "\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "if(stopped == false){\r",
+                    "    countdown(me);\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onStartStopButtonTap",
+            "designerId": "f919256f-4668-40ac-baa8-ac48d75f1f3c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sequenceId",
+                "selector": "spinnerfield#sequenceId"
+            },
+            "name": "sequenceId",
+            "designerId": "57dd2ad0-4c03-4d0e-9c9c-4c81bae7ad38"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceBoatsList",
+                "selector": "dataview#raceBoatsList"
+            },
+            "name": "raceBoatsList",
+            "designerId": "ad72d7f4-623e-4f0e-b32f-da8210359b9b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextStartPanelBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextStartPanelButtonTap",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getRaceStartWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    list = me.getRaceStartWizard().down('#raceDivisionsReviewList'),\r",
+                    "    allStart = true,\r",
+                    "    store = list.getStore(),\r",
+                    "    lStore = me.getRaceDivisionsReviewList().getStore();\r",
+                    "\r",
+                    "for(var i = 0; i < store.getCount(); i++){\r",
+                    "    if(!store.data.items[i].data.starttime){\r",
+                    "        allStart = false;\r",
+                    "        break;\r",
+                    "    }\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "//lStore.clearFilter(true);\r",
+                    "//lStore.filter('raceid', me.record.get('raceid'));\r",
+                    "\r",
+                    "\r",
+                    "if (!allStart){\r",
+                    "    Ext.Msg.confirm(\"Confirmation\",\r",
+                    "         \"Not all divisions have started. Are you sure you want to go to Review Race Start screen?\",\r",
+                    "          function(btn){\r",
+                    "        //debugger;\r",
+                    "        if(btn === 'yes'){\r",
+                    "\r",
+                    "            wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "            me.getRaceDivisionsReviewList().refresh();\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    "else{\r",
+                    "    wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "    me.getRaceDivisionsReviewList().refresh();\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "//debugger;"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextStartPanelButtonTap",
+            "designerId": "8d7fa49f-dccf-4626-be95-3d6189a2b53b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionEntrantsList",
+                "selector": "list#divisionEntrantsList"
+            },
+            "name": "divisionEntrantsList",
+            "designerId": "3c95945d-4926-47cb-a04f-a83120dca580"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startOrderCt",
+                "selector": "fieldset#startOrderCt"
+            },
+            "name": "startOrderCt",
+            "designerId": "0688b9d3-23b3-4d41-8b64-bd34224aefd1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startRacesList",
+                "selector": "list#startRacesList"
+            },
+            "name": "startRacesList",
+            "designerId": "d2b7c991-87f5-457b-941c-eb27e756a03a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#exitStartRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onExitButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "//debugger;\r",
+                    "//me.onSave();\r",
+                    "\r",
+                    "if(localStorage.goOffline)\r",
+                    "{\r",
+                    "\r",
+                    "    me.setDataLocal(\"Race_Start\",me.recs);\r",
+                    "    return;\r",
+                    "}\r",
+                    "AJAXCommand({\r",
+                    "    params: me.recs,\r",
+                    "    method: 'SaveStart',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Start save',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "this.getHomePanel().removeAll();\r",
+                    "\r",
+                    "DynaMightMobile.app.getController('Navigation').applyClass('RaceStartWizard');"
+                ],
+                "name": "tap"
+            },
+            "name": "onExitButtonTap",
+            "designerId": "5a607844-669f-4849-95fa-1a2e629bcdfc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "e12bbcd4-c0c9-4e6d-a431-c2e69f78b1dc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "timerTxt",
+                "selector": "textfield#timerTxt"
+            },
+            "name": "timerTxt",
+            "designerId": "fbff2995-a22f-4a79-b5b2-300d91fb8677"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#divisionSelect",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSelectfieldChange",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    ct = me.getStartOrderCt(),\r",
+                    "    division = selectfield.config.rec,\r",
+                    "    currentStart = selectfield.up('startlinect').config.number - 1,\r",
+                    "    tmp, columnNo;\r",
+                    "//debugger;\r",
+                    "\r",
+                    "\r",
+                    "ct.starts[newValue] = ct.starts[newValue] || [];\r",
+                    "ct.starts[newValue].push(division);\r",
+                    "\r",
+                    "\r",
+                    "if(ct.starts[currentStart].length > 1){\r",
+                    "    //ct.starts[currentStart].splice(division.columnNo ? division.columnNo : 0, 1);\r",
+                    "\r",
+                    "\r",
+                    "    for (var i = 0; i < ct.starts[currentStart].length; i++) {\r",
+                    "        tmp = ct.starts[currentStart][i];\r",
+                    "    //debugger;\r",
+                    "        if(tmp.divisionid == division.divisionid){ //|| (start.length > 0 && start[0].divisionid != removedDivision)){\r",
+                    "           columnNo = i;\r",
+                    "        }\r",
+                    "    }\r",
+                    "    ct.starts[currentStart].splice(columnNo, 1);\r",
+                    "}\r",
+                    "else{\r",
+                    "    ct.starts.splice(currentStart, 1);\r",
+                    "    ct.ends.splice(currentStart, 1);\r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "me.createStart(ct.starts, ct, 0);\r",
+                    ""
+                ],
+                "name": "change"
+            },
+            "name": "onSelectfieldChange",
+            "designerId": "1772b574-4aa8-4f2c-a44c-daaaaab85c19"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startStopBtn",
+                "selector": "button#startStopBtn"
+            },
+            "name": "startStopBtn",
+            "designerId": "6f9f69a5-b673-44ea-9059-b6dbed0b7463"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "starts",
+                    "ct",
+                    "type"
+                ],
+                "fn": "createStart",
+                "implHandler": [
+                    "var me = this, start, i, obj, store, d = [],\r",
+                    "    ends = me.getStartOrderCt().ends,\r",
+                    "    bStore = me.getEntrantsList().getStore();\r",
+                    "//debugger;\r",
+                    "me.sequenceNo = starts.length;\r",
+                    "me.sequences = starts.length;\r",
+                    "\r",
+                    "for (i = 0; i < starts.length + 1; i++) {\r",
+                    "    obj = {name: 'Move to Start ' + (i + 1), id: i};\r",
+                    "    d.push(obj);\r",
+                    "}\r",
+                    "\r",
+                    "store = Ext.create('Ext.data.Store', {\r",
+                    "    data: d,\r",
+                    "    model: 'DynaMightMobile.model.MyModel'\r",
+                    "});\r",
+                    "store.setData(d);\r",
+                    "\r",
+                    "ct.removeAll(false);\r",
+                    "\r",
+                    "//debugger;\r",
+                    "for (i = 0; i < starts.length; i++) {\r",
+                    "    start = starts[i];\r",
+                    "\r",
+                    "    if(start.length > 0){ //|| (start.length > 0 && start[0].divisionid != removedDivision)){\r",
+                    "       ct.add({\r",
+                    "           xtype: 'startlinect' ,\r",
+                    "           number: i + 1,\r",
+                    "           itemId: 'startId' + ( i + 1),\r",
+                    "           rec: start,//rec,\r",
+                    "           store: store,\r",
+                    "           type: type,\r",
+                    "           bStore: bStore,\r",
+                    "           endTime: ends[i],\r",
+                    "           onStart: function(date){\r",
+                    "               me.onSave(this.number, date);\r",
+                    "           },\r",
+                    "           onDivision: function(btn, b, c, d){\r",
+                    "               bStore.clearFilter(true);\r",
+                    "               bStore.filter('divisionid', btn.config.rec.divisionid);\r",
+                    "               me.getDivisionEntrantsId().setTitle(btn.config.rec.dname);\r",
+                    "           },\r",
+                    "           onRecall: function(){\r",
+                    "               var that = this;\r",
+                    "               Ext.Msg.confirm(\"Confirmation\", \"Are you sure you want to recall this start?\",\r",
+                    "                   function(btn){\r",
+                    "                       //debugger;\r",
+                    "                       if(btn === 'yes'){\r",
+                    "                           Ext.Msg.confirm(\"Confirmation\", \"Do you want to move division to the end of sequence?\",\r",
+                    "                               function(b){\r",
+                    "                                   //debugger;\r",
+                    "                                   if(b === 'yes'){\r",
+                    "                                       me.onRecall(that.number);\r",
+                    "                                       me.onMoveStart(that.number);\r",
+                    "                                   }\r",
+                    "                                   else{\r",
+                    "                                       me.onRecall(that.number);\r",
+                    "                                       me.createStart(me.getStartOrderCt().starts, me.getStartOrderCt1(), 1);\r",
+                    "\r",
+                    "                                   }\r",
+                    "                               },this);\r",
+                    "                           //me.onRecall(that.number);\r",
+                    "                           //me.createStart(me.getStartOrderCt().starts, me.getStartOrderCt1(), 1);\r",
+                    "                           //me.onMoveStart(that.number);\r",
+                    "                       }\r",
+                    "                   },this);\r",
+                    "           }\r",
+                    "       });\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "//debugger;"
+                ]
+            },
+            "name": "createStart",
+            "designerId": "e9300073-a3a7-4117-a6b7-5e97d9cbed31"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "startNo",
+                    "date"
+                ],
+                "fn": "onSave",
+                "implHandler": [
+                    "var me = this, recs = me.recs, rec, date,\r",
+                    "    starts = me.getStartOrderCt().starts[startNo - 1],\r",
+                    "    list = me.getRaceStartWizard().down('#raceDivisionsReviewList');\r",
+                    "\r",
+                    "//debugger;\r",
+                    "me.getStartOrderCt().ends[startNo - 1] = date;\r",
+                    "\r",
+                    "for (var i = 0; i < starts.length; i++) {\r",
+                    "    //date = Ext.Date.format(new Date(), 'Y-m-d H:i:s');\r",
+                    "    rec = list.getStore().findRecord('divisionid',starts[i].divisionid);\r",
+                    "    if(rec){\r",
+                    "        rec.data.starttime = date;\r",
+                    "    }\r",
+                    "    //debugger;\r",
+                    "    recs.push({\r",
+                    "        divisionid: starts[i].divisionid,\r",
+                    "        raceid: me.record.data.raceid,\r",
+                    "        raceseriesid: me.record.data.raceseriesid,\r",
+                    "        startdate: date,\r",
+                    "        starttime: date\r",
+                    "    });\r",
+                    "\r",
+                    "}"
+                ]
+            },
+            "name": "onSave",
+            "designerId": "85ed0d98-d111-4687-b5fe-fdb2d7fb2a81"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "startNo"
+                ],
+                "fn": "onRecall",
+                "implHandler": [
+                    "var me = this, recs = me.recs, rec, date, tmpArr,\r",
+                    "    starts = me.getStartOrderCt().starts[startNo - 1],\r",
+                    "    list = me.getRaceStartWizard().down('#raceDivisionsReviewList');\r",
+                    "\r",
+                    "\r",
+                    "me.getStartOrderCt().ends[startNo - 1] = null;\r",
+                    "\r",
+                    "for (var i = 0; i < starts.length; i++) {\r",
+                    "    date = Ext.Date.format(new Date(), 'Y-m-d H:i:s');\r",
+                    "    rec = list.getStore().findRecord('divisionid',starts[i].divisionid);\r",
+                    "    if(rec){\r",
+                    "        rec.data.starttime = date;\r",
+                    "    }\r",
+                    "\r",
+                    "    tmpArr = recs;\r",
+                    "    //debugger;\r",
+                    "\r",
+                    "\r",
+                    "    for (var j = 0; j < tmpArr.length; j++) {\r",
+                    "        if(starts[i].divisionid == tmpArr[j].divisionid){\r",
+                    "            recs.splice(j, 1);\r",
+                    "            break;\r",
+                    "        }\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "onRecall",
+            "designerId": "7cf15082-f2a6-4b39-89e6-ef31e70e991d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDivisionsReviewList",
+                "selector": "list#raceDivisionsReviewList"
+            },
+            "name": "raceDivisionsReviewList",
+            "designerId": "3c3f5df4-1fa4-4722-bbf9-79e408738b8f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#editDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onEditDivisionButtonTap",
+                "implHandler": [
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onEditDivisionButtonTap",
+            "designerId": "7eca4719-bdd4-4f65-bae2-3e5747fa0b3b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nextStartRacesBtn",
+                "selector": "button#nextStartRacesBtn"
+            },
+            "name": "nextStartRacesBtn",
+            "designerId": "dc54c410-dabb-4745-8bae-3d2413092f98"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextStartOrderBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextOrderButtonTap",
+                "implHandler": [
+                    "var me = this, starts,\r",
+                    "    wizard = me.getRaceStartWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    items = me.getStartOrderCt().items, s = [];\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "starts = me.getStartOrderCt().starts;\r",
+                    "\r",
+                    "for (var i = 1; i < items.length && i < starts.length + 1; i++) {\r",
+                    "    if(!items.items[i].down('#notStartChk')._checked)\r",
+                    "        s.push(starts[i - 1]);\r",
+                    "}\r",
+                    "\r",
+                    "me.getStartOrderCt().starts = s;\r",
+                    "\r",
+                    "me.createStart(s, me.getStartOrderCt1(), 1);\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNextOrderButtonTap",
+            "designerId": "f13ccd9a-bcb7-4e0c-b152-40e967158c95"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#startBackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackButtonTap",
+                "implHandler": [
+                    "var me = this, starts,\r",
+                    "    wizard = me.getRaceStartWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "//wizard.setActiveItem(selectedIndex - 1);\r",
+                    "\r",
+                    "wizard.animateActiveItem(selectedIndex - 1,\r",
+                    "        {type: 'slide', direction: 'right'});\r",
+                    "\r",
+                    "me.initStarts();"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackButtonTap",
+            "designerId": "1a150adb-39fa-43d8-9dfb-14e686f53047"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startOrderCt1",
+                "selector": "fieldset#startOrderCt1"
+            },
+            "name": "startOrderCt1",
+            "designerId": "212d18e0-c769-436c-b86d-8da91612e4b1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "number"
+                ],
+                "fn": "onMoveStart",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    ct = me.getStartOrderCt(),\r",
+                    "    ct1 = me.getStartOrderCt1(),\r",
+                    "    currentStart = number - 1,\r",
+                    "    tmp, endTmp, columnNo;\r",
+                    "//debugger;\r",
+                    "\r",
+                    "endTmp = ct.ends[currentStart];\r",
+                    "tmp = ct.starts[currentStart];\r",
+                    "\r",
+                    "ct.starts.splice(currentStart, 1);\r",
+                    "ct.starts.push(tmp);\r",
+                    "\r",
+                    "ct.ends.splice(currentStart, 1);\r",
+                    "ct.ends.push(endTmp);\r",
+                    "\r",
+                    "\r",
+                    "me.createStart(ct.starts, ct1, 1);"
+                ]
+            },
+            "name": "onMoveStart",
+            "designerId": "a8722c6d-9464-46e3-b240-304c047961d9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#startReviewBackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onReviewBackButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getRaceStartWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "Ext.Msg.confirm(\"Back Confirmation\", \"All divisions have started. Are you sure you want to return to Race Start screen?\", function(btn){\r",
+                    "\r",
+                    "    if(btn === 'yes'){\r",
+                    "        //wizard.setActiveItem(selectedIndex - 1);\r",
+                    "        wizard.animateActiveItem(selectedIndex - 1,\r",
+                    "                {type: 'slide', direction: 'right'});\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onReviewBackButtonTap",
+            "designerId": "58aa04c7-785f-4548-b1a9-ba1c5ed2cd16"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#raceDivisionsReviewList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRaceDivisionReviewListSelect",
+                "implHandler": [
+                    "var me = this,",
+                    "    bStore;",
+                    "if(me.getEntrantsList() == null){",
+                    "    return;",
+                    "}",
+                    "bStore = me.getEntrantsList().getStore();",
+                    "",
+                    "me.getRaceStartWizard().down('#divisionTime').setValue(new Date(record.get('starttime')));",
+                    "",
+                    "bStore.clearFilter(true);",
+                    "",
+                    "bStore.filter('divisionid', record.get('divisionid'));",
+                    "",
+                    "me.getStartReviewApplyBtn().setDisabled(true);"
+                ],
+                "name": "select"
+            },
+            "name": "onRaceDivisionReviewListSelect",
+            "designerId": "9ea71c04-a8bb-48e5-aeed-7238fb3df958"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startReviewApplyBtn",
+                "selector": "button#startReviewApplyBtn"
+            },
+            "name": "startReviewApplyBtn",
+            "designerId": "169f3b93-1212-41db-bae1-ab47440e2639"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startReviewEditBtn",
+                "selector": "button#startReviewEditBtn"
+            },
+            "name": "startReviewEditBtn",
+            "designerId": "cb750106-c676-4a0a-9f1f-da5588d5d0ae"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#startReviewApplyBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onApplyReviewButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    list = me.getRaceDivisionsReviewList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    time = me.getRaceStartWizard().down('#divisionTime'),\r",
+                    "    v = Ext.Date.format(time.getValue(), 'Y-m-d H:i:s');\r",
+                    "\r",
+                    "//debugger;\r",
+                    "if (selected.length > 0) {\r",
+                    "    rec = selected[0];\r",
+                    "    rec.set('starttime', v);\r",
+                    "}\r",
+                    "\r",
+                    "for(var i = 0; i < me.recs.length; i++){\r",
+                    "    var r = me.recs[i];\r",
+                    "    if(r.divisionid == rec.get('divisionid')){\r",
+                    "        r.starttime = v;\r",
+                    "        //debugger;\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "me.getStartReviewApplyBtn().setDisabled(true);"
+                ],
+                "name": "tap"
+            },
+            "name": "onApplyReviewButtonTap",
+            "designerId": "00c3b05e-5f34-4a95-852c-074419372874"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "from",
+                    "data"
+                ],
+                "fn": "setDataLocal",
+                "implHandler": [
+                    "if(from === \"Race_Start\"){\r",
+                    "    var raceStore = CreateStore('raceseriesdivision');\r",
+                    "\r",
+                    "    raceStore.execConfig({});// to set sql proxy to store\r",
+                    "\r",
+                    "    //pass data to acces them\r",
+                    "    raceStore.toSaveData = data;\r",
+                    "\r",
+                    "    raceStore.load({callback: function(vals,st,a){\r",
+                    "        for(var i=0; i<this.toSaveData.length;i++){\r",
+                    "            var s = this.toSaveData[i];\r",
+                    "            for(var j=0;j<vals.length;j++){\r",
+                    "                //delete vals[j].data.startdate;// delete this because it has no use and IS NOT AVAILABLE IN SQL DB\r",
+                    "                var v = vals[j].data;\r",
+                    "                if(v.raceseriesid === s.raceseriesid && v.divisionid === s.divisionid){\r",
+                    "\r",
+                    "                    vals[j].set('sysrowstate','3');\r",
+                    "                    vals[j].set('starttime',s.starttime);\r",
+                    "                }\r",
+                    "            }\r",
+                    "        }\r",
+                    "        this.sync();\r",
+                    "\r",
+                    "    }\r",
+                    "   });\r",
+                    "\r",
+                    "}"
+                ]
+            },
+            "name": "setDataLocal",
+            "designerId": "caed9ec2-c914-4046-8ddb-2940490b544d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#refreshStartOrderBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRefreshStartOrderTap",
+                "implHandler": [
+                    "this.getDivisionEntrantsList().getStore().load();\r",
+                    "this.initStarts();"
+                ],
+                "name": "tap"
+            },
+            "name": "onRefreshStartOrderTap",
+            "designerId": "93196b10-7967-4e69-838c-7f5e179b509f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initStarts",
+                "implHandler": [
+                    "var me = this, vals, items, rec, d = [], store, i, starts = [], ends = [], obj,",
+                    "    wizard = me.getRaceStartWizard();",
+                    "",
+                    "items = wizard.seriesDivisionsStore.getData().items;",
+                    "",
+                    "for (i = 0; i < items.length; i++) {",
+                    "    rec = items[i];",
+                    "    //rec.data.currentStart = i;",
+                    "    //obj = {name: 'Move to Start ' + (i + 1), id: i, rec: rec};",
+                    "    starts.push([rec.data]);",
+                    "",
+                    "    ends.push(null);",
+                    "    //d.push(obj);",
+                    "}",
+                    "",
+                    "store = Ext.create('Ext.data.Store', {",
+                    "    data: d,",
+                    "    model: 'DynaMightMobile.model.MyModel'",
+                    "});",
+                    "//store.setData(d);",
+                    "",
+                    "",
+                    "me.getStartOrderCt().starts = starts;",
+                    "me.getStartOrderCt().ends = ends;",
+                    "",
+                    "me.createStart(starts, me.getStartOrderCt(), 0);",
+                    "",
+                    "me.recs = [];//new Ext.util.MixedCollection();",
+                    "",
+                    "Ext.Viewport.setMasked(false);",
+                    ""
+                ]
+            },
+            "name": "initStarts",
+            "designerId": "a0318642-450a-43cb-b446-1c0c6473fe01"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionEntrantsId",
+                "selector": "fieldset#divisionEntrantsId"
+            },
+            "name": "divisionEntrantsId",
+            "designerId": "78a7a4de-73b5-4fe9-8d49-28adb14a61f0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#startDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onDivisionSelectfieldChange",
+                "implHandler": [
+                    "var bStore = this.getEntrantsList().getStore();\r",
+                    "\r",
+                    "bStore.clearFilter();\r",
+                    "//debugger;\r",
+                    "if(newValue)\r",
+                    "    bStore.filter('divisionid', newValue);"
+                ],
+                "name": "change"
+            },
+            "name": "onDivisionSelectfieldChange",
+            "designerId": "6b75a05a-cabb-4f50-8f45-8c0694454d7b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#startReviewEditBtn",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.Button",
+                "fn": "onStartReviewEditBtnTap",
+                "implHandler": [
+                    "//sponsorname = me.getSeriesDetailsFrm().getValues().sponsorname,",
+                    "this.getStartReviewEditBtn().setDisabled(true);",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onStartReviewEditBtnTap",
+            "designerId": "7177243a-de4f-484e-bf6c-41196e7ad768"
+        }
+    ]
+}

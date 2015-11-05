@@ -1,0 +1,57 @@
+.company{
+	font-family: verdana,arial,helvetica;
+	font-size: 15px;
+	color:#000000;
+	font-weight:bold;
+}
+
+.slogan {
+	font-family: verdana,arial,helvetica;
+	font-size: 11px;
+	color:#000000;
+	font-weight: bold;
+}
+
+.magin {
+	padding:5px;
+}
+table { 
+	font-size:100%;
+} 
+body { font-size:76%;
+	margin:0;
+	padding:0; 
+	background-color:#797979;
+	color:#000000;
+}
+
+a:link {color:#fb7909; text-decoration: none;}
+a:visited {color:#fb7909; text-decoration: none;}
+a:hover {color:#c40618; text-decoration: none;}
+a:active {color:#c40618; text-decoration: none;}
+
+
+.bg_l {background-image:url(images/bg_l.jpg);
+		background-repeat:repeat-y;
+		background-position:left;}
+.bg_r {background-image:url(images/bg_r.jpg);
+		background-repeat:repeat-y;
+		background-position:right;}
+.mu_r {background-image:url(images/mu_r.jpg);
+		background-repeat:repeat-y;
+		background-position:right;}
+
+.menu {background-color:#eeeeee;}
+.bgtop {background-image:url(images/bgtop.jpg);
+		 background-repeat:repeat-x;
+		 background-position:top;}
+
+.bottom_mu {background-image:url(images/mubottom.jpg);
+		 background-repeat:repeat-x;
+		 background-position:top;}
+.bgwhite{background-color:#ffffff;}
+
+.bottom {background-image:url(images/bottom.jpg);
+		 background-position:bottom;
+		 background-repeat:repeat-x;}
+

@@ -1,0 +1,79 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "SkipperBoatList",
+        "designer|userClassName": "SkipperBoatList",
+        "itemId": "skipperBoatPanel",
+        "layout": "vbox"
+    },
+    "designerId": "d9bee978-9de8-462c-8de0-76bee6b8c2ca",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "itemId": "myBoatList",
+                "layout|flex": 1
+            },
+            "name": "MyList42",
+            "designerId": "5b9ea70e-081e-4390-94bf-064d3a3ff1a2",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "itemTpl",
+                        "implHandler": [
+                            "{[GetTemplate('myboat', values)]}"
+                        ]
+                    },
+                    "name": "tpl60",
+                    "designerId": "bd07e1f5-7a09-40ce-87d7-8da404b951b1"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    boatStore = CreateStore(\"boat\"),\r",
+                    "    boatEntity = GetEntityByName(\"boat\");\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityView(boatEntity.entityid).entityviewid ,\r",
+                    "        filters: ' WHERE boatcrewmemberid =  ' + 2\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "me.down('#myBoatList').setStore(boatStore);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "9f1b0f4a-336c-4ca6-8e89-d68c87f7edef"
+        }
+    ]
+}

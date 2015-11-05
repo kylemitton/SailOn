@@ -1,0 +1,1719 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RegistrationWizard"
+    },
+    "designerId": "9ddb5705-5f86-4963-9ff5-792ead83464d",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#loginNextBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onLoginNextButtonTap",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    form = me.getRegistrationLoginFrm(),\r",
+                    "    name = form.down('#name').getValue();\r",
+                    "\r",
+                    "me.wizard = me.getRegistrationWizard();\r",
+                    "\r",
+                    "me._wizard = {};\r",
+                    "\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        name: name,\r",
+                    "        password: form.down('#password').getValue()\r",
+                    "    },\r",
+                    "    method: 'BoatLogin',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            if(obj.boat.length < 1){\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Boat login in',//T('errLogIn'),\r",
+                    "                    message: 'Boat name or password is incorect!',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "            else{\r",
+                    "                me.jumpCards(1);\r",
+                    "                me.onBoatLogin(obj);\r",
+                    "            }\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Sign in',//T('errLogIn'),\r",
+                    "                message: 'Sing in error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onLoginNextButtonTap",
+            "designerId": "332f717b-649c-417e-95f3-717b6aa27955"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registrationWizard",
+                "selector": "container#seriesWizardId"
+            },
+            "name": "registrationWizard",
+            "designerId": "a280b28d-958a-4fc9-bcaf-2fd8fe810913"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registrationLoginFrm",
+                "selector": "formpanel#registrationLoginFrm"
+            },
+            "name": "registrationLoginFrm",
+            "designerId": "073da01c-ca3f-4856-bf86-fd20e65b1823"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatDetails",
+                "selector": "formpanel#detailsPnl"
+            },
+            "name": "boatDetails",
+            "designerId": "36baa65b-3495-4065-984c-290b4e75e109"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "obj"
+                ],
+                "fn": "onBoatLogin",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    html,\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    boatStore = CreateStore(\"boat\");\r",
+                    "//debugger;\r",
+                    "\r",
+                    "try{\r",
+                    "if(obj.boat.length > 0){\r",
+                    "    me._wizard.boat = obj.boat[0];\r",
+                    "    //me._wizard.boatStore = boatStore;\r",
+                    "    //boatStore.applyData(me._wizard.boat);\r",
+                    "    if(me._wizard.boat.coverstart)\r",
+                    "        me._wizard.boat.coverstart = new Date(me._wizard.boat.coverstart);\r",
+                    "\r",
+                    "    if(me._wizard.boat.coverend)\r",
+                    "        me._wizard.boat.coverend = new Date(me._wizard.boat.coverend);\r",
+                    "\r",
+                    "    //debugger;\r",
+                    "    me.getBoatDetails().setValues(me._wizard.boat);\r",
+                    "    me.getSeriesDetails().down('#skiperYATxt').setValue(me._wizard.boat.ya);\r",
+                    "    DynaMightMobile.app.getController('SkipperInformation').searchSkipper();\r",
+                    "    \r",
+                    "    me.onBoatSeries();\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "raceStore.applyData(obj.races);\r",
+                    "//me.getSeriesRacesList().setStore(raceStore);\r",
+                    "me.getSerieRacesList().setStore(raceStore);\r",
+                    "\r",
+                    "\r",
+                    "}\r",
+                    "catch(e){\r",
+                    "    alert(e);\r",
+                    "}"
+                ]
+            },
+            "name": "onBoatLogin",
+            "designerId": "45fe8151-697f-4c00-b723-731d4997c4f7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesList",
+                "selector": "list#seriesList"
+            },
+            "name": "seriesList",
+            "designerId": "55d661d6-758c-41f2-a935-c13dc4256104"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no",
+                    "cardNo"
+                ],
+                "fn": "jumpCards",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    selectedIndex = me.wizard.items.indexOf(me.wizard._activeItem);\r",
+                    "\r",
+                    "no = no ? (selectedIndex + no) : cardNo;\r",
+                    "\r",
+                    "//me.wizard.setActiveItem(no);\r",
+                    "me.wizard.animateActiveItem(no,\r",
+                    "  {type: 'slide', direction: selectedIndex > no? 'right' : 'left'});\r",
+                    "//debugger;"
+                ]
+            },
+            "name": "jumpCards",
+            "designerId": "0d3ee603-2683-4f85-9975-9f45a34dea06"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "filterStores",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var me = this,\r",
+                    "    rList = me.getSerieRacesList(),\r",
+                    "    rbList = me.getBoatRacesList(),\r",
+                    "    //srList = me.getSeriesRacesList(),\r",
+                    "    //srStore = srList.getStore(),\r",
+                    "    rStore = rList.getStore(),\r",
+                    "    rbStore = rbList.getStore();\r",
+                    "\r",
+                    "rStore.clearFilter(true);\r",
+                    "rbStore.clearFilter(true);\r",
+                    "//srStore.clearFilter(true);\r",
+                    "\r",
+                    "rStore.filter('raceseriesid', me._wizard.series.get('raceseriesid'));\r",
+                    "rbStore.filter('raceseriesid', me._wizard.series.get('raceseriesid'));\r",
+                    "//srStore.filter('raceseriesid', me._wizard.series.get('raceseriesid'));\r",
+                    "\r",
+                    "//fill skipper\r",
+                    "//debugger;\r",
+                    "//me.getSeriesDetails().reset();\r",
+                    "//me.getRaceDetails().reset();\r",
+                    "//me.getSeriesDetails().setValues(me._wizard.series.data);\r",
+                    "//me.getRaceDetails().setValues(me._wizard.series.data);"
+                ]
+            },
+            "name": "filterStores",
+            "designerId": "051ff4ac-1513-48f8-97b0-23d29bedcc6f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#newRegistrationBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNewRegistrationButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "if(me._wizard.boat){\r",
+                    "\r",
+                    "\r",
+                    "    this.jumpCards(1);\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNewRegistrationButtonTap",
+            "designerId": "ef935506-62af-412d-b803-0e6731cf0025"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextSBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextSButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    val = me.getSeriesAvailable().getValues().registrationRadio,\r",
+                    "    params;\r",
+                    "\r",
+                    "//debugger;\r",
+                    "if(me.getSeriesList().selected.length  ==  0){\r",
+                    "    //todo message\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "me.jumpCards(1);\r",
+                    "\r",
+                    "\r",
+                    "me._wizard.series = me.getSeriesList().selected.get(0);\r",
+                    "\r",
+                    "me.filterStores();"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextSButtonTap",
+            "designerId": "532e3ea1-4c10-4fce-90cc-28fee6a4520d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextSeriesBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextSeriesButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    rev = me.getReviewCard(),\r",
+                    "    status = rev.down('#statusTxt'),\r",
+                    "    cost = rev.down('#costTxt');\r",
+                    "\r",
+                    "me.isFormValid = true;\r",
+                    "\r",
+                    "me.checkRequiredControls(me.getSeriesDetails());\r",
+                    "\r",
+                    "if(!me.isFormValid){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "//debugger;\r",
+                    "AJAXCommand({\r",
+                    "    params: me.getSeriesDetails().getValues(),\r",
+                    "    method: 'UpdateSkipper',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Skipper save',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "status.setValue(me._wizard.series.get('status') || 'New');\r",
+                    "cost.setValue(me._wizard.series.raw.entrycost);\r",
+                    "//debugger;\r",
+                    "\r",
+                    "this.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextSeriesButtonTap",
+            "designerId": "53425977-29ff-4bd7-92b5-7c21b7eb08fe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextRaceButtonTap",
+                "implHandler": [
+                    "this.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextRaceButtonTap",
+            "designerId": "24dd7059-7dcc-41a8-a70f-8116a06aa436"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#backBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackBoatButtonTap",
+                "implHandler": [
+                    "\r",
+                    "this.jumpCards(-1);\r",
+                    "//this.jumpCards(null, 1);\r",
+                    "//this.onBoatSeries();"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackBoatButtonTap",
+            "designerId": "05bce9d5-1e0f-456f-92de-39dc495bc398"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#boatLoginNextBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBoatLoginNextButtonTap",
+                "implHandler": [
+                    "this.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onBoatLoginNextButtonTap",
+            "designerId": "e5584c95-72de-41e7-a5c1-4eb60852c788"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#continueBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onContinueButtonTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var me = this,\r",
+                    "    type;\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "if(me.getEntriesList().selected.length  > 0){\r",
+                    "\r",
+                    "    me._wizard.series = this.getEntriesList().selected.get(0);\r",
+                    "\r",
+                    "    type = me._wizard.series.get('type');\r",
+                    "\r",
+                    "    //debugger;\r",
+                    "    if(type == 'Race Entry'){\r",
+                    "        me.getIndividualRadio().check();\r",
+                    "    }else{\r",
+                    "        me.getSeriesRadio().check();\r",
+                    "    }\r",
+                    "\r",
+                    "    me.filterStores();\r",
+                    "\r",
+                    "    me.jumpCards(type == 'Race Entry' ? 2 : 3);\r",
+                    "\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onContinueButtonTap",
+            "designerId": "db1ab079-33c0-4c9f-a099-f4c157d56905"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "entriesList",
+                "selector": "list#entriesList"
+            },
+            "name": "entriesList",
+            "designerId": "84655a6f-5192-45a8-a7e7-b27d240aecae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesRadio",
+                "selector": "radiofield#seriesRadio"
+            },
+            "name": "seriesRadio",
+            "designerId": "67b1ba8f-46fc-4e22-ab8b-459970166a02"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "registrationTypeFS",
+                "selector": "fieldset#registrationTypeFS"
+            },
+            "name": "registrationTypeFS",
+            "designerId": "7b337e14-f7a5-4051-8957-ab139a78e3c0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesAvailable",
+                "selector": "formpanel#seriesAvailable"
+            },
+            "name": "seriesAvailable",
+            "designerId": "4621dc9d-0250-4bb2-a2f6-497488d3016a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveBoatButtonTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if(!this.getBoatDetails())\r",
+                    "{\r",
+                    "    //we save boat from boat details\r",
+                    "    return;\r",
+                    "}\r",
+                    "var me = this, item, values,\r",
+                    "    form = this.getBoatDetails(),\r",
+                    "    items = form.getItems().items,\r",
+                    "    bStore = CreateStore('boat');\r",
+                    "//debugger;\r",
+                    "\r",
+                    "me.isFormValid = true;\r",
+                    "\r",
+                    "me.checkRequiredControls(form);\r",
+                    "\r",
+                    "if(!me.isFormValid){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "rec = form.getValues();\r",
+                    "rec.EntityFields = bStore._model.prototype.entityFields;\r",
+                    "rec.EntityName = 'boat';\r",
+                    "\r",
+                    "if(me._wizard.boat){\r",
+                    "    bStore.execConfig({\r",
+                    "        method: 'EditEntity',\r",
+                    "        params: rec,\r",
+                    "        callback: function(store, a, b, c){\r",
+                    "            me.onBoatSeries();\r",
+                    "        }\r",
+                    "    });\r",
+                    "\r",
+                    "    \r",
+                    "    var html = '<div class=\"weather-widget\" style=\"margin:5px\"><h3>'+ rec.name +'</h3><h2>'\r",
+                    "    + ' </h2>'\r",
+                    "    + '<p></p><small>' + rec.hullnumber +'</small><p></p></div>';\r",
+                    "\r",
+                    "    me.getRegBoatLbl().updateHtml(html);\r",
+                    "    //debugger;\r",
+                    "}\r",
+                    "else{\r",
+                    "    AJAXCommand({\r",
+                    "        params: rec,\r",
+                    "        method: 'SaveBoat',\r",
+                    "        scope: me,\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            //debugger;\r",
+                    "            if (status) {\r",
+                    "                //debugger;\r",
+                    "                me._wizard.boat = {};\r",
+                    "                me._wizard.boat.boatid = obj.result.boatid;\r",
+                    "                me._wizard.boat.name = rec.name;\r",
+                    "                me._wizard.boat.hullnumber = rec.hullnumber;\r",
+                    "                me.getBoatDetails().down('#boatid').setValue(obj.result.boatid);\r",
+                    "                me.onBoatSeries();\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Save boat',//T('errLogIn'),\r",
+                    "                    message: 'Error!',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveBoatButtonTap",
+            "designerId": "9100c896-597c-4b75-b4d2-aa741e26afd8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onBoatSeries",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    boatSeriesStore = CreateStore(\"raceseriesboat\"),\r",
+                    "    raceSeriesStore = CreateStore(\"raceseries\"),\r",
+                    "    boatRacesStore = CreateStore(\"raceboat\"),\r",
+                    "    html;\r",
+                    "\r",
+                    "\r",
+                    "html = '<div class=\"weather-widget\" style=\"margin:5px\"><h3>'+ me._wizard.boat.name +'</h3><h2>'\r",
+                    "+ ' </h2>'\r",
+                    "+ '<p></p><small>' + me._wizard.boat.hullnumber +'</small><p></p></div>';\r",
+                    "\r",
+                    "me.getRegBoatLbl().setHtml(html);\r",
+                    "\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params:  me._wizard.boat.boatid,\r",
+                    "    method: 'BoatSeries',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            boatSeriesStore.applyData(obj.boatentries);\r",
+                    "            me.getEntriesList().setStore(boatSeriesStore);\r",
+                    "            me.getEntriesList().selected = new Ext.util.MixedCollection();\r",
+                    "\r",
+                    "            raceSeriesStore.applyData(obj.availableseries);\r",
+                    "            me.getSeriesList().setStore(raceSeriesStore);\r",
+                    "            me.getSeriesList().selected = new Ext.util.MixedCollection();\r",
+                    "\r",
+                    "            boatRacesStore.applyData(obj.registeredraces);\r",
+                    "            me.getBoatRacesList().setStore(boatRacesStore);\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Load boat series',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "name": "onBoatSeries",
+            "designerId": "f2ec7e89-045c-4b34-b27a-8033843df82d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "serieRacesList",
+                "selector": "list#serieRacesList"
+            },
+            "name": "serieRacesList",
+            "designerId": "7fd0c4a7-7918-48f1-acae-94cd2fc0c64e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatRacesList",
+                "selector": "list#boatRacesList"
+            },
+            "name": "boatRacesList",
+            "designerId": "85993e20-4b2c-426e-8509-b38597e6c10c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddRaceButtonTap",
+                "implHandler": [
+                    "var me = this, race,\r",
+                    "    rList = me.getSerieRacesList(),\r",
+                    "    rStore = rList.getStore(),\r",
+                    "    rbStore = me.getBoatRacesList().getStore();\r",
+                    "\r",
+                    "if(rList.selected.length > 0 && rbStore.find('raceid', rList.selected.get(0).get('raceid')) < 0){\r",
+                    "    race = rList.selected.get(0);\r",
+                    "\r",
+                    "    rbStore.insert(0, {\r",
+                    "        raceid: race.get('raceid'),\r",
+                    "        boatid: me._wizard.boat.boatid,\r",
+                    "        rname: race.get('name'),\r",
+                    "        raceseriesid: me._wizard.series.get('raceseriesid')\r",
+                    "    });\r",
+                    "\r",
+                    "    rStore.remove(race);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddRaceButtonTap",
+            "designerId": "4a3aedd1-b555-4336-a334-b90dc3beeb86"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#removeRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRemoveRaceButtonTap",
+                "implHandler": [
+                    "var me = this, race,\r",
+                    "    rbList = me.getBoatRacesList(),\r",
+                    "    rbStore = rbList.getStore(),\r",
+                    "    rAllStore = me.getSerieRacesList().getStore();\r",
+                    "//debugger;\r",
+                    "if(rbList.selected.length > 0){\r",
+                    "    race = rbList.selected.get(0);\r",
+                    "\r",
+                    "    rbStore.remove(race);\r",
+                    "\r",
+                    "    rAllStore.insert(0, {\r",
+                    "        raceid: race.get('raceid'),\r",
+                    "        name: race.get('rname'),\r",
+                    "        raceseriesid: me._wizard.series.get('raceseriesid')\r",
+                    "    });\r",
+                    "\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onRemoveRaceButtonTap",
+            "designerId": "00059e2e-38d3-4132-8d9a-fb0c171d69c3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextSaveRacesBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextSaveRacesButtonTap",
+                "implHandler": [
+                    "var me = this, race,\r",
+                    "    rbList = me.getBoatRacesList(),\r",
+                    "    rbStore = rbList.getStore(),\r",
+                    "    boatRaces = rbStore.getAllRecords(),\r",
+                    "    count = rbStore.getCount(),\r",
+                    "    rev = me.getReviewCard(),\r",
+                    "    status = rev.down('#statusTxt'),\r",
+                    "    cost = rev.down('#costTxt'),\r",
+                    "    val = me.getRaceDetails().getValues().registrationRadio,\r",
+                    "    params = {},type;\r",
+                    "//debugger;\r",
+                    "me.getSkipperInformationToolbar().setHidden(true);\r",
+                    "status.setValue(me._wizard.series.get('status') || 'New');\r",
+                    "\r",
+                    "cost.setValue(me._wizard.series.raw.raceentrycost * count);\r",
+                    "\r",
+                    "type = (val == 'seriesRadio') ? 'Series Entry' : 'Race Entry';\r",
+                    "\r",
+                    "if(!me._wizard.series.get('raceseriesboatid'))\r",
+                    "{\r",
+                    "    params = me.getSeriesList().selected.get(0).data;\r",
+                    "    params.type = type;\r",
+                    "    params.boatid = me._wizard.boat.boatid;\r",
+                    "\r",
+                    "\r",
+                    "    AJAXCommand({\r",
+                    "        params: params,\r",
+                    "        method: 'SaveBoatSeries',\r",
+                    "        scope: me,\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            //debugger;\r",
+                    "            if (status) {\r",
+                    "                //debugger;\r",
+                    "                me._wizard.series.data.raceseriesboatid = obj.result.raceseriesboatid;\r",
+                    "                me.filterStores();\r",
+                    "                me.jumpCards(1);\r",
+                    "                //me.jumpCards(val == 'seriesRadio' ? 1 : 2);\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Registration',//T('errLogIn'),\r",
+                    "                    message: 'Error!',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    "else{\r",
+                    "    me.jumpCards(1);\r",
+                    "}\r",
+                    "return;\r",
+                    "\r",
+                    "if(type == 'Race Entry' || me._wizard.series.get('raceseriesboatid')){\r",
+                    "    AJAXCommand({\r",
+                    "        params: {\r",
+                    "            boatraces: boatRaces,\r",
+                    "            boatid: me._wizard.boat.boatid,\r",
+                    "            raceseriesid: me._wizard.series.get('raceseriesid')\r",
+                    "        },\r",
+                    "        method: 'SaveBoatRaces',\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            if (status) {\r",
+                    "                me.jumpCards(1);\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Races save',//T('errLogIn'),\r",
+                    "                    msg: 'Error.',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNextSaveRacesButtonTap",
+            "designerId": "b5eab0cf-1917-4a1c-a840-ebf6bf2e2dd6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesDetails",
+                "selector": "formpanel#seriesDetails"
+            },
+            "name": "seriesDetails",
+            "designerId": "44c3b479-7127-4f1c-a054-364f622877fa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDetails",
+                "selector": "formpanel#raceDetails"
+            },
+            "name": "raceDetails",
+            "designerId": "d3255b95-1889-48d0-9b1c-f96694245ad0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#exitBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onExitButtonTap",
+                "implHandler": [
+                    "this.getHomePanel().removeAll();\r",
+                    "\r",
+                    "DynaMightMobile.app.getController('Navigation').applyClass('RegistrationWizard');"
+                ],
+                "name": "tap"
+            },
+            "name": "onExitButtonTap",
+            "designerId": "f6ef5ed4-c1ba-4dcd-95dc-7698fbdf6fc5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "10d4262a-f011-4952-94b8-df2ccb7445db"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reviewCard",
+                "selector": "formpanel#reviewCard"
+            },
+            "name": "reviewCard",
+            "designerId": "663f746c-9dc5-4b4f-b41f-377dfb8d7cee"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#skipperCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSkipperSelectfieldChange",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if(newValue){\r",
+                    "    this.getSeriesDetails().setValues(selectfield.record.data);\r",
+                    "}"
+                ],
+                "name": "change"
+            },
+            "name": "onSkipperSelectfieldChange",
+            "designerId": "ee071a9c-5ab6-47bb-b224-bbe2ebf45ef4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextRaceDBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRaceDivisionNextButtonTap",
+                "implHandler": [
+                    "var me = this,",
+                    "    params = {},",
+                    "    rbList = me.getBoatRacesList(),",
+                    "    rbStore = rbList.getStore(),",
+                    "    boatRaces = rbStore.getFilteredRecords(),",
+                    "    divisions = me.getRRaceDivisionsList().getStore().getAllRecords();",
+                    "",
+                    "",
+                    "if(divisions.length < 1){",
+                    "    Ext.Msg.alert('Division','Must select a division!');",
+                    "    /*Ext.Msg.show({",
+                    "        title: 'Division',//T('errLogIn'),",
+                    "        msg: 'Must select a division!',//T(''),",
+                    "        buttons: Ext.Msg.OK,",
+                    "        icon: Ext.Msg.ERROR,",
+                    "        modal: true",
+                    "    });*/",
+                    "    return;",
+                    "}",
+                    "",
+                    "//params = me.getSeriesList().selected.get(0).data;",
+                    "params.boatid = me._wizard.boat.boatid;",
+                    "",
+                    "AJAXCommand({",
+                    "        params: {",
+                    "            boatraces: boatRaces,",
+                    "            boatid: me._wizard.boat.boatid,",
+                    "            raceseriesid: me._wizard.series.get('raceseriesid'),",
+                    "            divisions: divisions",
+                    "        },",
+                    "        method: 'SaveBoatRaces',",
+                    "        callback: function(status, message, obj, scope) {",
+                    "            if (status) {",
+                    "                //me.jumpCards(1);",
+                    "            }",
+                    "            else",
+                    "            {",
+                    "                Ext.Msg.show({",
+                    "                    title: 'Races save',//T('errLogIn'),",
+                    "                    msg: 'Error.',//T(''),",
+                    "                    buttons: Ext.Msg.OK,",
+                    "                    icon: Ext.Msg.ERROR,",
+                    "                    modal: true",
+                    "                });",
+                    "            }",
+                    "        }",
+                    "    });",
+                    "",
+                    "this.jumpCards(-6);"
+                ],
+                "name": "tap"
+            },
+            "name": "onRaceDivisionNextButtonTap",
+            "designerId": "104af47a-cd7a-4607-94fa-8d3fd534c34b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addRDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddRDivisionButtonTap",
+                "implHandler": [
+                    "var list = this.getRDivisionsList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    raceDivisionsList = this.getRRaceDivisionsList(),\r",
+                    "    store = raceDivisionsList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    store.add(selected);\r",
+                    "    list.getStore().remove(selected);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddRDivisionButtonTap",
+            "designerId": "1a762d0d-294f-43be-96c5-ef69bb2770f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#allRDivisionsBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAllRDivisionButtonTap",
+                "implHandler": [
+                    "var list = this.getRDivisionsList(),\r",
+                    "    all = list.getStore().getRange(),\r",
+                    "    raceDivisionsList = this.getRRaceDivisionsList(),\r",
+                    "    store = raceDivisionsList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (all.length > 0) {\r",
+                    "    store.add(all);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAllRDivisionButtonTap",
+            "designerId": "be15a7cf-9b74-48ea-80cd-a6f8903b7d42"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "rRaceDivisionsList",
+                "selector": "list#rRaceDivisionsList"
+            },
+            "name": "rRaceDivisionsList",
+            "designerId": "fe2e50f2-a662-4815-92a7-dba2855f9845"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "rDivisionsList",
+                "selector": "list#rDivisionsList"
+            },
+            "name": "rDivisionsList",
+            "designerId": "196fb0be-03cd-4067-9b9b-6fa25e4d48f3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#delRDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDelRDivisionButtonTap",
+                "implHandler": [
+                    "var list = this.getRRaceDivisionsList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    store = list.getStore(),\r",
+                    "    idx,\r",
+                    "    allStore = this.getRDivisionsList().getStore();\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    \r",
+                    "    allStore.add(selected);\r",
+                    "    store.remove(selected);\r",
+                    "    \r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onDelRDivisionButtonTap",
+            "designerId": "979cd11b-2ffe-468a-b08a-df556eadc5fa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "individualRadio",
+                "selector": "radiofield#individualRadio"
+            },
+            "name": "individualRadio",
+            "designerId": "e75df7aa-91b6-4169-a0b5-2393a4590929"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "regBoatLbl",
+                "selector": "label#regBoatLbl"
+            },
+            "name": "regBoatLbl",
+            "designerId": "76c68aa6-cb3f-4560-9b37-8ba9062060de"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#newBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNewBoatButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.wizard = me.getRegistrationWizard();\r",
+                    "me._wizard = {};\r",
+                    "\r",
+                    "//me.getBDTabPanel().setActiveItem(1);\r",
+                    "me.jumpCards(7);"
+                ],
+                "name": "tap"
+            },
+            "name": "onNewBoatButtonTap",
+            "designerId": "ad139496-f340-48a7-99b2-8c91dfb4d62e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailsTab",
+                "selector": "container#detailsTab"
+            },
+            "name": "detailsTab",
+            "designerId": "6a44513f-39ba-462e-8637-4a751533aa5e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bDTabPanel",
+                "selector": "tabpanel#registrationTabPnl"
+            },
+            "name": "bDTabPanel",
+            "designerId": "5e671512-2824-4ba7-895f-72373a685a0b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#cancelBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelBoatButtonTap",
+                "implHandler": [
+                    "if(button.up('#popupPnl')){\r",
+                    "    button.up('#popupPnl').destroy();\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelBoatButtonTap",
+            "designerId": "bfe32cba-ed7d-4226-926c-a3bc32a0be30"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "control"
+                ],
+                "fn": "checkRequiredControls",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    items = control.getItems().items;\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "for (var i = 0; i <  items.length; i++) {\r",
+                    "\r",
+                    "    item = items[i];\r",
+                    "    if(item.initialConfig.required && !item.getValue()){\r",
+                    "        Ext.Msg.show({\r",
+                    "            title: 'Empty field',//T('errLogIn'),\r",
+                    "            message: item.getLabel() + ' is required!',//T(''),\r",
+                    "            buttons: Ext.Msg.OK,\r",
+                    "            icon: Ext.Msg.ERROR,\r",
+                    "            modal: true\r",
+                    "        });\r",
+                    "        me.isFormValid = false;\r",
+                    "    }\r",
+                    "    else if(item.getItems){\r",
+                    "        me.checkRequiredControls(item);\r",
+                    "    }\r",
+                    "\r",
+                    "}"
+                ]
+            },
+            "name": "checkRequiredControls",
+            "designerId": "6e54fd70-003a-431d-bf47-d6d03169480c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#registrationBackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackButtonTap",
+                "implHandler": [
+                    "this.jumpCards(-1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackButtonTap",
+            "designerId": "ca151040-afd4-481e-af34-4a35e8db95ec"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "tabpanel#registrationTabPnl",
+                "designer|targetType": "Ext.tab.Panel",
+                "fn": "onTabpanelActiveItemChange",
+                "implHandler": [
+                    "if (!value.getItemId) return ;\r",
+                    "\r",
+                    "if(value.getItemId() == 'detailsTab')\r",
+                    "    this.getBottomTabCt().hide();\r",
+                    "else\r",
+                    "    this.getBottomTabCt().show();"
+                ],
+                "name": "activeitemchange"
+            },
+            "name": "onTabpanelActiveItemChange",
+            "designerId": "164ee7d5-2a0a-4eef-b430-e286379474eb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bottomTabCt",
+                "selector": "container#bottomTabCt"
+            },
+            "name": "bottomTabCt",
+            "designerId": "b0f267cb-c3ea-40a1-8db8-89143f74c8aa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "continueBtn",
+                "selector": "button#continueBtn"
+            },
+            "name": "continueBtn",
+            "designerId": "3fb137fe-3eab-421e-aa0a-e185123f84cc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#entriesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onSeriesListSelect",
+                "implHandler": [
+                    "this.getContinueBtn().setDisabled(record.get('type') == 'Series Entry');"
+                ],
+                "name": "select"
+            },
+            "name": "onSeriesListSelect",
+            "designerId": "98816552-32fd-413a-9c93-f5735aad61ab"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "radiofield#individualRadio",
+                "designer|targetType": "Ext.field.Radio",
+                "fn": "onRadiofieldChange",
+                "implHandler": [
+                    "//debugger;\r",
+                    "\r",
+                    "var me = this, \r",
+                    "    race,\r",
+                    "    isIndividual = newValue,\r",
+                    "    rbStore = me.getBoatRacesList().getStore(),\r",
+                    "    rAllStore = me.getSerieRacesList().getStore(),\r",
+                    "    records = isIndividual ? rbStore.getRange() : rAllStore.getRange();\r",
+                    " \r",
+                    "me.getRemoveRaceBtn().setDisabled(!isIndividual);\r",
+                    "me.getAddRaceBtn().setDisabled(!isIndividual);\r",
+                    "\r",
+                    "for (var i = 0; i <  records.length; i++) {\r",
+                    "    \r",
+                    "    race = records[i];\r",
+                    "    \r",
+                    "    if(isIndividual){\r",
+                    "        rbStore.remove(race);\r",
+                    "        \r",
+                    "        rAllStore.insert(0, {\r",
+                    "            raceid: race.get('raceid'),\r",
+                    "            name: race.get('rname'),\r",
+                    "            raceseriesid: me._wizard.series.get('raceseriesid')\r",
+                    "        });\r",
+                    "    }\r",
+                    "    else {\r",
+                    "        rbStore.insert(0, {\r",
+                    "            raceid: race.get('raceid'),\r",
+                    "            boatid: me._wizard.boat.boatid,\r",
+                    "            rname: race.get('name'),\r",
+                    "            raceseriesid: me._wizard.series.get('raceseriesid')\r",
+                    "        });\r",
+                    "        \r",
+                    "        rAllStore.remove(race);\r",
+                    "    }\r",
+                    "    \r",
+                    "}\r",
+                    "    \r",
+                    "    \r",
+                    "\r",
+                    ""
+                ],
+                "name": "change"
+            },
+            "name": "onRadiofieldChange",
+            "designerId": "5a0376f2-7a5e-449b-9305-0e98ba6f49de"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addRemButtonsCt",
+                "selector": "container#addRemButtonsCt"
+            },
+            "name": "addRemButtonsCt",
+            "designerId": "b49bdce7-f7d1-4bee-9d36-08bf1a529719"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "removeRaceBtn",
+                "selector": "button#removeRaceBtn"
+            },
+            "name": "removeRaceBtn",
+            "designerId": "dffac717-82ad-4e52-9be2-1edbba27e3c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addRaceBtn",
+                "selector": "button#addRaceBtn"
+            },
+            "name": "addRaceBtn",
+            "designerId": "e4c4b0ab-4a20-45a1-977e-2088da63ee1e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skiperYATxt",
+                "selector": "textfield#skiperYATxt"
+            },
+            "name": "skiperYATxt",
+            "designerId": "b87000df-2a21-4c26-8758-de0396ff5390"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperList",
+                "selector": "list#skipperList"
+            },
+            "name": "skipperList",
+            "designerId": "ad3bde73-96fd-4977-bbd7-e9e323444a50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#skipperList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onItemSkiperListTap",
+                "implHandler": [
+                    "var r = record,\r",
+                    "    me = this,\r",
+                    "    rbList = me.getBoatRacesList();\r",
+                    "\r",
+                    "if(!rbList)\r",
+                    "{\r",
+                    "    return;\r",
+                    "}\r",
+                    "var rbStore = rbList.getStore(),\r",
+                    "    boatRaces = rbStore.getFilteredRecords(),\r",
+                    "    crewmemberid = record.get('crewmemberid');\r",
+                    "\r",
+                    "\r",
+                    "for (var i=0;i<boatRaces.length;i++){\r",
+                    "    boatRaces[i].crewmemberid = crewmemberid ;\r",
+                    "}"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onItemSkiperListTap",
+            "designerId": "7201f04a-e6f6-4e58-9fa6-d5c25c7a38ad"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ownerInfoFS",
+                "selector": "fieldset#ownerInfoFS"
+            },
+            "name": "ownerInfoFS",
+            "designerId": "b5928ef8-e693-4b7c-b1a3-20b24d88ace3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperInformationToolbar",
+                "selector": "toolbar#skipperInformationToolbar"
+            },
+            "name": "skipperInformationToolbar",
+            "designerId": "0d4169c7-5765-4bc2-bddc-f6e7ceb1fdb8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveNewBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNewBoatSaveButtonTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if(!this.getNewBoatDetails())\r",
+                    "{\r",
+                    "    //we save boat from boat details\r",
+                    "    return;\r",
+                    "}\r",
+                    "var me = this, item, values,\r",
+                    "    form = this.getNewBoatDetails(),\r",
+                    "    items = form.getItems().items,\r",
+                    "    bStore = CreateStore('boat');\r",
+                    "//debugger;\r",
+                    "\r",
+                    "me.isFormValid = true;\r",
+                    "\r",
+                    "me.checkRequiredControls(form);\r",
+                    "\r",
+                    "if(!me.isFormValid){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "rec = form.getValues();\r",
+                    "rec.EntityFields = bStore._model.prototype.entityFields;\r",
+                    "rec.EntityName = 'boat';\r",
+                    "\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: rec,\r",
+                    "    method: 'SaveBoat',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            //debugger;\r",
+                    "            me._wizard.boat = {};\r",
+                    "            me._wizard.boat.boatid = obj.result.boatid;\r",
+                    "            me._wizard.boat.name = rec.name;\r",
+                    "            me._wizard.boat.hullnumber = rec.hullnumber;\r",
+                    "            me.getBoatDetails().down('#boatid').setValue(obj.result.boatid);\r",
+                    "            me.onBoatSeries();\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Save boat',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "this.jumpCards(-7);"
+                ],
+                "name": "tap"
+            },
+            "name": "onNewBoatSaveButtonTap",
+            "designerId": "4a52ed19-dcb4-4216-8c37-27aeaf1c5291"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#cancelNewBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelNewBoatButtonTap",
+                "implHandler": [
+                    "this.jumpCards(-7);"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelNewBoatButtonTap",
+            "designerId": "ff3b8389-b4cd-4e84-b2a4-0aa4183d3134"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "newBoatDetails",
+                "selector": "formpanel#newBoatPnl"
+            },
+            "name": "newBoatDetails",
+            "designerId": "4a1d401c-5ae9-4dac-ad1e-ed9969b5fdf0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#backLoginBtn1",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackLoginBtn1Tap",
+                "implHandler": [
+                    "this.getController('Navigation').onNavigate();"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackLoginBtn1Tap",
+            "designerId": "11b7252a-f5bb-483b-816e-ddeb4e18a383"
+        }
+    ]
+}

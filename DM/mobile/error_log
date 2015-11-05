@@ -1,0 +1,62 @@
+[28-Jan-2015 19:39:35 Australia/Melbourne] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:19:59 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:19:59 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:23:03 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:23:03 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:25:38 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:25:38 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:37:23 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:37:23 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:40:34 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:40:34 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 21:42:00 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 21:42:00 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 23:21:44 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 23:21:44 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33
+[08-Oct-2015 23:22:04 UTC] PHP Notice:  Undefined index: command in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 19
+[08-Oct-2015 23:22:04 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class  does not exist' in /home/bystorm/public_html/DM/mobile/php/Helpers.php:33
+Stack trace:
+#0 /home/bystorm/public_html/DM/mobile/php/Helpers.php(33): ReflectionClass->__construct('')
+#1 /home/bystorm/public_html/DM/mobile/AJAXHandler.php(5): AJAXHelper->getResponse()
+#2 {main}
+  thrown in /home/bystorm/public_html/DM/mobile/php/Helpers.php on line 33

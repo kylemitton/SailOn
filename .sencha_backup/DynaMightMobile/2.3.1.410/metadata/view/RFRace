@@ -1,0 +1,262 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RFRace",
+        "height": "100%",
+        "html": null,
+        "itemId": "rfRaceFrm",
+        "layout": "vbox",
+        "scrollable": false
+    },
+    "designerId": "365868c7-4dec-4a4b-8909-40b9fe02e603",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": null,
+                "layout": "hbox",
+                "tabIndexChange": 2
+            },
+            "name": "MyContainer73",
+            "configAlternates": {
+                "tabIndexChange": "number"
+            },
+            "designerId": "b567eff1-b896-43d0-90d7-0068360699b5",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tabIndexChange",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.dataview.List",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "fRacesList",
+                        "layout|flex": 1
+                    },
+                    "name": "MyList20",
+                    "designerId": "35aed07b-49e5-40cd-b5ec-9c689f384a8f",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "\r",
+                                    "<div class=\"item\">\r",
+                                    "    <div class=\"name\">{name}\r",
+                                    "    </div>\r",
+                                    "    <div class=\"vicinity\">{status}\r",
+                                    "    </div>\r",
+                                    "    \r",
+                                    "</div>"
+                                ]
+                            },
+                            "name": "tpl26",
+                            "designerId": "0b517e32-d3d0-4db2-857f-0f1abe4795d6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "start",
+                        "height": null,
+                        "itemId": "endRaceCt",
+                        "layout": "vbox"
+                    },
+                    "name": "MyContainer74",
+                    "designerId": "2bac1537-51be-49bd-b5b3-9e404d8cf60a",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "disabled": true,
+                                "docked": "top",
+                                "itemId": "abbandonRaceBtn",
+                                "margin": 10,
+                                "text": "Abandon Race",
+                                "ui": "confirm-round"
+                            },
+                            "name": "MyButton119",
+                            "designerId": "8b41de32-ef3b-4467-8913-d4101d84b804"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "disabled": true,
+                                "docked": "top",
+                                "itemId": "outOfTimeBtn",
+                                "margin": 10,
+                                "text": "Out of Time",
+                                "ui": "confirm-round"
+                            },
+                            "name": "MyButton120",
+                            "designerId": "e76e7292-34c1-42ea-993e-f3b19da92a5d"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "disabled": true,
+                                "docked": "top",
+                                "itemId": "undoRaceBtn",
+                                "margin": 10,
+                                "text": "Undo",
+                                "ui": "decline-round"
+                            },
+                            "name": "MyButton121",
+                            "designerId": "d9ec3d56-eea7-45ad-acdc-c47b131d12be"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "height": 40,
+                "itemId": "bottomCt",
+                "layout": "hbox",
+                "margin": 10,
+                "width": null
+            },
+            "name": "MyContainer75",
+            "designerId": "db926a5b-6f29-4b9f-a4f5-878f1bfae642",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "right",
+                        "itemId": "genericNextBtn",
+                        "text": "Next",
+                        "ui": "decline-round",
+                        "width": null,
+                        "xurl": "RFReview"
+                    },
+                    "name": "MyButton122",
+                    "designerId": "24132165-67c3-42f0-b17a-393c958847d8",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "xurl",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "left",
+                        "hidden": true,
+                        "itemId": "backResultsBtn",
+                        "text": "Back",
+                        "ui": "decline-round",
+                        "width": null
+                    },
+                    "name": "MyButton123",
+                    "designerId": "3fbf0d7b-30f1-4c2f-bea4-189a8180b8a7"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "right",
+                        "html": "Race Level Actions (if appropriate)",
+                        "margin": 10,
+                        "style": "color:darkblue"
+                    },
+                    "name": "MyLabel10",
+                    "designerId": "22d64110-c40d-4af8-a98f-4dd8736eb223"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "var me = this,\r",
+                    "    ctrl = DynaMightMobile.app.getController('RaceFinishWizard');\r",
+                    "\r",
+                    "me.down('#fRacesList').setStore(ctrl.rStore);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "4d100b84-e825-47c0-93a5-be3ed9c8e351"
+        }
+    ]
+}

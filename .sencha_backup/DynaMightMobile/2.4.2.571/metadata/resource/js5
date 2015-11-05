@@ -1,0 +1,13 @@
+{
+    "type": "jsoverrideresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js5",
+        "url": "app/override/field/Text.js"
+    },
+    "designerId": "7352f2db-2214-42cf-97be-37ff1edb4598"
+}

@@ -1,0 +1,159 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LogInFrm",
+        "height": "100%",
+        "html": null,
+        "itemId": "registrationLoginFrm1",
+        "padding": "0 200 200 200",
+        "scrollable": false,
+        "submitOnAction": [
+            "false"
+        ]
+    },
+    "designerId": "72429e7f-03d9-44b6-9be0-1698d8bac583",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "seriesDetails",
+                "margin": null,
+                "title": "Login",
+                "width": null
+            },
+            "name": "MyFieldSet131",
+            "designerId": "49ab10e7-54b8-4e94-96e0-fefca83e1744",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "lUsername",
+                        "label": "Username / Crew Member",
+                        "labelWidth": "40%",
+                        "name": "username",
+                        "required": true
+                    },
+                    "name": "MyTextField84",
+                    "designerId": "f2ac5451-2e8a-4bc8-87cb-05b7fbd93e45"
+                },
+                {
+                    "type": "Ext.field.Password",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "lPassword",
+                        "label": "Password",
+                        "labelWidth": "40%",
+                        "name": "password"
+                    },
+                    "name": "MyPasswordField3",
+                    "designerId": "f605afe3-937c-483c-a9e9-a25ca820ed2f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "loginType",
+                "hidden": true,
+                "title": ""
+            },
+            "name": "MyFieldSet132",
+            "designerId": "e49532e5-d153-4477-a243-f2ba9e2fdcdb",
+            "cn": [
+                {
+                    "type": "Ext.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "checked": true,
+                        "itemId": "myradiobutton4",
+                        "label": "Login",
+                        "name": "loginType",
+                        "value": "loginChk"
+                    },
+                    "name": "MyRadioButton6",
+                    "designerId": "f9a5b6ab-f9d7-4068-81e9-c46996d2eaca"
+                },
+                {
+                    "type": "Ext.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "New Boat",
+                        "name": "loginType",
+                        "value": "newChk"
+                    },
+                    "name": "MyRadioButton7",
+                    "designerId": "124aca18-aee4-4e58-883f-fd49021fd5ec"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": null,
+                "height": 40,
+                "itemId": "bottomCt",
+                "margin": 20,
+                "width": null
+            },
+            "name": "MyContainer143",
+            "designerId": "a757fdb4-463e-42ef-8f19-130db06d8f48",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "right",
+                        "itemId": "lLoginBtn",
+                        "text": "Login",
+                        "ui": "decline-round",
+                        "width": null
+                    },
+                    "name": "MyButton192",
+                    "designerId": "3fdfe519-a160-427c-a57b-b94ba423781b"
+                }
+            ]
+        }
+    ]
+}

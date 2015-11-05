@@ -1,0 +1,567 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceEditor"
+    },
+    "designerId": "c4118e91-029f-41a5-9103-80eb5052754d",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resEditorApplyBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveButtonTap",
+                "implHandler": [
+                    "this.save();"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveButtonTap",
+            "designerId": "5c132d91-c405-4b44-b66b-07966f8b2494"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#resultBoatsView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatItemTap",
+                "implHandler": [
+                    "this.getResultsEditor().down('#editBoatTime').setValue(new Date(record.get('endtime')));\r",
+                    "this.getResultsEditor().down('#handicapTxt').setValue(record.get('handicap'));\r",
+                    "this.getResultsEditor().down('#resEditDatePicker').setValue(new Date(record.get('endtime')));\r",
+                    "this.getResultsEditor().down('#editBoatStatusCmb').setValue(record.get('boatstatusid'));"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onBoatItemTap",
+            "designerId": "cad60362-5198-4d47-a951-e6ff3e0dde15"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resultsEditor",
+                "selector": "formpanel#receResultEdit"
+            },
+            "name": "resultsEditor",
+            "designerId": "5cfca57a-fe7a-493c-a64e-b1ff64c79cdc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resultBoatsView",
+                "selector": "dataview#resultBoatsView"
+            },
+            "name": "resultBoatsView",
+            "designerId": "53293c1e-0e1a-4043-bd7e-8daffdf4919b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resEditCt",
+                "selector": "container#resEditCt"
+            },
+            "name": "resEditCt",
+            "designerId": "fa7e595c-34cf-4fc1-b00f-dbb4c228592d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "filterBoats",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    filters = [],\r",
+                    "    division = me.getEditResDivisionCmb().getValue(),\r",
+                    "    searchField = me.getEditResBoatSearch(),\r",
+                    "    storeB = me.getResultBoatsView().getStore();\r",
+                    "\r",
+                    "if(!storeB) return;\r",
+                    "\r",
+                    "storeB.clearFilter(true);\r",
+                    "filters =[\r",
+                    "\r",
+                    "    {filterFn: BoatFilter, scope: searchField}\r",
+                    "];\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: 'divisionid', value: division});\r",
+                    "}\r",
+                    "\r",
+                    "storeB.filter(filters);\r",
+                    "\r",
+                    "if(storeB.getCount() > 0){\r",
+                    "    me.getResultBoatsView().select(storeB.getAt(0));\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "filterBoats",
+            "designerId": "e4060f4d-6c94-4d0e-8aeb-ab3445fd0e9d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editResDivisionCmb",
+                "selector": "selectfield#editResDivisionCmb"
+            },
+            "name": "editResDivisionCmb",
+            "designerId": "05a140ef-0667-408f-981c-1135bdde7da3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editResBoatSearch",
+                "selector": "searchfield#editResBoatSearch"
+            },
+            "name": "editResBoatSearch",
+            "designerId": "395a96e5-0f07-41dd-9412-d179a9497530"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#editResDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onDivisionChange",
+                "implHandler": [
+                    "this.filterBoats();"
+                ],
+                "name": "change"
+            },
+            "name": "onDivisionChange",
+            "designerId": "20304aee-7b5a-4389-ad9e-db7775dbb07b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#editResBoatSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onSearchfieldKeyup",
+                "implHandler": [
+                    "this.filterBoats();\r",
+                    ""
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchfieldKeyup",
+            "designerId": "9a159fdc-5e17-4870-ad65-a72228444cf1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resEditorApplyBtn1",
+                "designer|targetType": "Ext.Button",
+                "fn": "onApplyButtonTap",
+                "implHandler": [
+                    "this.save();"
+                ],
+                "name": "tap"
+            },
+            "name": "onApplyButtonTap",
+            "designerId": "29bec9c7-b82c-4fb0-90c1-0e3b89cb8479"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "save",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    list = me.getResultBoatsView(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    time = me.getResEditCt().down('#editBoatTime'),\r",
+                    "    handicap = me.getResEditCt2().down('#handicapTxt').getValue(),\r",
+                    "    status = me.getEditBoatStatusCmb().getValue(),\r",
+                    "    date = me.getResEditCt2().down('#resEditDatePicker'),\r",
+                    "    datetime;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    datetime = new Date(date.getValue().getFullYear(), date.getValue().getMonth(),\r",
+                    "                        date.getValue().getDate(), time.getValue().getHours(),\r",
+                    "                        time.getValue().getMinutes(), time.getValue().getSeconds());\r",
+                    "\r",
+                    "    rec = selected[0];\r",
+                    "    rec.set('endtime', Ext.Date.format(datetime, 'Y-m-d H:i:s'));\r",
+                    "    rec.set('boatstatusid', status);\r",
+                    "\r",
+                    "    //debugger;\r",
+                    "\r",
+                    "    AJAXCommand({\r",
+                    "        params: {\r",
+                    "            raceresultid: rec.get('raceresultid'),\r",
+                    "            endtime: rec.get('endtime'),\r",
+                    "            divisionid : rec.get('divisionid'),\r",
+                    "            raceid : rec.get('raceid'),\r",
+                    "            raceboatid: rec.get('raceboatid'),\r",
+                    "            handicap: handicap,\r",
+                    "            status: status\r",
+                    "        },\r",
+                    "        method: 'SaveResult',\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            if (status) {\r",
+                    "                list.getStore().load();\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Error saving Series',//T('errLogIn'),\r",
+                    "                    msg: 'Error.',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    "else{\r",
+                    "    AJAXCommand({\r",
+                    "        params: {\r",
+                    "            raceid : me.raceid\r",
+                    "        },\r",
+                    "        method: 'CalculateResults',\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            if (status) {\r",
+                    "                list.getStore().load();\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Error saving Series',//T('errLogIn'),\r",
+                    "                    msg: 'Error.',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    "}\r",
+                    ""
+                ]
+            },
+            "name": "save",
+            "designerId": "8b363d03-6b1f-4c30-a25c-99dcb9743a3d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#editRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onEditRaceButtonTap",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getResultsEditor(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    raceid = me.getRacesEditorList().selected.get(0).get('raceid'),\r",
+                    "    bStore = CreateStore(\"raceboat\"),\r",
+                    "    boatStore = CreateStore(\"raceboat\");\r",
+                    "\r",
+                    "me.raceid = raceid;\r",
+                    "\r",
+                    "bStore.sort('endtime', 'DESC');\r",
+                    "\r",
+                    "bStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('RR_Edit').entityviewid ,\r",
+                    "        filters: \" WHERE raceid = '\" + raceid + \"'  ORDER BY dname,  score\"\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('BR').entityviewid ,\r",
+                    "        filters: \" WHERE raceid = '\" + raceid + \"'\"\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.getResultBoatsView().setStore(bStore);\r",
+                    "\r",
+                    "me.getEditAddBoatsList().setStore(boatStore);\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex + 1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onEditRaceButtonTap",
+            "designerId": "2b0d63ed-b848-497a-a708-428991776179"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#seriesEditorList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onSeriesListSelect",
+                "implHandler": [
+                    "this.getRacesEditorList().getStore().clearFilter(true);\r",
+                    "this.getRacesEditorList().getStore().filter('raceseriesid', record.get('raceseriesid'));"
+                ],
+                "name": "select"
+            },
+            "name": "onSeriesListSelect",
+            "designerId": "0277f469-9228-44a8-9440-8b191e6db330"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesEditorList",
+                "selector": "list#racesEditorList"
+            },
+            "name": "racesEditorList",
+            "designerId": "b56f3c12-9e10-4144-8292-f11bc4fcc6cf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editorFrm",
+                "selector": "formpanel#editorFrm"
+            },
+            "name": "editorFrm",
+            "designerId": "ecb74317-6a8b-4ddd-8e8a-0b784e3bd6ae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editBoatStatusCmb",
+                "selector": "selectfield#editBoatStatusCmb"
+            },
+            "name": "editBoatStatusCmb",
+            "designerId": "c6dec79b-d1e6-461f-b9bc-b45a8f28f6e4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resEditDatePicker",
+                "selector": "datepickerfield#resEditDatePicker"
+            },
+            "name": "resEditDatePicker",
+            "designerId": "fa5fa1ae-27fe-4cdb-99f6-4a55b3f5becc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resEditCt2",
+                "selector": "container#resEditCt2"
+            },
+            "name": "resEditCt2",
+            "designerId": "85f9e75c-ef4d-4812-9cad-01238fcc3da2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resEditorAddBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onResEditAddBtnTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getResultsEditor(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  + 1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onResEditAddBtnTap",
+            "designerId": "492988e2-25c4-4ce2-a289-f51ace4e1b74"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#CancelSelectBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelSelectionTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getResultsEditor(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  - 1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelSelectionTap",
+            "designerId": "a30ab65d-a804-4198-846c-df88d5f4249e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#confirmSelectedBoats",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCompleteSelection",
+                "implHandler": [
+                    "var me = this,\r",
+                    "     wizard = me.getResultsEditor(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    list = me.getResultBoatsView(),\r",
+                    "    currentList = me.getEditAddBoatsList(),\r",
+                    "    selected = currentList.getSelection(),\r",
+                    "    bStore = list.getStore(),\r",
+                    "    rec = selected[0];\r",
+                    "\r",
+                    "bStore.add(rec);\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  - 1);\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "        params: {\r",
+                    "            raceid : rec.get('raceid'),\r",
+                    "            raceboatid: rec.get('raceboatid')\r",
+                    "        },\r",
+                    "        method: 'AddResult',\r",
+                    "        callback: function(status, message, obj, scope) {\r",
+                    "            if (status) {\r",
+                    "                list.getStore().load();\r",
+                    "            }\r",
+                    "            else\r",
+                    "            {\r",
+                    "                Ext.Msg.show({\r",
+                    "                    title: 'Error saving Series',//T('errLogIn'),\r",
+                    "                    msg: 'Error.',//T(''),\r",
+                    "                    buttons: Ext.Msg.OK,\r",
+                    "                    icon: Ext.Msg.ERROR,\r",
+                    "                    modal: true\r",
+                    "                });\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onCompleteSelection",
+            "designerId": "9f3a3113-cf47-4e69-bcb6-ef128d973e3d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "editAddBoatsList",
+                "selector": "dataview#editAddBoatsList"
+            },
+            "name": "editAddBoatsList",
+            "designerId": "ff3c84ab-4433-469a-bf1a-d3ae3f1b2cb8"
+        }
+    ]
+}

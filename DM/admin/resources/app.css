@@ -1,0 +1,49 @@
+.clsEntity
+{
+    background-image: url(images/entityIcon.png) !important;
+}
+
+.addGridIcon
+{
+    background-image: url(images/add.gif) !important;
+}
+
+.deleteGridIcon
+{
+    background-image: url(images/delete.gif) !important;
+}
+
+.editGridIcon
+{
+    background-image: url(images/edit.png) !important;
+}
+
+.customGridIcon
+{
+    background-image: url(images/custom.png) !important;
+}
+
+.x-grid-row-over
+{
+    font-weight: bold;
+}
+
+.viewModeIcon
+{
+    background-image: url(images/viewMode.png) !important;
+}
+
+.gridModeIcon
+{
+    background-image: url(images/gridMode.png) !important;
+}
+.title .x-form-item-label{
+    color : #157fcc;
+    font-size: 18px;
+    font-weight: bold;
+}
+.logoutIcon
+{
+    background-image: url(images/logout.png) !important;
+    
+}

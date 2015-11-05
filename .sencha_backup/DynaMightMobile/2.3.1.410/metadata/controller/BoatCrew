@@ -1,0 +1,242 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BoatCrew",
+        "updatedBoats": [
+            "[]"
+        ]
+    },
+    "configAlternates": {
+        "updatedBoats": "array"
+    },
+    "designerId": "5020eaa9-c586-4f4c-a346-b272246f47fb",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "updatedBoats",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#assignBoatCrewSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onSearchBoat",
+                "implHandler": [
+                    "var boatStore = CreateStore(\"raceboat\"),\r",
+                    "    val = textfield.getValue();\r",
+                    "\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('BR').entityviewid ,\r",
+                    "        filters: val? \"WHERE rname like '%\" + val + \"%'\" :  \"WHERE 1=2\"\r",
+                    "    }\r",
+                    "});\r",
+                    "this.getAssignBoatsCrewLst().setStore(boatStore);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchBoat",
+            "designerId": "5051f47f-aa51-4d0b-847e-5da4b6a4727e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "assignBoatsCrewLst",
+                "selector": "dataview#assignBoatsCrewLst"
+            },
+            "name": "assignBoatsCrewLst",
+            "designerId": "b3e04b21-e4a5-433f-bc91-cbccf8b5beb4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#assignCrewSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onSearchCrew",
+                "implHandler": [
+                    "var crewM = CreateStore('crewmember'),\r",
+                    "    val = textfield.getValue();\r",
+                    "crewM.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Crew Members').entityviewid ,\r",
+                    "        filters: val ? \" WHERE ya like '%\" +val + \"%'\" : \" WHERE 1=2\"\r",
+                    "    }\r",
+                    "});\r",
+                    "this.getCrewMemberAssignBoatLst().setStore(crewM);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchCrew",
+            "designerId": "c96f8be7-c749-46a3-9493-ff35dc6acb26"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "crewMemberAssignBoatLst",
+                "selector": "list#crewMemberAssignBoatLst"
+            },
+            "name": "crewMemberAssignBoatLst",
+            "designerId": "7be1bab3-076d-401b-83bb-e0ed37a86cb5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#assignBoatsCrewLst",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatSelect",
+                "implHandler": [
+                    "/*var me = this, crewRec;\r",
+                    "if(me.getCrewMemberAssignBoatLst().selected.length  ===  0){\r",
+                    "    //todo message\r",
+                    "    return;\r",
+                    "}\r",
+                    "else\r",
+                    "{\r",
+                    "\r",
+                    "    crewRec = me.getCrewMemberAssignBoatLst().selected.items[0];\r",
+                    "    record.set('crewmemberid',crewRec.get('crewmemberid'));\r",
+                    "    record.set('skippername', crewRec.get('firstname') + ' ' + crewRec.get('surname'));\r",
+                    "}*/"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onBoatSelect",
+            "designerId": "eb9df6bc-8c9e-4ea5-abd2-dcf52ba099d5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#crewMemberAssignBoatLst",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onCrewSelect",
+                "implHandler": [
+                    "var me = this, boatRec;\r",
+                    "if(me.getAssignBoatsCrewLst().selected.length  ===  0){\r",
+                    "    //todo message\r",
+                    "    return;\r",
+                    "}\r",
+                    "else\r",
+                    "{\r",
+                    "\r",
+                    "    boatRec = me.getAssignBoatsCrewLst().selected.items[0];\r",
+                    "\r",
+                    "    boatRec.set('crewmemberid',record.get('crewmemberid'));\r",
+                    "    boatRec.set('skippername', record.get('firstname') + ' ' + record.get('surname'));\r",
+                    "    this.config.updatedBoats.push(boatRec.data);\r",
+                    "}"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onCrewSelect",
+            "designerId": "ae674567-04a0-452f-a102-93736e644ea4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#setCrewToRaceBoat",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSetCrewButton",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    updatedR = this.config.updatedBoats;\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: updatedR,\r",
+                    "    method: 'SetRaceBoatCrewMemberId',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "            this.scope.getAssignBoatsCrewLst().getStore().removeAll();\r",
+                    "            this.scope.getCrewMemberAssignBoatLst().getStore().removeAll();\r",
+                    "            this.scope.getAssignCrewSearch().setValue('');\r",
+                    "            this.scope.getAssignBoatCrewSearch().setValue('');\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.alert('Ooops','Failed to set race boat crew');\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onSetCrewButton",
+            "designerId": "29d3795a-d6f3-4dce-b428-e0caba4d8be8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "assignCrewSearch",
+                "selector": "searchfield#assignCrewSearch"
+            },
+            "name": "assignCrewSearch",
+            "designerId": "8f06d0e1-8fe4-4fa1-88d6-fd08514a772d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "assignBoatCrewSearch",
+                "selector": "searchfield#assignBoatCrewSearch"
+            },
+            "name": "assignBoatCrewSearch",
+            "designerId": "ed04f0a0-e171-4eeb-a09c-f4f6f404cd53"
+        }
+    ]
+}

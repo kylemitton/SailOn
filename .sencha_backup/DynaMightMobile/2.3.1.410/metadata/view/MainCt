@@ -1,0 +1,221 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainCt",
+        "itemId": "mainCtId",
+        "layout": "fit"
+    },
+    "designerId": "c3334cd2-053d-4f53-8db3-171a5dd44347",
+    "cn": [
+        {
+            "type": "Ext.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "slide"
+                ],
+                "itemId": "homePanel",
+                "layout": "fit",
+                "scrollable": null,
+                "width": "100%"
+            },
+            "name": "MyPanel1",
+            "designerId": "12fcc33d-36a7-475b-8792-6b6c96745316",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "config",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "start",
+                "docked": "top",
+                "height": 55,
+                "itemId": "TitleBar",
+                "items": [
+                    "[{\r",
+                    "    align : 'left',\r",
+                    "    itemId : 'navBtn',\r",
+                    "    iconCls : 'list',\r",
+                    "    ui : 'plain'\r",
+                    "},{\r",
+                    "    xtype: 'searchfield',\r",
+                    "    itemId: 'search',\r",
+                    "    //label: 'Query',\r",
+                    "    name: 'query',\r",
+                    "    width: 200,\r",
+                    "    hidden: true\r",
+                    "    \r",
+                    "},{\r",
+                    "    align : 'right',\r",
+                    "    itemId : 'addBtn',\r",
+                    "    iconCls : 'add',\r",
+                    "    ui : 'plain',\r",
+                    "    hidden: true\r",
+                    "}]"
+                ]
+            },
+            "name": "MyTitleBar",
+            "designerId": "3b363d0a-43d6-4042-9424-b5ddf6d24cb0",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "height": null,
+                        "itemId": "topCt1",
+                        "layout": "hbox",
+                        "layout|flex": null,
+                        "margin": null,
+                        "width": null
+                    },
+                    "name": "MyContainer142",
+                    "designerId": "a43ce22b-5f9b-4596-b3cc-cf4b719507b5",
+                    "cn": [
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "src": "http://bystorm.com.au/DM/common/cyc_logo.png",
+                                "width": 70
+                            },
+                            "name": "MyImg",
+                            "designerId": "d94a5d58-6baf-4b2f-aa13-d0090c40b807"
+                        },
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "wizardTitle"
+                                ],
+                                "docked": null,
+                                "hidden": false,
+                                "html": "Canberra Yacht Club",
+                                "itemId": "topCardLbl"
+                            },
+                            "name": "MyLabel14",
+                            "designerId": "ae3a5d9f-37ab-4945-80a9-3c6957f4545f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "plain",
+                        "docked": "left",
+                        "height": 50,
+                        "iconCls": "list",
+                        "itemId": "navBtn",
+                        "margin": null,
+                        "text": null,
+                        "ui": "plain",
+                        "width": 60
+                    },
+                    "name": "MyButton186",
+                    "designerId": "bfb829be-0665-4b3f-8d1b-e4256966e215"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "plain",
+                        "docked": "right",
+                        "hidden": true,
+                        "iconAlign": "top",
+                        "iconCls": "action",
+                        "itemId": "syncLocalStorage",
+                        "margin": null,
+                        "text": null,
+                        "ui": "plain",
+                        "width": null
+                    },
+                    "name": "MyButton187",
+                    "designerId": "59f85b69-df38-43c7-9356-9fd750cf1354"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "plain",
+                        "docked": "right",
+                        "hidden": true,
+                        "iconCls": "download",
+                        "itemId": "loadLocalStorage",
+                        "margin": null,
+                        "text": null,
+                        "ui": "plain",
+                        "width": null
+                    },
+                    "name": "MyButton188",
+                    "designerId": "df2865c2-766b-4eef-8613-bda22a2d413e"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "plain",
+                        "docked": "right",
+                        "iconCls": "user",
+                        "itemId": "mainLogInBtn",
+                        "margin": null,
+                        "text": null,
+                        "ui": "plain",
+                        "width": null
+                    },
+                    "name": "MyButton189",
+                    "designerId": "6db1b20f-4e42-4617-b936-99d040d7ad4e"
+                }
+            ]
+        }
+    ]
+}

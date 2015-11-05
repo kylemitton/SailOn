@@ -1,0 +1,209 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceDuty"
+    },
+    "designerId": "aa0e5cdf-5bc6-42a2-814a-af9090f46b3b",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDutySearchTxt",
+                "selector": "searchfield#raceDutySearchTxt"
+            },
+            "name": "raceDutySearchTxt",
+            "designerId": "0da29aa3-ac76-4aae-93e7-e8aac645af1f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#raceDutySearchTxt",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onRaceSearch",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    val = textfield.getValue();\r",
+                    "\r",
+                    "\r",
+                    "raceStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Races').entityviewid ,\r",
+                    "        filters:  val? \"WHERE name like '%\" + val + \"%'\" :  \"WHERE 1=2\"\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "this.getRaceDutyLst().setStore(raceStore);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onRaceSearch",
+            "designerId": "9b03a169-6089-42e2-9208-35107b15a43e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDutyLst",
+                "selector": "dataview#raceDutyLst"
+            },
+            "name": "raceDutyLst",
+            "designerId": "80c24976-29d6-47b7-a52c-209a7f763fe2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "crewMemberSearch",
+                "selector": "searchfield#crewMemberSearch"
+            },
+            "name": "crewMemberSearch",
+            "designerId": "d6fad2c4-549c-47ca-8f49-ea427d50b4cb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#crewMemberSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onCrewSearch",
+                "implHandler": [
+                    "var crewM = CreateStore('crewmember'),\r",
+                    "    val = textfield.getValue();\r",
+                    "crewM.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Crew Members').entityviewid ,\r",
+                    "        filters: val ? \" WHERE ya like '%\" +val + \"%'\" : \" WHERE 1=2\"\r",
+                    "    }\r",
+                    "});\r",
+                    "this.getCrewMembersLst().setStore(crewM);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onCrewSearch",
+            "designerId": "c8573750-49e5-43a4-87c5-bd5b7cdeae5d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#setRaceDutyBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSetRaceDuty",
+                "implHandler": [
+                    "var me= this,\r",
+                    "    raceList = me.getRaceDutyLst(),\r",
+                    "    crewList = me.getCrewMembersLst(),\r",
+                    "    selectedRace = raceList.selected,\r",
+                    "    selectedCrew = crewList.selected,\r",
+                    "    dutyType = me.getDutyTypeSelectField().getValue(),\r",
+                    "    \r",
+                    "    items =[],\r",
+                    "    rec = '',\r",
+                    "    crew = '';\r",
+                    "\r",
+                    "if(selectedRace.length === 0){\r",
+                    "    Ext.Msg.alert('Ooops','Plese select at least one race');\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "if(selectedCrew.length === 0){\r",
+                    "    Ext.Msg.alert('Ooops','Plese select at least one crew member');\r",
+                    "    return;\r",
+                    "}\r",
+                    "crew = selectedCrew.items[0].data.crewmemberid;\r",
+                    "\r",
+                    "for(var i = 0;i < selectedRace.length; i++){\r",
+                    "    rec = selectedRace.items[i].data;\r",
+                    "    rec.crewmemberid = crew;\r",
+                    "    rec.dutytypeid = dutyType;\r",
+                    "    items.push(rec);\r",
+                    "}\r",
+                    "AJAXCommand({\r",
+                    "    params: items,\r",
+                    "    method: 'SetRaceCrewDuty',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "            this.scope.getCrewMembersLst().getStore().removeAll();\r",
+                    "            this.scope.getRaceDutyLst().getStore().removeAll();\r",
+                    "            this.scope.getRaceDutySearchTxt().setValue('');\r",
+                    "            this.scope.getCrewMemberSearch().setValue('');\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.alert('Ooops','Failed to set race message');\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onSetRaceDuty",
+            "designerId": "978471f4-2a12-4898-b1a8-21dfc2a409d3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "crewMembersLst",
+                "selector": "dataview#crewMembersLst"
+            },
+            "name": "crewMembersLst",
+            "designerId": "337db65b-35e9-4bd3-b349-8a76b68e3801"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dutyTypeSelectField",
+                "selector": "selectfield#dutyTypeSelectField"
+            },
+            "name": "dutyTypeSelectField",
+            "designerId": "88ba4c01-5185-480c-b979-d79133a84a82"
+        }
+    ]
+}

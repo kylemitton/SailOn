@@ -1,0 +1,1239 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RacePortalWizard"
+    },
+    "designerId": "fa383ad4-4c3b-4aef-8139-ee5c68a35592",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextSignOnBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextSignOnButtonTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getSignOnWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    bStore = me.getBoatsSignOnView().getStore(),\r",
+                    "    html,\r",
+                    "    boat = me.getBoatsSignOnView().selected.get(0);\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "\r",
+                    "\r",
+                    "bStore.clearFilter(true);\r",
+                    "bStore.filter('boatid', boat.get('boatid'));\r",
+                    "me.getNextSignOnBtn().setDisabled(true);\r",
+                    "/*\r",
+                    "if(me.getRacesSignOnList().selected.length > 0 && me.getBoatNumberCmb().getValue()){\r",
+                    "    wizard.setActiveItem(selectedIndex  + 1);\r",
+                    "}\r",
+                    "else{\r",
+                    "    Ext.Msg.show({\r",
+                    "        title: 'No selection',//T('errLogIn'),\r",
+                    "        message: 'Must select a race and a boat!',//T(''),\r",
+                    "        buttons: Ext.Msg.OK,\r",
+                    "        icon: Ext.Msg.ERROR,\r",
+                    "        modal: true\r",
+                    "    });\r",
+                    "}*/\r",
+                    "\r",
+                    "html = '<div class=\"weather-widget\" style=\"margin:5px\"><h3>'+boat.get('bname')+'</h3><h2>'\r",
+                    "+ ' </h2>'\r",
+                    "+ '<p></p><small>'+boat.get('hullnumber')+'</small><p></p></div>';\r",
+                    "\r",
+                    "me.getBoatInfoLbl().setHtml(html);\r",
+                    "\r",
+                    "me.boat = boat;\r",
+                    "\r",
+                    "//debugger;"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextSignOnButtonTap",
+            "designerId": "e1d8f2a2-43b5-4419-bd0d-635bb028bcc2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOnWizard",
+                "selector": "formpanel#signOnWizard"
+            },
+            "name": "signOnWizard",
+            "designerId": "23355f70-c798-4d5e-b189-98c83f8616fe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#signOnBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSignOnButtonTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,",
+                    "    wizard = me.getSignOnWizard(),",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),",
+                    "    record = me.getPortalRacesList().selected.get(0);",
+                    "",
+                    "//this.getTcFrm().down('#tcFirstNameTxt').setValue(record.get('firstname'));",
+                    "this.getTcFrm().down('#tcLastNameTxt').setValue(record.get('skippername'));",
+                    "if(record.raw.signonmessage){",
+                    "    this.getTcFrm().down('#tcTxt').setValue(record.raw.signonmessage);",
+                    "    //debugger;",
+                    "}",
+                    "",
+                    "if(me.getPortalRacesList().selected.length > 0){",
+                    "    wizard.setActiveItem(selectedIndex  + 1);",
+                    "}",
+                    "return;",
+                    "",
+                    "Ext.create('DynaMightMobile.view.TCFrm', {",
+                    "     //html: button.panelHtml,",
+                    "    width: 1000,",
+                    "    height: 420,",
+                    "    left: 0,",
+                    "    modal:true,",
+                    "    padding: 10,",
+                    "    hideOnMaskTap: true,",
+                    "    ctrl: me,",
+                    "    record: record,",
+                    "    onSave: function(frm){",
+                    "        if(frm.down('#tcFirstNameTxt').getValue().length == 0 || frm.down('#tcLastNameTxt').getValue().length == 0){",
+                    "            Ext.Msg.show({",
+                    "                title: 'Terms & Conditions',//T('errLogIn'),",
+                    "                message: 'Please complete the form!',//T(''),",
+                    "                buttons: Ext.Msg.OK,",
+                    "                icon: Ext.Msg.ERROR,",
+                    "                modal: true",
+                    "            });",
+                    "            return;",
+                    "        }",
+                    "        me.onSignOn(record);",
+                    "        frm.hide();",
+                    "    },",
+                    "    onCancel: function(frm){",
+                    "        frm.hide();",
+                    "    }",
+                    "   // floating: true",
+                    " }).showBy(button);",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "//this.getHomePanel().removeAll();",
+                    "return;",
+                    "",
+                    "//debugger;",
+                    "if(me.getRacesSignOnList().selected.length > 0 && me.getBoatNumberCmb().getValue()){",
+                    "    wizard.setActiveItem(selectedIndex  + 1);",
+                    "}",
+                    "",
+                    "var me = this,",
+                    "    popup = new Ext.Panel({",
+                    "    //floating: true,",
+                    "    //centered: true,",
+                    "    modal: true,",
+                    "    fullscreen: true,",
+                    "    layout: 'vbox',",
+                    "    itemId: 'popupPnl',",
+                    "    items: [{",
+                    "        xtype: 'textareafield'",
+                    "    },{",
+                    "        xtype: 'container',",
+                    "        layout: 'hbox',",
+                    "        items: [{",
+                    "            xtype: 'button',",
+                    "            itemId: 'cancelPopBtn',",
+                    "            text: 'Cancel',",
+                    "            handler: function(){",
+                    "                this.up('#popupPnl').destroy();",
+                    "",
+                    "            }",
+                    "        },{",
+                    "            xtype: 'button',",
+                    "            itemId: 'savePopBtn',",
+                    "            text: 'Sign On',",
+                    "            handler: function(){",
+                    "                this.up('#popupPnl').destroy();",
+                    "                AJAXCommand({",
+                    "                    params: {",
+                    "                        raceid: me.getPortalRacesList().selected.get(0).get('raceid'),",
+                    "                        boatid: me.getBoatNumberCmb().getValue()",
+                    "                    },",
+                    "                    method: 'SignOn',",
+                    "                    scope: me,",
+                    "                    callback: function(status, message, obj, scope) {",
+                    "                        //debugger;",
+                    "                        if (status) {",
+                    "",
+                    "                        }",
+                    "                        else",
+                    "                        {",
+                    "                            Ext.Msg.show({",
+                    "                                title: 'Sign On Error',//T('errLogIn'),",
+                    "                                message: 'Error!',//T(''),",
+                    "                                buttons: Ext.Msg.OK,",
+                    "                                icon: Ext.Msg.ERROR,",
+                    "                                modal: true",
+                    "                            });",
+                    "                        }",
+                    "                    }",
+                    "                });",
+                    "            }",
+                    "        }]",
+                    "    }]",
+                    "",
+                    "}).showBy(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onSignOnButtonTap",
+            "designerId": "d2585d9f-92e1-4b8c-a34e-61fd5f328370"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#doneBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDoneButtonTap",
+                "implHandler": [
+                    "this.getHomePanel().removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onDoneButtonTap",
+            "designerId": "8616e083-9ef6-4186-a665-2fab250bd167"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#racesSignOnList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRaceListItemTap",
+                "implHandler": [
+                    "//debugger;",
+                    "var me = this,",
+                    "    mStore = me.getMessagesList().getStore();",
+                    "    bStore = me.getBoatNumberCmb().getStore();",
+                    "    dStore = me.getSignOnBoatDivisionCmb().getStore();",
+                    "",
+                    "",
+                    "//debugger;",
+                    "//eturn;",
+                    "me.race = record;",
+                    "me.filterBoats();",
+                    "",
+                    "dStore.clearFilter(true);",
+                    "dStore.execConfig({",
+                    "    params: {",
+                    "        entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,",
+                    "        filters: \"where raceid is null or raceid = '\"+record.get('raceid')+\"' order by name asc\"",
+                    "    }",
+                    "});",
+                    "",
+                    "return;",
+                    "",
+                    "mStore.clearFilter(true);",
+                    "mStore.filter('raceid', record.get('raceid'));",
+                    "",
+                    "",
+                    "",
+                    "bStore.clearFilter(true);",
+                    "bStore.filter('raceid', record.get('raceid'));",
+                    "",
+                    "",
+                    "",
+                    "me.getSignOnBoatDivisionCmb().setStore(dStore);",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onRaceListItemTap",
+            "designerId": "632e4ae4-6a06-4268-a2f6-899fa743b1c4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "messagesList",
+                "selector": "list#messagesList"
+            },
+            "name": "messagesList",
+            "designerId": "79337109-a898-4160-adfc-93277985cdac"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatNumberCmb",
+                "selector": "selectfield#boatNumberCmb"
+            },
+            "name": "boatNumberCmb",
+            "designerId": "06c7ee5a-2dbe-4ae9-9be0-a8bff565e0f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOnCard",
+                "selector": "formpanel#signOnCard"
+            },
+            "name": "signOnCard",
+            "designerId": "01e068c6-f37b-4bc8-9065-0e1d424f2862"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#boatNumberCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onBoatSelectfieldChange",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if(newValue){\r",
+                    "    this.getSignOnCard().setValues(selectfield.record.raw);\r",
+                    "    this.getSkipperNumber().setValue(selectfield.record.raw.ya);\r",
+                    "}\r",
+                    "//debugger;"
+                ],
+                "name": "change"
+            },
+            "name": "onBoatSelectfieldChange",
+            "designerId": "58f7dd38-f829-4705-87a5-150bff911ae2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "skipperNumber",
+                "selector": "textfield#skipperNumber"
+            },
+            "name": "skipperNumber",
+            "designerId": "323784fa-4083-4ff9-bd8f-691182ab9127"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesSignOnList",
+                "selector": "list#racesSignOnList"
+            },
+            "name": "racesSignOnList",
+            "designerId": "4c3fd001-14eb-48b8-9c34-179a86dde48c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "08daf81c-e9b3-44c9-b33c-0643b73ccfe0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#opsBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUndoButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        raceid: me.getRacesSignOnList().selected.get(0).get('raceid'),\r",
+                    "        boatid: me.getBoatNumberCmb().getValue()\r",
+                    "    },\r",
+                    "    method: 'UndoSignOn',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Skipper save',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.getHomePanel().removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onUndoButtonTap",
+            "designerId": "ffdc3b02-70c6-43d4-a67a-9172f1cdbc2d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "weatherCmp",
+                "selector": "component#weatherCmp"
+            },
+            "name": "weatherCmp",
+            "designerId": "b0aad6d3-3007-49ca-8483-d38a1b81ce46"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOnBtn",
+                "selector": "button#signOnBtn"
+            },
+            "name": "signOnBtn",
+            "designerId": "ef7767a0-f494-46cd-bd2d-495bf7f68d57"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "portalRacesList",
+                "selector": "list#portalRacesList"
+            },
+            "name": "portalRacesList",
+            "designerId": "8e872895-72aa-4216-9c0e-73ac4a980262"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#undoSignOnBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUndoSignButtonTap",
+                "implHandler": [
+                    "var me = this, vals, items, rec,\r",
+                    "    wizard = me.getSignOnWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    record = me.getPortalRacesList().selected.get(0);\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        raceid: me.getPortalRacesList().selected.get(0).get('raceid'),\r",
+                    "        boatid: me.getBoatsSignOnView().selected.get(0).get('boatid'),\r",
+                    "        type: 'off'\r",
+                    "    },\r",
+                    "    method: 'SignOnOff',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Sign Off Error',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "record.set('signondate', null);\r",
+                    "me.enableButtons(record);"
+                ],
+                "name": "tap"
+            },
+            "name": "onUndoSignButtonTap",
+            "designerId": "2632fed9-ec04-4696-b2fe-339e1f886a40"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#portalRacesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onPortalListSelect",
+                "implHandler": [
+                    "this.enableButtons(record);\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onPortalListSelect",
+            "designerId": "295b1236-2a93-42f3-8cc4-0aa85fe4e60f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "undoSignOnBtn",
+                "selector": "button#undoSignOnBtn"
+            },
+            "name": "undoSignOnBtn",
+            "designerId": "bfc82cd0-4e72-4a79-8411-d3ca7f451f82"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#boatSignOnSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onBoatSearchfieldKeyup",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.filterBoats();\r",
+                    "\r",
+                    "return;\r",
+                    "\r",
+                    "this.getBoatsSignOnView().getStore().clearFilter(true);\r",
+                    "this.getBoatsSignOnView().getStore().filter([\r",
+                    "    {filterFn: BoatFilter, scope: textfield}\r",
+                    "]);\r",
+                    "//debugger;"
+                ],
+                "name": "keyup"
+            },
+            "name": "onBoatSearchfieldKeyup",
+            "designerId": "26d20a85-cd2c-43ad-972d-7f110479e60d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsSignOnView",
+                "selector": "dataview#boatsSignOnView"
+            },
+            "name": "boatsSignOnView",
+            "designerId": "3d19778d-0d1a-4030-86fd-d119fa23f05f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#boatsSignOnView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatDataviewSelect",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    rStore = me.getRacesSignOnList().getStore();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "//return;\r",
+                    "\r",
+                    "rStore.clearFilter(true);\r",
+                    "rStore.filter('raceid', record.get('raceid'));\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "this.getSignOnCard().setValues(record.raw);\r",
+                    "this.getSkipperNumber().setValue(record.raw.ya);\r",
+                    "this.getNextSignOnBtn().enable();\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onBoatDataviewSelect",
+            "designerId": "b55e113a-0ddf-4d83-95b5-0c435047cc1c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nextSignOnBtn",
+                "selector": "button#nextSignOnBtn"
+            },
+            "name": "nextSignOnBtn",
+            "designerId": "c3d796e5-72d2-4716-bb8b-71c37d92b12d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#doneSignOnBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "",
+                    "//debugger;",
+                    "this.getHomePanel().removeAll();",
+                    "var i=5,",
+                    "    me = this,",
+                    "    alertBox = Ext.Msg.show({",
+                    "    title   : 'Returning to start page in',",
+                    "     msg     : null,",
+                    "     buttons : [{",
+                    "          itemId : 'ok',",
+                    "          text   : 'Hold on, I’m not finished yet!'",
+                    "      }],",
+                    "    fn: function(ok) {",
+                    "        if (ok === \"ok\") {",
+                    "            alertBox.hide();",
+                    "            i= -1;",
+                    "        }",
+                    "    }",
+                    "});",
+                    "//countdown.start();",
+                    "alertBox.show();",
+                    "//debugger;",
+                    "if(!countdown){",
+                    "    function countdown(){",
+                    "        alertBox.setTitle('Returning to start page in '+i);",
+                    "        i--;",
+                    "",
+                    "        if(i == 0){",
+                    "            alertBox.hide();",
+                    "            me.confirmTC();",
+                    "        }",
+                    "        else if(i>0)",
+                    "        {",
+                    "            setTimeout(countdown, 1000);",
+                    "        }",
+                    "    }",
+                    "}",
+                    "",
+                    "countdown(this);",
+                    "",
+                    "new Ext.util.DelayedTask(function(){",
+                    "    DynaMightMobile.app.getController('Navigation').onNavigate();",
+                    "}).delay(4000);",
+                    "",
+                    "",
+                    "",
+                    "//DynaMightMobile.app.getController('Navigation').applyClass('SignOnWizard');",
+                    "",
+                    "//Ext.Viewport.setMasked(true);",
+                    "/*Ext.Viewport.setMasked({ xtype: 'loadmask',message: 'Saving...'});",
+                    "new Ext.util.DelayedTask(function(){",
+                    "    DynaMightMobile.app.getController('Navigation').applyClass('SignOnWizard');",
+                    "}).delay(250);*/"
+                ],
+                "name": "tap"
+            },
+            "name": "onButtonTap",
+            "designerId": "88c432be-f20b-4f71-924d-7b02761764bb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "enableButtons",
+                "implHandler": [
+                    "\r",
+                    "    if(record.get('signondate')){\r",
+                    "        this.getSignOnBtn().disable();\r",
+                    "        this.getUndoSignOnBtn().enable();\r",
+                    "    }\r",
+                    "    else{\r",
+                    "        this.getSignOnBtn().enable();\r",
+                    "        this.getUndoSignOnBtn().disable();\r",
+                    "    }\r",
+                    "\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "enableButtons",
+            "designerId": "c4bb87f6-3219-401f-9594-4ae12dc74610"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatInfoLbl",
+                "selector": "label#boatInfoLbl"
+            },
+            "name": "boatInfoLbl",
+            "designerId": "e1bc2980-c2c6-4d4f-b6b9-6fb49dcc6275"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#editBoatBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onEditBoatButtonTap",
+                "implHandler": [
+                    "//debugger;",
+                    "var me = this,",
+                    "    wizard = me.getSignOnWizard(),",
+                    "    popup;",
+                    "",
+                    "popup = new DynaMightMobile.view.BoatDetails({",
+                    "    width: '100%',",
+                    "    height: 600,",
+                    "    parent: popup,",
+                    "    itemId: 'popupPnl',",
+                    "    listeners: {",
+                    "        painted: function(a, b, c){",
+                    "            this.setValues(me.boat.data);",
+                    "        }",
+                    "    }",
+                    "});",
+                    "",
+                    "",
+                    "popup.getOwnerInfoCt().setHidden(true);",
+                    "",
+                    "",
+                    "",
+                    "popup.setModal(true);",
+                    "",
+                    "popup.showBy(button);",
+                    "",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onEditBoatButtonTap",
+            "designerId": "37048aa2-8ee7-4962-8219-46aa249bbc8c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#signOnBoatDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onBoatDivisionSelectfieldChange",
+                "implHandler": [
+                    "this.filterBoats();"
+                ],
+                "name": "change"
+            },
+            "name": "onBoatDivisionSelectfieldChange",
+            "designerId": "25eaa4c9-2c52-4c61-a821-b5047d4293f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "withoutSelection"
+                ],
+                "fn": "filterBoats",
+                "implHandler": [
+                    "//debugger;",
+                    "var me = this,",
+                    "    filters = [],",
+                    "    division = me.getSignOnBoatDivisionCmb().getValue(),",
+                    "    searchField = me.getBoatSignOnSearch(),",
+                    "    storeB = me.getBoatsSignOnView().getStore();",
+                    "",
+                    "me.getBoatsSignOnView().getStore().clearFilter(true);",
+                    "//debugger;",
+                    "",
+                    "if(division){",
+                    "    filters.push({property: 'divisionid', value: division});",
+                    "}",
+                    "",
+                    "if(me.race){",
+                    "    filters.push({property: \"raceid\", value: me.race.get('raceid')});",
+                    "}",
+                    "",
+                    "if(searchField.getValue()){",
+                    "    filters.push({filterFn: BoatFilter, scope: searchField});",
+                    "}",
+                    "",
+                    "",
+                    "storeB.filter(filters);",
+                    "",
+                    "if(storeB.getCount() > 0 && !withoutSelection){",
+                    "    var tmp = storeB.findExact('hullnumber', searchField.getValue());",
+                    "    if(tmp > -1){",
+                    "        me.getBoatsSignOnView().select(storeB.getAt(tmp));",
+                    "    }",
+                    "    else",
+                    "        me.getBoatsSignOnView().select(storeB.getAt(0));",
+                    "}",
+                    ""
+                ]
+            },
+            "name": "filterBoats",
+            "designerId": "4574b1bb-aa5f-48cf-85d2-dbfacd08eb3e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "signOnBoatDivisionCmb",
+                "selector": "selectfield#signOnBoatDivisionCmb"
+            },
+            "name": "signOnBoatDivisionCmb",
+            "designerId": "991e07f9-e22a-4732-9acc-397d38ad08d0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatSignOnSearch",
+                "selector": "searchfield#boatSignOnSearch"
+            },
+            "name": "boatSignOnSearch",
+            "designerId": "da98c113-668c-44c2-a600-778eec6f9f61"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#showCompassBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onShowCompassBtn",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var me = this,\r",
+                    "    popup;\r",
+                    "\r",
+                    "Ext.create('Ext.Panel', {\r",
+                    "     html: button.panelHtml,\r",
+                    "     left: 0,\r",
+                    "    modal:true,\r",
+                    "     padding: 10,\r",
+                    "    hideOnMaskTap: true\r",
+                    "   // floating: true\r",
+                    " }).showBy(button);\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onShowCompassBtn",
+            "designerId": "b8d53d5c-7515-4bf8-8498-7f9a8f096d16"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "onSignOn",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    record = me.getPortalRacesList().selected.get(0);\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        raceid: record.get('raceid'),\r",
+                    "        boatid: record.get('boatid'),\r",
+                    "        firstname: me.getTcFirstNameTxt().getValue(),\r",
+                    "        lastname: me.getTcLastNameTxt().getValue(),\r",
+                    "        type: 'on'\r",
+                    "    },\r",
+                    "    method: 'SignOnOff',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "            me.getBoatsSignOnView().getStore().load();\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Sign On Error',//T('errLogIn'),\r",
+                    "                message: 'Error!',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "record.set('signondate', new Date());\r",
+                    "//me.getPortalRacesList().refresh();"
+                ]
+            },
+            "name": "onSignOn",
+            "designerId": "3f080519-723d-41fb-9a74-41979f8fd12a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#refreshSOBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRefreshButtonTap",
+                "implHandler": [
+                    "this.getBoatsSignOnView().getStore().load();"
+                ],
+                "name": "tap"
+            },
+            "name": "onRefreshButtonTap",
+            "designerId": "b121dce3-321d-4fbf-a730-4e3dfcc8b93b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#tcOKBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onOKTCButtonTap",
+                "implHandler": [
+                    "var me = this,",
+                    "    wizard = me.getSignOnWizard(),",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);",
+                    "",
+                    "me.confirmTC();"
+                ],
+                "name": "tap"
+            },
+            "name": "onOKTCButtonTap",
+            "designerId": "e7d524f2-1e0c-4569-ada8-86bbc8b30270"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#tcCancelBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onTCCancelButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getSignOnWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "wizard.setActiveItem(selectedIndex - 1);\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onTCCancelButtonTap",
+            "designerId": "78a5b6cd-0632-4a39-8ecc-e81aa2110f41"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tcFirstNameTxt",
+                "selector": "textfield#tcFirstNameTxt"
+            },
+            "name": "tcFirstNameTxt",
+            "designerId": "4bd57e94-f260-4513-8a15-70810e494965"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tcLastNameTxt",
+                "selector": "textfield#tcLastNameTxt"
+            },
+            "name": "tcLastNameTxt",
+            "designerId": "7b894e1c-6af3-4ed0-9f37-01a120ffe819"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tcFrm",
+                "selector": "#tcFrm"
+            },
+            "name": "tcFrm",
+            "designerId": "ca6adfbf-e54c-48a2-958d-b60c124b366d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatSearch",
+                "selector": "searchfield#boatSignOnSearch"
+            },
+            "name": "boatSearch",
+            "designerId": "5f8b6cb9-0ebb-4e30-8559-1d7ef9218f7b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#raceBoatsList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onMessageListItemTap",
+                "implHandler": [
+                    "Ext.Msg.alert(record.get('name'), record.get('message'), Ext.emptyFn);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onMessageListItemTap",
+            "designerId": "10432c5e-5d6e-48a0-8b9e-2038fa9352b9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#messagesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRaceMessageListItemTap",
+                "implHandler": [
+                    "Ext.Msg.alert(record.get('name'), record.get('message'), Ext.emptyFn);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onRaceMessageListItemTap",
+            "designerId": "e1bd2d15-aa47-45b2-aeae-e0a829e1c21f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "confirmTC",
+                "implHandler": [
+                    "var me = this,",
+                    "    wizard = me.getSignOnWizard(),",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),",
+                    "    frm = me.getTcFrm();",
+                    "",
+                    "if(frm.down('#tcFirstNameTxt').getValue().length == 0 || frm.down('#tcLastNameTxt').getValue().length == 0){",
+                    "    Ext.Msg.show({",
+                    "        title: 'Terms & Conditions',//T('errLogIn'),",
+                    "        message: 'Please complete the form!',//T(''),",
+                    "        buttons: Ext.Msg.OK,",
+                    "        icon: Ext.Msg.ERROR,",
+                    "        modal: true",
+                    "    });",
+                    "    return;",
+                    "}",
+                    "",
+                    "me.onSignOn();",
+                    "",
+                    "frm.down('#tcFirstNameTxt').setValue('');",
+                    "frm.down('#tcLastNameTxt').setValue('');",
+                    "",
+                    "me.getBoatsSignOnView().getStore().clearFilter(true);",
+                    "",
+                    "//wizard.setActiveItem(0);",
+                    "",
+                    "wizard.setActiveItem(selectedIndex - 1);"
+                ]
+            },
+            "name": "confirmTC",
+            "designerId": "c090a46e-19bb-482b-a924-cd34828ec290"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tcTxt",
+                "selector": "textareafield#tcTxt"
+            },
+            "name": "tcTxt",
+            "designerId": "017a5a9c-7919-4574-b6c8-0c7c2f3035f6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#backSignOnBtn1",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackSignOnBtn1Tap",
+                "implHandler": [
+                    "//this.jumpCards(-1);",
+                    "this.getController('Navigation').onNavigate();"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackSignOnBtn1Tap",
+            "designerId": "371cb644-66f6-42c9-9175-736e77f9c150"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css3",
+        "url": "app/ux/TouchCalendar/TouchCalendarView.css"
+    },
+    "designerId": "b227896a-3959-4858-b804-9fbac5312344"
+}

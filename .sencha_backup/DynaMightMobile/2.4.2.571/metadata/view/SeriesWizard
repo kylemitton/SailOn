@@ -1,0 +1,2962 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|animation": "slide",
+        "designer|userAlias": null,
+        "designer|userClassName": "SeriesWizard",
+        "itemId": "seriesWizardId",
+        "layout": "card",
+        "masked": null,
+        "scrollable": false
+    },
+    "designerId": "38f5b40f-a150-4b5c-aef0-c51c4eb05f73",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "wizard"
+                ],
+                "html": null,
+                "itemId": "seriesDetailsFrm",
+                "scrollable": false
+            },
+            "name": "MyFormPanel",
+            "designerId": "9a992636-ec18-4e50-89a2-21388b676bc3",
+            "cn": [
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "",
+                        "displayField": "name",
+                        "hidden": true,
+                        "itemId": "yachtClubCmb",
+                        "label": "Yacht club",
+                        "name": "raceseriesyachtclubid",
+                        "valueField": "yachtclubid",
+                        "width": 875
+                    },
+                    "name": "MySelectField",
+                    "designerId": "227e9bca-3b84-46ad-853a-a36f94965b51"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "wizard"
+                        ],
+                        "defaults": null,
+                        "itemId": "seriesDetails",
+                        "margin": 5,
+                        "padding": null,
+                        "title": "Series Details",
+                        "width": null
+                    },
+                    "name": "MyFieldSet",
+                    "designerId": "663cb448-2c51-49b5-9264-9df4685c4cf2",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "SeriesName",
+                                "label": "Name",
+                                "name": "name",
+                                "padding": null,
+                                "required": true
+                            },
+                            "name": "MyTextField",
+                            "designerId": "e112d8d1-8522-484d-a5bb-a36b1c5a627c"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Location",
+                                "name": "location"
+                            },
+                            "name": "MyTextField1",
+                            "designerId": "d2e11d7c-48bc-4734-90c9-e965fde16234"
+                        },
+                        {
+                            "type": "Ext.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Entry Cost",
+                                "name": "entrycost"
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "b4708edc-9ab0-4d29-8f44-45fba908f4c4"
+                        },
+                        {
+                            "type": "Ext.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Race Cost",
+                                "name": "raceentrycost"
+                            },
+                            "name": "MyNumberField1",
+                            "designerId": "a12b7146-1035-4b07-81d6-a1a5f9078687"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Key Contact",
+                                "name": "keycontact"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "8d85638c-a417-48e7-a8c5-92ee790936c4"
+                        },
+                        {
+                            "type": "Ext.field.DatePicker",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "earlieststarttime",
+                                "label": "Start",
+                                "name": "earlieststarttime",
+                                "placeHolder": "mm/dd/yyyy",
+                                "usePicker": [
+                                    "false"
+                                ]
+                            },
+                            "name": "MyDatePicker",
+                            "designerId": "8511af7a-f35f-4392-af2a-e58ca793505e",
+                            "cn": [
+                                {
+                                    "type": "Ext.picker.Date",
+                                    "reference": {
+                                        "name": "picker",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyDatePicker1",
+                                    "designerId": "c1530d6f-fe60-4f6a-9ed4-9e51a845e796",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "doneButton",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Done"
+                                            },
+                                            "name": "MyButton",
+                                            "designerId": "04eaf270-781e-4fd8-aec7-8daebf66f1fc"
+                                        },
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "cancelButton",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Cancel"
+                                            },
+                                            "name": "MyButton1",
+                                            "designerId": "04021a7e-f802-4417-9501-b4f7271ba150"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "sponsorDetails",
+                        "margin": 5,
+                        "title": "Sponsor",
+                        "width": null
+                    },
+                    "name": "MyFieldSet1",
+                    "designerId": "774be66f-11b0-4636-a2bf-8173745e8392",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Name",
+                                "name": "sponsorname"
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "813c6ac0-5f7b-45ad-be04-e2a74ba3ccf6"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "label": "Logo",
+                                "name": "logo"
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "0612cabf-a8d9-495d-8d71-1329e3d74be3"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Link",
+                                "name": "link"
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "3c79a644-d83a-4e2e-8829-4d5b073ccd87"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 35,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer",
+                    "designerId": "ddaa1cb3-f976-4e5b-85a1-0ace7f3112b5",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextBtn",
+                                "text": "Next  >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton2",
+                            "designerId": "fad84b48-4549-4ce7-a61a-bbacd129af39"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "width": null
+                            },
+                            "name": "MyButton3",
+                            "designerId": "95481b46-848b-4a38-ae5a-def02cd67fb4"
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onSeriesDetailsFrmPainted",
+                        "implHandler": [
+                            "//alert('y');\r",
+                            "Ext.Viewport.setMasked(false);\r",
+                            ""
+                        ],
+                        "name": "painted"
+                    },
+                    "name": "onSeriesDetailsFrmPainted",
+                    "designerId": "61b8952f-093f-46fb-a4ca-e6761707d5ea"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "seriesOptionsFrm",
+                "scrollable": false
+            },
+            "name": "MyFormPanel1",
+            "designerId": "286fdf43-b326-4c5c-bc97-31fcd5eebaff",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 35,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "c63fb798-e43f-44cb-b39a-6cd34f75374f",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextBtn",
+                                "text": "Next  >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton4",
+                            "designerId": "b98a3060-b1a7-4479-85c4-8aae0f1d9680"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "width": null
+                            },
+                            "name": "MyButton5",
+                            "designerId": "9e4b09ed-906a-443c-8831-40b1029d9784"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Series Options"
+                    },
+                    "name": "MyFieldSet2",
+                    "designerId": "cb3e080b-824e-4480-84d0-fb827e2d1834",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "itemId": "seriesSelect",
+                                "label": "Import Messages from Series"
+                            },
+                            "name": "MySelectField1",
+                            "designerId": "312e4b8a-d046-47ed-8a56-e4187cc5483c"
+                        },
+                        {
+                            "type": "Ext.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "signOnChk",
+                                "label": "Sign On ",
+                                "name": "signoncheck",
+                                "value": null
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "13ca1f58-4c70-43fc-9544-05c1748d0d3c"
+                        },
+                        {
+                            "type": "Ext.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "itemId": "mobileSignOnChk",
+                                "label": "Allow Mobile App Sign On",
+                                "name": "mobilesignoncheck"
+                            },
+                            "name": "MyCheckbox1",
+                            "designerId": "0fc5463d-f64d-4c20-a852-3283deec471b"
+                        },
+                        {
+                            "type": "Ext.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "itemId": "signOnMessageTxt",
+                                "label": "Sign On Message",
+                                "name": "signonmessage"
+                            },
+                            "name": "MyTextArea",
+                            "designerId": "3e349181-9f65-4c45-9eff-16f78beddc6c"
+                        },
+                        {
+                            "type": "Ext.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "signOffChk",
+                                "label": "Sign Off",
+                                "name": "signoffcheck"
+                            },
+                            "name": "MyCheckbox2",
+                            "designerId": "258617fd-9b70-4f42-8091-b7e9e9ef3656"
+                        },
+                        {
+                            "type": "Ext.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "itemId": "mobileSignOffChk",
+                                "label": "Allow Mobile App Sign Off",
+                                "name": "mobilesignoffcheck"
+                            },
+                            "name": "MyCheckbox3",
+                            "designerId": "87c4d065-59ed-4400-ada4-e9a22cc6b51b"
+                        },
+                        {
+                            "type": "Ext.field.TextArea",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "itemId": "signOffMessageTxt",
+                                "label": "Sign Off Message",
+                                "name": "signoffmessage"
+                            },
+                            "name": "MyTextArea1",
+                            "designerId": "77882611-8007-43e9-b9ad-ef1c2ee5719a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "divisionDetails",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel2",
+            "designerId": "bef7c15e-c04f-4146-aebd-10867b0d139a",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "height": null,
+                        "itemId": "divisionCt",
+                        "layout": "hbox",
+                        "layout|flex": 5
+                    },
+                    "name": "MyContainer2",
+                    "designerId": "74be566a-b149-498d-b483-627ec909a387",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Divisions",
+                                "width": null
+                            },
+                            "name": "MyFieldSet3",
+                            "designerId": "656268f2-afcd-403a-a29b-b48594952e09",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "raceDivisionsList",
+                                        "maxHeight": null
+                                    },
+                                    "name": "MyList",
+                                    "designerId": "a23e2b16-0584-4fcb-b037-43cbd910d1e8",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "\r",
+                                                    "<div class=\"icon-wrapper\">\r",
+                                                    "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                                    "    </div>\r",
+                                                    "</div>\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">\r",
+                                                    "        {name}\r",
+                                                    "        <tpl if=\"values.groupname\">\r",
+                                                    "            <span style = \"margin-right:5px;\">({groupname})</span>\r",
+                                                    "        </tpl>\r",
+                                                    "        \r",
+                                                    "        <tpl if=\"values.handicaptype\">\r",
+                                                    "         <span style = \"margin-right:5px;\"> - {handicaptype}</span>\r",
+                                                    "        </tpl>\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "    <div class=\"name\">{description}\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl",
+                                            "designerId": "fd900161-a025-4fcb-a034-452dedb20f88",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "path"
+                                                        ],
+                                                        "fn": "getPath",
+                                                        "implHandler": [
+                                                            "//debugger;\r",
+                                                            "return \"background-size:cover;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                        ]
+                                                    },
+                                                    "name": "getPath",
+                                                    "designerId": "ef429905-557d-42c3-8cad-0ef24f26cd6d"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": "center",
+                                "defaults": [
+                                    "{\r",
+                                    "    margin: '5 0 0 0'\r",
+                                    "}"
+                                ],
+                                "docked": null,
+                                "itemId": "divisionButtonsCt",
+                                "layout": "vbox"
+                            },
+                            "name": "MyContainer3",
+                            "designerId": "9580408a-af35-4bc3-983d-5a288056ca34",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "addDivisionBtn",
+                                        "text": "< Add",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton6",
+                                    "designerId": "405c2eeb-3849-4213-9bb4-224e4f89b633"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "allDivisionsBtn",
+                                        "text": "<< All",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton7",
+                                    "designerId": "b64d6446-e49a-4b00-8ca2-c2bad87068f8"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "delDivisionBtn",
+                                        "text": "Rem >",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton8",
+                                    "designerId": "0919a1cc-7126-4cad-8a59-67e0ccbb4935"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "newDivisionBtn",
+                                        "text": "New",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton9",
+                                    "designerId": "d3dc1603-9401-4620-b033-00971f5a46b3"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Previously Used Divisions",
+                                "width": null
+                            },
+                            "name": "MyFieldSet4",
+                            "designerId": "1d8f4ca7-671c-4725-9207-473470bb40c4",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemHeight": 24,
+                                        "itemId": "divisionsList"
+                                    },
+                                    "name": "MyList1",
+                                    "designerId": "75661c36-4eb1-480d-8273-6ac9258ac753",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "\r",
+                                                    "<div class=\"icon-wrapper\">\r",
+                                                    "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                                    "    </div>\r",
+                                                    "</div>\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">\r",
+                                                    "        {name}\r",
+                                                    "        <tpl if=\"values.groupname\">\r",
+                                                    "            <span style = \"margin-right:5px;\">({groupname})</span>\r",
+                                                    "        </tpl>\r",
+                                                    "        \r",
+                                                    "        <tpl if=\"values.handicaptype\">\r",
+                                                    "         <span style = \"margin-right:5px;\"> - {handicaptype}</span>\r",
+                                                    "        </tpl>\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "    <div class=\"name\">{description}\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl1",
+                                            "designerId": "46ff2a58-766e-41c0-b289-e32a1c3ea17a",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "path"
+                                                        ],
+                                                        "fn": "getPath",
+                                                        "implHandler": [
+                                                            "return \"background-size:cover;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                        ]
+                                                    },
+                                                    "name": "getPath",
+                                                    "designerId": "514b7e94-e63b-431a-bf8f-ec823f53d83e"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "updateCt",
+                        "height": null,
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer4",
+                    "designerId": "5bacad6a-a632-47b6-8829-312f8cb0312f",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "docked": null,
+                                "height": 30,
+                                "hidden": true,
+                                "itemId": "addNewDivisionBtn",
+                                "layout|flex": 1,
+                                "margin": null,
+                                "text": "New devision",
+                                "ui": "action-round",
+                                "width": null
+                            },
+                            "name": "MyButton10",
+                            "designerId": "18a15264-fccf-4c79-9c71-10dfd13be66b"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "docked": null,
+                                "height": 30,
+                                "itemId": "updateDivisionBtn",
+                                "layout|flex": 1,
+                                "margin": null,
+                                "text": "Edit division",
+                                "ui": "action-round",
+                                "width": null
+                            },
+                            "name": "MyButton11",
+                            "designerId": "4b93fb1c-d3f2-4ae7-9e9f-57e7e3e55a92"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt1",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "a1146cbc-2b46-474a-b16a-d1193f2555d9",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "hidden": false,
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton12",
+                            "designerId": "ccc13cbb-ae8d-4399-9fcf-bd0be6eb95f2"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton13",
+                            "designerId": "3084f9d9-d324-4ade-a45f-a778e8debd8a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "divisionDetailsEdit",
+                "scrollable": false
+            },
+            "name": "MyFormPanel3",
+            "designerId": "d947c775-3751-4610-961f-f54089d1dc57",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "updateCt"
+                    },
+                    "name": "MyContainer6",
+                    "designerId": "87f2b8e9-f93e-4561-a76f-9a58ff555036",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "title": "Division Details",
+                                "width": 541
+                            },
+                            "name": "MyFieldSet5",
+                            "designerId": "bff0ea2b-c284-4421-a2dc-5a46a92a4efb",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "label": "Name",
+                                        "name": "name"
+                                    },
+                                    "name": "MyTextField6",
+                                    "designerId": "aa47df19-4c49-43eb-bce1-5d95599d0332"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "label": "Group",
+                                        "name": "group"
+                                    },
+                                    "name": "MyTextField7",
+                                    "designerId": "1004b71e-f5f0-4b9c-9d7a-dcb9aa8e8b65"
+                                },
+                                {
+                                    "type": "Ext.field.Select",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "autoSelect": false,
+                                        "hiddenName": "handicaptype",
+                                        "itemId": "handicapTypeTxt",
+                                        "label": "Handicap Type",
+                                        "name": "handicaptype",
+                                        "options": [
+                                            "[{text: 'CBH', value: 'CBH'},\r",
+                                            " {text: 'YS', value: 'YS'},\r",
+                                            " {text: 'TCF', value: 'TCF'}]"
+                                        ]
+                                    },
+                                    "name": "MySelectField2",
+                                    "designerId": "37c4f15c-72e2-463d-be22-e20a9d0ae8f4"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "handicapValueTxt",
+                                        "label": "Handicap Value",
+                                        "name": "handicapvalue"
+                                    },
+                                    "name": "MyTextField8",
+                                    "designerId": "1103625b-e83c-4b2b-9bc0-a0a76155a985"
+                                },
+                                {
+                                    "type": "Ext.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "label": "Description",
+                                        "name": "description"
+                                    },
+                                    "name": "MyTextArea2",
+                                    "designerId": "466b092f-c8ef-4bc3-9089-bd47c2ee1835"
+                                },
+                                {
+                                    "type": "Ext.field.File",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "label": "Flag",
+                                        "name": "flag"
+                                    },
+                                    "name": "MyFileField",
+                                    "designerId": "456412c2-41e8-41ac-b9b8-e2b0855e4f43"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "hbox"
+                            },
+                            "name": "MyContainer7",
+                            "designerId": "15f563e2-80f5-4d36-93ba-54e039f657c4",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "height": 30,
+                                        "itemId": "saveDivisionBtn",
+                                        "layout|flex": 1,
+                                        "margin": "110 0 0 20",
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "OK",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton14",
+                                    "designerId": "5147741b-df2b-4f5e-84e2-80f7b9320e41"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "height": 30,
+                                        "itemId": "cancelDivisionBtn",
+                                        "layout|flex": 1,
+                                        "margin": "110 0 0 20",
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "Cancel",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton15",
+                                    "designerId": "ff35241c-9ddc-4385-9396-dd28145cf8cf"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt1",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer8",
+                    "designerId": "25c2b2a4-a6f2-4105-89dc-47e9b9b21714",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton16",
+                            "designerId": "07a8df6e-8b20-40e8-b021-868f9675dbbb"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton17",
+                            "designerId": "71ff66cc-dff5-45e6-94ce-82a1352d7f39"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "raceDetails",
+                "scrollable": false
+            },
+            "name": "MyFormPanel4",
+            "designerId": "477f46ad-8685-47b4-a3c8-98e3ae1dc82b",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "start",
+                        "designer|displayName": "raceCt",
+                        "height": 410,
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer9",
+                    "designerId": "a6b94b05-de84-4345-b36d-7713904f34b3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "left",
+                                "height": null,
+                                "layout": "fit",
+                                "margin": "0 0 5 10",
+                                "title": "Race Details",
+                                "width": "90%"
+                            },
+                            "name": "MyFieldSet6",
+                            "designerId": "6b778356-690b-4d94-9d3f-9b1fb59d1d84",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "emptyText": "Races",
+                                        "itemHeight": 50,
+                                        "itemId": "racesList",
+                                        "width": null
+                                    },
+                                    "name": "MyList2",
+                                    "designerId": "6f2956ca-2ab8-481c-8c5b-7996859372b1",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">Start time: {[this.DateFormat(values.startdate)]}\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl2",
+                                            "designerId": "a1c8acaf-1d7d-4917-8407-fc4288b57111",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "date"
+                                                        ],
+                                                        "fn": "DateFormat",
+                                                        "implHandler": [
+                                                            "return Ext.Date.format(date, 'Y-m-d H:i');"
+                                                        ]
+                                                    },
+                                                    "name": "DateFormat",
+                                                    "designerId": "b17ec52b-5681-4bc4-9135-e888eb9d475d"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": "center",
+                                "defaults": [
+                                    "{\r",
+                                    "    margin: '5 0 0 0'\r",
+                                    "}"
+                                ],
+                                "docked": "left",
+                                "layout": "vbox"
+                            },
+                            "name": "MyContainer10",
+                            "designerId": "bcd6e907-15cd-4c45-a6dd-f2a8e193043c",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "addNewRace",
+                                        "text": "Add",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton18",
+                                    "designerId": "e57d8f72-9d9a-40e6-8891-aab685792757"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "delBtn",
+                                        "text": "Rem",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton19",
+                                    "designerId": "1343d43d-7484-40dc-98be-a34d445aaeb1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "raceZone"
+                        ],
+                        "itemId": "bottomCtId",
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer11",
+                    "designerId": "51e2a5d9-57d4-4b9e-806f-66b2b510154a",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "raceCt1",
+                                "width": 438
+                            },
+                            "name": "MyContainer12",
+                            "designerId": "8030c3b6-e9b8-4646-89c5-7ac273d3739e",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "sponsorNameTxt",
+                                        "label": "Name",
+                                        "name": "sponsorname"
+                                    },
+                                    "name": "MyTextField9",
+                                    "designerId": "0b07ae4f-9ab5-4c6a-9ea0-c19232dbd6ac"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "label": "Logo",
+                                        "name": "sponsorlogo"
+                                    },
+                                    "name": "MyTextField10",
+                                    "designerId": "66344a34-5d5e-45e2-988b-872357065417"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "linkTxt",
+                                        "label": "Link",
+                                        "name": "sponsorlink"
+                                    },
+                                    "name": "MyTextField11",
+                                    "designerId": "e298278c-bd15-4809-8896-c619f6812bee"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "itemId": "updateRaceBtn",
+                                        "margin": null,
+                                        "text": "Edit race",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton20",
+                                    "designerId": "addcea8c-f27e-4adc-a04a-49793a35cf5e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer13",
+                    "designerId": "a0010ca2-d77a-42f8-b00d-00042ea3e2a8",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton21",
+                            "designerId": "ab2521ea-74ce-4ff5-a959-c0fab78efd11"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton22",
+                            "designerId": "67b50b10-bf70-4681-9720-89ea901b1df3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "raceDetailsEdit",
+                "scrollable": false
+            },
+            "name": "MyFormPanel5",
+            "designerId": "e55bcb1f-462c-4329-8b80-83174df6437d",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "raceZone"
+                        ],
+                        "itemId": "bottomCtId"
+                    },
+                    "name": "MyContainer14",
+                    "designerId": "2d973472-548c-4e44-b0eb-eb07615fdafb",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "raceCtId",
+                                "title": "Race details",
+                                "width": 438
+                            },
+                            "name": "MyFieldSet7",
+                            "designerId": "07668014-acf3-4ce3-8127-6ef81d2d0232",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "nameTxt",
+                                        "label": "Name",
+                                        "name": "name",
+                                        "required": true
+                                    },
+                                    "name": "MyTextField12",
+                                    "designerId": "4ddb4189-dfca-4779-920e-dec034e71fa9"
+                                },
+                                {
+                                    "type": "Ext.field.DatePicker",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dateFormat": "d/m/Y",
+                                        "itemId": "startdateId",
+                                        "label": "Date",
+                                        "placeHolder": "dd/mm/yyyy",
+                                        "value": 1410382800000
+                                    },
+                                    "name": "MyDatePicker2",
+                                    "designerId": "9df2fa28-bd3a-499d-923b-578e5819ae01",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.picker.Date",
+                                            "reference": {
+                                                "name": "picker",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "name": "MyDatePicker3",
+                                            "designerId": "46bdc0da-27b6-49c8-b149-3a2c47d8da02",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "doneButton",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "text": "Done"
+                                                    },
+                                                    "name": "MyButton23",
+                                                    "designerId": "835c2c14-6ae2-486e-b990-bf0d95260784"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "cancelButton",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "text": "Cancel"
+                                                    },
+                                                    "name": "MyButton24",
+                                                    "designerId": "28ee0fd2-e087-43aa-92bb-6951cac24a22"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "hbox"
+                            },
+                            "name": "MyContainer15",
+                            "designerId": "a490a9c1-bb7c-4cf3-9171-1387355ce84f",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "itemId": "saveRaceBtn",
+                                        "layout|flex": 1,
+                                        "margin": null,
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "OK",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton25",
+                                    "designerId": "6aee719f-67d7-4d4e-83e5-fba9d1430108"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "itemId": "cancelRaceEditBtn",
+                                        "layout|flex": 1,
+                                        "margin": null,
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "Cancel",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton26",
+                                    "designerId": "df0b0ffc-a067-4fcc-854d-5cbf7d170006"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "raceCt1",
+                                "width": 438
+                            },
+                            "name": "MyContainer16",
+                            "designerId": "ec795ace-88a6-4634-8c65-00b1f8143227",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "sponsorNameTxt",
+                                        "label": "Name",
+                                        "name": "sponsorname"
+                                    },
+                                    "name": "MyTextField13",
+                                    "designerId": "da3a8568-2d63-47d5-8456-30b0fe8581cb"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "label": "Logo",
+                                        "name": "sponsorlogo"
+                                    },
+                                    "name": "MyTextField14",
+                                    "designerId": "41972151-adb3-4cd5-a97e-f2f1ed096ae9"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "hidden": true,
+                                        "itemId": "linkTxt",
+                                        "label": "Link",
+                                        "name": "sponsorlink"
+                                    },
+                                    "name": "MyTextField15",
+                                    "designerId": "4ce569f9-adae-44bf-9791-f038a6e3f28e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer17",
+                    "designerId": "04272c5a-bece-4753-9ba6-e9581ab9ba20",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton27",
+                            "designerId": "5ab836be-95ea-4702-87e6-a6982daecc75"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton28",
+                            "designerId": "c3e57039-b9ed-4103-96f8-50601c733770"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "raceAddFrm",
+                "scrollable": false
+            },
+            "name": "MyFormPanel6",
+            "designerId": "ee2ce73d-ae4d-47ce-b0e6-c9b0f5cc2df9",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Blank Race(s)"
+                    },
+                    "name": "MyFieldSet8",
+                    "designerId": "ff7ec130-983e-4801-8b2b-b0a1bc495e0d",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "newTxt",
+                                "label": null,
+                                "labelWidth": 0,
+                                "minValue": 1,
+                                "value": [
+                                    "1"
+                                ],
+                                "width": null
+                            },
+                            "name": "MyNumberField2",
+                            "designerId": "c98572af-0fa5-4d4d-aece-51138b768708"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "raceCt",
+                        "height": 410
+                    },
+                    "name": "MyContainer18",
+                    "designerId": "68caba1f-d86c-43c0-93e0-8c68e17f44e7",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "left",
+                                "height": "100%",
+                                "layout": "vbox",
+                                "title": "Patter of Races",
+                                "width": 550
+                            },
+                            "name": "MyFieldSet9",
+                            "designerId": "b2bd6fa0-c5c0-4569-804f-61837d254e51",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": [
+                                            "generateStart"
+                                        ],
+                                        "height": 65,
+                                        "itemId": "startFrm",
+                                        "layout": "hbox",
+                                        "layout|flex": null,
+                                        "width": null
+                                    },
+                                    "name": "MyFormPanel7",
+                                    "designerId": "b8b6766c-d7c4-48fc-8d3a-83a3d3139320",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.DatePicker",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dateFormat": "d/m/Y",
+                                                "itemId": "defaultStartDt",
+                                                "label": "Start Date",
+                                                "labelWidth": "50%",
+                                                "margin": 10,
+                                                "name": "startdate",
+                                                "placeHolder": "dd/mm/yyyy",
+                                                "value": [
+                                                    "{\r",
+                                                    "   year: new Date().getFullYear(),\r",
+                                                    "   month: new Date().getMonth(),\r",
+                                                    "   day: new Date().getDate()\r",
+                                                    "}"
+                                                ],
+                                                "width": 304
+                                            },
+                                            "name": "MyDatePicker4",
+                                            "configAlternates": {
+                                                "value": "object"
+                                            },
+                                            "designerId": "3bf25dc2-79fe-4fcd-ba1f-eb3d3802c204",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.picker.Date",
+                                                    "reference": {
+                                                        "name": "picker",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "slotOrder": [
+                                                            "day",
+                                                            "month",
+                                                            "year"
+                                                        ],
+                                                        "yearTo": 2016
+                                                    },
+                                                    "name": "MyDatePicker5",
+                                                    "designerId": "afcdb8d7-0714-4a9e-99df-204666e2d4a4",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.Button",
+                                                            "reference": {
+                                                                "name": "doneButton",
+                                                                "type": "object"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "text": "Done"
+                                                            },
+                                                            "name": "MyButton29",
+                                                            "designerId": "d45773f6-5004-44e3-8aa8-b08d71cc240d"
+                                                        },
+                                                        {
+                                                            "type": "Ext.Button",
+                                                            "reference": {
+                                                                "name": "cancelButton",
+                                                                "type": "object"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "text": "Cancel"
+                                                            },
+                                                            "name": "MyButton30",
+                                                            "designerId": "5021fe54-0d5a-4901-bf1d-038434a1b8af"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.Panel",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cls": [
+                                            "generateZone"
+                                        ],
+                                        "docked": null,
+                                        "height": null,
+                                        "itemId": "patternFrm",
+                                        "layout": "vbox",
+                                        "layout|flex": 1,
+                                        "style": null,
+                                        "width": null
+                                    },
+                                    "name": "MyFormPanel8",
+                                    "configAlternates": {
+                                        "style": "object"
+                                    },
+                                    "designerId": "47c2f6dd-dcfe-4a4a-8039-d5b563e795be",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": "10 10 10 10"
+                                            },
+                                            "name": "MyContainer19",
+                                            "designerId": "4e8ed62e-5927-4cb8-90c1-0c9d57a61b10",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.field.Radio",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "checked": true,
+                                                        "label": "End after:",
+                                                        "labelAlign": "right",
+                                                        "labelWidth": "50%",
+                                                        "margin": "0 5 0 0",
+                                                        "name": "endRadio",
+                                                        "value": "endAfterRadio",
+                                                        "width": 200
+                                                    },
+                                                    "name": "MyRadioButton",
+                                                    "designerId": "e0fd5303-45ba-45a6-92a1-a41e1621aec4"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Spinner",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "occurencesSpinner",
+                                                        "label": null,
+                                                        "labelAlign": "right",
+                                                        "labelWidth": "50%",
+                                                        "margin": "0 10 0 0",
+                                                        "minValue": 1,
+                                                        "name": "occurences",
+                                                        "stepValue": 1,
+                                                        "width": 149
+                                                    },
+                                                    "name": "MySpinnerField",
+                                                    "designerId": "efe6c51d-f473-4a45-97f7-e2c204f76efa"
+                                                },
+                                                {
+                                                    "type": "Ext.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "docked": null,
+                                                        "html": "occurences",
+                                                        "margin": 10
+                                                    },
+                                                    "name": "MyLabel",
+                                                    "designerId": "7d569653-3fc6-4f8c-823e-5dc0e8891149"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": "10 10 10 10 "
+                                            },
+                                            "name": "MyContainer20",
+                                            "designerId": "6b285afd-e201-4d47-9733-5ba787e2d46c",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.field.Radio",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "label": "End by:",
+                                                        "labelAlign": "right",
+                                                        "labelWidth": "50%",
+                                                        "margin": "0 5 0 0",
+                                                        "name": "endRadio",
+                                                        "value": "endByRadio",
+                                                        "width": 200
+                                                    },
+                                                    "name": "MyRadioButton1",
+                                                    "designerId": "a16f2aaa-1162-4303-acdd-a99385950012"
+                                                },
+                                                {
+                                                    "type": "Ext.field.DatePicker",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "dateFormat": "d/m/Y",
+                                                        "label": null,
+                                                        "name": "enddate",
+                                                        "placeHolder": "dd/mm/yyyy",
+                                                        "value": 1410382800000
+                                                    },
+                                                    "name": "MyDatePicker6",
+                                                    "designerId": "fdb6b805-459b-4761-9827-be70e0d77ebc",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.picker.Date",
+                                                            "reference": {
+                                                                "name": "picker",
+                                                                "type": "object"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "slotOrder": [
+                                                                    "day",
+                                                                    "month",
+                                                                    "year"
+                                                                ],
+                                                                "yearTo": 2016
+                                                            },
+                                                            "name": "MyDatePicker7",
+                                                            "designerId": "21a65b53-1b89-412e-a74c-53aa0a53b963",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "Ext.Button",
+                                                                    "reference": {
+                                                                        "name": "doneButton",
+                                                                        "type": "object"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "text": "Done"
+                                                                    },
+                                                                    "name": "MyButton31",
+                                                                    "designerId": "494d01dd-49cc-4f1c-8f6f-14140fb520c5"
+                                                                },
+                                                                {
+                                                                    "type": "Ext.Button",
+                                                                    "reference": {
+                                                                        "name": "cancelButton",
+                                                                        "type": "object"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "text": "Cancel"
+                                                                    },
+                                                                    "name": "MyButton32",
+                                                                    "designerId": "86ef313e-ab69-4088-875b-0cc96e500f25"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": "10 10 10 10 "
+                                            },
+                                            "name": "MyContainer21",
+                                            "designerId": "141423ba-8763-41e7-997c-fd8aa4fcb724",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.field.Spinner",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "weeksSpinner",
+                                                        "label": "every:",
+                                                        "minValue": 1,
+                                                        "name": "weeks",
+                                                        "stepValue": 1,
+                                                        "width": 226
+                                                    },
+                                                    "name": "MySpinnerField1",
+                                                    "designerId": "b78d9118-4549-4a19-bcd9-954af0c74b06"
+                                                },
+                                                {
+                                                    "type": "Ext.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "docked": null,
+                                                        "html": "week(s) on:",
+                                                        "margin": 10
+                                                    },
+                                                    "name": "MyLabel1",
+                                                    "designerId": "378c1c91-7196-40dc-9599-f948f5139781"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": "0 0 0 10",
+                                                "width": 530
+                                            },
+                                            "name": "MyContainer22",
+                                            "designerId": "92c3000a-e9f0-42c5-b8b1-a922471d4d25",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "mo",
+                                                        "label": "Mon",
+                                                        "labelWidth": "45%",
+                                                        "name": "1",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox4",
+                                                    "designerId": "ed060683-6543-436d-b6ac-1eb4fdf1ea6a"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "tu",
+                                                        "label": "Tue",
+                                                        "labelWidth": "45%",
+                                                        "name": "2",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox5",
+                                                    "designerId": "844d8ddd-9cf6-47be-85f6-46a4f6981fed"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "we",
+                                                        "label": "Wen",
+                                                        "labelWidth": "45%",
+                                                        "name": "3",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox6",
+                                                    "designerId": "4184b341-a83f-468c-9a5a-fd87f3ec468a"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "th",
+                                                        "label": "Thu",
+                                                        "labelWidth": "45%",
+                                                        "name": "4",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox7",
+                                                    "designerId": "0d26656e-b066-4c8d-961c-115fa4f8ad58"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": "5 5 0 10",
+                                                "width": 537
+                                            },
+                                            "name": "MyContainer23",
+                                            "designerId": "1b6ea0fc-d349-4de0-abf6-20fb4028c802",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "fr",
+                                                        "label": "Fri",
+                                                        "labelWidth": "45%",
+                                                        "name": "5",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox8",
+                                                    "designerId": "ea7ba3de-9bc2-4cc2-af87-97ec54b4e685"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "sa",
+                                                        "label": "Sat",
+                                                        "labelWidth": "45%",
+                                                        "name": "6",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox9",
+                                                    "designerId": "13e99e97-e5c4-4f92-8ca3-04ae2b084797"
+                                                },
+                                                {
+                                                    "type": "Ext.field.Checkbox",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "su",
+                                                        "label": "Sun",
+                                                        "labelWidth": "45%",
+                                                        "name": "7",
+                                                        "width": 120
+                                                    },
+                                                    "name": "MyCheckbox10",
+                                                    "designerId": "78b13457-d4d3-43f2-b2a9-1be038025bf4"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "docked": "right",
+                                                        "itemId": "addPatternBtn",
+                                                        "margin": "10 ",
+                                                        "text": "Add pattern",
+                                                        "ui": "action-round"
+                                                    },
+                                                    "name": "MyButton33",
+                                                    "designerId": "c3f9f890-0a4b-4152-addc-cab0ce39f9cd"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "hbox",
+                        "margin": "10 0 0 0"
+                    },
+                    "name": "MyContainer24",
+                    "designerId": "55647f0d-090f-4190-be6d-febb824ae047",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "addRaceInListBtn",
+                                "margin": "10 10 10 10",
+                                "text": "Add",
+                                "ui": "action-round",
+                                "width": 200
+                            },
+                            "name": "MyButton34",
+                            "designerId": "c3ffc6d0-dd3b-4214-bff4-4b98e17ead0b"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "cancelAllRaceInListBtn",
+                                "margin": "10 10 10 10",
+                                "text": "Cancel",
+                                "ui": "action-round",
+                                "width": 200
+                            },
+                            "name": "MyButton35",
+                            "designerId": "d5b9ad37-da5d-44f6-b51e-3c15e046083c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer25",
+                    "designerId": "009ae0dc-7313-4a60-afed-3543927fbd38",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton36",
+                            "designerId": "d4f17640-386f-4f37-93da-7427ef4ac4a6"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton37",
+                            "designerId": "bd2ec346-01c9-49cd-a168-81c0ffdeb97c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "reviewCard",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel9",
+            "designerId": "a6b2aa41-32e1-4e74-992e-2c121c9622ea",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "title": "Series info"
+                    },
+                    "name": "MyFieldSet10",
+                    "designerId": "36d8227d-eee9-454b-9699-59019d88006e",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "seriesReview"
+                            },
+                            "name": "MyLabel2",
+                            "designerId": "76a5f020-a019-4609-adac-f42ae66337ee"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer26",
+                    "designerId": "53a4077a-1f90-4945-8ea4-e510be29efba",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Race info"
+                            },
+                            "name": "MyFieldSet11",
+                            "designerId": "0cc94aba-492b-4270-a63d-635d6794f274",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": "",
+                                        "itemId": "racesReviewList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList3",
+                                    "designerId": "0f1a449c-1fd3-4122-80be-36f771371751",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">Start time: {[this.DateFormat(values.startdate)]}\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl3",
+                                            "designerId": "e923bfd7-9cb7-4250-ae37-c09bdc6a5aa4",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "date"
+                                                        ],
+                                                        "fn": "DateFormat",
+                                                        "implHandler": [
+                                                            "return Ext.Date.format(date, 'Y-m-d H:i');"
+                                                        ]
+                                                    },
+                                                    "name": "DateFormat",
+                                                    "designerId": "ce73391b-488b-4b5b-9950-851da954f7e2"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Division info"
+                            },
+                            "name": "MyFieldSet12",
+                            "designerId": "892285de-e90c-43f9-ad1e-858e4cb77e30",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "raceDivisionsReviewList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList4",
+                                    "designerId": "a25b9cff-7577-4e12-a12e-7d7bbef18032",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<div class=\"icon-wrapper\">\r",
+                                                    "    <div class=\"icon\" style=\"-webkit-mask-image:url(http://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png);\">\r",
+                                                    "    </div>\r",
+                                                    "</div>\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl4",
+                                            "designerId": "45aaa63a-430f-46b8-8a89-fdb5574d87c8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer27",
+                    "designerId": "cd9cb8db-49f0-4241-98a9-5665ea2fb3a8",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "docked": "right",
+                                "itemId": "finishBtn",
+                                "text": "Finish",
+                                "ui": "confirm-round",
+                                "width": null
+                            },
+                            "name": "MyButton38",
+                            "designerId": "374f2b13-1b42-421c-ba5b-574a6fe41a08"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton39",
+                            "designerId": "eab2a593-fd5d-4092-a2d8-ceaa7c0d3db4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "\r",
+                    "var me = this,\r",
+                    "    raceSeriesStore = CreateStore(\"raceseries\"),\r",
+                    "    seriesStore = CreateStore(\"raceseries\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    yachtClubStore = CreateStore(\"yachtclub\"),\r",
+                    "    yachtEntity = GetEntityByName(\"yachtclub\"),\r",
+                    "    divisionStore = CreateStore(\"division\"),\r",
+                    "    raceDivisionsStore = CreateStore(\"division\"),\r",
+                    "    divisionEntity = GetEntityByName(\"division\");\r",
+                    "\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "seriesStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Series').entityviewid,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "yachtClubStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityView(yachtEntity.entityid).entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "divisionStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityView(divisionEntity.entityid).entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "raceDivisionsStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityView(divisionEntity.entityid).entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "me.down('#yachtClubCmb').setStore(yachtClubStore);\r",
+                    "me.down('#racesList').setStore(raceStore);\r",
+                    "me.down('#racesReviewList').setStore(raceStore);\r",
+                    "me.down('#raceDivisionsReviewList').setStore(raceDivisionsStore);\r",
+                    "me.down('#raceDivisionsList').setStore(raceDivisionsStore);\r",
+                    "me.down('#divisionsList').setStore(divisionStore);\r",
+                    "me.down('#earlieststarttime').setValue(new Date());\r",
+                    "me.down('#seriesSelect').setStore(seriesStore);\r",
+                    "\r",
+                    "me.down('#seriesDetails').add({\r",
+                    "    xtype: 'colorpickerfield',\r",
+                    "    itemId: 'colorPickerId',\r",
+                    "    name: 'color',\r",
+                    "    label: 'Color',\r",
+                    "    value: '003366',\r",
+                    "    listeners:{\r",
+                    "        painted:function(field){\r",
+                    "            var text =\"<div style='background-color: #003366; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>\";\r",
+                    "            field.down('div[class*=\"x-field-mask\"]').dom.innerHTML = text;\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#raceCtId').add({\r",
+                    "    xtype: 'timepickerfield',\r",
+                    "    itemId: 'timeTxt',\r",
+                    "    name: 'time',\r",
+                    "    label: 'Time',\r",
+                    "    dateFormat: 'H:i',\r",
+                    "    //useMeridiem: false,\r",
+                    "    picker:{\r",
+                    "\r",
+                    "        slotOrder: ['hour','minute'],\r",
+                    "        endHour: 23\r",
+                    "    }\r",
+                    "\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#startFrm').add({\r",
+                    "    xtype: 'timepickerfield',\r",
+                    "    itemId: 'defaultTimeTxt',\r",
+                    "    name: 'defaultTime',\r",
+                    "    label: 'Time',\r",
+                    "    dateFormat: 'H:i',\r",
+                    "    margin: '10',\r",
+                    "    value: new Date(1,1,1,13,0),\r",
+                    "    //useMeridiem: false,\r",
+                    "    picker:{\r",
+                    "\r",
+                    "        slotOrder: ['hour','minute'],\r",
+                    "        endHour: 23\r",
+                    "    }\r",
+                    "\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "raceSeriesStore.insert(0, {Name: 'New Series'});\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "f5af0a9c-4650-4c43-aa90-0ac180ccd55e"
+        }
+    ]
+}

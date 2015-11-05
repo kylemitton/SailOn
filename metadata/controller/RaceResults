@@ -1,0 +1,334 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceResults"
+    },
+    "designerId": "85978a93-2ef4-46e1-9eb5-c266d0f65cbf",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resNextBtn",
+                "selector": "button#resNextBtn"
+            },
+            "name": "resNextBtn",
+            "designerId": "c5b2c017-0c1c-4662-b10f-4baf7f93ba36"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#resCurrentSeriesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onCurrentListSelect",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getResNextBtn().setDisabled(false);\r",
+                    "me.series = record;"
+                ],
+                "name": "select"
+            },
+            "name": "onCurrentListSelect",
+            "designerId": "648833e6-617d-4e9b-85e5-cfda96e511ef"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resNextBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onResNextButtonTap",
+                "implHandler": [
+                    "var me = this;",
+                    "//me.getRaceResults().raceList.",
+                    "",
+                    "me.getRaceResults().raceStore.filter([{",
+                    "    filterFn: function(item) {",
+                    "        //debugger;",
+                    "        return item.get(\"raceseriesid\") == me.series.get('raceseriesid') ;",
+                    "    }}",
+                    "]);",
+                    "",
+                    "me.getRaceResults().boatStore.filter([{",
+                    "    filterFn: function(item) {",
+                    "        //debugger;",
+                    "        return item.get(\"raceseriesid\") == me.series.get('raceseriesid') ;",
+                    "    }}",
+                    "]);",
+                    "",
+                    "me.getRaceResults().divisionStore.filter([{",
+                    "    filterFn: function(item) {",
+                    "        //debugger;",
+                    "        return item.get(\"raceseriesid\") == me.series.get('raceseriesid');",
+                    "    }}",
+                    "]);",
+                    "",
+                    "//me.getRaceResults().divisionStore.filter('divisionname');",
+                    "",
+                    "/*",
+                    "me.getResDivisionCmb().getStore().clearFilter(true);",
+                    "me.getResDivisionCmb().getStore().execConfig({",
+                    "    params: {",
+                    "        entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,",
+                    "        filters: \"where raceid is null or raceseriesid = '\"+me.series.get('raceseriesid')+\"' order by name asc\"",
+                    "    }",
+                    "});",
+                    "*/",
+                    "me.getRaceResults().showSeriesView(3, true);",
+                    "me.getRaceResults().showRaceView(3, true);",
+                    "",
+                    "me.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onResNextButtonTap",
+            "designerId": "7c9eca56-8b79-4728-bf16-7bba80a93b50"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no",
+                    "cardNo"
+                ],
+                "fn": "jumpCards",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getRaceResults(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "no = no ? (selectedIndex + no) : cardNo;\r",
+                    "\r",
+                    "wizard.setActiveItem(no);"
+                ]
+            },
+            "name": "jumpCards",
+            "designerId": "2d0cc462-b494-4f8e-bb6e-eea196359183"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceResults",
+                "selector": "formpanel#handicapWizardId"
+            },
+            "name": "raceResults",
+            "designerId": "eddbc0d6-223a-4f9b-bc8a-142bf7ad0a24"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#resDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onDivisionSelectfieldChange",
+                "implHandler": [
+                    "this.applyFilters();"
+                ],
+                "name": "change"
+            },
+            "name": "onDivisionSelectfieldChange",
+            "designerId": "54c37b8d-f1be-4a8d-8418-5064d75f25cb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resBoatSearch",
+                "selector": "searchfield#resBoatSearch"
+            },
+            "name": "resBoatSearch",
+            "designerId": "2f0d2815-33f8-47d1-a9dd-ebc8009cf6b2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "applyFilters",
+                "implHandler": [
+                    "//debugger;\r",
+                    "if (!this.getRaceResults().down('#resSeriesGrid'))\r",
+                    "    return;\r",
+                    "var me = this,\r",
+                    "    filters = [],\r",
+                    "    division = me.getResDivisionCmb().getValue(),\r",
+                    "    race = me.getResRaceCmb().getValue(),\r",
+                    "    val = me.getResBoatSearch().getValue(),\r",
+                    "    store = me.getRaceResults().down('#resSeriesGrid').getStore(),\r",
+                    "    raceStore = me.getRaceResults().down('#resRaceGrid').getStore();\r",
+                    "\r",
+                    "store.clearFilter(true);\r",
+                    "raceStore.clearFilter(true);\r",
+                    "\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: 'divisionid', value: division});\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "if(val){\r",
+                    "    filters.push({property: 'bname', value: val});\r",
+                    "}\r",
+                    "\r",
+                    "store.filter(filters);\r",
+                    "\r",
+                    "if(race){\r",
+                    "    filters.push({property: 'raceid', value: race});\r",
+                    "}\r",
+                    "raceStore.filter(filters);"
+                ]
+            },
+            "name": "applyFilters",
+            "designerId": "37a7644b-3daa-412d-85e9-b76ef02a02e9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resDivisionCmb",
+                "selector": "selectfield#resDivisionCmb"
+            },
+            "name": "resDivisionCmb",
+            "designerId": "44462bb5-6dbd-43d4-98b0-5e047a5a9ba1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#resBoatSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onSearchfieldKeyup",
+                "implHandler": [
+                    "this.applyFilters();"
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchfieldKeyup",
+            "designerId": "470670a6-48e9-4667-bd77-e4111d34cb35"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resRaceCmb",
+                "selector": "selectfield#resRaceCmb"
+            },
+            "name": "resRaceCmb",
+            "designerId": "d0b13eb7-e912-46a8-a321-df5566246b49"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#resRaceCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onRaceSelectfieldChange",
+                "implHandler": [
+                    "this.applyFilters();\r",
+                    ""
+                ],
+                "name": "change"
+            },
+            "name": "onRaceSelectfieldChange",
+            "designerId": "9098cf8d-0068-443a-8fd1-5dfa265021fd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resBackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackButtonTap",
+                "implHandler": [
+                    "this.jumpCards(-1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackButtonTap",
+            "designerId": "75e75fd8-09be-4ccf-a5cb-81fb79310d5e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#resDoneBtn",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.Button",
+                "fn": "onDoneBtnTap",
+                "implHandler": [
+                    "this.jumpCards(-2);"
+                ],
+                "name": "tap"
+            },
+            "name": "onDoneBtnTap",
+            "designerId": "e9ee1c89-1b06-4f28-b1c5-c6926b977ca3"
+        }
+    ]
+}

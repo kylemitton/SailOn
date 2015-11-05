@@ -1,0 +1,82 @@
+{
+   "name": "DynaMightMobile",
+   "indexHtmlPath": "index.html",
+   "url": null,
+   "js": [
+      {
+         "path": "touch/sencha-touch.js",
+         "x-bootstrap": true
+      },
+      {
+         "path": "bootstrap.js",
+         "x-bootstrap": true
+      },
+      {
+         "path": "app/AppSettings.js"
+      },
+      {
+         "path": "app/override/data/Store.js"
+      },
+      {
+         "path": "app/override/field/Text.js"
+      },
+      {
+         "path": "app.js",
+         "bundle": true,
+         "update": "delta"
+      }
+   ],
+   "css": [
+      {
+         "path": "resources/css/navigation.css"
+      },
+      {
+         "path": "resMobile/dynamight.css"
+      },
+      {
+         "path": "app/ux/TouchCalendar/TouchCalendarEvents.css"
+      },
+      {
+         "path": "app/ux/TouchCalendar/TouchCalendarView.css"
+      },
+      {
+         "path": "app/ux/TouchCalendar/TouchCalendarSkin.css"
+      },
+      {
+         "update": "delta",
+         "platform": [
+            "phone",
+            "tablet",
+            "desktop"
+         ],
+         "theme": "Default",
+         "path": "resources/css/sencha-touch.css"
+      }
+   ],
+   "appCache": {
+      "cache": [
+         "index.html"
+      ],
+      "network": [
+         "*"
+      ],
+      "fallback": []
+   },
+   "resources": [
+      "resources/images",
+      "resources/icons",
+      "resources/startup",
+      "resources/css/navigation.css",
+      "resMobile/dynamight.css",
+      "app/ux/TouchCalendar/TouchCalendarEvents.css",
+      "app/ux/TouchCalendar/TouchCalendarView.css",
+      "app/ux/TouchCalendar/TouchCalendarSkin.css"
+   ],
+   "ignore": [
+      ".svn$"
+   ],
+   "archivePath": "archive",
+   "requires": [],
+   "id": "c96fcf4a-c676-4d5d-a7e1-8e8dea24ffa7",
+   "classpath": "${app.dir}/app,${app.dir}/app/,${app.dir}/app/override/data/,${app.dir}/app/override/field/"
+}

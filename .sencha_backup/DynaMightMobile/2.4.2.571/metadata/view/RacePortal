@@ -1,0 +1,939 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|animation": "slide",
+        "designer|userClassName": "RacePortal",
+        "itemId": "racePortal",
+        "layout": "card",
+        "scrollable": null
+    },
+    "designerId": "fb093212-7480-4038-99eb-f179b1bda320",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "todayRaces",
+                "layout": "vbox",
+                "scrollable": true
+            },
+            "name": "MyFormPanel25",
+            "designerId": "8c3b7b72-7028-47fe-94e5-9fefb44b7fb4",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "margin": 5,
+                        "title": "Race Sign On- Select Boat"
+                    },
+                    "name": "MyFieldSet80",
+                    "designerId": "01699fee-dc0b-4299-91c3-8795937cfa3f"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "horizontalCt",
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer90",
+                    "designerId": "59a5b013-68c5-44a4-8bdc-d43189febea4",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "verticalCt",
+                                "layout": "vbox",
+                                "layout|flex": 1,
+                                "width": null
+                            },
+                            "name": "MyContainer91",
+                            "designerId": "185e38a2-b58b-4fe6-bf02-eb5843cef0af",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "margin": 5,
+                                        "title": "Today's Races"
+                                    },
+                                    "name": "MyFieldSet81",
+                                    "designerId": "ceb25969-e4ad-4f12-9341-32257fc2fe20",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.dataview.List",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": 150,
+                                                "itemId": "racesSignOnList",
+                                                "margin": null
+                                            },
+                                            "name": "MyList25",
+                                            "designerId": "e8706c85-c378-44ed-8f2a-d23d989bf756",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.XTemplate",
+                                                    "reference": {
+                                                        "name": "itemTpl",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|displayName": "itemTpl",
+                                                        "implHandler": [
+                                                            "<div>{name}</div>"
+                                                        ]
+                                                    },
+                                                    "name": "tpl33",
+                                                    "designerId": "e41782f4-3ef8-4336-8424-a1e4ff7d0cfe"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "margin": 5,
+                                        "title": "Messages and Notices"
+                                    },
+                                    "name": "MyFieldSet82",
+                                    "designerId": "6a988dac-e46d-4a09-b7c6-af158669becd",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.dataview.List",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": 150,
+                                                "itemId": "messagesList",
+                                                "margin": null
+                                            },
+                                            "name": "MyList26",
+                                            "designerId": "19216473-0052-4f74-b2de-6b4f59402d4c",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.XTemplate",
+                                                    "reference": {
+                                                        "name": "itemTpl",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|displayName": "itemTpl",
+                                                        "implHandler": [
+                                                            "<div>{name} - {message}</div>"
+                                                        ]
+                                                    },
+                                                    "name": "tpl34",
+                                                    "designerId": "7da8ae51-4741-427c-8965-68d6d0b478f5"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "weatherCt",
+                                "title": "Weather",
+                                "width": 204
+                            },
+                            "name": "MyFieldSet83",
+                            "designerId": "c060abc6-d5aa-4cfd-9e2f-f2ca3917e4e5",
+                            "cn": [
+                                {
+                                    "type": "Ext.Component",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "weatherCmp"
+                                    },
+                                    "name": "MyComponent",
+                                    "designerId": "279338c2-d5b0-43f7-a6a5-4c894e6c0fe9"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Login",
+                        "docked": null,
+                        "margin": 5,
+                        "title": null
+                    },
+                    "name": "MyFieldSet84",
+                    "designerId": "d0fadd54-c876-415e-8692-eaa904313a6c",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "",
+                                "displayField": "bname",
+                                "hidden": false,
+                                "itemId": "boatNumberCmb",
+                                "label": "Boat's Sail / Hull Number",
+                                "name": "boatid",
+                                "valueField": "boatid",
+                                "width": null
+                            },
+                            "name": "MySelectField13",
+                            "designerId": "83444063-7118-4cd3-aad1-9947bad2d243"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "skipperNumber",
+                                "label": "Skipper' s YA Number"
+                            },
+                            "name": "MyTextField64",
+                            "designerId": "ae69aac8-2b5d-4275-88c6-13ff62738be1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 20,
+                        "width": 969
+                    },
+                    "name": "MyContainer92",
+                    "designerId": "efa46562-763a-42c8-9003-4e7c4468d06a",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "itemId": "nextSignOnBtn",
+                                "text": "Next >>",
+                                "width": null
+                            },
+                            "name": "MyButton137",
+                            "designerId": "9020df05-d8a9-497d-a442-775fa157fdd7"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "signOnCard",
+                "layout": "vbox"
+            },
+            "name": "MyFormPanel26",
+            "designerId": "777a8fd3-ce39-4f39-b29a-891e79147bc4",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "title": "Race Sign On - Review"
+                    },
+                    "name": "MyFieldSet85",
+                    "designerId": "112ab8e9-a8c0-4702-93ef-f8ae2bf22048",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "seriesReview"
+                            },
+                            "name": "MyLabel11",
+                            "designerId": "3f34ae30-c2cf-404b-af72-1b4b5ac08cbf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "raceBoatBt",
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer93",
+                    "designerId": "a5ba4c3b-2e08-4dca-9edc-9bee21dd23f5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "start",
+                                "designer|displayName": "",
+                                "itemId": "loginCt",
+                                "layout": "vbox",
+                                "margin": 0,
+                                "scrollable": null,
+                                "title": "Boat Info"
+                            },
+                            "name": "MyFieldSet86",
+                            "designerId": "cfc1c7f2-9aba-4fc3-a8cf-af2ee7bab529",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "bottom",
+                                        "height": 40,
+                                        "itemId": "bottomCt",
+                                        "margin": 20,
+                                        "width": null
+                                    },
+                                    "name": "MyContainer94",
+                                    "designerId": "3bea48ff-ad14-4d66-91be-0cdfc9088be5",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "centered": true,
+                                                "docked": "right",
+                                                "itemId": "editPortalBtn",
+                                                "text": "Edit",
+                                                "width": null
+                                            },
+                                            "name": "MyButton138",
+                                            "designerId": "9b1da4d4-57d4-4c92-9fb7-ca6546a93ac8"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "itemId": "generalInfoFS",
+                                        "layout|flex": null,
+                                        "title": null,
+                                        "width": null
+                                    },
+                                    "name": "MyFieldSet87",
+                                    "designerId": "6d871fd4-1ed4-40bf-bbef-56f55efac748",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Sail/Hull Number",
+                                                "name": "hullnumber"
+                                            },
+                                            "name": "MyTextField65",
+                                            "designerId": "faebdd9c-897d-494f-9ec7-39d3d97482bc"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Boat Name",
+                                                "name": "name"
+                                            },
+                                            "name": "MyTextField66",
+                                            "designerId": "ede26205-69c0-4f2e-9d26-6bfe23f53420"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Skipper's YA Number",
+                                                "name": "ya"
+                                            },
+                                            "name": "MyTextField67",
+                                            "designerId": "dcbe960a-adb8-4bb5-90c1-48e04dee2c1f"
+                                        },
+                                        {
+                                            "type": "Ext.field.Text",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "label": "Skypper's Details",
+                                                "name": "skippername"
+                                            },
+                                            "name": "MyTextField68",
+                                            "designerId": "17f00719-4cbe-474d-9fa0-b26371da4136"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "start",
+                                "layout": "hbox",
+                                "layout|flex": 1,
+                                "title": "Race Info"
+                            },
+                            "name": "MyFieldSet88",
+                            "designerId": "11632ad5-b0dc-4831-8b75-94d6f1860110",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 200,
+                                        "itemId": "portalRacesList",
+                                        "layout|flex": 1
+                                    },
+                                    "name": "MyList27",
+                                    "designerId": "02dcee9d-5bc0-455c-83ae-7bf4eb1af378",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<div>Race {name}</div>"
+                                                ]
+                                            },
+                                            "name": "tpl35",
+                                            "designerId": "61f74ca3-c324-4e71-ab4f-fc6aadd2c7bf"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "bottom",
+                                        "itemId": "btnsCt",
+                                        "layout": "hbox"
+                                    },
+                                    "name": "MyContainer95",
+                                    "designerId": "800f444d-d6e1-4cda-a320-e0fcab21450c",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOnBtn",
+                                                "text": "Sign On"
+                                            },
+                                            "name": "MyButton139",
+                                            "designerId": "c2222918-8c71-4016-86b2-c10dc5b0a8fa"
+                                        },
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "itemId": "signOffBtn",
+                                                "text": "Sign Off"
+                                            },
+                                            "name": "MyButton140",
+                                            "designerId": "ecd678e7-51e2-41cc-a93e-8d97ecde5ebc"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "messWatherCt",
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer96",
+                    "designerId": "ff4d13ef-efe7-455f-8420-61a2cd5a538b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": false,
+                                "title": "Weather",
+                                "width": 200
+                            },
+                            "name": "MyFieldSet89",
+                            "designerId": "e2e9ad8a-edf4-4203-a0b3-7f402903200a"
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "layout|flex": 1,
+                                "title": "Race Messages and Notices"
+                            },
+                            "name": "MyFieldSet90",
+                            "designerId": "d6ba21e5-aac0-4173-8a8c-ce7585942aea",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 150,
+                                        "itemId": "raceBoatsList",
+                                        "margin": null
+                                    },
+                                    "name": "MyList28",
+                                    "designerId": "3b13de5f-1f75-4216-9bc6-a62b1b805992",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<div>{message}</div>"
+                                                ]
+                                            },
+                                            "name": "tpl36",
+                                            "designerId": "60ee27ea-4850-469f-8a3b-2f8cbf69094c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "reviewCard",
+                "layout": "vbox",
+                "scrollable": true
+            },
+            "name": "MyFormPanel27",
+            "designerId": "5ea02dc4-3ea2-45d9-ae92-e64d376ca2d1",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "margin": 5,
+                        "title": "You are Signed On"
+                    },
+                    "name": "MyFieldSet91",
+                    "designerId": "ce19353b-e9c3-499d-8804-605f1fba59c6"
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "horizontalCt",
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer97",
+                    "designerId": "8738c49e-3d9e-4b30-8072-cec55b1cf1d0",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "verticalCt",
+                                "layout": "vbox",
+                                "layout|flex": 1,
+                                "width": null
+                            },
+                            "name": "MyContainer98",
+                            "designerId": "0c4f6d3b-a8a4-4326-b76f-72a860e866aa",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "margin": 5,
+                                        "title": "Today Race Info"
+                                    },
+                                    "name": "MyFieldSet92",
+                                    "designerId": "dcd8d8f3-5097-4a58-95d7-611face447e4"
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": null,
+                                        "margin": 5,
+                                        "title": "Boat Info"
+                                    },
+                                    "name": "MyFieldSet93",
+                                    "designerId": "21f75c84-da33-4cc7-a511-228dc5aed697",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.dataview.List",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": 150,
+                                                "itemId": "entrantsList",
+                                                "margin": null
+                                            },
+                                            "name": "MyList29",
+                                            "designerId": "6822dd0c-4191-456b-8859-d382d998ea06",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.XTemplate",
+                                                    "reference": {
+                                                        "name": "itemTpl",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|displayName": "itemTpl",
+                                                        "implHandler": [
+                                                            "<div>{bname}</div>"
+                                                        ]
+                                                    },
+                                                    "name": "tpl37",
+                                                    "designerId": "af959a1f-8923-4a1c-9202-148725af7aaf"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "weatherCt",
+                                "title": "Weather",
+                                "width": 204
+                            },
+                            "name": "MyFieldSet94",
+                            "designerId": "1e904983-e19b-4921-8e8a-5a1001019917"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 20,
+                        "width": 969
+                    },
+                    "name": "MyContainer99",
+                    "designerId": "0e049dfd-34e6-42d2-b1b6-ae53f6a0aea2",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "itemId": "opsBtn",
+                                "text": "Opps !. Undo",
+                                "width": null
+                            },
+                            "name": "MyButton141",
+                            "designerId": "9ae76da4-88f2-4514-8cd3-f41961d06413"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "left",
+                                "itemId": "doneBtn",
+                                "text": "Done",
+                                "width": null
+                            },
+                            "name": "MyButton142",
+                            "designerId": "95c8583a-cecd-42bd-8438-e94392a05a1b"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    boatStore = CreateStore(\"raceboat\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    messageStore = CreateStore(\"racemessage\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    raceCompletionStore = CreateStore(\"racecompletion\");\r",
+                    "\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('BR').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "raceStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Races').entityviewid ,\r",
+                    "        filters: 'WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "//boatStore.filter('raceid', '0');\r",
+                    "messageStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Messages').entityviewid ,\r",
+                    "        filters: ''//WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "raceCompletionStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Race Completion').entityviewid ,\r",
+                    "        filters: ''//WHERE cast(startdate as date) = curdate()'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.raceCompletionStore = raceCompletionStore;\r",
+                    "\r",
+                    "me.down('#racesSignOnList').setStore(raceStore);\r",
+                    "me.down('#portalRacesList').setStore(raceStore);\r",
+                    "\r",
+                    "me.down('#messagesList').setStore(messageStore);\r",
+                    "me.down('#raceBoatsList').setStore(messageStore);\r",
+                    "me.down('#boatNumberCmb').setStore(boatStore);\r",
+                    "\r",
+                    "\r",
+                    "me.down('#weatherCmp').updateHtml('<div class=\"weather-widget\"><h3>Sydney, AU</h3><h2> <img src=\"http://openweathermap.org/img/w/09n.png\"> 13 °C</h2>'\r",
+                    "+'Rain<p></p><div id=\"date_m\"></div><p></p></div>                                  ');\r",
+                    "//me.down('#raceDivisionsReviewList').setStore(seriesDivisionsStore);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "920874a6-ae94-4fb1-8891-0637dbde00bd"
+        }
+    ]
+}

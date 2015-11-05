@@ -1,0 +1,263 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceDuty",
+        "itemId": "raceDutyFrm",
+        "layout": "vbox",
+        "scrollable": null
+    },
+    "designerId": "f7d3e450-05d7-400e-9eb0-877d99cfeb3d",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "itemId": "raceCrewDutyToolbar"
+            },
+            "name": "MyToolbar4",
+            "designerId": "0ea51768-5ee6-45f9-b38d-2da605a5cf4f",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySpacer4",
+                    "designerId": "8a97b7dc-88c1-49e1-9735-5b8822489292"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm",
+                        "docked": null,
+                        "itemId": "setRaceDutyBtn",
+                        "text": "Set duty",
+                        "ui": "confirm",
+                        "width": 150
+                    },
+                    "name": "MyButton178",
+                    "designerId": "c18c0297-22b3-442d-be46-1b0eef27f0a7"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "itemId": "raceDutyFs",
+                "layout": "vbox",
+                "layout|flex": 1,
+                "margin": 5,
+                "title": "Races",
+                "width": null
+            },
+            "name": "MyFieldSet118",
+            "designerId": "bab44471-9973-4b7d-b69f-d7c87c886d12",
+            "cn": [
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "raceDutySearchTxt",
+                        "label": null
+                    },
+                    "name": "MySearchField8",
+                    "designerId": "c412c42e-ae07-41dd-b5d2-f8e2a9b0ccb9"
+                },
+                {
+                    "type": "Ext.dataview.DataView",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": "100%",
+                        "inline": [
+                            "true"
+                        ],
+                        "itemId": "raceDutyLst",
+                        "layout|flex": 1,
+                        "mode": "MULTI",
+                        "scrollable": null,
+                        "width": null
+                    },
+                    "name": "MyDataView13",
+                    "designerId": "e40541ea-f424-4da2-a3fd-da81a467f550",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "<div class=\"item\">\r",
+                                    "    <div class=\"name\">{name}</div>\r",
+                                    "</div>\r",
+                                    ""
+                                ]
+                            },
+                            "name": "tpl51",
+                            "designerId": "61f95671-514c-4b57-ab6f-d82a917cb5e5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "itemId": "crewMemberDutyFS",
+                "layout": "vbox",
+                "layout|flex": 1,
+                "margin": 5,
+                "scrollable": null,
+                "title": "Crew"
+            },
+            "name": "MyFieldSet119",
+            "designerId": "4b8b6e13-02c8-48aa-9e76-2ab33824562e",
+            "cn": [
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "crewMemberSearch",
+                        "label": null
+                    },
+                    "name": "MySearchField9",
+                    "designerId": "6d5663ec-8c5e-46bb-92de-6177b019c5f3"
+                },
+                {
+                    "type": "Ext.dataview.DataView",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "inline": [
+                            "true"
+                        ],
+                        "itemId": "crewMembersLst",
+                        "layout|flex": 1,
+                        "mode": "MULTI",
+                        "width": null
+                    },
+                    "name": "MyDataView14",
+                    "designerId": "6e39cddb-da93-420f-832e-6f58f66c78e5",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "\r",
+                                    "<div class=\"item\">\r",
+                                    "    <div class=\"name\">{firstname} {surname}\r",
+                                    "    </div>\r",
+                                    "    <div class=\"vicinity\">{ya}\r",
+                                    "    </div>\r",
+                                    "    \r",
+                                    "</div>"
+                                ]
+                            },
+                            "name": "tpl52",
+                            "designerId": "d2becf07-5228-42d9-9538-d38b63a4e9e7"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.field.Select",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "name",
+                "itemId": "dutyTypeSelectField",
+                "label": "Duty",
+                "valueField": "dutytypeid"
+            },
+            "name": "MySelectField19",
+            "designerId": "2c744cc3-9e24-461d-83d1-40ba251578a5"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    dutyTypes = CreateStore(\"dutytype\");\r",
+                    "\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "dutyTypes.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('DutyTypes').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#dutyTypeSelectField').setStore(dutyTypes);\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "6d469794-2dbc-4cc0-860e-b97d26a054cf"
+        }
+    ]
+}

@@ -1,0 +1,870 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RFBoats",
+        "height": "100%",
+        "html": null,
+        "itemId": "rfBoatsFrm",
+        "layout": "hbox",
+        "scrollable": false
+    },
+    "designerId": "668fb07a-eed5-46d4-96d0-3ae01c2018c8",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "hbox",
+                "layout|flex": 1
+            },
+            "name": "MyContainer62",
+            "designerId": "bdde1b5d-2333-459f-8709-150fa86bea53",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "tempFinishCt",
+                        "layout": "vbox",
+                        "layout|flex": 0.2
+                    },
+                    "name": "MyContainer63",
+                    "designerId": "33042cc2-bb59-4f6b-8dcf-4f6670641821",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "timeFromRaceStart",
+                                "itemId": "timeFromRaceStart"
+                            },
+                            "name": "MyLabel9",
+                            "designerId": "6f56cee0-b64d-4538-bc59-b7d41b439162"
+                        },
+                        {
+                            "type": "Ext.dataview.DataView",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "inline": [
+                                    "true"
+                                ],
+                                "itemId": "tempBoatsView",
+                                "layout|flex": 1,
+                                "width": null
+                            },
+                            "name": "MyDataView3",
+                            "designerId": "c6f3d36f-827d-4fd7-b07e-5a3648b30166",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "{[GetTemplate('boat', values)]}"
+                                        ]
+                                    },
+                                    "name": "tpl23",
+                                    "designerId": "7580aea5-8c1f-45fc-8fb0-e61571562f9d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "docked": "bottom",
+                                "height": 50,
+                                "itemId": "finishAllBtn",
+                                "margin": 5,
+                                "text": "Finish all",
+                                "ui": "confirm-round"
+                            },
+                            "name": "MyButton100",
+                            "designerId": "25fa6104-c4d7-482b-9885-882b71af9c2a"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "docked": "bottom",
+                                "height": 50,
+                                "itemId": "removeTempBtn",
+                                "margin": 5,
+                                "text": "Remove",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton101",
+                            "designerId": "005b0487-0b6d-466c-93cc-d976d2180d85"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "docked": "bottom",
+                                "height": 50,
+                                "itemId": "addTempBtn",
+                                "margin": 5,
+                                "text": "Add",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton102",
+                            "designerId": "9e5bc7a4-e50b-47b1-91e5-1844d823bd83"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "hFinalizeCt",
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer64",
+                    "designerId": "e04570f2-9c52-4836-a90d-7c950d971317",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.DataView",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "inline": [
+                                    "true"
+                                ],
+                                "itemId": "boatsView",
+                                "layout|flex": 1,
+                                "width": null
+                            },
+                            "name": "MyDataView4",
+                            "designerId": "085db60e-b9f5-4cbe-a5a5-c3335cb7cd75",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "{[GetTemplate('boat', values)]}\r",
+                                            ""
+                                        ]
+                                    },
+                                    "name": "tpl24",
+                                    "designerId": "229bcf85-6bdd-4b27-8758-cc08affcfbce",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "return \"background-size:cover;background-image:url('../admin/uploaded_files/5417f6f2d174c6.44304491.png')\";//+ path +\"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "512d39fa-dcef-4691-82d2-f5b1887e8a0b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout": "hbox"
+                            },
+                            "name": "MyContainer65",
+                            "designerId": "6066caae-7e74-4520-bc09-96e9bbb652cc",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "docked": "right",
+                                        "itemId": "keyboardCt",
+                                        "parentCtrl": "RaceFinishWizard",
+                                        "width": 220
+                                    },
+                                    "name": "MyContainer66",
+                                    "designerId": "92cdeea3-07f6-41a1-a530-3cb851b078dc",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "parentCtrl",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": 10
+                                            },
+                                            "name": "MyContainer67",
+                                            "designerId": "c26174f2-4f8c-40bf-b168-bf11e1d22f2d",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "id": null,
+                                                        "itemId": "k1Btn",
+                                                        "text": "1",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton103",
+                                                    "designerId": "a2d41533-bcea-485d-95d7-197937dc5129"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k2Btn",
+                                                        "margin": "0 10 0 10",
+                                                        "text": "2",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton104",
+                                                    "designerId": "f688eeb0-72fd-4a11-8aa5-455eb9b388e8"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k3Btn",
+                                                        "text": "3",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton105",
+                                                    "designerId": "48429963-2bec-470a-9e14-ef47e4e476cb"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": 10
+                                            },
+                                            "name": "MyContainer68",
+                                            "designerId": "18723d3d-dccc-4770-8a4e-5fa6b6aa7bd3",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k4Btn",
+                                                        "text": "4",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton106",
+                                                    "designerId": "6c59da1b-0b06-4931-b84f-636bf5dbdf2b"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k5Btn",
+                                                        "margin": "0 10 0 10",
+                                                        "text": "5",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton107",
+                                                    "designerId": "c21ea655-c5c3-4de5-8378-dda0bc171b25"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k6Btn",
+                                                        "text": "6",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton108",
+                                                    "designerId": "3e7818f9-f403-4a56-89be-bdb2d8fac75f"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": 10
+                                            },
+                                            "name": "MyContainer69",
+                                            "designerId": "5c870c24-27f5-4307-9cc7-05e15ec162f5",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k7Btn",
+                                                        "text": "7",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton109",
+                                                    "designerId": "d77d2c4d-32a6-4a1c-a569-edc2dfce467c"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "itemId": "k8Btn",
+                                                        "margin": "0 10 0 10",
+                                                        "text": "8",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton110",
+                                                    "designerId": "7765af01-c934-49f4-bcae-f6cff99946c8"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k9Btn",
+                                                        "text": "9",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton111",
+                                                    "designerId": "6b66c4c7-4d3f-46e2-adf7-3528cffdae39"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": 10
+                                            },
+                                            "name": "MyContainer70",
+                                            "designerId": "c203b785-f20e-429c-b70f-6b8c462c3dc4",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "itemId": "kBackBtn",
+                                                        "text": "<",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton112",
+                                                    "designerId": "8e45cfb6-0b1f-449d-b699-1bef1d16ac2c"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "k0Btn",
+                                                        "margin": "0 10 0 10",
+                                                        "text": "0",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton113",
+                                                    "designerId": "e8176c00-13e0-43e8-8ce9-00ff7bc7cb55"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|uiInterfaceName": "action-round",
+                                                        "height": 50,
+                                                        "itemId": "kClearBtn",
+                                                        "text": "C",
+                                                        "ui": "action-round",
+                                                        "width": 60
+                                                    },
+                                                    "name": "MyButton114",
+                                                    "designerId": "3617746f-1130-42c6-acaa-561fd32526f7"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.Container",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "hbox",
+                                                "margin": null
+                                            },
+                                            "name": "MyContainer71",
+                                            "designerId": "05b9d72e-48d8-4c54-9b42-005eeb5caadc"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.FieldSet",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 200,
+                                        "layout": "fit",
+                                        "layout|flex": 1,
+                                        "title": "Finished Boats",
+                                        "width": null
+                                    },
+                                    "name": "MyFieldSet72",
+                                    "designerId": "401be10f-611d-4107-aecf-64232e81c528",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.dataview.DataView",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "height": 200,
+                                                "inline": [
+                                                    "true"
+                                                ],
+                                                "itemId": "boatsFinishView",
+                                                "width": null
+                                            },
+                                            "name": "MyDataView5",
+                                            "designerId": "8e6a8bee-3c71-47f2-9f42-19a158edf61a",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.XTemplate",
+                                                    "reference": {
+                                                        "name": "itemTpl",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|displayName": "itemTpl",
+                                                        "implHandler": [
+                                                            "{[GetTemplate('boattime', values)]}\r",
+                                                            ""
+                                                        ]
+                                                    },
+                                                    "name": "tpl25",
+                                                    "designerId": "6e80cafb-1439-410d-8ab2-0c7725fc2b24"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "height": 60,
+                "itemId": "bottomCt",
+                "layout": "hbox",
+                "margin": 10,
+                "width": null
+            },
+            "name": "MyContainer72",
+            "designerId": "b8b4ee29-179d-42bf-950b-eaf6bcfed145",
+            "cn": [
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "name",
+                        "height": 40,
+                        "itemId": "boatDivisionCmb",
+                        "label": null,
+                        "labelWidth": "0%",
+                        "maxWidth": 200,
+                        "usePicker": [
+                            "false"
+                        ],
+                        "valueField": "divisionid"
+                    },
+                    "name": "MySelectField4",
+                    "designerId": "17c13055-52ec-436c-bc55-992c57649670"
+                },
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "itemId": "sListChk",
+                        "label": null,
+                        "labelWidth": null,
+                        "margin": "0 0 0 20",
+                        "options": [
+                            "[\r",
+                            "    {text: 'Uniform view',  value: 'uniform'},\r",
+                            "    {text: 'Full view', value: 'full'},\r",
+                            "    {text: 'Picture view',  value: 'picture'}\r",
+                            "]"
+                        ],
+                        "value": [
+                            "'uniform'"
+                        ],
+                        "width": 200
+                    },
+                    "name": "MySelectField5",
+                    "designerId": "00e4d0c4-cc21-49f4-8f52-bf501b682995"
+                },
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "itemId": "boatSearch",
+                        "label": null,
+                        "margin": "0 40 0 10",
+                        "width": 200
+                    },
+                    "name": "MySearchField",
+                    "designerId": "c034f86c-61d7-4d78-a1c1-889a13e501cd"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": null,
+                        "height": 40,
+                        "itemId": "genericNextBtn",
+                        "text": "Next",
+                        "ui": "decline-round",
+                        "width": null,
+                        "xurl": "RFRace"
+                    },
+                    "name": "MyButton115",
+                    "designerId": "42aa8b1d-3a1e-4c05-9b38-e959b1828a36",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "xurl",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm-round",
+                        "docked": "right",
+                        "itemId": "bFinishBtn",
+                        "margin": null,
+                        "text": "Finish",
+                        "ui": "confirm-round",
+                        "width": 200
+                    },
+                    "name": "MyButton116",
+                    "designerId": "a33bce15-7850-4daf-a8b5-c50de02a8d48"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm-round",
+                        "docked": "right",
+                        "height": null,
+                        "itemId": "bTopBtn",
+                        "margin": "0 10 0 10",
+                        "text": "To Top",
+                        "ui": "confirm-round",
+                        "width": 200
+                    },
+                    "name": "MyButton117",
+                    "designerId": "a8e147d5-66aa-41f3-88b0-85e76db3a311"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm-round",
+                        "docked": "left",
+                        "itemId": "fUndoBtn",
+                        "margin": "0 10 0 10",
+                        "text": "Undo",
+                        "ui": "confirm-round"
+                    },
+                    "name": "MyButton118",
+                    "designerId": "22110bbd-8b23-40ea-8107-1742d7a9efff"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "var me = this,\r",
+                    "    bStore = CreateStore(\"raceboat\"),\r",
+                    "    bTempStore = CreateStore(\"raceboat\"),\r",
+                    "    dStore = CreateStore(\"division\"),\r",
+                    "    ctrl = DynaMightMobile.app.getController('RaceFinishWizard'),\r",
+                    "    timeStore = CreateStore(\"race\"),\r",
+                    "    startTime,\r",
+                    "    now, hour, min, sec,diff;\r",
+                    "\r",
+                    "APP.WarningUnsavedData = true;\r",
+                    "bStore.sort('endtime', 'DESC');\r",
+                    "\r",
+                    "dStore.clearFilter(true);\r",
+                    "dStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,\r",
+                    "        filters: \"where raceid is null or raceid = '\"+ctrl.raceid+\"' order by name asc\"\r",
+                    "    }\r",
+                    "});\r",
+                    "startTime = new Date(ctrl.rStore.data.items[0].get('starttime'));\r",
+                    "now = new Date();\r",
+                    "diff = now-startTime;\r",
+                    "hour = (diff/1000/60/60) << 0;\r",
+                    "min = (diff/1000/60)%60 << 0;\r",
+                    "sec =(diff/1000)%60 << 0;\r",
+                    "var id = setInterval(setTime,1000);\r",
+                    "function setTime(){\r",
+                    "    if(sec == 59){\r",
+                    "        if(min == 59){\r",
+                    "            min = 0;\r",
+                    "            hour++;\r",
+                    "        }\r",
+                    "        sec=0;\r",
+                    "        min++;\r",
+                    "    }\r",
+                    "    else\r",
+                    "    {\r",
+                    "        sec++;\r",
+                    "    }\r",
+                    "    if(me && me.down('#timeFromRaceStart'))\r",
+                    "        me.down('#timeFromRaceStart').setHtml(' Elapsed: ' +hour+':'+min+':'+sec);\r",
+                    "    else\r",
+                    "        clearInterval(id);\r",
+                    "}\r",
+                    "//this.down('#timeFromRaceStart').setHtml('Elapsed: ' +hour+':'+min+':'+sec);\r",
+                    "//debugger;\r",
+                    "me.down('#boatDivisionCmb').setStore(dStore);\r",
+                    "\r",
+                    "me.down('#boatsFinishView').setStore(bStore);\r",
+                    "me.down('#tempBoatsView').setStore(bTempStore);\r",
+                    "me.down('#boatsView').setStore(ctrl.boatStore);\r",
+                    "ctrl.dStore = dStore;\r",
+                    "ctrl.finishView = me.down('#boatsFinishView').getStore();\r",
+                    ""
+                ]
+            },
+            "name": "initialize",
+            "designerId": "e74831c3-f80c-4497-8ffc-d781bea3aa65"
+        }
+    ]
+}

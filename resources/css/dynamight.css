@@ -1,0 +1,243 @@
+.x-layout-card-item {
+    background-image: url('resMobile/background.jpg');
+}
+
+.wizardTitle{
+    font-size: xx-large;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.x-scroll-scroller{
+    background-color: whitesmoke
+}
+
+.x-form-label span{
+    color: darkblue
+}
+
+.x-form-fieldset-title{
+    color: darkblue
+}
+
+.generateZone .x-scroll-scroller{
+    background-color: #FFDB58
+}
+
+.generateStart .x-scroll-scroller{
+    background-color: #F59B00
+}
+
+.x-list-normal .x-list-item.x-list-item-tpl{
+    border: none
+}
+
+.x-list-normal .x-list-item.x-item-selected.x-list-item-tpl{
+    border-radius: 10px
+}
+
+
+.x-scroll-indicator {
+    opacity: 0.5 !important;
+}
+
+// /////
+
+
+
+/****************************** Place List ******************************/
+
+ .x-list-emptytext{
+				font-size: 14px;
+				color: #fff;
+				padding: 20px;
+}
+
+
+.x-list .x-list-item .x-dock-horizontal{
+    border: 0 !important;
+}
+
+.x-list .x-list-item .item{
+
+    //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+    //background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 6px;
+	//margin:4px;
+    -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
+    padding-right: 42px;
+	//color: white;
+}
+
+.x-list .x-list-item .item .name{
+    font-weight: bold;
+    margin: 3px 0 8px 0;
+}
+
+.x-list .x-list-item .item .vicinity{
+    font-size: 12px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.x-list .x-list-item .item .rating{
+
+}
+
+.x-list .x-list-item .photo,
+.x-list .x-list-item .icon-wrapper{
+    position: absolute;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    right: 25px;
+    top: 6px;
+}
+
+.x-list .x-list-item .photo img{
+    max-width: 75px;
+    max-height: 63px;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+    background: black;
+}
+
+.x-list .x-list-item .icon-wrapper{
+    background: #960000;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.x-list .x-list-item .icon{
+    width: 50px;
+    height: 50px;
+    background: white;
+    //-webkit-mask-image: url(http://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png);
+    -webkit-mask-size: 35px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: 50%;
+}
+
+
+.x-list -item-selected .item{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2e1ff), color-stop(100%,#66b6fc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #b2e1ff 0%,#66b6fc 100%); /* Chrome10+,Safari5.1+ */
+				
+}
+
+.x-list -item-pressed .item{
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f9fe), color-stop(100%,#d6f0fd)); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, #f2f9fe 0%,#d6f0fd 100%); /* Chrome10+,Safari5.1+ */
+				color: black;
+}
+
+/****************************** Place List ENDS ******************************/
+.x-list .x-list-item.x-item-selected.x-list-item-tpl
+{		
+	color: black;
+	border-radius: 10px;
+}
+
+/*******/
+
+
+
+
+/****************************** Place dataview ******************************/
+
+ .x-dataview-emptytext{
+				font-size: 14px;
+				color: #fff;
+				padding: 20px;
+}
+
+
+.x-dataview .x-dataview-item .x-dock-horizontal{
+    border: 0 !important;
+}
+
+.x-dataview .x-dataview-item .item{
+
+    //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+    //background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 4px;
+    width: 200px;
+	-webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.6);
+    //padding-right: 82px;
+}
+
+.x-dataview .x-dataview-item .item .name{
+    font-weight: bold;
+    margin: 3px 0 8px 0;
+}
+
+.x-dataview .x-dataview-item .item .vicinity{
+    font-size: 12px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.x-dataview .x-dataview-item .item .rating{
+
+}
+
+.x-dataview .x-dataview-item .photo,
+.x-dataview .x-dataview-item .icon-wrapper{
+    position: absolute;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    right: 25px;
+    top: 6px;
+}
+
+.x-dataview .x-dataview-item .photo img{
+    max-width: 75px;
+    max-height: 63px;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+    background: black;
+}
+
+.x-dataview .x-dataview-item .icon-wrapper{
+    background: #960000;
+    border: 2px solid white;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.x-dataview .x-dataview-item .icon{
+    width: 50px;
+    height: 50px;
+    background: white;
+    //-webkit-mask-image: url(http://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png);
+    -webkit-mask-size: 35px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: 50%;
+}
+
+
+.x-dataview -item-selected .item{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2e1ff), color-stop(100%,#66b6fc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #b2e1ff 0%,#66b6fc 100%); /* Chrome10+,Safari5.1+ */
+				
+}
+
+.x-dataview -item-pressed .item{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f9fe), color-stop(100%,#d6f0fd)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f2f9fe 0%,#d6f0fd 100%); /* Chrome10+,Safari5.1+ */
+	color: black;
+}
+
+/****************************** Place dataview ENDS ******************************/
+.x-dataview .x-dataview-item.x-item-selected
+{
+	color: black;
+	background-color: #006bb6;
+	border-radius: 10px;
+}

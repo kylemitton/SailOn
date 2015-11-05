@@ -1,0 +1,1797 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|animation": "slide",
+        "designer|userClassName": "RegistrationWizard",
+        "height": "100%",
+        "itemId": "seriesWizardId",
+        "layout": "card",
+        "scrollable": false
+    },
+    "designerId": "be514885-7879-48f2-829d-e1ed9cb1e77c",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "registrationLoginFrm",
+                "scrollable": false
+            },
+            "name": "MyFormPanel11",
+            "designerId": "b40dacd4-7f92-48e3-aaf4-b8f1b36166fb",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "seriesDetails",
+                        "title": "Series registration - Sign In",
+                        "width": null
+                    },
+                    "name": "MyFieldSet43",
+                    "designerId": "a47fa05f-dfd1-429f-9c13-9389dc3e2f7a",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "name",
+                                "label": "Boat's Sail / Hull Number",
+                                "name": "name",
+                                "required": true
+                            },
+                            "name": "MyTextField60",
+                            "designerId": "b8abb0b9-6132-4a0d-9fdc-8da0b9c87523"
+                        },
+                        {
+                            "type": "Ext.field.Password",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "password",
+                                "label": "Password",
+                                "name": "password"
+                            },
+                            "name": "MyPasswordField2",
+                            "designerId": "a1f6ec90-c77f-43b8-b44a-309e852a8640"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "loginType",
+                        "hidden": true,
+                        "title": ""
+                    },
+                    "name": "MyFieldSet44",
+                    "designerId": "32142377-10b9-4758-a55d-b3a1e9896a66",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "checked": true,
+                                "itemId": "myradiobutton4",
+                                "label": "Login",
+                                "name": "loginType",
+                                "value": "loginChk"
+                            },
+                            "name": "MyRadioButton2",
+                            "designerId": "45fe0b44-74f2-479d-9cfb-7111f88a0931"
+                        },
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "New Boat",
+                                "name": "loginType",
+                                "value": "newChk"
+                            },
+                            "name": "MyRadioButton3",
+                            "designerId": "1c086d5f-1add-4a6c-9946-11d98889a919"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 20,
+                        "width": null
+                    },
+                    "name": "MyContainer35",
+                    "designerId": "b141c412-c441-43dc-869c-458911b6df7b",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "loginNextBtn",
+                                "text": "Login >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton66",
+                            "designerId": "f0fcf15a-f768-4013-ba1c-3ba5c98fb103"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "newBoatBtn",
+                                "text": "New Boat",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton67",
+                            "designerId": "c8127237-5e89-4c8f-8276-3aadc4f4024a"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "width": null
+                            },
+                            "name": "MyButton68",
+                            "designerId": "444a965f-cb60-44aa-bbd4-080f71c4f887"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "boatDetails",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel12",
+            "designerId": "caf227d8-b08f-45ae-aee5-34b9c87ccf8b",
+            "cn": [
+                {
+                    "type": "Ext.tab.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "BDTabPanel",
+                        "itemId": "registrationTabPnl",
+                        "layout|flex": 1
+                    },
+                    "name": "MyTabPanel",
+                    "designerId": "a5eb6b31-600c-4c4d-9dd7-7a2402c758f1",
+                    "cn": [
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "seriesTab",
+                                "layout": "fit",
+                                "title": "Registrations"
+                            },
+                            "name": "MyContainer36",
+                            "designerId": "872bb8a6-5ac8-4ec1-8c0b-254fe6b6a1e0",
+                            "cn": [
+                                {
+                                    "type": "Ext.Container",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": "100%",
+                                        "itemId": "regCt",
+                                        "layout": "hbox",
+                                        "scrollable": false
+                                    },
+                                    "name": "MyContainer37",
+                                    "designerId": "aa82817d-2d2f-4d6c-b6ed-0f12669fe4c8",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.FieldSet",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "title": "Boat Info",
+                                                "width": 300
+                                            },
+                                            "name": "MyFieldSet45",
+                                            "designerId": "5a8871b4-16ab-4ea6-b90f-d5c6357b92ad",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Label",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "html": "",
+                                                        "itemId": "regBoatLbl"
+                                                    },
+                                                    "name": "MyLabel3",
+                                                    "designerId": "64622d79-95f9-43e0-90dc-456334218ad7"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Ext.form.FieldSet",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "layout": "fit",
+                                                "layout|flex": 1,
+                                                "title": "Registred Series List"
+                                            },
+                                            "name": "MyFieldSet46",
+                                            "configAlternates": {
+                                                "style": "object"
+                                            },
+                                            "designerId": "1d0c6a62-afed-4030-9e37-9f409574d7d5",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.dataview.List",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "itemId": "entriesList",
+                                                        "width": null
+                                                    },
+                                                    "name": "MyList8",
+                                                    "designerId": "7dc84b48-0a48-46f0-a877-b048d3a5ee29",
+                                                    "cn": [
+                                                        {
+                                                            "type": "Ext.XTemplate",
+                                                            "reference": {
+                                                                "name": "itemTpl",
+                                                                "type": "object"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|displayName": "itemTpl",
+                                                                "implHandler": [
+                                                                    "<div class=\"icon-wrapper\">\r",
+                                                                    "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                                                    "    </div>\r",
+                                                                    "</div>\r",
+                                                                    "<div class=\"item\">\r",
+                                                                    "    <table><tr>\r",
+                                                                    "        <td>\r",
+                                                                    "            <div class=\"name\">{raceseriesname} - <small>{type}</small></div>\r",
+                                                                    "            <div class=\"vicinity\">{[this.DateFormat(values.earlieststarttime)]}</div>\r",
+                                                                    "            <div class=\"vicinity\">{entrycost} $</div>\r",
+                                                                    "            \r",
+                                                                    "        </td>\r",
+                                                                    "        <td style=\"padding-left: 30px;display: block;padding-top: 5px;\">\r",
+                                                                    "            <div class=\"vicinity\">{description}</div>\r",
+                                                                    "        </td>\r",
+                                                                    "        </tr>\r",
+                                                                    "    </table>\r",
+                                                                    "    \r",
+                                                                    "</div>"
+                                                                ]
+                                                            },
+                                                            "name": "tpl8",
+                                                            "designerId": "45f15c8f-5fe7-455b-aae5-235071642a39",
+                                                            "cn": [
+                                                                {
+                                                                    "type": "templatefunction",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "designer|params": [
+                                                                            "path"
+                                                                        ],
+                                                                        "fn": "getPath",
+                                                                        "implHandler": [
+                                                                            "//debugger;",
+                                                                            "return \"background-size:50px;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                                        ]
+                                                                    },
+                                                                    "name": "getPath",
+                                                                    "designerId": "7864872f-3811-4a3e-bcb7-b50fd11acf4e"
+                                                                },
+                                                                {
+                                                                    "type": "templatefunction",
+                                                                    "reference": {
+                                                                        "name": "items",
+                                                                        "type": "array"
+                                                                    },
+                                                                    "codeClass": null,
+                                                                    "userConfig": {
+                                                                        "designer|params": [
+                                                                            "date"
+                                                                        ],
+                                                                        "fn": "DateFormat",
+                                                                        "implHandler": [
+                                                                            "//debugger;\r",
+                                                                            "return Ext.Date.format(new Date(date), 'Y-m-d H:i');"
+                                                                        ]
+                                                                    },
+                                                                    "name": "DateFormat",
+                                                                    "designerId": "516e6060-44ce-4152-bdb6-d96e1b59aae6"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaults": null,
+                                "itemId": "detailsTab",
+                                "layout": "fit",
+                                "margin": null,
+                                "scrollable": true,
+                                "title": "Boat Details"
+                            },
+                            "name": "MyContainer38",
+                            "designerId": "9e5f7bc6-c063-49c0-acf3-e7df0bc32b70",
+                            "cn": [
+                                {
+                                    "type": "linkedinstance",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "detailsPnl",
+                                        "width": null
+                                    },
+                                    "name": "boatdetails2",
+                                    "designerId": "67773c86-b104-40fc-b1cf-d0e3c8a40053",
+                                    "masterInstanceId": "fbf71e00-7918-46be-b356-af463dfc64ff"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomTabCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer39",
+                    "designerId": "0f46c738-c399-4b37-8291-1bb959adf281",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "disabled": true,
+                                "docked": "right",
+                                "itemId": "continueBtn",
+                                "text": "Continue",
+                                "ui": "confirm-round",
+                                "width": 150
+                            },
+                            "name": "MyButton69",
+                            "designerId": "b0a372ee-4fd5-4154-b8f1-bb9fa1a75b9d"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "newRegistrationBtn",
+                                "margin": "0 20 0 0",
+                                "text": "New",
+                                "ui": "decline-round",
+                                "width": 150
+                            },
+                            "name": "MyButton70",
+                            "designerId": "1d720032-df80-4550-8e51-8a0f1fb68526"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "registrationBackBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton71",
+                            "designerId": "acb3e22b-62f8-4a2a-800a-6f0edc7a829c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "seriesAvailable",
+                "layout": "vbox",
+                "scrollable": null
+            },
+            "name": "MyFormPanel13",
+            "designerId": "c857c625-3c8f-40c7-86ee-ed60dac128cf",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "itemId": "seriesFS",
+                        "layout": "fit",
+                        "layout|flex": 1,
+                        "title": "Series Available"
+                    },
+                    "name": "MyFieldSet47",
+                    "designerId": "adba843a-ae41-4d40-bdff-349457575de0",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "seriesList",
+                                "margin": null
+                            },
+                            "name": "MyList9",
+                            "designerId": "8fb05e77-c95a-4c2a-8d19-fbea1fe946b1",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<div class=\"icon-wrapper\">\r",
+                                            "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                            "    </div>\r",
+                                            "</div>\r",
+                                            "<div class=\"item\">\r",
+                                            "    <table><tr>\r",
+                                            "        <td>\r",
+                                            "            <div class=\"name\">{name}</div>\r",
+                                            "            <div class=\"vicinity\">{[this.DateFormat(values.earlieststarttime)]}</div>\r",
+                                            "            <div class=\"vicinity\">{entrycost} $</div>\r",
+                                            "            <div class=\"vicinity\">{type}</div>\r",
+                                            "        </td>\r",
+                                            "        <td style=\"padding-left: 30px;display: block;padding-top: 5px;\">\r",
+                                            "            <div class=\"vicinity\">{description}</div>\r",
+                                            "        </td>\r",
+                                            "        </tr>\r",
+                                            "    </table>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl9",
+                                    "designerId": "b1913be8-096d-4d91-aa14-ff5540feb5e1",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "//debugger;",
+                                                    "return \"background-size:50px;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "5b336a4c-6215-49e4-bc14-4e204bbdcbb9"
+                                        },
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "date"
+                                                ],
+                                                "fn": "DateFormat",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return Ext.Date.format(new Date(date), 'Y-m-d H:i');"
+                                                ]
+                                            },
+                                            "name": "DateFormat",
+                                            "designerId": "81cc81bd-963b-48b9-b709-47d98f305c30"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer40",
+                    "designerId": "8164e125-85f5-453c-97fe-028ddce7d0f7",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextSBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton72",
+                            "designerId": "c260da27-8149-4d9b-97ad-4c3eac53b568"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "backBoatBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton73",
+                            "designerId": "50c88418-d344-4ef5-9e62-88b3fb2414a5"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "raceDetails",
+                "layout": "vbox",
+                "scrollable": true
+            },
+            "name": "MyFormPanel14",
+            "designerId": "d9e0b630-15ec-433f-abf2-1d517e0e3eb6",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "hidden": true,
+                        "margin": 5,
+                        "title": "Series information"
+                    },
+                    "name": "MyFieldSet48",
+                    "designerId": "98cf7576-4db5-41e1-80c4-508a5dc682db"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "height": 365,
+                        "layout": "hbox",
+                        "margin": 5,
+                        "title": "Race Information"
+                    },
+                    "name": "MyFieldSet49",
+                    "designerId": "3b5a2b49-9b8f-4dcd-ad31-6c884006b1eb",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "serieRacesList",
+                                "layout|flex": 1,
+                                "margin": null,
+                                "width": null
+                            },
+                            "name": "MyList10",
+                            "designerId": "cde6e1c0-e97a-45f9-a258-0e95066c819e",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "\r",
+                                            "<div class=\"item\">\r",
+                                            "    <div class=\"name\">{name}\r",
+                                            "    </div>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl10",
+                                    "designerId": "5ded9a34-e50a-4974-9413-53d7658bd034",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "date"
+                                                ],
+                                                "fn": "DateFormat",
+                                                "implHandler": [
+                                                    "return Ext.Date.format(date, 'Y-m-d H:i');"
+                                                ]
+                                            },
+                                            "name": "DateFormat",
+                                            "designerId": "105de141-f241-4f65-a409-9a9963e0368a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "addRemButtonsCt",
+                                "layout|flex": null,
+                                "width": 206
+                            },
+                            "name": "MyContainer41",
+                            "designerId": "60bc5ef0-d767-423c-bd75-535a44d15cb6",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "addRaceBtn",
+                                        "margin": 20,
+                                        "text": "Add >",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton74",
+                                    "designerId": "de9b8e23-9e41-4bda-b30e-ece209e385bb"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "removeRaceBtn",
+                                        "margin": 20,
+                                        "text": "< Remove ",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton75",
+                                    "designerId": "2acb3334-70fd-41a8-8610-7f944731db94"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "itemId": "boatRacesList",
+                                "layout|flex": 1,
+                                "margin": null,
+                                "width": null
+                            },
+                            "name": "MyList11",
+                            "designerId": "8f49fdde-4583-4242-bae5-6c42f3f22f57",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "\r",
+                                            "<div class=\"item\">\r",
+                                            "    <div class=\"name\">{rname}\r",
+                                            "    </div>\r",
+                                            "   \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl11",
+                                    "designerId": "2e7752a8-4360-4432-84fd-c4fb82d6a71a",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "date"
+                                                ],
+                                                "fn": "DateFormat",
+                                                "implHandler": [
+                                                    "return Ext.Date.format(new Date(date), 'Y-m-d H:i');"
+                                                ]
+                                            },
+                                            "name": "DateFormat",
+                                            "designerId": "747d8dba-d88d-491a-ba74-205caa289eae"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "itemId": "registrationTypeFS",
+                        "title": "Registration Type"
+                    },
+                    "name": "MyFieldSet50",
+                    "designerId": "23a7b216-c2ca-4655-96f0-0dd20e43fdc2",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "seriesRadio",
+                                "label": "Register for Series",
+                                "name": "registrationRadio",
+                                "value": "seriesRadio"
+                            },
+                            "name": "MyRadioButton4",
+                            "designerId": "a9bcf8b2-a875-4ac4-822b-877f789f0342"
+                        },
+                        {
+                            "type": "Ext.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "checked": true,
+                                "itemId": "individualRadio",
+                                "label": "Register for individual races",
+                                "name": "registrationRadio",
+                                "value": "raceRadio"
+                            },
+                            "name": "MyRadioButton5",
+                            "designerId": "aeb666cb-7378-41c0-ae92-de1205f5fcb1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer42",
+                    "designerId": "f4234650-9e53-4f09-9a37-fea74dcba22b",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextSaveRacesBtn",
+                                "text": "Register >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton76",
+                            "designerId": "64cd0fdb-5b02-438c-9479-8461cb01651a"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "backBoatBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton77",
+                            "designerId": "980a9dc7-0533-4f11-ad63-6881bc453eb4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "seriesDetails",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel15",
+            "designerId": "29f95e93-e7d3-4b40-8f5f-40ce173b9d49",
+            "cn": [
+                {
+                    "type": "Ext.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "itemId": "skipperInfoPanel",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "margin": 5
+                    },
+                    "name": "MyPanel",
+                    "designerId": "04e38d5d-f6a0-46a4-99c3-7131eb73fd6a",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "name": "skipperinformation1",
+                            "designerId": "e3f424a5-af6f-43ae-8724-2352b6808aa1",
+                            "masterInstanceId": "ff769a50-dff2-43c5-bdd1-aefe95bb09cf"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer43",
+                    "designerId": "6cb11eaf-b57a-4aa9-acd7-87cd1e56983f",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextSeriesBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton78",
+                            "designerId": "2e55688d-2725-42bf-9411-adfce074f0ca"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "backBoatBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton79",
+                            "designerId": "bc2832c9-4a2c-47e2-812e-a995adbba5f2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "raceDivisionDetails",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel16",
+            "designerId": "8036d9c5-cdb6-4da4-b95d-930a13a64420",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretchmax",
+                        "container|pack": "center",
+                        "height": null,
+                        "itemId": "divisionCt",
+                        "layout": "hbox",
+                        "layout|flex": 1
+                    },
+                    "name": "MyContainer44",
+                    "designerId": "9f6a08db-5b03-4e34-86c3-32bde9ce59bc",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "height": 500,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Divisions",
+                                "width": null
+                            },
+                            "name": "MyFieldSet51",
+                            "designerId": "539cfb41-7f67-434b-800a-c4ff1050a499",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 500,
+                                        "itemHeight": null,
+                                        "itemId": "rDivisionsList"
+                                    },
+                                    "name": "MyList12",
+                                    "designerId": "999b3eaf-ed5e-4281-9689-3951b113fd7d",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "   \r",
+                                                    "<div class=\"icon-wrapper\">\r",
+                                                    "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                                    "    </div>\r",
+                                                    "</div>\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name} - {description}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl12",
+                                            "designerId": "a8a53b22-efa4-4657-84e5-56c562b175d3",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "path"
+                                                        ],
+                                                        "fn": "getPath",
+                                                        "implHandler": [
+                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                        ]
+                                                    },
+                                                    "name": "getPath",
+                                                    "designerId": "5d515f81-edc8-4925-8751-4feba3b5f774"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|pack": "center",
+                                "defaults": [
+                                    "{\r",
+                                    "    margin: '5 0 0 0'\r",
+                                    "}"
+                                ],
+                                "docked": null,
+                                "height": 500,
+                                "itemId": "divisionButtonsCt",
+                                "layout": "vbox"
+                            },
+                            "name": "MyContainer45",
+                            "designerId": "ed00ac5d-8d74-4161-887e-b4cc1b0183a3",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "addRDivisionBtn",
+                                        "text": "Add >",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton80",
+                                    "designerId": "9b27b6f1-9a9c-4e72-b165-81c3d10cb4eb"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "hidden": true,
+                                        "itemId": "allRDivisionsBtn",
+                                        "text": "All >>",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton81",
+                                    "designerId": "bdfceee8-4e9d-47a8-9d5e-7f8a982307f5"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "itemId": "delRDivisionBtn",
+                                        "text": "< Rem",
+                                        "ui": "action-round"
+                                    },
+                                    "name": "MyButton82",
+                                    "designerId": "fe6c7104-e39e-4c82-bc18-fae51423cd0f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "height": 500,
+                                "layout": "fit",
+                                "layout|flex": 1,
+                                "title": "Race Divisions",
+                                "width": null
+                            },
+                            "name": "MyFieldSet52",
+                            "designerId": "8ac82449-6ba3-45e4-be62-be610e57fb56",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 500,
+                                        "itemId": "rRaceDivisionsList",
+                                        "maxHeight": null
+                                    },
+                                    "name": "MyList13",
+                                    "designerId": "bdb2a1dc-a7fc-4b3e-9355-55606a7c0c3a",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<div class=\"icon-wrapper\">\r",
+                                                    "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                                    "    </div>\r",
+                                                    "</div>\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name} - {description}\r",
+                                                    "    </div>\r",
+                                                    "    <div class=\"vicinity\">\r",
+                                                    "    </div>\r",
+                                                    "    \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl13",
+                                            "designerId": "0694e2ed-be6a-4782-ad15-f86e56b9df32",
+                                            "cn": [
+                                                {
+                                                    "type": "templatefunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "path"
+                                                        ],
+                                                        "fn": "getPath",
+                                                        "implHandler": [
+                                                            "//debugger;",
+                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                        ]
+                                                    },
+                                                    "name": "getPath",
+                                                    "designerId": "30c5b553-5260-486c-a77c-0cdef04ff4c5"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt1",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer46",
+                    "designerId": "03b9f6e5-1dc3-4f40-9b9a-731d04847010",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "itemId": "nextRaceDBtn",
+                                "text": "Save Data",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton83",
+                            "designerId": "e7f37d17-5bbb-40cc-8b6e-b512795cd932"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "itemId": "backBoatBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton84",
+                            "designerId": "3484c18b-79fe-4099-ab9b-7ef124d08012"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "html": null,
+                "itemId": "reviewCard",
+                "layout": "vbox",
+                "scrollable": false
+            },
+            "name": "MyFormPanel17",
+            "designerId": "8e1c2f05-4d79-4f90-8c0b-a49be600cdd2",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "title": "Registration details"
+                    },
+                    "name": "MyFieldSet53",
+                    "designerId": "28a03d7b-b4b3-4e34-a9e7-6b81155f3174",
+                    "cn": [
+                        {
+                            "type": "Ext.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "seriesReview"
+                            },
+                            "name": "MyLabel4",
+                            "designerId": "ac9ab450-17fc-462f-818b-198f701936ad"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "start",
+                        "designer|displayName": "",
+                        "itemId": "finaliseCt",
+                        "layout": "hbox",
+                        "margin": 0,
+                        "title": null
+                    },
+                    "name": "MyFieldSet54",
+                    "designerId": "4592ceb9-afab-40cd-a13c-a5629a7233ba",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "itemId": "generalInfoFS",
+                                "title": null,
+                                "width": 350
+                            },
+                            "name": "MyFieldSet55",
+                            "designerId": "2b89268e-428a-49da-9b1f-e492e27706c4",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "statusTxt",
+                                        "label": "Entry status",
+                                        "labelWidth": "50%",
+                                        "name": "status",
+                                        "readOnly": true
+                                    },
+                                    "name": "MyTextField61",
+                                    "designerId": "e695e8f2-df0d-4f29-9b6f-8158fb96231b"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "costTxt",
+                                        "label": "Entry Cost",
+                                        "labelWidth": "50%",
+                                        "name": "cost",
+                                        "readOnly": true
+                                    },
+                                    "name": "MyTextField62",
+                                    "designerId": "d8ef74eb-2316-45e7-8358-b16a16688b64"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "height": 96,
+                                "itemId": "generalInfoAuxFS",
+                                "layout|flex": 1,
+                                "title": null,
+                                "width": null
+                            },
+                            "name": "MyFieldSet56",
+                            "designerId": "3b006b5a-8941-47ee-8a6e-532a8eff0320",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "confirm-round",
+                                        "docked": "bottom",
+                                        "hidden": true,
+                                        "margin": "20 10 10 150",
+                                        "text": "Process Payment",
+                                        "ui": "confirm-round",
+                                        "width": 250
+                                    },
+                                    "name": "MyButton85",
+                                    "designerId": "d8c13c1d-77c7-4b06-9bcc-d04fbe85dcee"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer47",
+                    "designerId": "dc6d8edd-2441-4eef-9ff2-6fff41ee6cd2",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "docked": "right",
+                                "itemId": "exitBtn",
+                                "text": "Exit",
+                                "ui": "confirm-round",
+                                "width": null
+                            },
+                            "name": "MyButton86",
+                            "designerId": "82ac2f97-2038-4798-8e67-65d1df119257"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": false,
+                                "itemId": "backBoatBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton87",
+                            "designerId": "9ae7ab05-5d26-45eb-a269-a247574d76cd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "newBoatCt",
+                "layout": "fit"
+            },
+            "name": "MyContainer48",
+            "designerId": "2b61f69e-3020-40c7-942b-db8ec1346d20",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "newBoatPnl"
+                    },
+                    "name": "boatdetails11",
+                    "designerId": "5d9c952a-3aa3-42c8-9e4a-7ba0f85622e1",
+                    "masterInstanceId": "45438d61-a513-4e1b-81db-f2bba35c9a3f"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    //boatStore = CreateStore(\"boat\"),\r",
+                    "    //boatEntity = GetEntityByName(\"boat\"),\r",
+                    "\r",
+                    "    raceSeriesStore = CreateStore(\"raceseries\"),\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "\r",
+                    "    skipperStore = CreateStore(\"crewmember\"),\r",
+                    "    divisionStore = CreateStore(\"division\"),\r",
+                    "    raceDivisionsStore = CreateStore(\"division\");\r",
+                    "\r",
+                    "\r",
+                    "this.callParent();\r",
+                    "\r",
+                    "/*boatStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityView(boatEntity.entityid).entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "skipperStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Crew Members').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "*/\r",
+                    "divisionStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Divisions').entityviewid ,\r",
+                    "        filters: ' ORDER BY name asc'\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#rRaceDivisionsList').setStore(raceDivisionsStore);\r",
+                    "me.down('#rDivisionsList').setStore(divisionStore);\r",
+                    "\r",
+                    "//me.down('#skipperCmb').setStore(skipperStore);\r",
+                    "\r",
+                    "Ext.Viewport.setMasked(false);"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "d48c16ad-6cb7-4dc3-9951-6a4285d7f163"
+        }
+    ]
+}

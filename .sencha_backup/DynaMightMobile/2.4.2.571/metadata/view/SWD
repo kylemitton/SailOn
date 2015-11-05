@@ -1,0 +1,442 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SWD",
+        "html": null,
+        "itemId": "divisionDetails",
+        "scrollable": false
+    },
+    "designerId": "864b18e0-42fc-47f5-a5bd-407660c99671",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretchmax",
+                "container|pack": "center",
+                "height": 300,
+                "itemId": "divisionCt",
+                "layout": "hbox"
+            },
+            "name": "MyContainer29",
+            "designerId": "de99aefe-2244-4ed9-9c97-1b837e805762",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "layout": "fit",
+                        "layout|flex": 1,
+                        "title": "Divisions",
+                        "width": null
+                    },
+                    "name": "MyFieldSet15",
+                    "designerId": "e15deca3-ff7d-4651-ad7a-972bdd191222",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 250,
+                                "itemId": "raceDivisionsList",
+                                "maxHeight": null
+                            },
+                            "name": "MyList5",
+                            "designerId": "5dab81fd-d372-4f09-b680-bf9761361bd8",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<div class=\"icon-wrapper\">\r",
+                                            "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                            "    </div>\r",
+                                            "</div>\r",
+                                            "<div class=\"item\">\r",
+                                            "    <div class=\"name\">{name}\r",
+                                            "    </div>\r",
+                                            "    <div class=\"vicinity\">\r",
+                                            "    </div>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl5",
+                                    "designerId": "71c7da82-21a6-42c5-8ddb-5ecf80773451",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "//debugger;\r",
+                                                    "return \"background-size:cover;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "f13b6929-d141-463d-8481-e45f883100c3"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "center",
+                        "defaults": [
+                            "{\r",
+                            "    margin: '5 0 0 0'\r",
+                            "}"
+                        ],
+                        "docked": null,
+                        "itemId": "divisionButtonsCt",
+                        "layout": "vbox"
+                    },
+                    "name": "MyContainer30",
+                    "designerId": "491988ff-a411-4548-9ea1-6b8520930087",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "addDivisionBtn",
+                                "text": "< Add",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton43",
+                            "designerId": "be51a04d-831d-4c67-a181-bab8148de77a"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "allDivisionsBtn",
+                                "text": "<< All",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton44",
+                            "designerId": "aeb023b5-cf49-4c3d-b278-2dee7132d36f"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "delDivisionBtn",
+                                "text": "Rem >",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton45",
+                            "designerId": "c95fb9eb-852d-4ab1-ac07-ba5d9d06f65d"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "action-round",
+                                "itemId": "newDivisionBtn",
+                                "text": "New",
+                                "ui": "action-round"
+                            },
+                            "name": "MyButton46",
+                            "designerId": "86123565-0505-48cc-80bd-9ead74176c39"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": null,
+                        "layout": "fit",
+                        "layout|flex": 1,
+                        "title": "Previously Used Divisions",
+                        "width": null
+                    },
+                    "name": "MyFieldSet16",
+                    "designerId": "979c6ebc-6943-49bd-b23c-a4f0aee998d9",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 250,
+                                "itemHeight": 24,
+                                "itemId": "divisionsList"
+                            },
+                            "name": "MyList6",
+                            "designerId": "0d6c2f32-08dd-49b7-b084-fa99c14fa7be",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "\r",
+                                            "   \r",
+                                            "<div class=\"icon-wrapper\">\r",
+                                            "    <div class=\"icon\" style={[this.getPath(values.path)]}>\r",
+                                            "    </div>\r",
+                                            "</div>\r",
+                                            "<div class=\"item\">\r",
+                                            "    <div class=\"name\">{name}\r",
+                                            "    </div>\r",
+                                            "    <div class=\"vicinity\">\r",
+                                            "    </div>\r",
+                                            "    \r",
+                                            "</div>"
+                                        ]
+                                    },
+                                    "name": "tpl6",
+                                    "designerId": "53f48092-a38c-447d-9dcd-626bea37e93e",
+                                    "cn": [
+                                        {
+                                            "type": "templatefunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "path"
+                                                ],
+                                                "fn": "getPath",
+                                                "implHandler": [
+                                                    "return \"background-size:cover;background-image:url('../admin/uploaded_files/\"+ path +\"')\";"
+                                                ]
+                                            },
+                                            "name": "getPath",
+                                            "designerId": "8c1a2e70-a08e-4d72-8184-a4e6b2c00d28"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "updateCt",
+                "layout": "hbox"
+            },
+            "name": "MyContainer31",
+            "designerId": "fa1081c5-5bbb-4eac-b3c5-369023be7e7f",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Division Details",
+                        "width": 541
+                    },
+                    "name": "MyFieldSet17",
+                    "designerId": "601ae183-a3bf-44a8-a093-2cd0bf39a846",
+                    "cn": [
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Name",
+                                "name": "name"
+                            },
+                            "name": "MyTextField22",
+                            "designerId": "e5b21832-e76b-41ca-980b-e88dc28cc6eb"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "label": "Group",
+                                "name": "group"
+                            },
+                            "name": "MyTextField23",
+                            "designerId": "7cb0fec2-105b-47f4-9065-8bb5a09cb634"
+                        },
+                        {
+                            "type": "Ext.field.File",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "label": "Flag",
+                                "name": "flag"
+                            },
+                            "name": "MyFileField1",
+                            "designerId": "5f66828d-203d-427b-b185-bff3ddf34180"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action-round",
+                        "docked": null,
+                        "height": 30,
+                        "itemId": "updateDivisionBtn",
+                        "margin": "110 0 0 20",
+                        "text": "Update division",
+                        "ui": "action-round",
+                        "width": null
+                    },
+                    "name": "MyButton47",
+                    "designerId": "fb1fa1e0-ad0b-43b4-bc67-73114e8eb140"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "height": 40,
+                "itemId": "bottomCt1",
+                "margin": 10,
+                "width": null
+            },
+            "name": "MyContainer32",
+            "designerId": "3dd522e3-aaed-4ddc-b896-02f7114feabd",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "right",
+                        "itemId": "nextBtn",
+                        "text": "Next >>",
+                        "ui": "decline-round",
+                        "width": null
+                    },
+                    "name": "MyButton48",
+                    "designerId": "4407d1c9-5924-4500-b6ad-a61d5080b6ff"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "left",
+                        "itemId": "backBtn",
+                        "text": "<< Back",
+                        "ui": "decline-round",
+                        "width": null
+                    },
+                    "name": "MyButton49",
+                    "designerId": "2796835c-e127-4540-b9f2-d2c2b6798cfd"
+                }
+            ]
+        }
+    ]
+}

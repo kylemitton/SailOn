@@ -1,0 +1,1341 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SeriesWizard"
+    },
+    "designerId": "ea01f4df-12b7-4d79-9d07-f8506539c079",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#backBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    wizard = me.getSeriesWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    idx = 1;\r",
+                    "\r",
+                    "//me.getSeriesWizard().setActiveItem(selectedIndex - 1);\r",
+                    "\r",
+                    "if(selectedIndex === 0 || selectedIndex === 4 || selectedIndex === 6){\r",
+                    "    idx = 2;\r",
+                    "}\r",
+                    "else if(selectedIndex === 7){\r",
+                    "    idx = 3;\r",
+                    "}\r",
+                    "\r",
+                    "me.getSeriesWizard().animateActiveItem(selectedIndex - idx, {type: 'slide', direction: 'right'});\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onBackButtonTap",
+            "designerId": "fd08f1b7-1466-4deb-a05e-0d1cf2ae2056"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextButtonTap",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getSeriesWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    idx = 1;\r",
+                    "\r",
+                    "\r",
+                    "if(selectedIndex === 0){\r",
+                    "    if(!me.getSeriesName().getValue()){\r",
+                    "        Ext.Msg.alert('Required field', 'Must fill name field!', Ext.emptyFn);\r",
+                    "        return;\r",
+                    "    }\r",
+                    "}\r",
+                    "else if(selectedIndex === 2 ){\r",
+                    "    idx = 2;\r",
+                    "}\r",
+                    "else if(selectedIndex === 4 ){\r",
+                    "    idx = 3;\r",
+                    "}\r",
+                    "else if(selectedIndex === 3){\r",
+                    "    vals = me.getSeriesDetailsFrm().getValues();\r",
+                    "    me.getSeriesReview().setHtml(\r",
+                    "        //'Yacht club: ' + me.getYachtClubCmb().record.get('name') +\r",
+                    "        ', Name: ' + vals.name +\r",
+                    "        ', Location: ' + vals.location +\r",
+                    "        ', Key contact: ' + vals.keycontact\r",
+                    "    );\r",
+                    "    //debugger;\r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(selectedIndex + idx);\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNextButtonTap",
+            "designerId": "c14fdb21-cbe4-48c7-bea7-7599b54e5d9b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesWizard",
+                "selector": "panel#seriesWizardId"
+            },
+            "name": "seriesWizard",
+            "designerId": "66307416-0497-4014-a690-fd0673dca013"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#newBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNewRaceButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    store = me.getRacesList().getStore(),\r",
+                    "    number = me.getNewTxt().getValue(),\r",
+                    "    name = me.getSeriesDetailsFrm().getValues().name,\r",
+                    "    records,\r",
+                    "    dStart = me.getStartFrm().down('#defaultStartDt').getValue(),\r",
+                    "    dTime = me.getStartFrm().down('#defaultTimeTxt').getValue(),\r",
+                    "    y = dStart.getFullYear(), M = dStart.getMonth(), d = dStart.getDate(),\r",
+                    "    h = dTime.getHours(),\r",
+                    "    m = dTime.getMinutes(),\r",
+                    "    newDate = new Date(y, M, d, h, m, 0, 0);\r",
+                    "\r",
+                    "//debugger;\r",
+                    "//newDate.setHours(h,m,0);\r",
+                    "\r",
+                    "function formattedDate(date) {\r",
+                    "    var d = new Date(date || Date.now()),\r",
+                    "        month = '' + (d.getMonth() + 1),\r",
+                    "        day = '' + d.getDate(),\r",
+                    "        year = d.getFullYear();\r",
+                    "\r",
+                    "    if (month.length < 2) month = '0' + month;\r",
+                    "    if (day.length < 2) day = '0' + day;\r",
+                    "\r",
+                    "    return [month, day, year].join('/');\r",
+                    "}\r",
+                    "\r",
+                    "//debugger;\r",
+                    "if(number){\r",
+                    "\r",
+                    "     for (var i = 0; i < number; i++) {\r",
+                    "         newDate.setDate(newDate.getDate());\r",
+                    "         records =\r",
+                    "             [{\r",
+                    "                 name: name + ' - Race ' + (i + 1),\r",
+                    "                 startdate: newDate//formattedDate(newDate)\r",
+                    "\r",
+                    "             }];\r",
+                    "         store.insert(store.data.length, records);\r",
+                    "     }\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNewRaceButtonTap",
+            "designerId": "07e2dfc5-02b4-4077-9f14-fc19deb10944"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesList",
+                "selector": "list#racesList"
+            },
+            "name": "racesList",
+            "designerId": "811d39c9-5a0a-43c6-bf59-77fd25ab27e7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "newTxt",
+                "selector": "numberfield#newTxt"
+            },
+            "name": "newTxt",
+            "designerId": "7f317d5f-2e77-4a8c-bf06-99c4b0017085"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddDivisionButtonTap",
+                "implHandler": [
+                    "var list = this.getDivisionsList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    raceDivisionsList = this.getRaceDivisionsList(),\r",
+                    "    store = raceDivisionsList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    store.add(selected);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddDivisionButtonTap",
+            "designerId": "3c148941-26a9-4f20-9438-78b34eba7952"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#allDivisionsBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAllDivisionsButtonTap",
+                "implHandler": [
+                    "var list = this.getDivisionsList(),\r",
+                    "    all = list.getStore().getRange(),\r",
+                    "    raceDivisionsList = this.getRaceDivisionsList(),\r",
+                    "    store = raceDivisionsList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (all.length > 0) {\r",
+                    "    store.add(all);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAllDivisionsButtonTap",
+            "designerId": "98081df1-76f4-473e-9d75-08fb777d508f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#delDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDelDivisionButtonTap",
+                "implHandler": [
+                    "var list = this.getRaceDivisionsList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    store = list.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    store.remove(selected);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onDelDivisionButtonTap",
+            "designerId": "20aa90b7-857d-4c8d-9937-957254e77cbe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#newDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNewDivisionButtonTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var list = this.getDivisionsList(),\r",
+                    "    //selected = list.getSelection(),\r",
+                    "    raceDivisionsList = this.getRaceDivisionsList(),\r",
+                    "    store = raceDivisionsList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        name: 'New Division'\r",
+                    "    },\r",
+                    "    method: 'SaveDivision',\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        if (status) {\r",
+                    "            store.add({\r",
+                    "                divisionid : obj.result,\r",
+                    "                name: 'New Division'\r",
+                    "            });\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Error saving Division',//T('errLogIn'),\r",
+                    "                msg: 'Error.',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNewDivisionButtonTap",
+            "designerId": "93261e76-9bfc-4508-b3de-c1cb8dd8394d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#delBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDelRaceButtonTap",
+                "implHandler": [
+                    "var list = this.getRacesList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    store = list.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    store.remove(selected);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onDelRaceButtonTap",
+            "designerId": "64bb4dfd-a2cd-4abc-bde3-7c50a2eadcd6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDivisionsList",
+                "selector": "list#raceDivisionsList"
+            },
+            "name": "raceDivisionsList",
+            "designerId": "f5d2f963-c856-4204-960a-46d213558dd8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionsList",
+                "selector": "list#divisionsList"
+            },
+            "name": "divisionsList",
+            "designerId": "61d8e2c5-51bf-4b62-ba3c-f70339f32f95"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#finishBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onFinishButtonTap",
+                "implHandler": [
+                    "var series = this.getSeriesDetailsFrm().getValues(),\r",
+                    "    details = this.getSeriesOptionsFrm().getValues(),\r",
+                    "    divisions = this.getRaceDivisionsList().getStore().getAllRecords(),\r",
+                    "    races = this.getRacesList().getStore().getAllRecords(),\r",
+                    "    raceSeriesDivisions = this.getRaceDivisionsList().getStore().getAllRecords(),\r",
+                    "    fields = '',\r",
+                    "    raceSeries = GetEntityByName(\"raceseries\"),\r",
+                    "    division = GetEntityByName(\"division\"),\r",
+                    "    race = GetEntityByName(\"race\"),\r",
+                    "    raceSeriesDivision = GetEntityByName(\"raceseriesdivision\"),\r",
+                    "    seriesSponsor = GetEntityByName(\"raceseriessponsor\"),\r",
+                    "    fields = [];\r",
+                    "\r",
+                    "Ext.apply(series, details);\r",
+                    "//debugger;\r",
+                    "fields.push(GetFieldsByEntity(raceSeries.entityid));\r",
+                    "fields.push(GetFieldsByEntity(division.entityid));\r",
+                    "fields.push(GetFieldsByEntity(race.entityid));\r",
+                    "fields.push(GetFieldsByEntity(raceSeriesDivision.entityid));\r",
+                    "\r",
+                    "fields.push(GetFieldsByEntity(seriesSponsor.entityid));\r",
+                    "\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        series: series,\r",
+                    "        divisions: divisions,\r",
+                    "        races: races,\r",
+                    "        raceSeriesDivisions: raceSeriesDivisions,\r",
+                    "        fields: fields\r",
+                    "    },\r",
+                    "    method: 'SaveRaceSeries',\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Error saving Series',//T('errLogIn'),\r",
+                    "                msg: 'Error.',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "this.getHomePanel().removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onFinishButtonTap",
+            "designerId": "ca78a056-b5ea-4341-b176-b9f20f631dcd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesDetailsFrm",
+                "selector": "formpanel#seriesDetailsFrm"
+            },
+            "name": "seriesDetailsFrm",
+            "designerId": "23d4b17a-2a74-4f2a-8a58-5e72d85a9acb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesName",
+                "selector": "textfield#SeriesName"
+            },
+            "name": "seriesName",
+            "designerId": "5e73b83f-7388-4f72-b195-2b78946d5b32"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#raceDivisionsList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onDivisionListItemTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "this.getDivisionDetails().setRecord(record);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onDivisionListItemTap",
+            "designerId": "d2f1f039-769f-4acd-a474-554d0204b264"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionDetails",
+                "selector": "formpanel#divisionDetails"
+            },
+            "name": "divisionDetails",
+            "designerId": "aa230aa8-2d5a-4343-96ac-553d29f17b41"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDetails",
+                "selector": "formpanel#raceDetails"
+            },
+            "name": "raceDetails",
+            "designerId": "b88bece9-0207-4ccf-bacb-0240647c0a51"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#racesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRaceListItemTap",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var form = this.getRaceDetails();\r",
+                    "\r",
+                    "//this.getRaceDetails().setRecord(record);\r",
+                    "/*debugger\r",
+                    "this.getStartdateId().setValue(record.get('startdate'));\r",
+                    "form.down('#nameTxt').setValue(record.get('name'));\r",
+                    "form.down('#timeTxt').setValue(record.get('startdate'));\r",
+                    "*/\r",
+                    "var frm = this.getRaceDetailsEdit();\r",
+                    "frm.setRecord(record);\r",
+                    "\r",
+                    "frm.down('#timeTxt').setValue(record.get('startdate'));\r",
+                    "//form.down('#sponsorNameTxt').setValue(record.get('sponsorname'));\r",
+                    "//form.down('#linkTxt').setValue(record.get('sponsorlink'));\r",
+                    "//form.down('#').setValue(record.get('startdate'));"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onRaceListItemTap",
+            "designerId": "8ffdbbf5-f4b4-48dc-a755-712bbda97866"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#updateRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUpdateRaceButtonTap",
+                "implHandler": [
+                    "\r",
+                    "var me = this, vals,\r",
+                    "    wizard = me.getSeriesWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    idx = 1;\r",
+                    "\r",
+                    "\r",
+                    "var rec, id,\r",
+                    "    list = this.getRacesList(),\r",
+                    "    selected = this.getRacesList().selected,\r",
+                    "    frmValues = this.getRaceDetailsEdit().getValues();\r",
+                    "\r",
+                    "if(selected.length == 0){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(5);\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onUpdateRaceButtonTap",
+            "designerId": "a8f5f8ee-b2eb-4ee5-b742-b1e7eaddb735"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "racesReviewList",
+                "selector": "list#racesReviewList"
+            },
+            "name": "racesReviewList",
+            "designerId": "50f4f81f-e0ef-4714-91c9-d05771d05708"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesReview",
+                "selector": "label#seriesReview"
+            },
+            "name": "seriesReview",
+            "designerId": "d2c5849f-3325-427f-a4d5-9a92aa6f944c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "yachtClubCmb",
+                "selector": "selectfield#yachtClubCmb"
+            },
+            "name": "yachtClubCmb",
+            "designerId": "0739cdae-c678-4c44-a7a9-3db1562299da"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "e08e48c4-f80d-422c-aee2-1256a5b73fcf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addPatternBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddPatternButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    frm = me.getPatternFrm(),\r",
+                    "    values = frm.getValues(),\r",
+                    "    //startdate = me.getStartFrm().getValues().startdate,\r",
+                    "    store = me.getRacesList().getStore(),\r",
+                    "    max = 30,\r",
+                    "    //startdate = new Date(startdate),\r",
+                    "    enddate = new Date(values.enddate),\r",
+                    "    iteration = 0, number = 1,\r",
+                    "    name = me.getSeriesDetailsFrm().getValues().name,\r",
+                    "\r",
+                    "    dStart = me.getStartFrm().down('#defaultStartDt').getValue(),\r",
+                    "    dTime = me.getStartFrm().down('#defaultTimeTxt').getValue(),\r",
+                    "    y = dStart.getFullYear(), M = dStart.getMonth(), d = dStart.getDate(),\r",
+                    "    h = dTime.getHours(),\r",
+                    "    m = dTime.getMinutes(),\r",
+                    "    startdate = new Date(y, M, d, h, m, 0, 0);\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "//if (!(values.1 || values.2 || values.3 || values.4 || values.5 || values.6 || values.7 )){\r",
+                    "//    return;\r",
+                    "//}\r",
+                    "\r",
+                    "function insert(date){\r",
+                    "    var records =\r",
+                    "        [{\r",
+                    "            name: name + ' - Race ' + number +  ' - ' + date.toDateString(),\r",
+                    "            startdate: new Date(date.getTime())\r",
+                    "\r",
+                    "        }];\r",
+                    "    store.insert(store.data.length, records);\r",
+                    "    number++;\r",
+                    "}\r",
+                    "\r",
+                    "function iterateWeek(date){\r",
+                    "    for (var j = date.getDay(); j < 8; j++) {\r",
+                    "\r",
+                    "        if(values[j]){\r",
+                    "            if(\r",
+                    "                (values.endRadio == 'endAfterRadio' && iteration < values.occurences) ||\r",
+                    "                (values.endRadio == 'endByRadio' && startdate < enddate)\r",
+                    "            ){\r",
+                    "                insert(date);\r",
+                    "            }\r",
+                    "            iteration++;\r",
+                    "        }\r",
+                    "        date.setDate(date.getDate() + 1);\r",
+                    "    }\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    "for (var i = 0; i < max; i++) {\r",
+                    "    iterateWeek(startdate);\r",
+                    "    startdate.setDate(startdate.getDate() + 7 * (values.weeks - 1));\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onAddPatternButtonTap",
+            "designerId": "64368829-cde4-40e2-aee4-b0f1c3636556"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "patternFrm",
+                "selector": "formpanel#patternFrm"
+            },
+            "name": "patternFrm",
+            "designerId": "2f635a48-4c5f-4195-870f-f7f46e0ee532"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#updateDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUpdateDivisionButtonTap",
+                "implHandler": [
+                    "\r",
+                    "var me = this, vals,\r",
+                    "    wizard = me.getSeriesWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    idx = 1;\r",
+                    "\r",
+                    "\r",
+                    "var rec, id,\r",
+                    "    list = this.getRaceDivisionsList(),\r",
+                    "    selected = this.getRaceDivisionsList().selected,\r",
+                    "    frmValues = this.getDivisionDetailsEdit().getValues();\r",
+                    "\r",
+                    "if(selected.length == 0){\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(3);\r",
+                    "var frm = this.getDivisionDetails(),\r",
+                    "    rec = frm.getRecord();\r",
+                    "this.getDivisionDetailsEdit().setRecord(rec);\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onUpdateDivisionButtonTap",
+            "designerId": "f182e08a-6836-4888-b445-721853eedf51"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startdateId",
+                "selector": "textfield#startdateId"
+            },
+            "name": "startdateId",
+            "designerId": "b197ff0c-d2a0-480b-b105-5613f9c26648"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceCtId",
+                "selector": "container#raceCtId"
+            },
+            "name": "raceCtId",
+            "designerId": "89037eb4-09e9-4305-b144-5ed3cce74ecc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bottomCtId",
+                "selector": "container#bottomCtId"
+            },
+            "name": "bottomCtId",
+            "designerId": "440ff965-e4f3-4171-9ed5-e5cc362165ff"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startFrm",
+                "selector": "formpanel#startFrm"
+            },
+            "name": "startFrm",
+            "designerId": "8c6f2792-6295-441c-b071-e01fab67e87b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "seriesOptionsFrm",
+                "selector": "formpanel#seriesOptionsFrm"
+            },
+            "name": "seriesOptionsFrm",
+            "designerId": "7f811832-7e93-4519-8992-ea1965af7c98"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#signOnChk",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldCheck",
+                "implHandler": [
+                    "var me =  this;\r",
+                    "me.getSeriesOptionsFrm().down('#mobileSignOnChk').setHidden(false);\r",
+                    "me.getSeriesOptionsFrm().down('#signOnMessageTxt').setHidden(false);"
+                ],
+                "name": "check"
+            },
+            "name": "onCheckboxfieldCheck",
+            "designerId": "108046dc-fb1a-46de-a47f-4b621eba5818"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#signOnChk",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldUncheck",
+                "implHandler": [
+                    "var me =  this;\r",
+                    "me.getSeriesOptionsFrm().down('#mobileSignOnChk').setHidden(true);\r",
+                    "me.getSeriesOptionsFrm().down('#signOnMessageTxt').setHidden(true);"
+                ],
+                "name": "uncheck"
+            },
+            "name": "onCheckboxfieldUncheck",
+            "designerId": "bf26196b-54ce-45a7-83a6-a35fd2c332f1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#signOffChk",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldCheck1",
+                "implHandler": [
+                    "var me =  this;\r",
+                    "me.getSeriesOptionsFrm().down('#mobileSignOffChk').setHidden(false);\r",
+                    "me.getSeriesOptionsFrm().down('#signOffMessageTxt').setHidden(false);"
+                ],
+                "name": "check"
+            },
+            "name": "onCheckboxfieldCheck1",
+            "designerId": "1a7ef212-bf23-43fe-b549-1e292d645068"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "checkboxfield#signOffChk",
+                "designer|targetType": "Ext.field.Checkbox",
+                "fn": "onCheckboxfieldUncheck1",
+                "implHandler": [
+                    "var me =  this;\r",
+                    "me.getSeriesOptionsFrm().down('#mobileSignOffChk').setHidden(true);\r",
+                    "me.getSeriesOptionsFrm().down('#signOffMessageTxt').setHidden(true);"
+                ],
+                "name": "uncheck"
+            },
+            "name": "onCheckboxfieldUncheck1",
+            "designerId": "1fb94a0f-d4cb-4356-96ab-daffedf229bf"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#handicapTypeTxt",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSelectfieldChange",
+                "implHandler": [
+                    "if(newValue == 'CBH'){\r",
+                    "   this.getDivisionDetails().down('#handicapValueTxt').setHidden(false);\r",
+                    "}\r",
+                    "else{    \r",
+                    "   this.getDivisionDetails().down('#handicapValueTxt').setHidden(true);\r",
+                    "}"
+                ],
+                "name": "change"
+            },
+            "name": "onSelectfieldChange",
+            "designerId": "2d32132b-2e0b-4f53-a003-190168c49f1a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#seriesSelect",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSeriesSelectfieldChange",
+                "implHandler": [
+                    "if(selectfield && selectfield.record)\r",
+                    "    this.getSeriesOptionsFrm().setValues(selectfield.record.data);"
+                ],
+                "name": "change"
+            },
+            "name": "onSeriesSelectfieldChange",
+            "designerId": "a0e162e2-f3ac-4482-8cf0-91c89ddc2354"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateDevision",
+                "implHandler": [
+                    "\r",
+                    "var rec, id,\r",
+                    "    list = this.getRaceDivisionsList(),\r",
+                    "    selected = this.getRaceDivisionsList().selected,\r",
+                    "    frmValues = this.getDivisionDetailsEdit().getValues();\r",
+                    "\r",
+                    "if(selected.length == 0){\r",
+                    "   return;\r",
+                    "    var view = GetEntityByName(\"division\");\r",
+                    "    rec = CreateModel('devisionA',view.entityid);\r",
+                    "    //list.add(rec);\r",
+                    "    var isAdded = true;\r",
+                    "}\r",
+                    "else{\r",
+                    "\r",
+                    "    rec = selected.get(0);\r",
+                    "}\r",
+                    "\r",
+                    "//debugger;\r",
+                    "id = rec.get('divisionid');\r",
+                    "//rec.setData(frmValues);\r",
+                    "rec.set('name', frmValues.name);\r",
+                    "rec.set('group', frmValues.group);\r",
+                    "rec.set('handicaptype', frmValues.handicaptype);\r",
+                    "rec.set('handicapvalue', frmValues.handicapvalue);\r",
+                    "rec.set('description', frmValues.description);\r",
+                    "\r",
+                    "list.refresh();\r",
+                    "\r",
+                    "\r",
+                    "AJAXCommand({\r",
+                    "    params: {\r",
+                    "        divisionid: id,\r",
+                    "        name: rec.get('name'),\r",
+                    "        group: rec.get('group'),\r",
+                    "        handicaptype: rec.get('handicaptype'),\r",
+                    "        handicapvalue: rec.get('handicapvalue'),\r",
+                    "        description: frmValues.description\r",
+                    "    },\r",
+                    "\r",
+                    "    method: 'SaveDivision',\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        if (status) {\r",
+                    "            //debugger\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.show({\r",
+                    "                title: 'Error saving Division',//T('errLogIn'),\r",
+                    "                msg: 'Error.',//T(''),\r",
+                    "                buttons: Ext.Msg.OK,\r",
+                    "                icon: Ext.Msg.ERROR,\r",
+                    "                modal: true\r",
+                    "            });\r",
+                    "        }\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "name": "updateDevision",
+            "designerId": "93c84b38-b46b-4481-b6c9-ff70928fc534"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "divisionDetailsEdit",
+                "selector": "formpanel#divisionDetailsEdit"
+            },
+            "name": "divisionDetailsEdit",
+            "designerId": "e2f3e40f-0d38-4383-8faf-523e70387f4f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveDivisionBtnTap",
+                "implHandler": [
+                    "this.updateDevision();\r",
+                    "var me = this;\r",
+                    "\r",
+                    "me.getSeriesWizard().animateActiveItem(2, {type: 'slide', direction: 'right'});"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveDivisionBtnTap",
+            "designerId": "7b630659-32c6-48ee-82d3-b70f6d7062df"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#cancelDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelEditDevisionTap",
+                "implHandler": [
+                    "\r",
+                    "var me = this;\r",
+                    "\r",
+                    "me.getSeriesWizard().animateActiveItem(2, {type: 'slide', direction: 'right'});\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelEditDevisionTap",
+            "designerId": "31ea1429-8bdf-4d00-8d12-a0c3d7901670"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addNewDivisionBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddNewDevision",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getSeriesWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem),\r",
+                    "    idx = 1;\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(3);"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddNewDevision",
+            "designerId": "384c26db-d128-4154-9729-75b94762e147"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateRace",
+                "implHandler": [
+                    "var list = this.getRacesList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    vals = this.getRaceDetailsEdit().getValues(),\r",
+                    "    idx, rec,\r",
+                    "    sto = list.getStore();\r",
+                    "\r",
+                    "//debugger;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "\r",
+                    "    var dStart = vals.picker,\r",
+                    "    dTime = vals.time,\r",
+                    "    y = dStart.getFullYear(), M = dStart.getMonth(), d = dStart.getDate(),\r",
+                    "    h = dTime.getHours(),\r",
+                    "    m = dTime.getMinutes(),\r",
+                    "    newDate = new Date(y, M, d, h, m, 0, 0);\r",
+                    "\r",
+                    "\r",
+                    "    rec = selected[0];\r",
+                    "    rec.set('name',vals.name);\r",
+                    "    rec.set('startdate',newDate);\r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "list.refresh();\r",
+                    "this.getRacesReviewList().refresh();\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "updateRace",
+            "designerId": "2b9db767-9c66-4dd0-af57-f44af5996ccf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceDetailsEdit",
+                "selector": "formpanel#raceDetailsEdit"
+            },
+            "name": "raceDetailsEdit",
+            "designerId": "d16ceb7f-08ff-4965-ad86-400dab25b4f9"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "updateRaceBtn",
+                "selector": "button#updateRaceBtn"
+            },
+            "name": "updateRaceBtn",
+            "designerId": "893ec3c0-d23c-4909-9a46-ab3bb179ba92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancelRaceEditBtn",
+                "selector": "button#cancelRaceEditBtn"
+            },
+            "name": "cancelRaceEditBtn",
+            "designerId": "f789a735-50c3-499a-b850-84c552d2be36"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#cancelRaceEditBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelEditRaceBtn",
+                "implHandler": [
+                    "\r",
+                    "var me = this;\r",
+                    "\r",
+                    "me.getSeriesWizard().animateActiveItem(4, {type: 'slide', direction: 'right'});\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelEditRaceBtn",
+            "designerId": "2c948d9d-5466-4e65-85bf-3c58c11ed931"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#saveRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveRaceDetailsBtn",
+                "implHandler": [
+                    "this.updateRace();\r",
+                    "var me = this;\r",
+                    "\r",
+                    "me.getSeriesWizard().animateActiveItem(4, {type: 'slide', direction: 'right'});"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveRaceDetailsBtn",
+            "designerId": "9c2c47c5-8afc-4c48-a5f4-7cc6bd197714"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addNewRace",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddNewRaceBtn",
+                "implHandler": [
+                    "var me = this;\r",
+                    "me.getSeriesWizard().setActiveItem(6);"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddNewRaceBtn",
+            "designerId": "7bd91901-ecfb-4297-b6ed-e7f2756f58d1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addRaceInListBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddRaceInList",
+                "implHandler": [
+                    "var me = this;\r",
+                    "me.onNewRaceButtonTap();\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(4);"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddRaceInList",
+            "designerId": "d8846ac7-1f76-4529-a97a-b4ff7f1f9d08"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#cancelAllRaceInListBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelInsertRaceBtn",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getSeriesWizard().setActiveItem(4);"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelInsertRaceBtn",
+            "designerId": "1bf6439f-e7f4-4dd3-a163-87c5d76a9e2e"
+        }
+    ]
+}

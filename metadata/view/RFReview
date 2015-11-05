@@ -1,0 +1,391 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RFReview",
+        "height": "100%",
+        "html": null,
+        "itemId": "rfReviewFrm",
+        "layout": "vbox",
+        "requires": [
+            "Ext.ux.picker.Time",
+            "Ext.ux.field.TimePicker"
+        ],
+        "scrollable": false
+    },
+    "designerId": "f96fd76c-43c3-4fa6-ace8-018175090dc0",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "title": "Competitor Information"
+            },
+            "name": "MyFieldSet73",
+            "designerId": "f1935e56-cc5a-4761-9139-05075d415bd3",
+            "cn": [
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "name",
+                        "itemId": "reviewDivisionCmb",
+                        "label": "Division",
+                        "maxWidth": 400,
+                        "valueField": "divisionid"
+                    },
+                    "name": "MySelectField6",
+                    "designerId": "ffe41675-e117-40a1-9c4f-35cb864c7dd0"
+                },
+                {
+                    "type": "Ext.dataview.DataView",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": null,
+                        "inline": [
+                            "true"
+                        ],
+                        "itemId": "raceBoatsReviewList",
+                        "layout|flex": 1,
+                        "margin": null
+                    },
+                    "name": "MyDataView6",
+                    "designerId": "f35e1374-eb60-4cdf-9a1b-7cab53e8bf17",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "itemTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "itemTpl",
+                                "implHandler": [
+                                    "{[GetTemplate('boattime', values)]}"
+                                ]
+                            },
+                            "name": "tpl27",
+                            "designerId": "e7114635-6948-4337-8d4c-b9a67c3da4c5",
+                            "cn": [
+                                {
+                                    "type": "templatefunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "date"
+                                        ],
+                                        "fn": "getTime",
+                                        "implHandler": [
+                                            "return date.split(' ')[1];"
+                                        ]
+                                    },
+                                    "name": "getTime",
+                                    "designerId": "7e235316-4558-4b4c-95b8-6542b06bd300"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "botButtonsCt",
+                "layout": "hbox",
+                "margin": 10
+            },
+            "name": "MyContainer76",
+            "designerId": "f5bdfc0c-9350-4c00-8f4c-340d00bee4eb",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "start",
+                        "itemId": "editCt",
+                        "layout": "hbox"
+                    },
+                    "name": "MyContainer77",
+                    "designerId": "febdea9b-541c-4486-be6d-08dd701cca55",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "height": 35,
+                                "hidden": true,
+                                "itemId": "adjustTimeBtn",
+                                "margin": 10,
+                                "text": "Adjust Time",
+                                "ui": "decline-round",
+                                "width": 241
+                            },
+                            "name": "MyButton124",
+                            "designerId": "19ad1a6f-ab31-42a5-895a-d031fed0e6cc"
+                        },
+                        {
+                            "type": "Ext.field.Select",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "",
+                                "displayField": "code",
+                                "itemId": "raceStatusCmb",
+                                "label": "Status",
+                                "valueField": "boatstatusid"
+                            },
+                            "name": "MySelectField7",
+                            "designerId": "1f529249-78b0-4d08-9064-942fad3c449a"
+                        },
+                        {
+                            "type": "Ext.field.DatePicker",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "right",
+                                "itemId": "datePicker",
+                                "label": "Date",
+                                "placeHolder": ""
+                            },
+                            "name": "MyDatePicker18",
+                            "designerId": "8c361cfc-5a80-4697-946d-25b547e5163d",
+                            "cn": [
+                                {
+                                    "type": "Ext.picker.Date",
+                                    "reference": {
+                                        "name": "picker",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "mydatepicker9"
+                                    },
+                                    "name": "MyDatePicker19",
+                                    "designerId": "b63bb833-9dc9-478e-b380-58212122648a",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "doneButton",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Done"
+                                            },
+                                            "name": "MyButton125",
+                                            "designerId": "2a335744-ee58-4332-ac74-2cb57ded8021"
+                                        },
+                                        {
+                                            "type": "Ext.Button",
+                                            "reference": {
+                                                "name": "cancelButton",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "text": "Cancel"
+                                            },
+                                            "name": "MyButton126",
+                                            "designerId": "d882c6b7-4161-4755-a858-29d6a19b6647"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "action-round",
+                        "disabled": true,
+                        "itemId": "reviewApplyBtn",
+                        "margin": "0 20 0 20",
+                        "text": "Apply",
+                        "ui": "action-round"
+                    },
+                    "name": "MyButton127",
+                    "designerId": "e214d13a-b926-4056-8d48-f42dce9ce582"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "height": 40,
+                "itemId": "bottomCt",
+                "margin": 10,
+                "width": null
+            },
+            "name": "MyContainer78",
+            "designerId": "1e342f01-6841-4780-b1c3-20c00fa68a07",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "left",
+                        "hidden": true,
+                        "itemId": "backResultsBtn",
+                        "text": "Back",
+                        "ui": "decline-round",
+                        "width": null
+                    },
+                    "name": "MyButton128",
+                    "designerId": "0a8eefe3-1af2-4362-90e0-f2befbc629b2"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm-round",
+                        "docked": "right",
+                        "itemId": "finalizeResultsBtn",
+                        "text": "Finalise Results",
+                        "ui": "confirm-round",
+                        "width": null
+                    },
+                    "name": "MyButton129",
+                    "designerId": "ee47cdf5-a93f-43b1-aed0-a3efe5229000"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "\r",
+                    "var me = this,\r",
+                    "    rsStore = CreateStore(\"boatstatus\"),\r",
+                    "    ctrl = DynaMightMobile.app.getController('RaceFinishWizard');\r",
+                    "\r",
+                    "rsStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Boat Status').entityviewid ,\r",
+                    "        filters: ''\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "me.down('#editCt').add({\r",
+                    "    xtype: 'timepickerfield',\r",
+                    "    itemId: 'boatTime',\r",
+                    "    name: 'defaultTime',\r",
+                    "    label: 'Time',\r",
+                    "    dateFormat: 'H:i:s',\r",
+                    "    picker:{\r",
+                    "\r",
+                    "        slotOrder: ['hour','minute','second'],\r",
+                    "        endHour: 23\r",
+                    "    },\r",
+                    "    listeners: {\r",
+                    "        hide: me.onBoatTimeChange\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "me.down('#raceBoatsReviewList').setStore(ctrl.finishView);\r",
+                    "me.down('#raceStatusCmb').setStore(rsStore);\r",
+                    "me.down('#reviewDivisionCmb').setStore(ctrl.dStore);\r",
+                    "\r",
+                    "ctrl.raceBoats = me.down('#raceBoatsReviewList');"
+                ]
+            },
+            "name": "initialize",
+            "designerId": "455971c7-e64d-4a69-a407-2ef35f62b547"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "a",
+                    "b",
+                    "c"
+                ],
+                "fn": "onBoatTimeChange",
+                "implHandler": [
+                    "//debugger;"
+                ]
+            },
+            "name": "onBoatTimeChange",
+            "designerId": "c54fd31f-94e3-4eb2-879a-791e6f6dbe06"
+        }
+    ]
+}

@@ -1,0 +1,195 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bottom": 0,
+        "cls": [
+            "mainmenu"
+        ],
+        "defaultType": "button",
+        "designer|userAlias": "sidemenu",
+        "designer|userClassName": "SideMenu",
+        "docked": "right",
+        "height": "100%",
+        "itemId": "sideMenuContainer",
+        "left": 0,
+        "open": false,
+        "padding": "5 0 0 5",
+        "right": 0,
+        "scrollable": "vertical",
+        "width": 200,
+        "xtype": "mainmenu",
+        "zIndex": 0
+    },
+    "configAlternates": {
+        "open": "boolean"
+    },
+    "designerId": "2e31a24a-e1b1-49ab-a0e6-0377d1bd5df4",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "open",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xtype",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "defaultType",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "parent"
+                ],
+                "fn": "setParent",
+                "implHandler": [
+                    "this.callParent(arguments);\r",
+                    "this.maskCmp = parent.add({\r",
+                    "     xtype   : 'component',\r",
+                    "    cls     : 'mainmenu-mask',\r",
+                    "    top     : 0,\r",
+                    "    zIndex  : 5000,\r",
+                    "    hidden  : true,\r",
+                    "    width   : 9999,\r",
+                    "    left    : this.getWidth(),\r",
+                    "    bottom  : 0\r",
+                    "});\r",
+                    "\r",
+                    "this.maskCmp.element.on({\r",
+                    "    scope   : this,\r",
+                    "    touchend: 'onMaskRelease'\r",
+                    "});"
+                ]
+            },
+            "name": "setParent",
+            "designerId": "ab7836ce-6437-4b15-b773-d9b9bbaa2c7e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMaskRelease",
+                "implHandler": [
+                    "this.setOpen(false);"
+                ]
+            },
+            "name": "onMaskRelease",
+            "designerId": "6077a60d-7379-4c45-951a-fdd03b4b48df"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDestroy",
+                "implHandler": [
+                    "this.maskCmp.destroy();\r",
+                    "delete this.maskCmp;\r",
+                    "\r",
+                    "this.callParent(arguments);"
+                ]
+            },
+            "name": "onDestroy",
+            "designerId": "43d822f9-6c47-42a5-b2e2-d7e3b92fc7d5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "hide"
+                ],
+                "fn": "toggle",
+                "implHandler": [
+                    "var setHidden = this.getOpen();\r",
+                    "if (hide)\r",
+                    "    setHidden = hide;\r",
+                    "this.setOpen(!setHidden);"
+                ]
+            },
+            "name": "toggle",
+            "designerId": "e661cf19-e1f1-4f53-b3dd-f5668f57ede4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "open"
+                ],
+                "fn": "updateOpen",
+                "implHandler": [
+                    "var targetEl,\r",
+                    "    parentCt = this.up();\r",
+                    "\r",
+                    "if (!parentCt) {\r",
+                    "    return;\r",
+                    "}\r",
+                    "\r",
+                    "targetEl = parentCt.innerElement;\r",
+                    "\r",
+                    "if (open) {\r",
+                    "    targetEl.translate(this.getWidth(), 0, 0);\r",
+                    "    this.maskCmp.show();\r",
+                    "}\r",
+                    "else {\r",
+                    "    targetEl.translate(0, 0, 0);\r",
+                    "    this.maskCmp.hide();\r",
+                    "\r",
+                    "}"
+                ]
+            },
+            "name": "updateOpen",
+            "designerId": "1cbb394e-9e9d-48a9-b6a1-9231c262dec3"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    ""
+                ]
+            },
+            "name": "initialize",
+            "designerId": "8b385354-d6fe-47ab-aaa2-5280d62361b4"
+        }
+    ]
+}

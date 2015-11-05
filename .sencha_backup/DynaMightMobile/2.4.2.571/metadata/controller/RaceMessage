@@ -1,0 +1,145 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceMessage"
+    },
+    "designerId": "3e356f1f-1ccc-45bd-97a2-3ca18d06a9ff",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#raceSearchTxt",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onBoatSearch",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    raceStore = CreateStore(\"race\"),\r",
+                    "    val = textfield.getValue();\r",
+                    "\r",
+                    "\r",
+                    "raceStore.execConfig({\r",
+                    "    params: {\r",
+                    "        entityViewID: GetEntityViewByName('Races').entityviewid ,\r",
+                    "        filters:  val? \"WHERE name like '%\" + val + \"%'\" :  \"WHERE 1=2\"\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    "this.getRaceLst().setStore(raceStore);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onBoatSearch",
+            "designerId": "11f41a2e-bd3d-4ea9-a5dd-2d93b6c29478"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceLst",
+                "selector": "dataview#raceLst"
+            },
+            "name": "raceLst",
+            "designerId": "ee9fe44a-f7dc-422d-a63f-c86979617cfe"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#setRaceMessageBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSetRaceMessage",
+                "implHandler": [
+                    "var me= this,\r",
+                    "    raceList = me.getRaceLst(),\r",
+                    "    selectedRace = raceList.selected,\r",
+                    "    items =[],\r",
+                    "    rec = '',\r",
+                    "    message = replaceHTMLSpCharacters(me.getRaceMessageTxtArea().getValue());\r",
+                    "\r",
+                    "if(selectedRace.length === 0){\r",
+                    "    Ext.Msg.alert('Ooops','Plese select at least one race');\r",
+                    "    return;\r",
+                    "}\r",
+                    "if(message === ''){\r",
+                    "    Ext.Msg.alert('Ooops','Plese enter a message');\r",
+                    "    return;\r",
+                    "}\r",
+                    "for(var i = 0;i < selectedRace.length; i++){\r",
+                    "    rec = selectedRace.items[i].data;\r",
+                    "    rec.message = message;\r",
+                    "    items.push(rec);\r",
+                    "}\r",
+                    "AJAXCommand({\r",
+                    "    params: items,\r",
+                    "    method: 'SetRaceMessage',\r",
+                    "    scope: me,\r",
+                    "    callback: function(status, message, obj, scope) {\r",
+                    "        //debugger;\r",
+                    "        if (status) {\r",
+                    "\r",
+                    "            this.scope.getRaceLst().getStore().removeAll();\r",
+                    "            this.scope.getRaceMessageTxtArea().setValue('');\r",
+                    "            this.scope.getRaceSearchTxt().setValue('');\r",
+                    "\r",
+                    "        }\r",
+                    "        else\r",
+                    "        {\r",
+                    "            Ext.Msg.alert('Ooops','Failed to set race message');\r",
+                    "        }\r",
+                    "    }\r",
+                    "});\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onSetRaceMessage",
+            "designerId": "cd501e9d-8140-4553-a049-b47dd09460c6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceMessageTxtArea",
+                "selector": "textareafield#raceMessageTxtArea"
+            },
+            "name": "raceMessageTxtArea",
+            "designerId": "f058ca3d-b24e-4589-bac4-46f3b8b64f93"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceSearchTxt",
+                "selector": "searchfield#raceSearchTxt"
+            },
+            "name": "raceSearchTxt",
+            "designerId": "394d8425-4f80-4912-9b7a-a54f6cf54b8d"
+        }
+    ]
+}

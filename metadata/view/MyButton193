@@ -1,0 +1,21 @@
+{
+    "type": "Ext.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|uiInterfaceName": "decline-round",
+        "designer|userAlias": "mybutton193",
+        "designer|userClassName": "MyButton193",
+        "disabled": null,
+        "docked": "left",
+        "itemId": "resBackBtn1",
+        "text": "<< Back",
+        "ui": "decline-round",
+        "width": null
+    },
+    "name": "MyButton193",
+    "designerId": "91737cd2-e286-4476-8e5f-44478a6a51b0"
+}

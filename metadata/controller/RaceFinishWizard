@@ -1,0 +1,1735 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "RaceFinishWizard"
+    },
+    "designerId": "27adbe9e-84e9-401d-a54d-c519edcf06d0",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "no",
+                    "cardNo"
+                ],
+                "fn": "jumpCards",
+                "implHandler": [
+                    "var me = this, vals,\r",
+                    "    wizard = me.getRaceFinishWizard(),\r",
+                    "    selectedIndex = wizard.items.indexOf(wizard._activeItem);\r",
+                    "\r",
+                    "no = no ? (selectedIndex + no) : cardNo;\r",
+                    "\r",
+                    "//wizard.setActiveItem(no);\r",
+                    "wizard.animateActiveItem(no,\r",
+                    "                         {type: 'slide', direction: selectedIndex > no? 'right' : 'left'});\r",
+                    ""
+                ]
+            },
+            "name": "jumpCards",
+            "designerId": "38c687a5-5ced-4c91-ad60-fec704ff717a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "onKeyboard",
+                "implHandler": [
+                    "var wizard = button.up('#keyboardCt').config.parentCtrl,\r",
+                    "    ctrl = DynaMightMobile.app.getController(wizard),\r",
+                    "    txt = button.getText(),\r",
+                    "    s = ctrl.getBoatSearch(),\r",
+                    "    v = s.getValue();\r",
+                    "\r",
+                    "\r",
+                    "if(txt === 'C'){\r",
+                    "    s.setValue('');\r",
+                    "}\r",
+                    "else if(txt === '<' && txt !== ''){\r",
+                    "    s.setValue(v.substring(0, v.length - 1));\r",
+                    "}\r",
+                    "else if(txt !== ''){\r",
+                    "    s.setValue(v + txt);\r",
+                    "}\r",
+                    "//debugger;\r",
+                    "ctrl.filterBoats();"
+                ]
+            },
+            "name": "onKeyboard",
+            "designerId": "d15e30aa-028d-4577-8fe8-ebcf4a045573"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextFinishRacesBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "if(me.getFinishRacesList().getStore().getCount() > 0 ){\r",
+                    "    this.jumpCards(1);\r",
+                    "}\r",
+                    "else{\r",
+                    "    Ext.Msg.show({\r",
+                    "        title: 'No selection',//T('errLogIn'),\r",
+                    "        message: 'Must select a race!',//T(''),\r",
+                    "        buttons: Ext.Msg.OK,\r",
+                    "        icon: Ext.Msg.ERROR,\r",
+                    "        modal: true\r",
+                    "    });\r",
+                    "}\r",
+                    "\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onNextButtonTap",
+            "designerId": "08ae6a4e-572b-4dd2-b47a-05a8027a9fbd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceFinishWizard",
+                "selector": "formpanel#raceFinishWizardId"
+            },
+            "name": "raceFinishWizard",
+            "designerId": "ea62690d-f752-4f84-87ff-8d851554621f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#nextBoatsFinishBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onNextBoatsButtonTap",
+                "implHandler": [
+                    "this.jumpCards(1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onNextBoatsButtonTap",
+            "designerId": "47e74044-28e7-4d8a-84b8-5e61cca8f69b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "entrantsFinishList",
+                "selector": "dataview#entrantsFinishList"
+            },
+            "name": "entrantsFinishList",
+            "designerId": "4978c1d7-aa28-4d84-a69e-395c5e7fdb12"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#todayFinishRacesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onTodayRacesListSelect",
+                "implHandler": [
+                    "//debugger;\r",
+                    "var me = this;\r",
+                    "this.raceid = record.get('raceid');\r",
+                    "this.getEntrantsFinishList().getStore().clearFilter(true);\r",
+                    "this.getEntrantsFinishList().getStore().filter('raceid', record.get('raceid'));\r",
+                    "// dStore = me.getBoatDivisionCmb().getStore();\r",
+                    "// dStore.clearFilter(true);\r",
+                    "// dStore.execConfig({\r",
+                    "//     params: {\r",
+                    "//         entityViewID: GetEntityViewByName('DivisionsByRace').entityviewid ,\r",
+                    "//         filters: \"where raceid is null or raceid = '\"+record.get('raceid')+\"' order by name asc\"\r",
+                    "//     }\r",
+                    "// });\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onTodayRacesListSelect",
+            "designerId": "eeb8ee10-8592-4e06-85c0-0ec6c0510c87"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "todayFinishRacesList",
+                "selector": "list#todayFinishRacesList"
+            },
+            "name": "todayFinishRacesList",
+            "designerId": "2ba90d8b-d5e8-46c4-82c2-7507699ec1d9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#finishAddBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddButtonTap",
+                "implHandler": [
+                    "var list = this.getTodayFinishRacesList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    raceList = this.getFinishRacesList(),\r",
+                    "    store = raceList.getStore(),\r",
+                    "    idx;\r",
+                    "if (selected.length > 0) {\r",
+                    "    store.add(selected);\r",
+                    "}\r",
+                    "\r",
+                    "if(store.getCount() > 0){\r",
+                    "    this.getNextFinishRacesBtn().enable();\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddButtonTap",
+            "designerId": "e3d72dc7-6532-4958-83d4-f29fde103f5b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "finishRacesList",
+                "selector": "list#finishRacesList"
+            },
+            "name": "finishRacesList",
+            "designerId": "19855b3c-52c7-4c69-8206-174fd8457299"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#bFinishBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onFinishButtonTap",
+                "implHandler": [
+                    "var me = this,",
+                    "    isFinish = button.getText() == 'Finish',",
+                    "    list = isFinish ? me.getBoatsView() : me.getBoatsFinishView(),",
+                    "    selected = list.getSelection(),",
+                    "    bStore = list.getStore(),",
+                    "    removeList = isFinish ? me.getBoatsFinishView() : me.getBoatsView(),",
+                    "    store = removeList.getStore(),",
+                    "    idx,",
+                    "    selectedF = me.getTempBoatsView().getSelection(),",
+                    "    storeF = me.getTempBoatsView().getStore();",
+                    "",
+                    "if (selected.length > 0) {",
+                    "    rec = selected[0];",
+                    "    rec.set('endtime', Ext.Date.format(new Date(), 'Y-m-d H:i:s'));",
+                    "    store.add(selected[0]);",
+                    "    bStore.remove(selected[0]);",
+                    "}",
+                    "",
+                    "if (selectedF.length > 0) {",
+                    "    rec = selectedF[0];",
+                    "    rec.set('endtime', Ext.Date.format(new Date(), 'Y-m-d H:i:s'));",
+                    "    store.add(selectedF[0]);",
+                    "    storeF.remove(selectedF[0]);",
+                    "}",
+                    "//debugger;",
+                    "//this.getBoatsView().getStore().clearFilter(true);",
+                    "me.getBoatSearch().setValue('');",
+                    "",
+                    "//this.getBoatDivisionCmb().setValue(this.getBoatDivisionCmb().getStore().getAt(0));",
+                    "",
+                    "me.filterBoats(true);"
+                ],
+                "name": "tap"
+            },
+            "name": "onFinishButtonTap",
+            "designerId": "7f90507c-c70f-4c65-af71-e00dc3a9a4ef"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsView",
+                "selector": "dataview#boatsView"
+            },
+            "name": "boatsView",
+            "designerId": "88c313b9-60a5-45f8-bfd4-c6cb5d77dd73"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatsFinishView",
+                "selector": "dataview#boatsFinishView"
+            },
+            "name": "boatsFinishView",
+            "designerId": "0f1cea07-56b1-4d44-83f8-2790ee6b28e1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#finalizeResultsBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onFinishResultsButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    races = this.races.getAllRecords(),\r",
+                    "    raceBoats = this.raceBoats.getStore().getAllRecords(),\r",
+                    "    fields = [];\r",
+                    "\r",
+                    "\r",
+                    "Ext.Msg.confirm(\"Confirm finish\", \"Are you sure you want to finish the race?\", function(btn){\r",
+                    "    if (btn == 'yes'){\r",
+                    "        AJAXCommand({\r",
+                    "            params: {\r",
+                    "                raceboat: raceBoats,\r",
+                    "                races: races,\r",
+                    "                fields: fields\r",
+                    "            },\r",
+                    "            method: 'SaveFinish',\r",
+                    "            callback: function(status, message, obj, scope) {\r",
+                    "                if (status) {\r",
+                    "\r",
+                    "                }\r",
+                    "                else\r",
+                    "                {\r",
+                    "                    Ext.Msg.show({\r",
+                    "                        title: 'Error saving Series',//T('errLogIn'),\r",
+                    "                        msg: 'Error.',//T(''),\r",
+                    "                        buttons: Ext.Msg.OK,\r",
+                    "                        icon: Ext.Msg.ERROR,\r",
+                    "                        modal: true\r",
+                    "                    });\r",
+                    "                }\r",
+                    "            }\r",
+                    "        });\r",
+                    "\r",
+                    "        me.getHomePanel().removeAll();\r",
+                    "\r",
+                    "        DynaMightMobile.app.getController('Navigation').applyClass('RaceFinishWizard');\r",
+                    "    }\r",
+                    "});\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onFinishResultsButtonTap",
+            "designerId": "9bb7f3ed-72d6-4e04-80c8-65c0f360dc96"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "homePanel",
+                "selector": "panel#homePanel"
+            },
+            "name": "homePanel",
+            "designerId": "fd71219d-30bb-4c7a-a1e6-acad367086f7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#statusRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onEndRaceButtonTap",
+                "implHandler": [
+                    "this.setStatus(button.getText());\r",
+                    "this.getBFinishBtn().disable();"
+                ],
+                "name": "tap"
+            },
+            "name": "onEndRaceButtonTap",
+            "designerId": "8c75f9c3-0e00-49f5-a640-034b4155f867"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "status"
+                ],
+                "fn": "setStatus",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    race;\r",
+                    "if(me.getFRacesList().selected.length > 0 ){\r",
+                    "    race = me.getFRacesList().selected.getAt(0);\r",
+                    "\r",
+                    "    race.set('status', status);\r",
+                    "    //debugger;\r",
+                    "}"
+                ]
+            },
+            "name": "setStatus",
+            "designerId": "7a5508ef-4a8e-4abd-824f-def14b8cc48a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "fRacesList",
+                "selector": "list#fRacesList"
+            },
+            "name": "fRacesList",
+            "designerId": "42c84248-b1b9-41f8-81ed-4c015d0b6cf3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#abbandonRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAbandonButtonTap",
+                "implHandler": [
+                    "this.setStatus(button.getText());\r",
+                    "this.getBFinishBtn().disable();\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onAbandonButtonTap",
+            "designerId": "5ed1090f-470e-4990-84eb-fd70b2172b2e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "raceBoatsReviewList",
+                "selector": "dataview#raceBoatsReviewList"
+            },
+            "name": "raceBoatsReviewList",
+            "designerId": "005c11bc-13b0-4741-8050-635d36d25673"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#raceStatusCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onBoatStatusSelectfieldChange",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    boat;\r",
+                    "if(me.getRaceBoatsReviewList().selected.length > 0 ){\r",
+                    "    boat = me.getRaceBoatsReviewList().selected.getAt(0);\r",
+                    "\r",
+                    "    boat.set('boatstatusid', newValue);\r",
+                    "    this.getReviewApplyBtn().setDisabled(false);\r",
+                    "}\r",
+                    "else{\r",
+                    "\r",
+                    "    this.getReviewApplyBtn().setDisabled(true);\r",
+                    "}"
+                ],
+                "name": "change"
+            },
+            "name": "onBoatStatusSelectfieldChange",
+            "designerId": "59cba0ed-5a83-4233-80bc-5606b939ea3f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "searchfield#boatSearch",
+                "designer|targetType": "Ext.field.Search",
+                "fn": "onBoatSearchfieldChange",
+                "implHandler": [
+                    "this.filterBoats();"
+                ],
+                "name": "keyup"
+            },
+            "name": "onBoatSearchfieldChange",
+            "designerId": "bb960e80-c337-410c-b021-06cace80c74b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#bTopBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onMoveToTopButtonTap",
+                "implHandler": [
+                    "var list = this.getBoatsView(),\r",
+                    "    selected = list.getSelection();\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    selected[0].set('xindex','-1');\r",
+                    "}\r",
+                    "\r",
+                    "this.getEntrantsFinishList().getStore().clearFilter(true);"
+                ],
+                "name": "tap"
+            },
+            "name": "onMoveToTopButtonTap",
+            "designerId": "3c382694-67c0-45b0-8434-ae3d5c29a478"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nextFinishRacesBtn",
+                "selector": "button#genericNextBtn"
+            },
+            "name": "nextFinishRacesBtn",
+            "designerId": "2c64c061-c99e-4f34-b8a4-00d13aa03b71"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#finishDelBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDelButtonTap",
+                "implHandler": [
+                    "var raceList = this.getFinishRacesList(),\r",
+                    "    selection = raceList.getSelection(),\r",
+                    "    store = raceList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selection.length > 0) {\r",
+                    "    store.remove(selection[0]);\r",
+                    "}\r",
+                    "\r",
+                    "if(this.getFinishRacesList().getStore().getCount() < 1){\r",
+                    "    this.getNextFinishRacesBtn().disable();\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onDelButtonTap",
+            "designerId": "04c88e24-4565-4f44-8a59-2a4a81a4d04d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bFinishBtn",
+                "selector": "button#bFinishBtn"
+            },
+            "name": "bFinishBtn",
+            "designerId": "181419b7-b73f-4a01-9d0b-8ec287c8e24f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bUndoBtn",
+                "selector": "button#bUndoBtn"
+            },
+            "name": "bUndoBtn",
+            "designerId": "c163c388-657c-47a1-ad97-a9f6383f1017"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#backResultsBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onBackReviewButtonTap",
+                "implHandler": [
+                    "this.jumpCards(-1);"
+                ],
+                "name": "tap"
+            },
+            "name": "onBackReviewButtonTap",
+            "designerId": "502b5f63-1f85-4e22-a73b-02234c021568"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#adjustTimeBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAdjustButtonTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "\r",
+                    "\r",
+                    "var me = this,\r",
+                    "    popup = new Ext.Panel({\r",
+                    "    //floating: true,\r",
+                    "    //centered: true,\r",
+                    "    modal: true,\r",
+                    "    fullscreen: true,\r",
+                    "    layout: 'vbox',\r",
+                    "    itemId: 'popupPnl',\r",
+                    "    items: [{\r",
+                    "        xtype: 'timepickerfield',\r",
+                    "        itemId: 'boatTime',\r",
+                    "        name: 'defaultTime',\r",
+                    "        label: 'Time',\r",
+                    "        dateFormat: 'H:i',\r",
+                    "        margin: '10',\r",
+                    "        value: new Date(1,1,1,13,0),\r",
+                    "        //useMeridiem: false,\r",
+                    "        picker:{\r",
+                    "\r",
+                    "            slotOrder: ['hour','minute'],\r",
+                    "            endHour: 23\r",
+                    "        }\r",
+                    "    }]\r",
+                    "}).showBy(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onAdjustButtonTap",
+            "designerId": "d8e7446e-721c-4bfc-b486-3f7261053226"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#sListChk",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onSelectfieldChange",
+                "implHandler": [
+                    "this.getEntrantsFinishList().getStore().clearFilter(true);\r",
+                    "\r",
+                    "//INITIALIZE IT WITH UNIFORM VIEW\r",
+                    "var x = Ext.create('Ext.XTemplate',\r",
+                    " '<div class=\"item\">',\r",
+                    " '    <div class=\"name\">{[Ext.String.ellipsis(values.bname,20)]}',\r",
+                    " '    </div>',\r",
+                    "     '    <div class=\"vicinity\">{hullnumber}</div>' ,\r",
+                    " '</div>'\r",
+                    " );\r",
+                    "//full - full name\r",
+                    "if (newValue === 'full')\r",
+                    "{\r",
+                    "    x = Ext.create('Ext.XTemplate',\r",
+                    "                   '<div class=\"itemFull\">',\r",
+                    "                   '    <div style=\"display: table-row;\" class=\"name\">{bname}',\r",
+                    "     '    </div>',\r",
+                    "     '    <div style=\"display: table-row;\" class=\"vicinity\" >{hullnumber}</div>' ,\r",
+                    "     '</div>'\r",
+                    "    );\r",
+                    "\r",
+                    "}\r",
+                    "if (newValue === 'picture'){\r",
+                    "     x = Ext.create('Ext.XTemplate',\r",
+                    "      '<div class=\"itemPicture\">',\r",
+                    "      '    <div  style=\"display: table-row;\"  class=\"name\">{bname}',\r",
+                    "      '    </div>',\r",
+                    "      '    <div style=\"float: right;display: table-row; text-align: right !important;\" class=\"vicinity\">{hullnumber}</div>',\r",
+                    "                 '<div class=\"icon\" style={[this.getPath(values.path)]}></div>',\r",
+                    "\r",
+                    "                   '</div>',\r",
+                    "                   {\r",
+                    "                       getPath: function(path) {\r",
+                    "                           return \"margin-top: 14%;background-size:cover;background-image:url('../admin/uploaded_files/5417f6f2d174c6.44304491.png')\";//+ path +\"')\";\r",
+                    "                       }\r",
+                    "                   }\r",
+                    " );\r",
+                    "}\r",
+                    "\r",
+                    "this.getBoatsView().setItemTpl(x);\r",
+                    "this.getBoatsView().refresh();"
+                ],
+                "name": "change"
+            },
+            "name": "onSelectfieldChange",
+            "designerId": "5d4998dc-8282-4934-9a43-7c737ae7ad50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#raceBoatsReviewList",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onDataviewSelect",
+                "implHandler": [
+                    "if(this.getReviewApplyBtn().isDisabled()){\r",
+                    "    this.getRFReview().down('#boatTime').setValue(new Date(record.get('endtime')));\r",
+                    "    this.getRFReview().down('#datePicker').setValue(new Date(record.get('endtime')));\r",
+                    "    this.getRFReview().down('#raceStatusCmb').setValue(record.get('boatstatusid'));\r",
+                    "}\r",
+                    "else {\r",
+                    "//debugger;\r",
+                    "}\r",
+                    ""
+                ],
+                "name": "select"
+            },
+            "name": "onDataviewSelect",
+            "designerId": "af826337-ef40-4b8d-8232-95e48ae66955"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#fUndoBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUndoButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    list = me.getBoatsFinishView(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    bStore = list.getStore(),\r",
+                    "    finishList = me.getBoatsView(),\r",
+                    "    store = finishList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    Ext.Msg.confirm(\"Confirm undo\", \"Are you sure you want to clear the finish time for this boat?\", function(btn){\r",
+                    "        if (btn == 'yes'){\r",
+                    "            \r",
+                    "                rec = selected[0];\r",
+                    "                rec.set('endtime', null);\r",
+                    "                store.add(selected);\r",
+                    "                bStore.remove(selected);\r",
+                    "            \r",
+                    "        }\r",
+                    "    });\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onUndoButtonTap",
+            "designerId": "57ec6e22-4985-4436-a10b-ab375bd464fc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#boatsView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatsItemTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getBFinishBtn().setText('Finish');\r",
+                    "me.getBoatsFinishView().deselectAll();\r",
+                    "me.getTempBoatsView().deselectAll();"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onBoatsItemTap",
+            "designerId": "13a574d2-c3a4-40d7-9aa2-d22dd330aa0e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#tempBoatsView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatsTempTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getBFinishBtn().setText('Finish');\r",
+                    "me.getBoatsFinishView().deselectAll();\r",
+                    "me.getBoatsView().deselectAll();"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onBoatsTempTap",
+            "designerId": "7574e2ae-af00-4a86-97a9-b9af02bdf495"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#boatsFinishView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatsFinishItemTap",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "//me.getBFinishBtn().setText('Undo');\r",
+                    "me.getBoatsView().deselectAll();\r",
+                    "me.getTempBoatsView().deselectAll();"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onBoatsFinishItemTap",
+            "designerId": "0f9ea11c-82fd-4444-8c21-2255d4370584"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#reviewApplyBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onReviewApplyButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    list = me.getRaceBoatsReviewList(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    time = me.getRFReview().down('#boatTime'),\r",
+                    "    date = me.getRFReview().down('#datePicker'),\r",
+                    "    status = me.getRFReview().down('#raceStatusCmb').getValue();\r",
+                    "    datetime = new Date(date.getValue().getFullYear(), date.getValue().getMonth(),\r",
+                    "                        date.getValue().getDate(), time.getValue().getHours(),\r",
+                    "                        time.getValue().getMinutes(), time.getValue().getSeconds());\r",
+                    "\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    rec = selected[0];\r",
+                    "    rec.set('endtime', Ext.Date.format(datetime, 'Y-m-d H:i:s'));\r",
+                    "    rec.set('boatstatusid', status);\r",
+                    "}\r",
+                    "\r",
+                    "me.getReviewApplyBtn().setDisabled(true);"
+                ],
+                "name": "tap"
+            },
+            "name": "onReviewApplyButtonTap",
+            "designerId": "6100f5ad-5d9c-4597-a74b-42d5144988e1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reviewApplyBtn",
+                "selector": "button#reviewApplyBtn"
+            },
+            "name": "reviewApplyBtn",
+            "designerId": "91466c78-a351-493e-9fab-8d9c31b167e9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#undoRaceBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onUndoRaceButtonTap",
+                "implHandler": [
+                    "this.setStatus(null);\r",
+                    "this.getBFinishBtn().enable();\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onUndoRaceButtonTap",
+            "designerId": "a316f9cc-20aa-4d44-bb06-fe94a33494f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#outOfTimeBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onOutOfTimeButtonTap",
+                "implHandler": [
+                    "this.setStatus(button.getText());\r",
+                    "this.getBFinishBtn().disable();\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onOutOfTimeButtonTap",
+            "designerId": "2dc0c75f-fec4-4d3a-ac8a-deff9ae8773a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#boatDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onBoatSelectfieldChange",
+                "implHandler": [
+                    "this.filterBoats();"
+                ],
+                "name": "change"
+            },
+            "name": "onBoatSelectfieldChange",
+            "designerId": "902021d3-8e21-4550-83dc-82d45f768514"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatDivisionCmb",
+                "selector": "selectfield#boatDivisionCmb"
+            },
+            "name": "boatDivisionCmb",
+            "designerId": "540e9d3b-4cdf-463a-83a0-a51d210352b4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "reviewDivisionCmb",
+                "selector": "selectfield#reviewDivisionCmb"
+            },
+            "name": "reviewDivisionCmb",
+            "designerId": "0e7e6f86-9c81-4f96-b5bf-ce19291c3795"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "withoutSelection"
+                ],
+                "fn": "filterBoats",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    filters = [],\r",
+                    "    division = me.getBoatDivisionCmb().getValue(),\r",
+                    "    searchField = me.getBoatSearch(),\r",
+                    "    storeB = me.getBoatsView().getStore();\r",
+                    "\r",
+                    "me.getBoatsView().getStore().clearFilter(true);\r",
+                    "\r",
+                    "filters =[\r",
+                    "    {property: \"raceid\", value: me.raceid},\r",
+                    "    {filterFn: BoatFilter, scope: searchField}\r",
+                    "];\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: 'divisionid', value: division});\r",
+                    "}\r",
+                    "\r",
+                    "storeB.filter(filters);\r",
+                    "\r",
+                    "if(storeB.getCount() > 0 && !withoutSelection){\r",
+                    "    var tmp = storeB.findExact('hullnumber', searchField.getValue());\r",
+                    "    if(tmp > -1){\r",
+                    "        me.getBoatsView().select(storeB.getAt(tmp));\r",
+                    "    }\r",
+                    "    else\r",
+                    "        me.getBoatsView().select(storeB.getAt(0));\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "name": "filterBoats",
+            "designerId": "6002b1de-774a-4b3e-9fde-30197e9103b0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "boatSearch",
+                "selector": "searchfield#boatSearch"
+            },
+            "name": "boatSearch",
+            "designerId": "05338b58-f0cc-45d7-b196-49eb12c2f404"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "list#fRacesList",
+                "designer|targetType": "Ext.dataview.List",
+                "fn": "onRaceControlListChange",
+                "implHandler": [
+                    "if (records.length>0){\r",
+                    "    this.getAbbandonRaceBtn().setDisabled(false);\r",
+                    "    this.getOutOfTimeBtn().setDisabled(false);\r",
+                    "    this.getUndoRaceBtn().setDisabled(false);\r",
+                    "}\r",
+                    "else{\r",
+                    "\r",
+                    "    this.getAbbandonRaceBtn().setDisabled(true);\r",
+                    "    this.getOutOfTimeBtn().setDisabled(true);\r",
+                    "    this.getUndoRaceBtn().setDisabled(true);\r",
+                    "\r",
+                    "}"
+                ],
+                "name": "selectionchange"
+            },
+            "name": "onRaceControlListChange",
+            "designerId": "80ad877a-7d7f-41f5-820a-ed67ba3f1c24"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "abbandonRaceBtn",
+                "selector": "button#abbandonRaceBtn"
+            },
+            "name": "abbandonRaceBtn",
+            "designerId": "644c141d-e4f5-4f7e-a10f-1dbf22738a03"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outOfTimeBtn",
+                "selector": "button#outOfTimeBtn"
+            },
+            "name": "outOfTimeBtn",
+            "designerId": "86e80431-f501-43b2-ba5f-4b8ce022df0e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "undoRaceBtn",
+                "selector": "button#undoRaceBtn"
+            },
+            "name": "undoRaceBtn",
+            "designerId": "ddf550ba-a6ea-49b7-be15-082f1f7daf7a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "tabpanel#raceFinishBoatRaceTabPanel",
+                "designer|targetType": "Ext.tab.Panel",
+                "fn": "onTabpanelActiveItemChange",
+                "implHandler": [
+                    " // race\r",
+                    "if (value.tabIndexChange === 1){\r",
+                    "    this.getBTopBtn().setHidden(false);\r",
+                    "    this.getSListChk().setHidden(false);\r",
+                    "    this.getBFinishBtn().setHidden(false);\r",
+                    "    this.getBoatSearch().setHidden(false);\r",
+                    "}\r",
+                    "else if (value.tabIndexChange === 2 ){\r",
+                    "\r",
+                    "    this.getBTopBtn().setHidden(true);\r",
+                    "    this.getSListChk().setHidden(true);\r",
+                    "    this.getBFinishBtn().setHidden(true);\r",
+                    "    this.getBoatSearch().setHidden(true);\r",
+                    "\r",
+                    "}"
+                ],
+                "name": "activeitemchange"
+            },
+            "name": "onTabpanelActiveItemChange",
+            "designerId": "4c8c532d-58a0-416f-a369-383f3d47a7f0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "bTopBtn",
+                "selector": "button#bTopBtn"
+            },
+            "name": "bTopBtn",
+            "designerId": "e3374fd8-742e-406a-944c-1524e82ea013"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sListChk",
+                "selector": "selectfield#sListChk"
+            },
+            "name": "sListChk",
+            "designerId": "90ca2d95-fb62-4237-bfd7-a7325bf93374"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#boatTime",
+                "designer|params": [
+                    "target"
+                ],
+                "designer|targetType": "Ext.ux.field.TimePicker",
+                "fn": "onChangeTime",
+                "implHandler": [
+                    "//try to check if time has changed\r",
+                    "var me = this;\r",
+                    "//debugger;\r",
+                    "if(me.getRaceBoatsReviewList().selected.length > 0 ){\r",
+                    "    var rec = this.getRaceBoatsReviewList().selected,\r",
+                    "        timeVal = target.getValue(),\r",
+                    "        recTime = new Date(rec.items[0].get('endtime'));\r",
+                    "    //debugger;\r",
+                    "    if (timeVal.getTime() != recTime.getTime()){\r",
+                    "        me.getReviewApplyBtn().setDisabled(false);\r",
+                    "    }\r",
+                    "    else{\r",
+                    "        me.getReviewApplyBtn().setDisabled(true);\r",
+                    "    }\r",
+                    "}\r",
+                    "else{\r",
+                    "\r",
+                    "    me.getReviewApplyBtn().setDisabled(true);\r",
+                    "}"
+                ],
+                "name": "change"
+            },
+            "name": "onChangeTime",
+            "designerId": "999d0af3-c1cb-4ab6-9f43-4c3a6169cb17"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "selectfield#reviewDivisionCmb",
+                "designer|targetType": "Ext.field.Select",
+                "fn": "onReviewDivisionCmb",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    filters = [],\r",
+                    "    division = newValue;\r",
+                    "\r",
+                    "me.getRaceBoatsReviewList().getStore().clearFilter(true);\r",
+                    "\r",
+                    "\r",
+                    "if(division){\r",
+                    "    filters.push({property: 'divisionid', value: division});\r",
+                    "}\r",
+                    "\r",
+                    "me.getRaceBoatsReviewList().getStore().filter(filters);"
+                ],
+                "name": "change"
+            },
+            "name": "onReviewDivisionCmb",
+            "designerId": "120e828f-4eb2-44a8-83af-aabb513dad50"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addTempBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddTempButtonTap",
+                "implHandler": [
+                    "var list = this.getBoatsView(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    bStore = list.getStore(),\r",
+                    "    finishList = this.getTempBoatsView(),\r",
+                    "    store = finishList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    rec = selected[0];\r",
+                    "    //rec.set('endtime', Ext.Date.format(new Date(), 'Y-m-d H:i'));\r",
+                    "    store.add(selected);\r",
+                    "    bStore.remove(selected);\r",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddTempButtonTap",
+            "designerId": "dc4342c6-5ed0-45db-8bc5-b34296c8b4cd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#removeTempBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onRemoveTempButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "\r",
+                    "    list = me.getTempBoatsView(),\r",
+                    "    selected = list.getSelection(),\r",
+                    "    bStore = list.getStore(),\r",
+                    "    removeList = me.getBoatsView(),\r",
+                    "    store = removeList.getStore(),\r",
+                    "    idx;\r",
+                    "\r",
+                    "if (selected.length > 0) {\r",
+                    "    rec = selected[0];\r",
+                    "    store.add(selected);\r",
+                    "    bStore.remove(selected);\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onRemoveTempButtonTap",
+            "designerId": "5f28277f-12f9-4b5a-9c7a-bb2c368f9f14"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#finishAllBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onFinishAllButtonTap",
+                "implHandler": [
+                    "var me = this,\r",
+                    "    list = me.getTempBoatsView(),\r",
+                    "    bStore = list.getStore(),\r",
+                    "    removeList = me.getBoatsFinishView(),\r",
+                    "    store = removeList.getStore(),\r",
+                    "    idx, fDate = Ext.Date.format(new Date(), 'Y-m-d H:i:s');\r",
+                    "\r",
+                    "\r",
+                    "for(var i = 0; i < bStore.getCount(); i++){\r",
+                    "    rec = bStore.getAt(i);\r",
+                    "    rec.set('endtime', fDate);\r",
+                    "    store.add(rec);\r",
+                    "\r",
+                    "}\r",
+                    "\r",
+                    "bStore.removeAll();"
+                ],
+                "name": "tap"
+            },
+            "name": "onFinishAllButtonTap",
+            "designerId": "704d822d-b1e9-4644-8f02-07d2ec8df490"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tempBoatsView",
+                "selector": "dataview#tempBoatsView"
+            },
+            "name": "tempBoatsView",
+            "designerId": "39e5e162-b076-467b-a9dc-90c598a140f9"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k1Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey1ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey1ButtonTap",
+            "designerId": "ee2cac58-242c-41de-b25f-392f34b7d48d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k2Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey2ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey2ButtonTap",
+            "designerId": "f59d64ba-93d2-4007-8d79-cbf64253ed0a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k3Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey3ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey3ButtonTap",
+            "designerId": "f96af55c-cb16-40c3-866e-032a1517e519"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k4Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey4ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey4ButtonTap",
+            "designerId": "ea4d25d6-add7-4ca0-aad2-d654bf504ff6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k5Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey5ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey5ButtonTap",
+            "designerId": "04287970-fd58-4dd2-8941-cce5e414e01f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k6Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey6ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey6ButtonTap",
+            "designerId": "b46c85d7-1f5e-4588-956b-fb37cccf69d5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k7Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey7ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey7ButtonTap",
+            "designerId": "00dc6d09-1b83-4abf-bd75-27317c27eb0c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k8Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey8ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey8ButtonTap",
+            "designerId": "68bdea5b-d0d9-4fd5-95b8-fec929e63b5e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k9Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey9ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey9ButtonTap",
+            "designerId": "b9127839-dcf8-43ae-b513-4889f9be034d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#k0Btn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKey0ButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKey0ButtonTap",
+            "designerId": "344817ff-140f-4c6d-9c3b-eba0cd1a8a13"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#kBackBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKeyBackButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKeyBackButtonTap",
+            "designerId": "e7aeb9e2-5844-434a-9cff-d334d13356ae"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#kClearBtn",
+                "designer|targetType": "Ext.Button",
+                "fn": "onKeyClearButtonTap",
+                "implHandler": [
+                    "this.onKeyboard(button);"
+                ],
+                "name": "tap"
+            },
+            "name": "onKeyClearButtonTap",
+            "designerId": "43d7d5db-58b8-482e-804b-36cb380af75f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "rFReview",
+                "selector": "formpanel#rfReviewFrm"
+            },
+            "name": "rFReview",
+            "designerId": "c89e5305-ec48-4523-8126-c7fce75b4a06"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "datePicker",
+                "selector": "datepickerfield#datePicker"
+            },
+            "name": "datePicker",
+            "designerId": "c39c6333-2113-4280-a0fe-1df141e46c1b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "datepickerfield#datePicker",
+                "designer|targetType": "Ext.field.DatePicker",
+                "fn": "onReviewDateChange",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "//me.getReviewApplyBtn().setDisabled(false);"
+                ],
+                "name": "change"
+            },
+            "name": "onReviewDateChange",
+            "designerId": "ff494ac0-d8e6-4613-a9ce-907cf3911e2e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "datepicker#mydatepicker9",
+                "designer|targetType": "Ext.picker.Date",
+                "fn": "onDatepickerChange",
+                "implHandler": [
+                    "this.getReviewApplyBtn().setDisabled(false);"
+                ],
+                "name": "change"
+            },
+            "name": "onDatepickerChange",
+            "designerId": "4ea3d15a-3921-4e0d-b4f0-3d1959a23004"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#boatsView",
+                "designer|params": [
+                    "dataview",
+                    "record",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onBoatsViewSelect",
+                "implHandler": [
+                    "var me = this;",
+                    "me.getBFinishBtn().setDisabled(false);"
+                ],
+                "name": "select"
+            },
+            "name": "onBoatsViewSelect",
+            "designerId": "739170ac-fbec-4c7e-9218-c0c3979f06a1"
+        }
+    ]
+}
