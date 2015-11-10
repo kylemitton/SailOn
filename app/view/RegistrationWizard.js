@@ -23,6 +23,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.field.Password',
+        'Ext.field.Hidden',
         'Ext.field.Radio',
         'Ext.Button',
         'Ext.tab.Panel',
@@ -63,6 +64,12 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                 itemId: 'password',
                                 label: 'Password',
                                 name: 'password'
+                            },
+                            {
+                                xtype: 'hiddenfield',
+                                itemId: 'registrationFlag',
+                                name: 'registrationFlag',
+                                value: true
                             }
                         ]
                     },
@@ -187,7 +194,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                                             {
                                                                 getPath: function(path) {
                                                                     //debugger;
-                                                                    return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                                 },
                                                                 DateFormat: function(date) {
                                                                     //debugger;
@@ -291,7 +298,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                     {
                                         getPath: function(path) {
                                             //debugger;
-                                            return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         },
                                         DateFormat: function(date) {
                                             //debugger;
@@ -545,7 +552,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                             '</div>',
                                             {
                                                 getPath: function(path) {
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )
@@ -611,7 +618,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                             {
                                                 getPath: function(path) {
                                                     //debugger;
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )

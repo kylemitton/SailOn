@@ -110,7 +110,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|displayName": "hCt",
-                        "height": null,
+                        "height": 300,
                         "layout": "hbox",
                         "layout|flex": 1,
                         "width": null
@@ -280,80 +280,6 @@
                                             "designerId": "27250a96-882e-4f07-8507-82c1c8a534c5"
                                         }
                                     ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.form.FieldSet",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "docked": null,
-                                "layout": "vbox",
-                                "layout|flex": 0.4,
-                                "margin": 5,
-                                "title": "Messages and Notices"
-                            },
-                            "name": "MyFieldSet97",
-                            "designerId": "6540890f-f7e1-4056-81f4-a373dda77c66",
-                            "cn": [
-                                {
-                                    "type": "Ext.dataview.List",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "height": null,
-                                        "itemId": "messagesList",
-                                        "layout|flex": 1,
-                                        "margin": null
-                                    },
-                                    "name": "MyList31",
-                                    "designerId": "7bdb23b1-ed55-44c9-a4aa-87eba2f0eb14",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.XTemplate",
-                                            "reference": {
-                                                "name": "itemTpl",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|displayName": "itemTpl",
-                                                "implHandler": [
-                                                    "\r",
-                                                    "<div class=\"item\">\r",
-                                                    "    <div class=\"name\">{name}</div>\r",
-                                                    "    <div class=\"vicinity\">{message}</div>   \r",
-                                                    "</div>"
-                                                ]
-                                            },
-                                            "name": "tpl40",
-                                            "designerId": "586c5d7c-538b-4717-91ee-8cf3a693b634"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.Button",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|uiInterfaceName": "confirm-round",
-                                        "docked": "bottom",
-                                        "itemId": "refreshSOBtn",
-                                        "text": "Refresh",
-                                        "ui": "confirm-round"
-                                    },
-                                    "name": "MyButton144",
-                                    "designerId": "79be2fd6-cc5a-49c4-b6d3-95af385fe5aa"
                                 },
                                 {
                                     "type": "Ext.Container",
@@ -363,12 +289,12 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "docked": "bottom",
+                                        "docked": "right",
                                         "hidden": false,
                                         "hideOnMaskTap": null,
                                         "itemId": "keyboardCt",
                                         "parentCtrl": "RacePortalWizard",
-                                        "width": 220
+                                        "width": null
                                     },
                                     "name": "MyContainer102",
                                     "designerId": "934df1d4-5017-43ca-bccb-2f12a2c9b378",
@@ -697,7 +623,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|displayName": "horizontalCt",
-                        "height": null,
+                        "height": 200,
                         "hidden": false,
                         "layout": "hbox",
                         "layout|flex": null
@@ -705,6 +631,82 @@
                     "name": "MyContainer108",
                     "designerId": "3054e87a-0b6f-44f4-9ff2-6c555f9b471c",
                     "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": null,
+                                "height": null,
+                                "layout": "vbox",
+                                "layout|flex": 0.4,
+                                "margin": 5,
+                                "title": "Messages and Notices"
+                            },
+                            "name": "MyFieldSet97",
+                            "designerId": "6540890f-f7e1-4056-81f4-a373dda77c66",
+                            "cn": [
+                                {
+                                    "type": "Ext.dataview.List",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": null,
+                                        "itemId": "messagesList",
+                                        "layout|flex": 1,
+                                        "margin": null,
+                                        "maxHeight": null
+                                    },
+                                    "name": "MyList31",
+                                    "designerId": "7bdb23b1-ed55-44c9-a4aa-87eba2f0eb14",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "\r",
+                                                    "<div class=\"item\">\r",
+                                                    "    <div class=\"name\">{name}</div>\r",
+                                                    "    <div class=\"vicinity\">{message}</div>   \r",
+                                                    "</div>"
+                                                ]
+                                            },
+                                            "name": "tpl40",
+                                            "designerId": "586c5d7c-538b-4717-91ee-8cf3a693b634"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "confirm-round",
+                                "docked": "bottom",
+                                "itemId": "refreshSOBtn",
+                                "text": "Refresh",
+                                "ui": "confirm-round"
+                            },
+                            "name": "MyButton144",
+                            "designerId": "79be2fd6-cc5a-49c4-b6d3-95af385fe5aa"
+                        },
                         {
                             "type": "Ext.form.FieldSet",
                             "reference": {

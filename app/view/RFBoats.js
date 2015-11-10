@@ -103,7 +103,7 @@ Ext.define('DynaMightMobile.view.RFBoats', {
                                     {
                                         getPath: function(path) {
                                             //return "background-size:cover;background-image:url('../DM/admin/uploaded_files/5417f6f2d174c6.44304491.png')";//+ path +"')";
-                                            return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         }
                                     }
                                 )

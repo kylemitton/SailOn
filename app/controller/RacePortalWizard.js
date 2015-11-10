@@ -38,7 +38,8 @@ Ext.define('DynaMightMobile.controller.RacePortalWizard', {
             tcLastNameTxt: 'textfield#tcLastNameTxt',
             tcFrm: '#tcFrm',
             boatSearch: 'searchfield#boatSignOnSearch',
-            tcTxt: 'textareafield#tcTxt'
+            tcTxt: 'textareafield#tcTxt',
+            registrationLoginFrm: 'formpanel#registrationLoginFrm'
         },
 
         control: {
@@ -475,28 +476,82 @@ Ext.define('DynaMightMobile.controller.RacePortalWizard', {
         //debugger;
         var me = this,
             wizard = me.getSignOnWizard(),
-            popup;
+            loginBoatPopupFrm,
+            boatDetailsPopupFrm;
 
-        popup = new DynaMightMobile.view.BoatDetails({
+        //TODOL TEST
+        alert('resgitration form:'+this.getRegistrationLoginFrm());
+        loginBoatPopupFrm = this.getRegistrationLoginFrm();
+        //loginBoatPopupFrm.down('registrationFlag').setValue(false);
+        //loginBoatPopupFrm.setWidth('50%');
+        //loginBoatPopupFrm.setHeight('75%');
+        //loginBoatPopupFrm.setModal(true);
+        //loginBoatPopupFrm.showBy(button);
+
+
+        boatDetailsPopupFrm = new DynaMightMobile.view.BoatDetails({
             width: '100%',
-            height: 600,
-            parent: popup,
-            itemId: 'popupPnl',
+            height: 400,
+            //parent: popup,
+            itemId: 'boatDetailsPopupFrm',
+            scrollable: true,
             listeners: {
                 painted: function(a, b, c){
                     this.setValues(me.boat.data);
+                    //alert('values:'+this.getValues());
+
+
+                    //alert('gi:'+this.getValues().alterSailnumber+'name:'+this.getValues().hullnumber+'b:'+b+'c:'+c);//getGeneralInfoCt().down('generalInfoAuxFS'));//.setHidden(true);
+                    alert('gi:'+this.getComponent('alterSailnumber'));
+                    alert('asn:'+this.getRegistrationLoginFrm());//.down('alterSailnumber').getValue());//.setHidden(false);
+
+
+
+                    //TODOL TEST
+                    /*this.getOwnerInfoCt1().setHidden(true);
+                    this.getBoatInfoCt().setHidden(true);
+                    this.getOwnerInfoCt().setHidden(true);
+                    this.getGeneralInfoCt().down('generalInfoAuxFS').setHidden(true);*/
+
                 }
             }
         });
 
+        boatDetailsPopupFrm.setModal(true);
+        boatDetailsPopupFrm.showBy(button);
+        /*
 
-        popup.getOwnerInfoCt().setHidden(true);
+        Ext.create('Ext.form.Panel', {
+            fullscreen: true,
+            items: [
+                {
+                    xtype: 'fieldset',
+                    itemId: 'generalInfoFS',
+                    width: 498,
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            label: 'Sail/Hull Number',
+                            name: 'hullnumber',
+                            required: true
+                        },
+                        {
+                            xtype: 'textfield',
+                            label: 'Boat Name',
+                            name: 'name',
+                            required: true
+                        }
+                    ]
+                }
+            ]
+        });
+        */
 
 
 
-        popup.setModal(true);
+        //popup.setModal(true);
 
-        popup.showBy(button);
+        //popup.showBy(button);
 
 
     },

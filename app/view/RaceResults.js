@@ -79,7 +79,7 @@ Ext.define('DynaMightMobile.view.RaceResults', {
                                     {
                                         getPath: function(path) {
                                             //debugger;
-                                            return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         },
                                         DateFormat: function(date) {
                                             //debugger;
@@ -131,7 +131,7 @@ Ext.define('DynaMightMobile.view.RaceResults', {
                                     {
                                         getPath: function(path) {
                                             //debugger;
-                                            return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         },
                                         DateFormat: function(date) {
                                             //debugger;

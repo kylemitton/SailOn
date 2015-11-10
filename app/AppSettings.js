@@ -6,7 +6,6 @@ APP = {
 };
 APP.WarningUnsavedData = false;
 AJAX_URL = '';
-RES_URL = '';
 AJAX_HANDLER = '';
 
 function GetTemplate(type, values){
@@ -41,9 +40,9 @@ function GetTemplate(type, values){
         //debugger;
         tpl =
             '<div class="menuItem" style="background-color:lightgray">' +
-            '<br/><br/><img src="http://dbstimeman.com/DM/common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
+            //'<br/><br/><img src="http://dbstimeman.com/DM/common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
             //'<br/><br/><img src="{[AJAX_URL]}../common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
-            //'<br/><br/><img src="http://bystorm.com.au/DM/mobile/common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
+            '<br/><br/><img src="'+AJAX_URL+'../common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
             '</div>';
 
     }
@@ -151,7 +150,7 @@ function CreateModel(entityName, entityID){
         });
 
     }
-    
+
     return fields;
 }
 
@@ -165,12 +164,12 @@ function GetEntityView(EntityID){
 }
 
 function GetEntityByName(name){
-        
+
     for (i = 0; i < APP.Entities.length; i++) {
         rec =  APP.Entities[i];
 
         if(rec.name == name){
-            
+
             return rec;
         }
     }
@@ -189,7 +188,7 @@ function CreateStore(name){
     CreateModel(model, entity.entityid);
 
     store = new Ext.data.Store({model: model});
-    
+
     return store;
 
 }

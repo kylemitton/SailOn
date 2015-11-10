@@ -19,11 +19,11 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
 
     requires: [
         'Ext.field.Hidden',
+        'Ext.Button',
         'Ext.form.FieldSet',
         'Ext.field.Password',
         'Ext.field.DatePicker',
-        'Ext.picker.Date',
-        'Ext.Button'
+        'Ext.picker.Date'
     ],
 
     config: {
@@ -36,6 +36,31 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                 xtype: 'hiddenfield',
                 itemId: 'boatid',
                 name: 'boatid'
+            },
+            {
+                xtype: 'container',
+                docked: 'top',
+                margin: 10,
+                items: [
+                    {
+                        xtype: 'button',
+                        docked: 'right',
+                        itemId: 'saveBoatBtn',
+                        margin: 20,
+                        ui: 'confirm-round',
+                        width: 250,
+                        text: 'Save'
+                    },
+                    {
+                        xtype: 'button',
+                        docked: 'left',
+                        itemId: 'cancelBoatBtn',
+                        margin: 20,
+                        ui: 'decline-round',
+                        width: 250,
+                        text: 'Cancel'
+                    }
+                ]
             },
             {
                 xtype: 'fieldset',
@@ -62,6 +87,14 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                                 xtype: 'textfield',
                                 label: 'Boat Name',
                                 name: 'name',
+                                required: true
+                            },
+                            {
+                                xtype: 'textfield',
+                                hidden: true,
+                                itemId: 'alterSailnumber',
+                                label: 'Alternative Sail Number',
+                                name: 'alterSailnumber',
                                 required: true
                             }
                         ]
@@ -265,30 +298,6 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                                 text: 'Upload'
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                xtype: 'container',
-                docked: 'top',
-                layout: 'hbox',
-                items: [
-                    {
-                        xtype: 'button',
-                        docked: 'right',
-                        itemId: 'saveBoatBtn',
-                        margin: 20,
-                        ui: 'confirm-round',
-                        width: 250,
-                        text: 'Save'
-                    },
-                    {
-                        xtype: 'button',
-                        itemId: 'cancelBoatBtn',
-                        margin: 20,
-                        ui: 'decline-round',
-                        width: 250,
-                        text: 'Cancel'
                     }
                 ]
             }

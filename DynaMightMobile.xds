@@ -38,8 +38,8 @@
         "displayfield-ExtBox1-2188-inputEl": "a new version of the framework is available",
         "displayfield-ExtBox1-2243-inputEl": "a new version of the framework is available",
         "lastBuildSelection": {
-            "value": "webBuild",
-            "display": "Build web app"
+            "value": "nativeBuild",
+            "display": "Native Build"
         }
     },
     "xdsVersion": "3.2.0",
@@ -111,8 +111,7 @@
             "7352f2db-2214-42cf-97be-37ff1edb4598",
             "b227896a-3959-4858-b804-9fbac5312344",
             "95fb4190-7401-4f54-9d3c-87f064bc64d5",
-            "8bd60406-57ec-4b4e-b9c7-f6eeaa4bf65a",
-            "20a43e12-6bd4-4b08-9722-f4b8437a4142"
+            "8bd60406-57ec-4b4e-b9c7-f6eeaa4bf65a"
         ],
         "app": [
             "application"

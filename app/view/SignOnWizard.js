@@ -80,6 +80,7 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                     {
                         xtype: 'container',
                         flex: 1,
+                        height: 300,
                         layout: 'hbox',
                         items: [
                             {
@@ -132,42 +133,13 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                                             '{[GetTemplate(\'boat\', values)]}',
                                             ''
                                         ]
-                                    }
-                                ]
-                            },
-                            {
-                                xtype: 'fieldset',
-                                flex: 0.4,
-                                margin: 5,
-                                layout: 'vbox',
-                                title: 'Messages and Notices',
-                                items: [
-                                    {
-                                        xtype: 'list',
-                                        flex: 1,
-                                        itemId: 'messagesList',
-                                        itemTpl: [
-                                            '',
-                                            '<div class="item">',
-                                            '    <div class="name">{name}</div>',
-                                            '    <div class="vicinity">{message}</div>   ',
-                                            '</div>'
-                                        ]
-                                    },
-                                    {
-                                        xtype: 'button',
-                                        docked: 'bottom',
-                                        itemId: 'refreshSOBtn',
-                                        ui: 'confirm-round',
-                                        text: 'Refresh'
                                     },
                                     {
                                         xtype: 'container',
                                         parentCtrl: 'RacePortalWizard',
-                                        docked: 'bottom',
+                                        docked: 'right',
                                         hidden: false,
                                         itemId: 'keyboardCt',
-                                        width: 220,
                                         items: [
                                             {
                                                 xtype: 'container',
@@ -307,9 +279,38 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                     },
                     {
                         xtype: 'container',
+                        height: 200,
                         hidden: false,
                         layout: 'hbox',
                         items: [
+                            {
+                                xtype: 'fieldset',
+                                flex: 0.4,
+                                margin: 5,
+                                layout: 'vbox',
+                                title: 'Messages and Notices',
+                                items: [
+                                    {
+                                        xtype: 'list',
+                                        flex: 1,
+                                        itemId: 'messagesList',
+                                        itemTpl: [
+                                            '',
+                                            '<div class="item">',
+                                            '    <div class="name">{name}</div>',
+                                            '    <div class="vicinity">{message}</div>   ',
+                                            '</div>'
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'button',
+                                docked: 'bottom',
+                                itemId: 'refreshSOBtn',
+                                ui: 'confirm-round',
+                                text: 'Refresh'
+                            },
                             {
                                 xtype: 'fieldset',
                                 flex: 1,

@@ -92,153 +92,7 @@
                                 "width": null
                             },
                             "name": "MyButton198",
-                            "designerId": "c157fc16-66de-46cf-a7db-779b4d4e3fd5",
-                            "cn": [
-                                {
-                                    "type": "basiceventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onTestButtonTap",
-                                        "implHandler": [
-                                            "",
-                                            "/*",
-                                            "var cp = Ext.create('Ext.form.ColorPicker',{",
-                                            "    title: 'Color Picker Components',",
-                                            "    bodyPadding: 5,",
-                                            "    frame: true,",
-                                            "    resizable: true,",
-                                            "    width: 600,",
-                                            "    minWidth: 550,",
-                                            "    layout: {",
-                                            "        type: 'vbox',",
-                                            "        align: 'stretch'",
-                                            "    },",
-                                            "",
-                                            "    viewModel: {",
-                                            "        data: {",
-                                            "            color: '#0f0',",
-                                            "            full: false",
-                                            "        }",
-                                            "    },",
-                                            "",
-                                            "    header: {",
-                                            "        items: [{",
-                                            "            xtype: 'component',",
-                                            "            cls: 'x-panel-header-title-default-framed',",
-                                            "            html: 'colorbutton &#8680;'",
-                                            "        },{",
-                                            "            xtype: 'colorbutton',",
-                                            "            bind: '{color}',",
-                                            "            width: 15,",
-                                            "            height: 15,",
-                                            "            listeners: {",
-                                            "                change: 'onChange'",
-                                            "            }",
-                                            "        }]",
-                                            "    },",
-                                            "",
-                                            "    items: [{",
-                                            "        xtype: 'colorfield',",
-                                            "        fieldLabel: 'Color Field',",
-                                            "        labelWidth: 75,",
-                                            "        bind: '{color}',",
-                                            "        listeners: {",
-                                            "            change: 'onChange'",
-                                            "        }",
-                                            "    },{",
-                                            "        xtype: 'colorselector',",
-                                            "        hidden: true,",
-                                            "        flex: 1,",
-                                            "        bind: {",
-                                            "            value: '{color}',",
-                                            "            visible: '{full}'",
-                                            "        }",
-                                            "    }],",
-                                            "",
-                                            "    buttons: [{",
-                                            "        text: 'Show colorselector &gt;&gt;',",
-                                            "        bind: {",
-                                            "            visible: '{!full}'",
-                                            "        },",
-                                            "        value: true,",
-                                            "        listeners: {",
-                                            "            click: 'onShowMoreLess'",
-                                            "        }",
-                                            "    },{",
-                                            "        text: 'Hide colorselector &lt;&lt;',",
-                                            "        bind: {",
-                                            "            visible: '{full}'",
-                                            "        },",
-                                            "        value: false,",
-                                            "        listeners: {",
-                                            "            click: 'onShowMoreLess'",
-                                            "        }",
-                                            "    }]",
-                                            "",
-                                            "});",
-                                            "",
-                                            "cp.showBy(button);",
-                                            "",
-                                            "var cp = Ext.create('Ext.picker.Color', {",
-                                            "                style: {",
-                                            "                    backgroundColor: \"#fff\"",
-                                            "                },",
-                                            "                listeners: {",
-                                            "                    scope:this//,",
-                                            "                    //select: element",
-                                            "                }",
-                                            "            });",
-                                            "",
-                                            "",
-                                            "        var popup = new Ext.Panel({",
-                                            "                    //floating: true,",
-                                            "                    //centered: true,",
-                                            "                    //modal: true,",
-                                            "                    fullscreen: true,",
-                                            "                    //layout: 'vbox',",
-                                            "                    itemId: 'popupPnl1',",
-                                            "                    items: [cp]",
-                                            "",
-                                            "                }).showBy(button);*/",
-                                            "",
-                                            "",
-                                            "",
-                                            "",
-                                            "/*var cp = Ext.create('Ext.picker.Color', {",
-                                            "        style: {",
-                                            "            backgroundColor: \"#fff\"",
-                                            "        },",
-                                            "    renderTo: Ext.getBody(),",
-                                            "        listeners: {",
-                                            "            scope:me,",
-                                            "            select: select",
-                                            "        }",
-                                            "    });",
-                                            "",
-                                            "/*",
-                                            "var popup = new Ext.Panel({",
-                                            "            //floating: true,",
-                                            "            //centered: true,",
-                                            "            //modal: true,",
-                                            "            //fullscreen: true,",
-                                            "            layout: 'vbox',",
-                                            "            //itemId: 'popupPnl1',",
-                                            "            items: [cp]",
-                                            "",
-                                            "        });//.show();*/",
-                                            "",
-                                            "//me.down('#seriesDetails').add(cp);"
-                                        ],
-                                        "name": "tap"
-                                    },
-                                    "name": "onTestButtonTap",
-                                    "designerId": "54563d8a-8e72-4296-b6fb-6022e258eda7"
-                                }
-                            ]
+                            "designerId": "c157fc16-66de-46cf-a7db-779b4d4e3fd5"
                         },
                         {
                             "type": "Ext.field.Text",
@@ -867,7 +721,7 @@
                                                         "fn": "getPath",
                                                         "implHandler": [
                                                             "//return \"background-size:cover;background-image:url('../DM/admin/uploaded_files/\"+ path +\"')\";",
-                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",
@@ -1051,7 +905,7 @@
                                                         ],
                                                         "fn": "getPath",
                                                         "implHandler": [
-                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",
@@ -1560,7 +1414,10 @@
                                                     "    </div>",
                                                     "</div>",
                                                     "<div class=\"item\">",
-                                                    "    <div class=\"name\">{name} - {sponsorid}",
+                                                    "    <div class=\"name\">{name}",
+                                                    "        <tpl if=\"values.sponsorid\">",
+                                                    "            <span style = \"margin-right:5px;\"> - {sponsorid}</span>",
+                                                    "        </tpl>",
                                                     "    </div>",
                                                     "    <div class=\"vicinity\">Start time: {[this.DateFormat(values.startdate)]}",
                                                     "    </div>",
@@ -1603,8 +1460,7 @@
                                                         ],
                                                         "fn": "getPath",
                                                         "implHandler": [
-                                                            "                                                    return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";",
-                                                            ""
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",
@@ -3065,7 +2921,7 @@
                                                         ],
                                                         "fn": "getPath",
                                                         "implHandler": [
-                                                            "                                                    return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",
@@ -3132,6 +2988,269 @@
                             },
                             "name": "MyButton39",
                             "designerId": "eab2a593-fd5d-4092-a2d8-ceaa7c0d3db4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "html": null,
+                "itemId": "addPatternEdit",
+                "scrollable": false
+            },
+            "name": "MyFormPanel36",
+            "designerId": "22096c8b-538f-4af8-b2e7-836919e77060",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "raceZone"
+                        ],
+                        "itemId": "patternBottomCt"
+                    },
+                    "name": "MyContainer14",
+                    "designerId": "48085bf2-52fa-4e34-84c7-0fb42aed1cc8",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "patternCtId",
+                                "title": "Pattern Details",
+                                "width": 438
+                            },
+                            "name": "MyFieldSet7",
+                            "designerId": "ae5b639f-d970-4a45-abd1-1c5c7d3ba82a",
+                            "cn": [
+                                {
+                                    "type": "Ext.field.DatePicker",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dateFormat": "d/m/Y",
+                                        "itemId": "patternstartdateId",
+                                        "label": "Date",
+                                        "placeHolder": "dd/mm/yyyy",
+                                        "value": 1410382800000
+                                    },
+                                    "name": "MyDatePicker2",
+                                    "designerId": "5d9f4eed-4784-4266-8ddb-49618393eb40",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.picker.Date",
+                                            "reference": {
+                                                "name": "picker",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "slotOrder": [
+                                                    "day",
+                                                    "month",
+                                                    "year"
+                                                ]
+                                            },
+                                            "name": "MyDatePicker3",
+                                            "designerId": "513e193a-3265-43e6-b3da-e298f2f8ee90",
+                                            "cn": [
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "doneButton",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "text": "Done"
+                                                    },
+                                                    "name": "MyButton23",
+                                                    "designerId": "ea0ff7d3-7eb7-496d-a839-bcdf584d2445"
+                                                },
+                                                {
+                                                    "type": "Ext.Button",
+                                                    "reference": {
+                                                        "name": "cancelButton",
+                                                        "type": "object"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "text": "Cancel"
+                                                    },
+                                                    "name": "MyButton24",
+                                                    "designerId": "bd378b29-e3bf-4a6a-bc3f-bb1f1d3b6d74"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "patternNumbeRaces",
+                                        "label": "Races",
+                                        "name": "patternNumbeRaces"
+                                    },
+                                    "name": "MyTextField12",
+                                    "designerId": "edc8f976-0a5d-4963-bac6-53ed9102164b"
+                                },
+                                {
+                                    "type": "Ext.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "patternGapRaces",
+                                        "label": "Gap Between Races",
+                                        "name": "patternGapRaces"
+                                    },
+                                    "name": "MyTextField87",
+                                    "designerId": "19e3205b-317b-4bb5-b96a-84ef1467e28f"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "docked": "bottom",
+                                "layout": "hbox"
+                            },
+                            "name": "MyContainer15",
+                            "designerId": "59070ed1-c3a2-43f8-85aa-e515ea69bb1e",
+                            "cn": [
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "itemId": "savePatterbRaceBtn",
+                                        "layout|flex": 1,
+                                        "margin": null,
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "OK",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton25",
+                                    "designerId": "efa1614e-2e57-4a67-8ca9-07af481d7008"
+                                },
+                                {
+                                    "type": "Ext.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|uiInterfaceName": "action-round",
+                                        "docked": null,
+                                        "itemId": "cancelPatternRaceEditBtn",
+                                        "layout|flex": 1,
+                                        "margin": null,
+                                        "maxWidth": 200,
+                                        "minWidth": 200,
+                                        "text": "Cancel",
+                                        "ui": "action-round",
+                                        "width": 200
+                                    },
+                                    "name": "MyButton26",
+                                    "designerId": "cef0433e-fd39-4ca1-927d-fa210941813e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "bottom",
+                        "height": 40,
+                        "itemId": "bottomCt",
+                        "margin": 10,
+                        "width": null
+                    },
+                    "name": "MyContainer17",
+                    "designerId": "cb15011e-5688-4549-88a9-14055461be60",
+                    "cn": [
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "right",
+                                "hidden": true,
+                                "itemId": "nextBtn",
+                                "text": "Next >>",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton27",
+                            "designerId": "a74061bc-7217-4a1e-8fff-f4e430f1bb1c"
+                        },
+                        {
+                            "type": "Ext.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "decline-round",
+                                "docked": "left",
+                                "hidden": true,
+                                "itemId": "backBtn",
+                                "text": "<< Back",
+                                "ui": "decline-round",
+                                "width": null
+                            },
+                            "name": "MyButton28",
+                            "designerId": "bb3d0b90-5069-4945-a64e-2b43bdfa68b9"
                         }
                     ]
                 }
@@ -3213,11 +3332,83 @@
                     "    value: '#0000FF',",
                     "    listeners:{",
                     "        painted:function(field){",
-                    "            var text =\"<div style='background-color: blue; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>\";",
+                    "            var text =\"<div style='background-color: #0000FF; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>\";",
                     "            field.down('div[class*=\"x-field-mask\"]').dom.innerHTML = text;",
                     "        }",
                     "    }",
                     "});",
+                    "",
+                    "//TODOL TEST",
+                    "",
+                    "var test = Ext.create('Ext.Container', {",
+                    "    fullscreen : true,",
+                    "    label: 'Test',",
+                    "    layout     : {",
+                    "        type : 'accordion',",
+                    "        toggleOnTitlebar : false,",
+                    "        mode : 'SINGLE'",
+                    "    },",
+                    "    scrollable : 'vertical'/*,",
+                    "    items      : [",
+                    "        {",
+                    "            title : 'Form',",
+                    "            collapsed: true,",
+                    "            layout: 'fit',",
+                    "            items : [",
+                    "                {",
+                    "                    xtype : 'textfield',",
+                    "                    label : 'Test'",
+                    "                },",
+                    "                {",
+                    "                    xtype  : 'toolbar',",
+                    "                    docked : 'bottom',",
+                    "                    items  : [",
+                    "                        {",
+                    "                            text : 'Cancel',",
+                    "                            ui   : 'decline'",
+                    "                        },",
+                    "                        {",
+                    "                            xtype : 'spacer'",
+                    "                        },",
+                    "                        {",
+                    "                            text : 'Save',",
+                    "                            ui   : 'confirm'",
+                    "                        }",
+                    "                    ]",
+                    "                }",
+                    "            ]",
+                    "        }",
+                    "",
+                    "    ]*/",
+                    "});",
+                    "",
+                    "",
+                    "me.down('#raceAddFrm').add(test);",
+                    "/*me.down('#raceAddFrm').add({",
+                    "    xtype: 'container',",
+                    "    itemId: 'raceAccordionLayout',",
+                    "    height: 200,",
+                    "    label: 'Accordion',",
+                    "    //layout:'accordion',",
+                    "    layout: {",
+                    "        type : 'accordion',",
+                    "        toggleOnTitlebar : false,",
+                    "        mode : 'SINGLE'",
+                    "    },",
+                    "    items:[{",
+                    "        xtype: 'fieldset',",
+                    "        title: 'Race(s)',",
+                    "        items: [",
+                    "            {",
+                    "                xtype: 'numberfield',",
+                    "                itemId: 'newTxt',",
+                    "                labelWidth: 0,",
+                    "                value: 1,",
+                    "                minValue: 1",
+                    "            }",
+                    "        ]",
+                    "    }]",
+                    "});*/",
                     "",
                     "me.down('#raceCtId').add({",
                     "    xtype: 'timepickerfield',",

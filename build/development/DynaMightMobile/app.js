@@ -50336,7 +50336,6 @@ APP = {
 };
 APP.WarningUnsavedData = false;
 AJAX_URL = '';
-RES_URL = '';
 AJAX_HANDLER = '';
 function GetTemplate(type, values) {
     var tpl;
@@ -50350,9 +50349,9 @@ function GetTemplate(type, values) {
         tpl = '<div class="item" style="' + (values.signondate ? "background-color:#008A2E" : "") + '">' + '<div class="name">' + Ext.String.ellipsis(values.bname, 20) + '</div>' + '<div class="vicinity">' + values.hullnumber + '</div></div>';
     } else if (type == 'menu') {
         //debugger;
-        tpl = '<div class="menuItem" style="background-color:lightgray">' + '<br/><br/><img src="http://dbstimeman.com/DM/common/' + (values.mobiletemplate ? values.mobiletemplate : 'star.png') + '" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name, 20) + '</div>' + //'<br/><br/><img src="{[AJAX_URL]}../common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
-        //'<br/><br/><img src="http://bystorm.com.au/DM/mobile/common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
-        '</div>';
+        tpl = '<div class="menuItem" style="background-color:lightgray">' + //'<br/><br/><img src="http://dbstimeman.com/DM/common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
+        //'<br/><br/><img src="{[AJAX_URL]}../common/'+(values.mobiletemplate ? values.mobiletemplate : 'star.png')+'" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name,20) + '</div>' +
+        '<br/><br/><img src="' + AJAX_URL + '../common/' + (values.mobiletemplate ? values.mobiletemplate : 'star.png') + '" width="80px" height="80"/><br/><br/><div class="name">' + Ext.String.ellipsis(values.name, 20) + '</div>' + '</div>';
     } else if (type == 'raceboat') {
         tpl = '<div class="item" style="' + (values.signondate ? "background-color:#008A2E" : "") + '">' + '<div class="name">' + Ext.String.ellipsis(values.bname, 20) + '</div>' + '<div class="vicinity">' + Ext.String.ellipsis(values.rname, 25) + '</div>' + '<div class="vicinity">' + values.hullnumber + '</div>' + '<div class="vicinity">' + (values.skippername ? values.skippername : " - ") + '</div></div>';
     } else if (type == 'race') {
@@ -75134,7 +75133,8 @@ Ext.define('DynaMightMobile.controller.RacePortalWizard', {
             tcLastNameTxt: 'textfield#tcLastNameTxt',
             tcFrm: '#tcFrm',
             boatSearch: 'searchfield#boatSignOnSearch',
-            tcTxt: 'textareafield#tcTxt'
+            tcTxt: 'textareafield#tcTxt',
+            registrationLoginFrm: 'formpanel#registrationLoginFrm'
         },
         control: {
             "button#nextSignOnBtn": {
@@ -75512,21 +75512,69 @@ Ext.define('DynaMightMobile.controller.RacePortalWizard', {
         //debugger;
         var me = this,
             wizard = me.getSignOnWizard(),
-            popup;
-        popup = new DynaMightMobile.view.BoatDetails({
+            loginBoatPopupFrm, boatDetailsPopupFrm;
+        //TODOL TEST
+        alert('resgitration form:' + this.getRegistrationLoginFrm());
+        loginBoatPopupFrm = this.getRegistrationLoginFrm();
+        //loginBoatPopupFrm.down('registrationFlag').setValue(false);
+        //loginBoatPopupFrm.setWidth('50%');
+        //loginBoatPopupFrm.setHeight('75%');
+        //loginBoatPopupFrm.setModal(true);
+        //loginBoatPopupFrm.showBy(button);
+        boatDetailsPopupFrm = new DynaMightMobile.view.BoatDetails({
             width: '100%',
-            height: 600,
-            parent: popup,
-            itemId: 'popupPnl',
+            height: 400,
+            //parent: popup,
+            itemId: 'boatDetailsPopupFrm',
+            scrollable: true,
             listeners: {
                 painted: function(a, b, c) {
                     this.setValues(me.boat.data);
+                    //alert('values:'+this.getValues());
+                    //alert('gi:'+this.getValues().alterSailnumber+'name:'+this.getValues().hullnumber+'b:'+b+'c:'+c);//getGeneralInfoCt().down('generalInfoAuxFS'));//.setHidden(true);
+                    alert('gi:' + this.getComponent('alterSailnumber'));
+                    alert('asn:' + this.getRegistrationLoginFrm());
                 }
             }
         });
-        popup.setModal(true);
-        popup.showBy(button);
+        //.down('alterSailnumber').getValue());//.setHidden(false);
+        //TODOL TEST
+        /*this.getOwnerInfoCt1().setHidden(true);
+                    this.getBoatInfoCt().setHidden(true);
+                    this.getOwnerInfoCt().setHidden(true);
+                    this.getGeneralInfoCt().down('generalInfoAuxFS').setHidden(true);*/
+        boatDetailsPopupFrm.setModal(true);
+        boatDetailsPopupFrm.showBy(button);
     },
+    /*
+
+        Ext.create('Ext.form.Panel', {
+            fullscreen: true,
+            items: [
+                {
+                    xtype: 'fieldset',
+                    itemId: 'generalInfoFS',
+                    width: 498,
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            label: 'Sail/Hull Number',
+                            name: 'hullnumber',
+                            required: true
+                        },
+                        {
+                            xtype: 'textfield',
+                            label: 'Boat Name',
+                            name: 'name',
+                            required: true
+                        }
+                    ]
+                }
+            ]
+        });
+        */
+    //popup.setModal(true);
+    //popup.showBy(button);
     onBoatDivisionSelectfieldChange: function(selectfield, newValue, oldValue, eOpts) {
         this.filterBoats();
     },
@@ -76985,8 +77033,13 @@ Ext.define('DynaMightMobile.controller.RegistrationWizard', {
                             modal: true
                         });
                     } else {
-                        me.jumpCards(1);
-                        me.onBoatLogin(obj);
+                        //TODOL TEST
+                        if (!form.down('registrationFlag').getValue()) {
+                            return;
+                        } else {
+                            me.jumpCards(1);
+                            me.onBoatLogin(obj);
+                        }
                     }
                 } else {
                     Ext.Msg.show({
@@ -77977,8 +78030,8 @@ Ext.define('DynaMightMobile.controller.SeriesWizard', {
                 }
             }
         });
-        this.getHomePanel().removeAll();
         this.getController('Navigation').onNavigate();
+        this.getHomePanel().removeAll();
     },
     onDivisionListItemTap: function(dataview, index, target, record, e, eOpts) {
         //debugger;
@@ -78444,12 +78497,59 @@ Ext.define('DynaMightMobile.controller.SkipperBoatList', {
             item, values,
             form = this.getBoatDetails(),
             items = form.getItems().items,
-            bStore = CreateStore('boat');
+            bStore = CreateStore('boat'),
+            popupPassword;
         me.isFormValid = true;
         me.checkRequiredControls(form);
         if (!me.isFormValid) {
             return;
         }
+        //PASSWORD METHOD FOR SkipperBoatList
+        //TODOL password
+        popupPassword = Ext.create('Ext.form.Panel', {
+            modal: true,
+            items: [
+                {
+                    xtype: 'textfield',
+                    label: 'Password',
+                    name: 'authpassword',
+                    required: true
+                },
+                {
+                    xtype: 'button',
+                    docked: 'right',
+                    itemId: 'verifyPasswordBtn',
+                    margin: 20,
+                    ui: 'decline-round',
+                    width: 250,
+                    text: 'Save',
+                    listeners: [
+                        {
+                            fn: 'onVerifyPasswordBtnTap',
+                            event: 'tap',
+                            delegate: '#saveBoatBtn'
+                        }
+                    ],
+                    onVerifyPasswordBtnTap: function(button, e, eOpts) {
+                        alert('TODOL tap textpassword:' + this.down('#authpassword').getValue() + ',frm pass:' + rm.down('#password').getValue());
+                        //if(popupPassword.down('#authpassword').getValue() != frm.down('#password').getValue()){
+                        if (popupPassword.down('#authpassword').getValue() != frm.down('#password').getValue()) {
+                            Ext.Msg.show({
+                                title: 'Incorrect Password',
+                                //T('errLogIn'),
+                                message: 'Please introduce a correct password!',
+                                //T(''),
+                                buttons: Ext.Msg.OK,
+                                icon: Ext.Msg.ERROR,
+                                modal: true
+                            });
+                            return;
+                        }
+                    }
+                }
+            ]
+        }).showBy(button);
+        //TODOL FINISH
         rec = form.getValues();
         rec.EntityFields = bStore._model.prototype.entityFields;
         rec.EntityName = 'boat';
@@ -78621,256 +78721,6 @@ Ext.define('DynaMightMobile.model.MyModel', {
                 name: 'fullname'
             }
         ]
-    }
-});
-
-/**
- * Color picker provides a simple color palette for choosing colors. The picker can be rendered to any container. The
- * available default to a standard 40-color palette; this can be customized with the {@link #colors} config.
- *
- * Typically you will need to implement a handler function to be notified when the user chooses a color from the picker;
- * you can register the handler using the {@link #event-select} event, or by implementing the {@link #handler} method.
- *
- *     @example
- *     Ext.create('Ext.picker.Color', {
- *         value: '993300',  // initial selected color
- *         renderTo: Ext.getBody(),
- *         listeners: {
- *             select: function(picker, selColor) {
- *                 alert(selColor);
- *             }
- *         }
- *     });
- */
-Ext.define('Ext.picker.Color', {
-    extend: Ext.Component,
-    alias: 'widget.colorpicker',
-    alternateClassName: 'Ext.ColorPalette',
-    /**
-     * @cfg {String} [componentCls='x-color-picker']
-     * The CSS class to apply to the containing element.
-     */
-    componentCls: Ext.baseCSSPrefix + 'color-picker',
-    /**
-     * @cfg {String} [selectedCls='x-color-picker-selected']
-     * The CSS class to apply to the selected element
-     */
-    selectedCls: Ext.baseCSSPrefix + 'color-picker-selected',
-    /**
-     * @cfg {String} itemCls
-     * The CSS class to apply to the color picker's items
-     */
-    itemCls: Ext.baseCSSPrefix + 'color-picker-item',
-    /**
-     * @cfg {String} value
-     * The initial color to highlight (should be a valid 6-digit color hex code without the # symbol). Note that the hex
-     * codes are case-sensitive.
-     */
-    value: null,
-    /**
-     * @cfg {String} clickEvent
-     * The DOM event that will cause a color to be selected. This can be any valid event name (dblclick, contextmenu).
-     */
-    clickEvent: 'click',
-    /**
-     * @cfg {Boolean} allowReselect
-     * If set to true then reselecting a color that is already selected fires the {@link #event-select} event
-     */
-    allowReselect: false,
-    /**
-     * @property {String[]} colors
-     * An array of 6-digit color hex code strings (without the # symbol). This array can contain any number of colors,
-     * and each hex code should be unique. The width of the picker is controlled via CSS by adjusting the width property
-     * of the 'x-color-picker' class (or assigning a custom class), so you can balance the number of colors with the
-     * width setting until the box is symmetrical.
-     *
-     * You can override individual colors if needed:
-     *
-     *     var cp = new Ext.picker.Color();
-     *     cp.colors[0] = 'FF0000';  // change the first box to red
-     *
-     * Or you can provide a custom array of your own for complete control:
-     *
-     *     var cp = new Ext.picker.Color();
-     *     cp.colors = ['000000', '993300', '333300'];
-     */
-    colors: [
-        '000000',
-        '993300',
-        '333300',
-        '003300',
-        '003366',
-        '000080',
-        '333399',
-        '333333',
-        '800000',
-        'FF6600',
-        '808000',
-        '008000',
-        '008080',
-        '0000FF',
-        '666699',
-        '808080',
-        'FF0000',
-        'FF9900',
-        '99CC00',
-        '339966',
-        '33CCCC',
-        '3366FF',
-        '800080',
-        '969696',
-        'FF00FF',
-        'FFCC00',
-        'FFFF00',
-        '00FF00',
-        '00FFFF',
-        '00CCFF',
-        '993366',
-        'C0C0C0',
-        'FF99CC',
-        'FFCC99',
-        'FFFF99',
-        'CCFFCC',
-        'CCFFFF',
-        '99CCFF',
-        'CC99FF',
-        'FFFFFF'
-    ],
-    /**
-     * @cfg {Function} handler
-     * A function that will handle the select event of this picker. The handler is passed the following parameters:
-     *
-     * - `picker` : ColorPicker
-     *
-     *   The {@link Ext.picker.Color picker}.
-     *
-     * - `color` : String
-     *
-     *   The 6-digit color hex code (without the # symbol).
-     */
-    /**
-     * @cfg {Object} scope
-     * The scope (`this` reference) in which the `{@link #handler}` function will be called.
-     *
-     * Defaults to this Color picker instance.
-     */
-    colorRe: /(?:^|\s)color-(.{6})(?:\s|$)/,
-    renderTpl: [
-        '<tpl for="colors">',
-        '<a href="#" role="button" class="color-{.} {parent.itemCls}" hidefocus="on">',
-        '<span class="{parent.itemCls}-inner" style="background:#{.}">&#160;</span>',
-        '</a>',
-        '</tpl>'
-    ],
-    // @private
-    initComponent: function() {
-        //alert('on intit color');
-        var me = this;
-        me.callParent(arguments);
-        me.addEvents(/**
-             * @event select
-             * Fires when a color is selected
-             * @param {Ext.picker.Color} this
-             * @param {String} color The 6-digit color hex code (without the # symbol)
-             */
-        'select');
-        if (me.handler) {
-            me.on('select', me.handler, me.scope, true);
-        }
-    },
-    // @private
-    initRenderData: function() {
-        var me = this;
-        return Ext.apply(me.callParent(), {
-            itemCls: me.itemCls,
-            colors: me.colors
-        });
-    },
-    onRender: function() {
-        //alert('TODOL on render');
-        var me = this,
-            clickEvent = me.clickEvent;
-        me.callParent(arguments);
-        me.mon(me.el, clickEvent, me.handleClick, me, {
-            delegate: 'a'
-        });
-        // always stop following the anchors
-        if (clickEvent != 'click') {
-            me.mon(me.el, 'click', Ext.emptyFn, me, {
-                delegate: 'a',
-                stopEvent: true
-            });
-        }
-    },
-    // @private
-    afterRender: function() {
-        var me = this,
-            value;
-        me.callParent(arguments);
-        if (me.value) {
-            value = me.value;
-            me.value = null;
-            me.select(value, true);
-        }
-    },
-    // @private
-    handleClick: function(event, target) {
-        var me = this,
-            color;
-        event.stopEvent();
-        if (!me.disabled) {
-            color = target.className.match(me.colorRe)[1];
-            me.select(color.toUpperCase());
-        }
-    },
-    /**
-     * Selects the specified color in the picker (fires the {@link #event-select} event)
-     * @param {String} color A valid 6-digit color hex code (# will be stripped if included)
-     * @param {Boolean} [suppressEvent=false] True to stop the select event from firing.
-     */
-    select: function(color, suppressEvent) {
-        var me = this,
-            selectedCls = me.selectedCls,
-            value = me.value,
-            //value = color,
-            el;
-        color = color.replace('#', '');
-        if (!me.rendered) {
-            me.value = color;
-            return;
-        }
-        alert('a.color-' + value);
-        if ((color != value || me.allowReselect) && value != null) {
-            el = me.el;
-            if (me.value) {
-                el.down('a.color-' + value).removeCls(selectedCls);
-            }
-            el.down('a.color-' + color).addCls(selectedCls);
-            me.value = color;
-            if (suppressEvent !== true) {
-                me.fireEvent('select', me, color);
-            }
-        }
-    },
-    /**
-     * Clears any selection and sets the value to `null`.
-     */
-    clear: function() {
-        var me = this,
-            value = me.value,
-            el;
-        if (value && me.rendered) {
-            el = me.el.down('a.color-' + value);
-            el.removeCls(me.selectedCls);
-        }
-        me.value = null;
-    },
-    /**
-     * Get the currently selected color value.
-     * @return {String} value The selected value. Null if nothing is selected.
-     */
-    getValue: function() {
-        return this.value || null;
     }
 });
 
@@ -84467,6 +84317,31 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                 name: 'boatid'
             },
             {
+                xtype: 'container',
+                docked: 'top',
+                margin: 10,
+                items: [
+                    {
+                        xtype: 'button',
+                        docked: 'right',
+                        itemId: 'saveBoatBtn',
+                        margin: 20,
+                        ui: 'confirm-round',
+                        width: 250,
+                        text: 'Save'
+                    },
+                    {
+                        xtype: 'button',
+                        docked: 'left',
+                        itemId: 'cancelBoatBtn',
+                        margin: 20,
+                        ui: 'decline-round',
+                        width: 250,
+                        text: 'Cancel'
+                    }
+                ]
+            },
+            {
                 xtype: 'fieldset',
                 itemId: 'generalInfoCt',
                 margin: 5,
@@ -84491,6 +84366,14 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                                 xtype: 'textfield',
                                 label: 'Boat Name',
                                 name: 'name',
+                                required: true
+                            },
+                            {
+                                xtype: 'textfield',
+                                hidden: true,
+                                itemId: 'alterSailnumber',
+                                label: 'Alternative Sail Number',
+                                name: 'alterSailnumber',
                                 required: true
                             }
                         ]
@@ -84694,30 +84577,6 @@ Ext.define('DynaMightMobile.view.BoatDetails', {
                                 text: 'Upload'
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                xtype: 'container',
-                docked: 'top',
-                layout: 'hbox',
-                items: [
-                    {
-                        xtype: 'button',
-                        docked: 'right',
-                        itemId: 'saveBoatBtn',
-                        margin: 20,
-                        ui: 'confirm-round',
-                        width: 250,
-                        text: 'Save'
-                    },
-                    {
-                        xtype: 'button',
-                        itemId: 'cancelBoatBtn',
-                        margin: 20,
-                        ui: 'decline-round',
-                        width: 250,
-                        text: 'Cancel'
                     }
                 ]
             }
@@ -85240,7 +85099,7 @@ Ext.define('DynaMightMobile.view.HandicapWizard', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{name}</div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">{entrycost} $</div>', '            <div class="vicinity">{type}</div>', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:50px;background-image:url(''" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     },
                                     DateFormat: function(date) {
                                         //debugger;
@@ -85981,7 +85840,7 @@ Ext.define('DynaMightMobile.view.RFBoats', {
                                 itemTpl: Ext.create('Ext.XTemplate', '{[GetTemplate(\'boat\', values)]}', '', {
                                     getPath: function(path) {
                                         //return "background-size:cover;background-image:url('../DM/admin/uploaded_files/5417f6f2d174c6.44304491.png')";//+ path +"')";
-                                        return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     }
                                 })
                             },
@@ -87428,7 +87287,7 @@ Ext.define('DynaMightMobile.view.RaceResults', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{name}</div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">${entrycost}</div>', '            <div class="vicinity">{type}</div>', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     },
                                     DateFormat: function(date) {
                                         //debugger;
@@ -87459,7 +87318,7 @@ Ext.define('DynaMightMobile.view.RaceResults', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{name}</div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">{entrycost} $</div>', '            <div class="vicinity">{type}</div>', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     },
                                     DateFormat: function(date) {
                                         //debugger;
@@ -88054,7 +87913,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                 return date ? "background-color:gold" : "";
                                             },
                                             getPath: function(path) {
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             },
                                             compareDate: function(date) {
                                                 var today = this.DateFormat(new Date());
@@ -88182,7 +88041,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                 return date ? "background-color:gold" : "";
                                             },
                                             getPath: function(path) {
-                                                return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -88280,7 +88139,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                 return Ext.Date.format(date, 'Y-m-d H:i:s');
                                             },
                                             getPath: function(path) {
-                                                return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -88594,6 +88453,12 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                 itemId: 'password',
                                 label: 'Password',
                                 name: 'password'
+                            },
+                            {
+                                xtype: 'hiddenfield',
+                                itemId: 'registrationFlag',
+                                name: 'registrationFlag',
+                                value: true
                             }
                         ]
                     },
@@ -88698,7 +88563,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                                         itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{raceseriesname} - <small>{type}</small></div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">{entrycost} $</div>', '            ', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                                             getPath: function(path) {
                                                                 //debugger;
-                                                                return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                                             },
                                                             DateFormat: function(date) {
                                                                 //debugger;
@@ -88781,7 +88646,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{name}</div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">{entrycost} $</div>', '            <div class="vicinity">{type}</div>', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     },
                                     DateFormat: function(date) {
                                         //debugger;
@@ -89004,7 +88869,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                         itemId: 'rDivisionsList',
                                         itemTpl: Ext.create('Ext.XTemplate', '', '   ', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name} - {description}', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '</div>', {
                                             getPath: function(path) {
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -89057,7 +88922,7 @@ Ext.define('DynaMightMobile.view.RegistrationWizard', {
                                         itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name} - {description}', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '</div>', {
                                             getPath: function(path) {
                                                 //debugger;
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -89275,7 +89140,7 @@ Ext.define('DynaMightMobile.view.ResultsEditor', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <table><tr>', '        <td>', '            <div class="name">{name}</div>', '            <div class="vicinity">{[this.DateFormat(values.earlieststarttime)]}</div>', '            <div class="vicinity">{entrycost}</div>', '            <div class="vicinity">{type}</div>', '        </td>', '        <td style="padding-left: 30px;display: block;padding-top: 5px;">', '            <div class="vicinity">{description}</div>', '        </td>', '        </tr>', '    </table>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     },
                                     DateFormat: function(date) {
                                         //debugger;
@@ -89666,7 +89531,7 @@ Ext.define('DynaMightMobile.view.SWD', {
                                 itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name}', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '</div>', {
                                     getPath: function(path) {
                                         //debugger;
-                                        return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     }
                                 })
                             }
@@ -89721,7 +89586,7 @@ Ext.define('DynaMightMobile.view.SWD', {
                                 itemId: 'divisionsList',
                                 itemTpl: Ext.create('Ext.XTemplate', '', '   ', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name}', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '</div>', {
                                     getPath: function(path) {
-                                        return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                        return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                     }
                                 }),
                                 itemHeight: 24
@@ -89841,6 +89706,14 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                         margin: 5,
                         title: 'Series Details',
                         items: [
+                            {
+                                xtype: 'button',
+                                docked: 'right',
+                                hidden: true,
+                                itemId: 'testButton',
+                                ui: 'decline-round',
+                                text: 'Test'
+                            },
                             {
                                 xtype: 'textfield',
                                 itemId: 'SeriesName',
@@ -90062,7 +89935,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                         itemTpl: Ext.create('Ext.XTemplate', '', '', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">', '        {name}', '        <tpl if="values.groupname">', '            <span style = "margin-right:5px;">({groupname})</span>', '        </tpl>', '        ', '        <tpl if="values.handicaptype">', '         <span style = "margin-right:5px;"> - {handicaptype}</span>', '        </tpl>', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '    <div class="name">{description}', '    </div>', '    ', '    ', '</div>', {
                                             getPath: function(path) {
                                                 //return "background-size:cover;background-image:url('../DM/admin/uploaded_files/"+ path +"')";
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -90116,7 +89989,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                         itemId: 'divisionsList',
                                         itemTpl: Ext.create('Ext.XTemplate', '', '', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">', '        {name}', '        <tpl if="values.groupname">', '            <span style = "margin-right:5px;">({groupname})</span>', '        </tpl>', '        ', '        <tpl if="values.handicaptype">', '         <span style = "margin-right:5px;"> - {handicaptype}</span>', '        </tpl>', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '    <div class="name">{description}', '    </div>', '    ', '    ', '</div>', {
                                             getPath: function(path) {
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         }),
                                         itemHeight: 24
@@ -90340,12 +90213,12 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                         height: 550,
                                         itemId: 'racesList',
                                         emptyText: 'Races',
-                                        itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name} - {sponsorid}', '    </div>', '    <div class="vicinity">Start time: {[this.DateFormat(values.startdate)]}', '    </div>', '    ', '</div>', {
+                                        itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name}', '        <tpl if="values.sponsorid">', '            <span style = "margin-right:5px;"> - {sponsorid}</span>', '        </tpl>', '    </div>', '    <div class="vicinity">Start time: {[this.DateFormat(values.startdate)]}', '    </div>', '    ', '</div>', {
                                             DateFormat: function(date) {
                                                 return Ext.Date.format(date, 'Y-m-d H:i');
                                             },
                                             getPath: function(path) {
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -90919,7 +90792,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                         itemId: 'raceDivisionsReviewList',
                                         itemTpl: Ext.create('Ext.XTemplate', '<div class="icon-wrapper">', '    <div class="icon" style={[this.getPath(values.path)]}>', '    </div>', '</div>', '<div class="item">', '    <div class="name">{name}', '    </div>', '    <div class="vicinity">', '    </div>', '    ', '</div>', {
                                             getPath: function(path) {
-                                                return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                return "background-size:cover;background-image:url('" + AJAX_URL + "../admin/uploaded_files/" + path + "')";
                                             }
                                         })
                                     }
@@ -91013,96 +90886,45 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
         me.down('#divisionsList').setStore(divisionStore);
         me.down('#earlieststarttime').setValue(new Date());
         me.down('#seriesSelect').setStore(seriesStore);
-        /*me.down('#seriesDetails').add({
+        me.down('#seriesDetails').add({
             xtype: 'colorpickerfield',
             itemId: 'colorPickerId',
             name: 'color',
             label: 'Color',
             value: '#0000FF',
-            listeners:{
-                painted:function(field){
-                    var text ="<div style='background-color: blue; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>";
+            listeners: {
+                painted: function(field) {
+                    var text = "<div style='background-color: #0000FF; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>";
                     field.down('div[class*="x-field-mask"]').dom.innerHTML = text;
                 }
             }
         });
-        */
-        var cp = Ext.create('Ext.picker.Color', {
-                style: {
-                    backgroundColor: "#fff"
-                },
-                listeners: {
-                    scope: me
-                }
-            });
-        //,
-        //select: selectColor
-        var popup = new Ext.Panel({
-                //floating: true,
-                //centered: true,
-                //modal: true,
-                //fullscreen: true,
-                layout: 'vbox',
-                //itemId: 'popupPnl1',
+        //TODOL TEST
+        me.down('#raceAddFrm').add({
+            xtype: 'container',
+            itemId: 'raceAccordionLayout',
+            height: 200,
+            label: 'Accordion',
+            layout: {
+                type: 'accordion',
+                toggleOnTitlebar: false,
+                mode: 'SINGLE'
+            }
+        });
+        /*,
+            items:[{
+                xtype: 'fieldset',
+                title: 'Race(s)',
                 items: [
-                    cp
+                    {
+                        xtype: 'numberfield',
+                        itemId: 'newTxt',
+                        labelWidth: 0,
+                        value: 1,
+                        minValue: 1
+                    }
                 ]
-            });
-        //.show();
-        me.down('#seriesDetails').add(popup);
-        //cp.show(10,10);
-        /*var cf = new Ext.form.ColorField({
-        	fieldLabel: 'Color',
-        	hiddenName:'pref_sales',
-        	showHexValue:true
-        });
-        me.down('#seriesDetails').add(cf);
-        */
-        /*var cf = Ext.create('Ext.picker.Color', {
-            pickerField: me,
-            ownerCt: me.ownerCt,
-            //renderTo: document.body,
-            floating: true,
-            hidden: true,
-            focusOnShow: true,
-            listeners: {
-                scope: me,
-                //select:me.onSelect()
-                //select: me.onSelect
-            },
-            keyNavConfig: {
-                esc: function() {
-                    me.collapse();
-                }
-            }
-                            });
-
-
-        var cf = new Ext.picker.Color({
-            value: '993300'//,  // initial selected color
-            //renderTo: 'SeriesName'
-        });
-        cf.show();
-        */
-        //me.down('#seriesDetails').add(cf);
-        /*var cf = Ext.create('Ext.picker.Color', {
-            value: '993300',  // initial selected color
-            renderTo: document.body,
-            listeners: {
-                select: function(picker, selColor) {
-                    alert(selColor);
-                }
-            }
-        });
-        me.down('#seriesDetails').add(cf);
-        */
-        //popup.showby();
-        //me.down('#seriesDetails').add({
-        //  xtype: 'color',
-        //itemId: 'colorfieldId'//,
-        //name: 'color',
-        //label: 'Color',
-        //});
+            }]*/
         me.down('#raceCtId').add({
             xtype: 'timepickerfield',
             itemId: 'timeTxt',
@@ -91883,6 +91705,7 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                     {
                         xtype: 'container',
                         flex: 1,
+                        height: 300,
                         layout: 'hbox',
                         items: [
                             {
@@ -91932,42 +91755,13 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                                             '{[GetTemplate(\'boat\', values)]}',
                                             ''
                                         ]
-                                    }
-                                ]
-                            },
-                            {
-                                xtype: 'fieldset',
-                                flex: 0.4,
-                                margin: 5,
-                                layout: 'vbox',
-                                title: 'Messages and Notices',
-                                items: [
-                                    {
-                                        xtype: 'list',
-                                        flex: 1,
-                                        itemId: 'messagesList',
-                                        itemTpl: [
-                                            '',
-                                            '<div class="item">',
-                                            '    <div class="name">{name}</div>',
-                                            '    <div class="vicinity">{message}</div>   ',
-                                            '</div>'
-                                        ]
-                                    },
-                                    {
-                                        xtype: 'button',
-                                        docked: 'bottom',
-                                        itemId: 'refreshSOBtn',
-                                        ui: 'confirm-round',
-                                        text: 'Refresh'
                                     },
                                     {
                                         xtype: 'container',
                                         parentCtrl: 'RacePortalWizard',
-                                        docked: 'bottom',
+                                        docked: 'right',
                                         hidden: false,
                                         itemId: 'keyboardCt',
-                                        width: 220,
                                         items: [
                                             {
                                                 xtype: 'container',
@@ -92107,9 +91901,38 @@ Ext.define('DynaMightMobile.view.SignOnWizard', {
                     },
                     {
                         xtype: 'container',
+                        height: 200,
                         hidden: false,
                         layout: 'hbox',
                         items: [
+                            {
+                                xtype: 'fieldset',
+                                flex: 0.4,
+                                margin: 5,
+                                layout: 'vbox',
+                                title: 'Messages and Notices',
+                                items: [
+                                    {
+                                        xtype: 'list',
+                                        flex: 1,
+                                        itemId: 'messagesList',
+                                        itemTpl: [
+                                            '',
+                                            '<div class="item">',
+                                            '    <div class="name">{name}</div>',
+                                            '    <div class="vicinity">{message}</div>   ',
+                                            '</div>'
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'button',
+                                docked: 'bottom',
+                                itemId: 'refreshSOBtn',
+                                ui: 'confirm-round',
+                                text: 'Refresh'
+                            },
                             {
                                 xtype: 'fieldset',
                                 flex: 1,
@@ -92899,10 +92722,10 @@ Ext.application({
         //AJAX_URL = 'http://192.168.1.11/bystorm/dm/mobile/';
         //AJAX_URL = 'http://192.168.1.78/bystorm/dm/mobile/';
         AJAX_URL = 'http://bystorm.com.au/DM/mobile/';
+        //AJAX_URL = 'http://cctests.com/DM/mobile/';
         //AJAX_URL = 'http://localhost/bystorm/dm/mobile/';
         //AJAX_URL = 'http://localhost/dm/mobile/';
         //AJAX_URL = 'http://dbstimeman.com/DM/mobile/';
-        RES_URL = 'http://bystorm.com.au/DM/';
         AJAX_HANDLER = 'AJAXHandler.php';
         /*
         var conf = {user: 'sail', password: 'sail'};

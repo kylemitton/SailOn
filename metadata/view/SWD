@@ -102,7 +102,7 @@
                                                 "fn": "getPath",
                                                 "implHandler": [
                                                     "//debugger;",
-                                                    "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                    "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                 ]
                                             },
                                             "name": "getPath",
@@ -274,7 +274,7 @@
                                                 ],
                                                 "fn": "getPath",
                                                 "implHandler": [
-                                                    "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                    "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                 ]
                                             },
                                             "name": "getPath",

@@ -179,8 +179,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                     return date ? "background-color:gold" : "";
                                                 },
                                                 getPath: function(path) {
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
-
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 },
                                                 compareDate: function(date) {
                                                     var today = this.DateFormat(new Date());
@@ -316,7 +315,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                     return date ? "background-color:gold" : "";
                                                 },
                                                 getPath: function(path) {
-                                                    return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )
@@ -427,7 +426,7 @@ Ext.define('DynaMightMobile.view.RaceStartWizard', {
                                                     return Ext.Date.format(date, 'Y-m-d H:i:s');
                                                 },
                                                 getPath: function(path) {
-                                                    return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )

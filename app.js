@@ -87,11 +87,12 @@ Ext.application({
         //AJAX_URL = 'http://192.168.8.109/bystorm/dm/mobile/';
         //AJAX_URL = 'http://192.168.1.11/bystorm/dm/mobile/';
         //AJAX_URL = 'http://192.168.1.78/bystorm/dm/mobile/';
+
         AJAX_URL = 'http://bystorm.com.au/DM/mobile/';
+        //AJAX_URL = 'http://cctests.com/DM/mobile/';
         //AJAX_URL = 'http://localhost/bystorm/dm/mobile/';
         //AJAX_URL = 'http://localhost/dm/mobile/';
         //AJAX_URL = 'http://dbstimeman.com/DM/mobile/';
-        RES_URL = 'http://bystorm.com.au/DM/';
         AJAX_HANDLER = 'AJAXHandler.php';
 
 

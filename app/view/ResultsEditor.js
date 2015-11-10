@@ -76,7 +76,7 @@ Ext.define('DynaMightMobile.view.ResultsEditor', {
                                     {
                                         getPath: function(path) {
                                             //debugger;
-                                            return "background-size:50px;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         },
                                         DateFormat: function(date) {
                                             //debugger;

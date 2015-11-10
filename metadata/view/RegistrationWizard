@@ -76,6 +76,23 @@
                             },
                             "name": "MyPasswordField2",
                             "designerId": "a1f6ec90-c77f-43b8-b44a-309e852a8640"
+                        },
+                        {
+                            "type": "Ext.field.Hidden",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "registrationFlag",
+                                "name": "registrationFlag",
+                                "value": [
+                                    "true"
+                                ]
+                            },
+                            "name": "MyHiddenField3",
+                            "designerId": "14aff549-8f99-4d24-9f74-9126ad46ecb3"
                         }
                     ]
                 },
@@ -375,7 +392,7 @@
                                                                         "fn": "getPath",
                                                                         "implHandler": [
                                                                             "//debugger;",
-                                                                            "return \"background-size:50px;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                                         ]
                                                                     },
                                                                     "name": "getPath",
@@ -622,7 +639,7 @@
                                                 "fn": "getPath",
                                                 "implHandler": [
                                                     "//debugger;",
-                                                    "return \"background-size:50px;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                    "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                 ]
                                             },
                                             "name": "getPath",
@@ -1262,7 +1279,7 @@
                                                         ],
                                                         "fn": "getPath",
                                                         "implHandler": [
-                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",
@@ -1420,7 +1437,7 @@
                                                         "fn": "getPath",
                                                         "implHandler": [
                                                             "//debugger;",
-                                                            "return \"background-size:cover;background-image:url('\" + RES_URL + \"admin/uploaded_files/\" + path + \"')\";"
+                                                            "return \"background-size:cover;background-image:url('\"+AJAX_URL+\"../admin/uploaded_files/\" + path + \"')\";"
                                                         ]
                                                     },
                                                     "name": "getPath",

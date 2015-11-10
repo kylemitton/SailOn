@@ -170,8 +170,14 @@ Ext.define('DynaMightMobile.controller.RegistrationWizard', {
                         });
                     }
                     else{
-                        me.jumpCards(1);
-                        me.onBoatLogin(obj);
+
+                        //TODOL TEST
+                        if(!form.down('registrationFlag').getValue()){
+                            return;
+                        }else{
+                            me.jumpCards(1);
+                            me.onBoatLogin(obj);
+                        }
                     }
                 }
                 else

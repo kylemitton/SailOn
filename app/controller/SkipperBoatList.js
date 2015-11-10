@@ -59,7 +59,8 @@ Ext.define('DynaMightMobile.controller.SkipperBoatList', {
         var me = this, item, values,
             form = this.getBoatDetails(),
             items = form.getItems().items,
-            bStore = CreateStore('boat');
+            bStore = CreateStore('boat'),
+            popupPassword;
 
 
         me.isFormValid = true;
@@ -69,6 +70,57 @@ Ext.define('DynaMightMobile.controller.SkipperBoatList', {
         if(!me.isFormValid){
             return;
         }
+
+        //PASSWORD METHOD FOR SkipperBoatList
+        //TODOL password
+        popupPassword = Ext.create('Ext.form.Panel', {
+            modal: true,
+            items: [
+                {
+
+                    xtype: 'textfield',
+                    label: 'Password',
+                    name: 'authpassword',
+                    required: true
+                },
+                {
+                    xtype: 'button',
+                    docked: 'right',
+                    itemId: 'verifyPasswordBtn',
+                    margin: 20,
+                    ui: 'decline-round',
+                    width: 250,
+                    text: 'Save',
+                    listeners: [
+                        {
+                            fn: 'onVerifyPasswordBtnTap',
+                            event: 'tap',
+                            delegate: '#saveBoatBtn'
+                        }
+                    ],
+                    onVerifyPasswordBtnTap: function(button, e, eOpts) {
+                        alert('TODOL tap textpassword:'+this.down('#authpassword').getValue()+',frm pass:'+rm.down('#password').getValue());
+
+                        //if(popupPassword.down('#authpassword').getValue() != frm.down('#password').getValue()){
+                        if(popupPassword.down('#authpassword').getValue() != frm.down('#password').getValue()){
+                            Ext.Msg.show({
+                                title: 'Incorrect Password',//T('errLogIn'),
+                                message: 'Please introduce a correct password!',//T(''),
+                                buttons: Ext.Msg.OK,
+                                icon: Ext.Msg.ERROR,
+                                modal: true
+                            });
+                            return;
+                        }
+                    }
+
+                }
+            ]
+        }).showBy(button);
+
+
+
+        //TODOL FINISH
 
         rec = form.getValues();
         rec.EntityFields = bStore._model.prototype.entityFields;

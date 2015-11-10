@@ -64,7 +64,7 @@ Ext.define('DynaMightMobile.view.SWD', {
                                     {
                                         getPath: function(path) {
                                             //debugger;
-                                            return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         }
                                     }
                                 )
@@ -134,7 +134,7 @@ Ext.define('DynaMightMobile.view.SWD', {
                                     '</div>',
                                     {
                                         getPath: function(path) {
-                                            return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                            return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                         }
                                     }
                                 ),

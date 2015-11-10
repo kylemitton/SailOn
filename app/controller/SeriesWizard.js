@@ -414,8 +414,8 @@ Ext.define('DynaMightMobile.controller.SeriesWizard', {
             }
         });
 
-        this.getHomePanel().removeAll();
         this.getController('Navigation').onNavigate();
+        this.getHomePanel().removeAll();
     },
 
     onDivisionListItemTap: function(dataview, index, target, record, e, eOpts) {

@@ -486,8 +486,8 @@
                     "    }",
                     "});",
                     "",
-                    "this.getHomePanel().removeAll();",
-                    "this.getController('Navigation').onNavigate();"
+                    "this.getController('Navigation').onNavigate();",
+                    "this.getHomePanel().removeAll();"
                 ],
                 "name": "tap"
             },

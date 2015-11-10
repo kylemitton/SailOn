@@ -318,7 +318,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                             {
                                                 getPath: function(path) {
                                                     //return "background-size:cover;background-image:url('../DM/admin/uploaded_files/"+ path +"')";
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )
@@ -399,7 +399,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                             '</div>',
                                             {
                                                 getPath: function(path) {
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         ),
@@ -630,7 +630,10 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                             '    </div>',
                                             '</div>',
                                             '<div class="item">',
-                                            '    <div class="name">{name} - {sponsorid}',
+                                            '    <div class="name">{name}',
+                                            '        <tpl if="values.sponsorid">',
+                                            '            <span style = "margin-right:5px;"> - {sponsorid}</span>',
+                                            '        </tpl>',
                                             '    </div>',
                                             '    <div class="vicinity">Start time: {[this.DateFormat(values.startdate)]}',
                                             '    </div>',
@@ -641,8 +644,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                                     return Ext.Date.format(date, 'Y-m-d H:i');
                                                 },
                                                 getPath: function(path) {
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
-
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )
@@ -1238,7 +1240,7 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                                             '</div>',
                                             {
                                                 getPath: function(path) {
-                                                    return "background-size:cover;background-image:url('" + RES_URL + "admin/uploaded_files/" + path + "')";
+                                                    return "background-size:cover;background-image:url('"+AJAX_URL+"../admin/uploaded_files/" + path + "')";
                                                 }
                                             }
                                         )
@@ -1272,151 +1274,120 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
                         ]
                     }
                 ]
+            },
+            {
+                xtype: 'formpanel',
+                itemId: 'addPatternEdit',
+                scrollable: false,
+                items: [
+                    {
+                        xtype: 'container',
+                        cls: 'raceZone',
+                        itemId: 'patternBottomCt',
+                        items: [
+                            {
+                                xtype: 'fieldset',
+                                itemId: 'patternCtId',
+                                width: 438,
+                                title: 'Pattern Details',
+                                items: [
+                                    {
+                                        xtype: 'datepickerfield',
+                                        itemId: 'patternstartdateId',
+                                        label: 'Date',
+                                        value: {
+                                            year: 2014,
+                                            month: 9,
+                                            day: 10
+                                        },
+                                        placeHolder: 'dd/mm/yyyy',
+                                        dateFormat: 'd/m/Y',
+                                        picker: {
+                                            slotOrder: [
+                                                'day',
+                                                'month',
+                                                'year'
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        itemId: 'patternNumbeRaces',
+                                        label: 'Races',
+                                        name: 'patternNumbeRaces'
+                                    },
+                                    {
+                                        xtype: 'textfield',
+                                        itemId: 'patternGapRaces',
+                                        label: 'Gap Between Races',
+                                        name: 'patternGapRaces'
+                                    }
+                                ]
+                            },
+                            {
+                                xtype: 'container',
+                                docked: 'bottom',
+                                layout: 'hbox',
+                                items: [
+                                    {
+                                        xtype: 'button',
+                                        flex: 1,
+                                        itemId: 'savePatterbRaceBtn',
+                                        maxWidth: 200,
+                                        minWidth: 200,
+                                        ui: 'action-round',
+                                        width: 200,
+                                        text: 'OK'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        flex: 1,
+                                        itemId: 'cancelPatternRaceEditBtn',
+                                        maxWidth: 200,
+                                        minWidth: 200,
+                                        ui: 'action-round',
+                                        width: 200,
+                                        text: 'Cancel'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
+                        docked: 'bottom',
+                        height: 40,
+                        itemId: 'bottomCt',
+                        margin: 10,
+                        items: [
+                            {
+                                xtype: 'button',
+                                docked: 'right',
+                                hidden: true,
+                                itemId: 'nextBtn',
+                                ui: 'decline-round',
+                                text: 'Next >>'
+                            },
+                            {
+                                xtype: 'button',
+                                docked: 'left',
+                                hidden: true,
+                                itemId: 'backBtn',
+                                ui: 'decline-round',
+                                text: '<< Back'
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         listeners: [
-            {
-                fn: 'onTestButtonTap',
-                event: 'tap',
-                delegate: '#testButton'
-            },
             {
                 fn: 'onSeriesSelectChange',
                 event: 'change',
                 delegate: '#seriesSelect'
             }
         ]
-    },
-
-    onTestButtonTap: function(button, e, eOpts) {
-
-        /*
-        var cp = Ext.create('Ext.form.ColorPicker',{
-            title: 'Color Picker Components',
-            bodyPadding: 5,
-            frame: true,
-            resizable: true,
-            width: 600,
-            minWidth: 550,
-            layout: {
-                type: 'vbox',
-                align: 'stretch'
-            },
-
-            viewModel: {
-                data: {
-                    color: '#0f0',
-                    full: false
-                }
-            },
-
-            header: {
-                items: [{
-                    xtype: 'component',
-                    cls: 'x-panel-header-title-default-framed',
-                    html: 'colorbutton &#8680;'
-                },{
-                    xtype: 'colorbutton',
-                    bind: '{color}',
-                    width: 15,
-                    height: 15,
-                    listeners: {
-                        change: 'onChange'
-                    }
-                }]
-            },
-
-            items: [{
-                xtype: 'colorfield',
-                fieldLabel: 'Color Field',
-                labelWidth: 75,
-                bind: '{color}',
-                listeners: {
-                    change: 'onChange'
-                }
-            },{
-                xtype: 'colorselector',
-                hidden: true,
-                flex: 1,
-                bind: {
-                    value: '{color}',
-                    visible: '{full}'
-                }
-            }],
-
-            buttons: [{
-                text: 'Show colorselector &gt;&gt;',
-                bind: {
-                    visible: '{!full}'
-                },
-                value: true,
-                listeners: {
-                    click: 'onShowMoreLess'
-                }
-            },{
-                text: 'Hide colorselector &lt;&lt;',
-                bind: {
-                    visible: '{full}'
-                },
-                value: false,
-                listeners: {
-                    click: 'onShowMoreLess'
-                }
-            }]
-
-        });
-
-        cp.showBy(button);
-
-        var cp = Ext.create('Ext.picker.Color', {
-                        style: {
-                            backgroundColor: "#fff"
-                        },
-                        listeners: {
-                            scope:this//,
-                            //select: element
-                        }
-                    });
-
-
-                var popup = new Ext.Panel({
-                            //floating: true,
-                            //centered: true,
-                            //modal: true,
-                            fullscreen: true,
-                            //layout: 'vbox',
-                            itemId: 'popupPnl1',
-                            items: [cp]
-
-                        }).showBy(button);*/
-
-
-
-
-        /*var cp = Ext.create('Ext.picker.Color', {
-                style: {
-                    backgroundColor: "#fff"
-                },
-            renderTo: Ext.getBody(),
-                listeners: {
-                    scope:me,
-                    select: select
-                }
-            });
-
-        /*
-        var popup = new Ext.Panel({
-                    //floating: true,
-                    //centered: true,
-                    //modal: true,
-                    //fullscreen: true,
-                    layout: 'vbox',
-                    //itemId: 'popupPnl1',
-                    items: [cp]
-
-                });//.show();*/
-
-        //me.down('#seriesDetails').add(cp);
     },
 
     onSeriesSelectChange: function(selectfield, newValue, oldValue, eOpts) {
@@ -1490,11 +1461,83 @@ Ext.define('DynaMightMobile.view.SeriesWizard', {
             value: '#0000FF',
             listeners:{
                 painted:function(field){
-                    var text ="<div style='background-color: blue; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>";
+                    var text ="<div style='background-color: #0000FF; width: 75%; height: 2em; margin: .25em auto; border: 3px solid #000;'>&nbsp;</div>";
                     field.down('div[class*="x-field-mask"]').dom.innerHTML = text;
                 }
             }
         });
+
+        //TODOL TEST
+
+        var test = Ext.create('Ext.Container', {
+            fullscreen : true,
+            label: 'Test',
+            layout     : {
+                type : 'accordion',
+                toggleOnTitlebar : false,
+                mode : 'SINGLE'
+            },
+            scrollable : 'vertical'/*,
+            items      : [
+                {
+                    title : 'Form',
+                    collapsed: true,
+                    layout: 'fit',
+                    items : [
+                        {
+                            xtype : 'textfield',
+                            label : 'Test'
+                        },
+                        {
+                            xtype  : 'toolbar',
+                            docked : 'bottom',
+                            items  : [
+                                {
+                                    text : 'Cancel',
+                                    ui   : 'decline'
+                                },
+                                {
+                                    xtype : 'spacer'
+                                },
+                                {
+                                    text : 'Save',
+                                    ui   : 'confirm'
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+            ]*/
+        });
+
+
+        me.down('#raceAddFrm').add(test);
+        /*me.down('#raceAddFrm').add({
+            xtype: 'container',
+            itemId: 'raceAccordionLayout',
+            height: 200,
+            label: 'Accordion',
+            //layout:'accordion',
+            layout: {
+                type : 'accordion',
+                toggleOnTitlebar : false,
+                mode : 'SINGLE'
+            },
+            items:[{
+                xtype: 'fieldset',
+                title: 'Race(s)',
+                items: [
+                    {
+                        xtype: 'numberfield',
+                        itemId: 'newTxt',
+                        labelWidth: 0,
+                        value: 1,
+                        minValue: 1
+                    }
+                ]
+            }]
+        });*/
 
         me.down('#raceCtId').add({
             xtype: 'timepickerfield',

@@ -30,6 +30,63 @@
             "designerId": "31d0a7c7-a10e-4ff4-aa13-a085614bd674"
         },
         {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "height": null,
+                "layout": null,
+                "layout|flex": null,
+                "margin": 10
+            },
+            "name": "MyContainer34",
+            "designerId": "079f8bc1-f30b-42b2-a330-6683e0c9067f",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "confirm-round",
+                        "docked": "right",
+                        "itemId": "saveBoatBtn",
+                        "margin": 20,
+                        "text": "Save",
+                        "ui": "confirm-round",
+                        "width": 250
+                    },
+                    "name": "MyButton64",
+                    "designerId": "ef408fd2-9f95-433d-aae3-bc2e6863f1a6"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "decline-round",
+                        "docked": "left",
+                        "itemId": "cancelBoatBtn",
+                        "margin": 20,
+                        "text": "Cancel",
+                        "ui": "decline-round",
+                        "width": 250
+                    },
+                    "name": "MyButton65",
+                    "designerId": "ccdfa40a-bd79-470f-846b-ac41dd64dfb4"
+                }
+            ]
+        },
+        {
             "type": "Ext.form.FieldSet",
             "reference": {
                 "name": "items",
@@ -39,6 +96,7 @@
             "userConfig": {
                 "container|align": "start",
                 "designer|displayName": "",
+                "docked": null,
                 "itemId": "generalInfoCt",
                 "layout": "hbox",
                 "margin": 5,
@@ -93,6 +151,23 @@
                             },
                             "name": "MyTextField46",
                             "designerId": "5674c57f-f062-44dc-b5c9-fd224b437cfa"
+                        },
+                        {
+                            "type": "Ext.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "itemId": "alterSailnumber",
+                                "label": "Alternative Sail Number",
+                                "name": "alterSailnumber",
+                                "required": true
+                            },
+                            "name": "MyTextField85",
+                            "designerId": "27656206-e0ea-4e45-b039-c02c22f476ad"
                         }
                     ]
                 },
@@ -155,6 +230,7 @@
             "userConfig": {
                 "container|align": "start",
                 "designer|displayName": "",
+                "docked": null,
                 "itemId": "ownerInfoCt",
                 "layout": "hbox",
                 "margin": 5,
@@ -285,6 +361,7 @@
             "userConfig": {
                 "container|align": "start",
                 "designer|displayName": "",
+                "docked": null,
                 "itemId": "boatInfoCt",
                 "layout": "hbox",
                 "margin": 5,
@@ -403,6 +480,7 @@
                 "itemId": "ownerInfoCt1",
                 "layout": "hbox",
                 "margin": 5,
+                "scrollable": null,
                 "title": "Insurance"
             },
             "name": "MyFieldSet40",
@@ -633,59 +711,6 @@
                             "designerId": "56fe210b-da3d-4e18-8446-cb277b466e29"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "type": "Ext.Container",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "docked": "top",
-                "layout": "hbox"
-            },
-            "name": "MyContainer34",
-            "designerId": "079f8bc1-f30b-42b2-a330-6683e0c9067f",
-            "cn": [
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|uiInterfaceName": "confirm-round",
-                        "docked": "right",
-                        "itemId": "saveBoatBtn",
-                        "margin": 20,
-                        "text": "Save",
-                        "ui": "confirm-round",
-                        "width": 250
-                    },
-                    "name": "MyButton64",
-                    "designerId": "ef408fd2-9f95-433d-aae3-bc2e6863f1a6"
-                },
-                {
-                    "type": "Ext.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|uiInterfaceName": "decline-round",
-                        "itemId": "cancelBoatBtn",
-                        "margin": 20,
-                        "text": "Cancel",
-                        "ui": "decline-round",
-                        "width": 250
-                    },
-                    "name": "MyButton65",
-                    "designerId": "ccdfa40a-bd79-470f-846b-ac41dd64dfb4"
                 }
             ]
         }

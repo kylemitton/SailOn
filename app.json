@@ -28,10 +28,6 @@
          "x-compile": true
       },
       {
-         "path": "app/ux/ColorField/Ext.picker.Color.js",
-         "x-compile": true
-      },
-      {
          "path": "app.js",
          "bundle": true,
          "update": "delta"
@@ -89,5 +85,5 @@
    "archivePath": "archive",
    "requires": [],
    "id": "c96fcf4a-c676-4d5d-a7e1-8e8dea24ffa7",
-   "classpath": "${app.dir}/app,${app.dir}/app/,${app.dir}/app/override/data/,${app.dir}/app/override/field/,${app.dir}/app/store/,${app.dir}/app/ux/ColorField/"
+   "classpath": "${app.dir}/app,${app.dir}/app/,${app.dir}/app/override/data/,${app.dir}/app/override/field/,${app.dir}/app/store/"
 }
